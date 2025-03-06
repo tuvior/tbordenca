@@ -24,8 +24,6 @@ const sections = [
 function App() {
   const { theme } = useTheme();
   const [activeSection, setActiveSection] = useState('hero');
-  const [lastScrollPosition, setLastScrollPosition] = useState(0);
-  const [snapDisabledSection, setSnapDisabledSection] = useState<string | null>(null);
 
   // Create individual refs for each section
   const [heroRef, heroInView] = useInView({ threshold: 0.2, triggerOnce: false });
@@ -68,48 +66,21 @@ function App() {
 
   // Handle scroll behavior
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPosition = window.scrollY;
-      const scrollingUp = currentScrollPosition < lastScrollPosition;
-      const sectionElements = sections.map(section => ({
-        id: section.id,
-        element: document.getElementById(section.id),
-      }));
+    const currentSectionIndex = sections.findIndex(section => section.id === activeSection);
 
-      // If scrolling up and there's a disabled section
-      if (scrollingUp && snapDisabledSection) {
-        const currentSectionIndex = sections.findIndex(section => section.id === activeSection);
-        const disabledSectionIndex = sections.findIndex(
-          section => section.id === snapDisabledSection
-        );
-
-        // Re-enable snap if we're above the section where it was disabled
-        if (currentSectionIndex < disabledSectionIndex) {
-          setSnapDisabledSection(null);
-          sectionElements.forEach(({ element }) => {
-            if (element) {
-              element.style.scrollSnapAlign = 'start';
-              element.style.scrollSnapStop = 'always';
-            }
-          });
+    sections.forEach((section, index) => {
+      const element = document.getElementById(section.id);
+      if (index == currentSectionIndex && index > 0) {
+        if (element) {
+          element.style.scrollSnapAlign = 'none';
         }
-      } else if (!scrollingUp && !snapDisabledSection) {
-        // Disable snap when scrolling down and reaching a new section
-        setSnapDisabledSection(activeSection);
-        sectionElements.forEach(({ element }) => {
-          if (element) {
-            element.style.scrollSnapAlign = 'none';
-            element.style.scrollSnapStop = 'normal';
-          }
-        });
+      } else {
+        if (element) {
+          element.style.scrollSnapAlign = 'start';
+        }
       }
-
-      setLastScrollPosition(currentScrollPosition);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeSection, lastScrollPosition, snapDisabledSection]);
+    });
+  }, [activeSection]);
 
   return (
     <div className={`${theme} flex h-screen flex-col overflow-hidden`}>
