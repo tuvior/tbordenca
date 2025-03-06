@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { ChevronDown, Globe } from 'lucide-react';
-import profileImg from "/img/profile-c.jpg?url";
+import profileImg from '/img/profile-c.jpg?url';
 
 const Hero: React.FC = () => {
   return (

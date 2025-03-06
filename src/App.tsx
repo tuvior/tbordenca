@@ -24,36 +24,17 @@ const sections = [
 function App() {
   const { theme } = useTheme();
   const [activeSection, setActiveSection] = useState('hero');
+  const [lastScrollPosition, setLastScrollPosition] = useState(0);
+  const [snapDisabledSection, setSnapDisabledSection] = useState<string | null>(null);
 
   // Create individual refs for each section
-  const [heroRef, heroInView] = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
-  });
-  const [experienceRef, experienceInView] = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
-  });
-  const [skillsRef, skillsInView] = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
-  });
-  const [projectsRef, projectsInView] = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
-  });
-  const [educationRef, educationInView] = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
-  });
-  const [hobbiesRef, hobbiesInView] = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
-  });
-  const [contactRef, contactInView] = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
-  });
+  const [heroRef, heroInView] = useInView({ threshold: 0.2, triggerOnce: false });
+  const [experienceRef, experienceInView] = useInView({ threshold: 0.2, triggerOnce: false });
+  const [skillsRef, skillsInView] = useInView({ threshold: 0.2, triggerOnce: false });
+  const [projectsRef, projectsInView] = useInView({ threshold: 0.2, triggerOnce: false });
+  const [educationRef, educationInView] = useInView({ threshold: 0.2, triggerOnce: false });
+  const [hobbiesRef, hobbiesInView] = useInView({ threshold: 0.2, triggerOnce: false });
+  const [contactRef, contactInView] = useInView({ threshold: 0.2, triggerOnce: false });
 
   // Use useMemo to prevent the array from being recreated on every render
   const sectionInViews = useMemo(
@@ -85,23 +66,50 @@ function App() {
     }
   }, [sectionInViews]);
 
-  // Disable scroll snap when in experience section
+  // Handle scroll behavior
   useEffect(() => {
-    const experienceSection = document.getElementById('experience');
-    const snapContainer = document.querySelector('.snap-container');
+    const handleScroll = () => {
+      const currentScrollPosition = window.scrollY;
+      const scrollingUp = currentScrollPosition < lastScrollPosition;
+      const sectionElements = sections.map(section => ({
+        id: section.id,
+        element: document.getElementById(section.id),
+      }));
 
-    if (experienceSection && snapContainer) {
-      if (activeSection === 'experience') {
-        // Disable scroll snap when in experience section
-        experienceSection.style.scrollSnapAlign = 'none';
-        experienceSection.style.scrollSnapStop = 'normal';
-      } else {
-        // Re-enable scroll snap when leaving experience section
-        experienceSection.style.scrollSnapAlign = 'start';
-        experienceSection.style.scrollSnapStop = 'always';
+      // If scrolling up and there's a disabled section
+      if (scrollingUp && snapDisabledSection) {
+        const currentSectionIndex = sections.findIndex(section => section.id === activeSection);
+        const disabledSectionIndex = sections.findIndex(
+          section => section.id === snapDisabledSection
+        );
+
+        // Re-enable snap if we're above the section where it was disabled
+        if (currentSectionIndex < disabledSectionIndex) {
+          setSnapDisabledSection(null);
+          sectionElements.forEach(({ element }) => {
+            if (element) {
+              element.style.scrollSnapAlign = 'start';
+              element.style.scrollSnapStop = 'always';
+            }
+          });
+        }
+      } else if (!scrollingUp && !snapDisabledSection) {
+        // Disable snap when scrolling down and reaching a new section
+        setSnapDisabledSection(activeSection);
+        sectionElements.forEach(({ element }) => {
+          if (element) {
+            element.style.scrollSnapAlign = 'none';
+            element.style.scrollSnapStop = 'normal';
+          }
+        });
       }
-    }
-  }, [activeSection]);
+
+      setLastScrollPosition(currentScrollPosition);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeSection, lastScrollPosition, snapDisabledSection]);
 
   return (
     <div className={`${theme} flex h-screen flex-col overflow-hidden`}>
