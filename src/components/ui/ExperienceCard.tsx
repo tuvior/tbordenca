@@ -158,19 +158,27 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               className="overflow-hidden"
             >
               <div className="border-t border-secondary-200 px-6 pb-6 pt-4 dark:border-secondary-700">
-                <div className="mb-4">
-                  <h4 className="mb-2 flex items-center font-semibold">
-                    <Briefcase size={18} className="mr-2 text-primary-500 dark:text-primary-400" />
-                    Key Achievements
-                  </h4>
-                  <ul className="space-y-2 pl-6">
-                    {experience.achievements.map((achievement, i) => (
-                      <li key={i} className="list-disc text-secondary-700 dark:text-secondary-300">
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {experience.achievements.length > 0 && (
+                  <div className="mb-4">
+                    <h4 className="mb-2 flex items-center font-semibold">
+                      <Briefcase
+                        size={18}
+                        className="mr-2 text-primary-500 dark:text-primary-400"
+                      />
+                      Key Achievements
+                    </h4>
+                    <ul className="space-y-2 pl-6">
+                      {experience.achievements.map((achievement, i) => (
+                        <li
+                          key={i}
+                          className="list-disc text-secondary-700 dark:text-secondary-300"
+                        >
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Related Projects */}
                 {relatedProjects.length > 0 && (
