@@ -4,7 +4,7 @@ import { experienceData } from '../../data/experienceData';
 import ExperienceCard from '../ui/ExperienceCard';
 
 const Experience: React.FC = () => {
-  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set([0]));
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
   const [showCompanyInfo, setShowCompanyInfo] = useState<number | null>(null);
   const companyInfoRefs = useRef<(HTMLDivElement | null)[]>([]);
   const infoButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
