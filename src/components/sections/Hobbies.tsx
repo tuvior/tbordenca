@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
-import { hobbiesData } from '../../data/hobbiesData';
+import { hobbiesData, hobbyIconMap, hobbyBackgrounds } from '../../data/hobbiesData';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Hobbies: React.FC = () => {
@@ -12,6 +12,7 @@ const Hobbies: React.FC = () => {
   const [scrollLeft, setScrollLeft] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+  const dragThreshold = 50; // Minimum drag distance to trigger slide change
 
   // Detect if device is mobile
   useEffect(() => {
@@ -207,8 +208,8 @@ const Hobbies: React.FC = () => {
                         size: 32,
                       })}
                     </div>
-                    <h3 className="mb-2 text-2xl font-bold">{hobby.title}</h3>
-                    <p className="text-white/90">{hobby.description}</p>
+                    <h3 className="mb-2 text-2xl font-bold drop-shadow-lg">{hobby.title}</h3>
+                    <p className="text-white/90  drop-shadow-lg">{hobby.description}</p>
                   </div>
                 </motion.div>
               </div>
