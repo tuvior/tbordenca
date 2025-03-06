@@ -105,7 +105,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                     >
                       <div className="flex items-center justify-between border-b border-secondary-200 p-4 dark:border-secondary-700">
                         <h4 className="flex items-center font-semibold">
-                          <Building size={16} className="mr-2 text-primary-500 dark:text-primary-400" />
+                          <Building
+                            size={16}
+                            className="mr-2 text-primary-500 dark:text-primary-400"
+                          />
                           About {experience.company}
                         </h4>
                         <button
@@ -145,7 +148,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             )}
           </div>
 
-          <p className="mt-4 text-secondary-600 dark:text-secondary-300">{experience.description}</p>
+          <p className="mt-4 text-secondary-600 dark:text-secondary-300">
+            {experience.description}
+          </p>
         </div>
 
         {/* Expandable Content */}
@@ -166,10 +171,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                   </h4>
                   <ul className="space-y-2 pl-6">
                     {experience.achievements.map((achievement, i) => (
-                      <li
-                        key={i}
-                        className="list-disc text-secondary-700 dark:text-secondary-300"
-                      >
+                      <li key={i} className="list-disc text-secondary-700 dark:text-secondary-300">
                         {achievement}
                       </li>
                     ))}

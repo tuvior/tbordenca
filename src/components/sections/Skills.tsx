@@ -1,31 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
-import { skillsData } from '../../data/skillsData';
-import {
-  LineChart,
-  Lightbulb,
-  Users,
-  Briefcase,
-  Code,
-  BarChart,
-  Presentation,
-  Layers,
-  Workflow,
-  GitBranch,
-  Database,
-  Search,
-  X,
-} from 'lucide-react';
-
-// Get all unique categories
-const allCategories = ['All', ...skillsData.map(category => category.category)];
+import { skillsData, skillIcons } from '../../data/skillsData';
+import { Briefcase, Code, Users, Workflow, Search, X } from 'lucide-react';
 
 const Skills: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredSkills, setFilteredSkills] =
-    useState<{ category: string; skills: { name: string; logo?: string }[] }[]>(skillsData);
+    useState<{ category: string; skills: { name: string }[] }[]>(skillsData);
 
   // Filter skills based on search query and selected category
   useEffect(() => {
@@ -53,72 +36,48 @@ const Skills: React.FC = () => {
     setFilteredSkills(filtered);
   }, [searchQuery, selectedCategory]);
 
+  // Get all unique categories
+  const allCategories = ['All', ...skillsData.map(category => category.category)];
+
   // Clear search
   const clearSearch = () => {
     setSearchQuery('');
   };
 
   // Function to get the appropriate icon or logo for a skill
-  const getSkillIcon = (skill: { name: string; logo?: string }) => {
-    // If the skill has a logo URL, use it
-    if (skill.logo) {
+  const getSkillIcon = (skill: { name: string }) => {
+    const icon = skillIcons[skill.name];
+    if (!icon) return <Briefcase size={24} />;
+
+    if (icon.type === 'image') {
       return (
         <div className="flex h-6 w-6 items-center justify-center">
           <img
-            src={skill.logo}
+            src={icon.value}
             alt={`${skill.name} logo`}
             className="max-h-full max-w-full object-contain"
           />
         </div>
       );
+    } else {
+      const IconComponent = icon.value;
+      return <IconComponent size={24} />;
     }
+  };
 
-    // Otherwise use the icon mapping
-    switch (skill.name) {
-      case 'Product Strategy':
-        return <Briefcase size={24} />;
-      case 'Market Research':
-        return <BarChart size={24} />;
-      case 'User Research':
-        return <Users size={24} />;
-      case 'Product Roadmapping':
-        return <Workflow size={24} />;
-      case 'A/B Testing':
-        return <LineChart size={24} />;
-      case 'Data Analysis':
-        return <LineChart size={24} />;
-      case 'UX/UI Design':
-        return <Layers size={24} />;
-      case 'Wireframing':
-        return <Layers size={24} />;
-      case 'Prototyping':
-        return <Layers size={24} />;
-      case 'Agile/Scrum':
-        return <Workflow size={24} />;
-      case 'Team Leadership':
-        return <Users size={24} />;
-      case 'Stakeholder Management':
-        return <Users size={24} />;
-      case 'Technical Writing':
-        return <Code size={24} />;
-      case 'Public Speaking':
-        return <Presentation size={24} />;
-      case 'SQL':
-        return <Database size={24} />;
-      case 'HTML/CSS':
-        return <Code size={24} />;
-      case 'JavaScript':
-        return <Code size={24} />;
-      case 'Python':
-        return <Code size={24} />;
-      case 'Git':
-        return <GitBranch size={24} />;
-      case 'Innovation':
-        return <Lightbulb size={24} />;
-      case 'Problem Solving':
-        return <Lightbulb size={24} />;
+  // Get category icon
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case 'Product':
+        return <Briefcase className="mr-2" size={20} />;
+      case 'Technical':
+        return <Code className="mr-2" size={20} />;
+      case 'Management':
+        return <Users className="mr-2" size={20} />;
+      case 'Tools':
+        return <Workflow className="mr-2" size={20} />;
       default:
-        return <Briefcase size={24} />;
+        return null;
     }
   };
 
@@ -208,10 +167,7 @@ const Skills: React.FC = () => {
                 layout
               >
                 <h3 className="mb-4 flex items-center text-xl font-bold">
-                  {category.category === 'Product' && <Briefcase className="mr-2" size={20} />}
-                  {category.category === 'Technical' && <Code className="mr-2" size={20} />}
-                  {category.category === 'Management' && <Users className="mr-2" size={20} />}
-                  {category.category === 'Tools' && <Workflow className="mr-2" size={20} />}
+                  {getCategoryIcon(category.category)}
                   {category.category}
                 </h3>
 

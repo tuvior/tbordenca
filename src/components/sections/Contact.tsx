@@ -2,11 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
 import { Mail } from 'lucide-react';
+import { contactData } from '../../data/contactData';
 
 const Contact: React.FC = () => {
   return (
     <div className="mx-auto w-full max-w-6xl px-4">
-      <SectionTitle title="Contact" subtitle="Feel free to reach out if you'd like to connect." />
+      <SectionTitle title={contactData.title} subtitle={contactData.subtitle} />
 
       <div className="flex justify-center">
         <motion.div
@@ -21,15 +22,13 @@ const Contact: React.FC = () => {
               <Mail size={32} />
             </div>
 
-            <p className="mb-6 text-nord-3 dark:text-nord-4">
-              The best way to reach me is through email:
-            </p>
+            <p className="mb-6 text-nord-3 dark:text-nord-4">{contactData.message}</p>
 
             <a
-              href="mailto:bordenca.tobias@gmail.com"
+              href={`mailto:${contactData.email}`}
               className="text-xl font-medium text-frost-darker hover:underline dark:text-frost-medium"
             >
-              bordenca.tobias@gmail.com
+              {contactData.email}
             </a>
           </div>
         </motion.div>

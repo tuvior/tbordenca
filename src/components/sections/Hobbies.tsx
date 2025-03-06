@@ -2,50 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
 import { hobbiesData } from '../../data/hobbiesData';
-import {
-  Bike,
-  BookOpen,
-  Camera,
-  Utensils,
-  Plane,
-  Music,
-  Gamepad2,
-  Palette,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-react';
-
-// Map of hobby icons
-const hobbyIcons: Record<string, React.ReactNode> = {
-  Cycling: <Bike size={32} />,
-  Reading: <BookOpen size={32} />,
-  Photography: <Camera size={32} />,
-  Cooking: <Utensils size={32} />,
-  Traveling: <Plane size={32} />,
-  Music: <Music size={32} />,
-  Gaming: <Gamepad2 size={32} />,
-  Painting: <Palette size={32} />,
-};
-
-// Background images for hobbies
-const hobbyBackgrounds: Record<string, string> = {
-  Cycling:
-    'https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-  Reading:
-    'https://images.unsplash.com/photo-1513001900722-370f803f498d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-  Photography:
-    'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1164&q=80',
-  Cooking:
-    'https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1168&q=80',
-  Traveling:
-    'https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-  Music:
-    'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-  Gaming:
-    'https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-  Painting:
-    'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80',
-};
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Hobbies: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -62,13 +19,8 @@ const Hobbies: React.FC = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Initial check
     checkMobile();
-
-    // Add event listener for window resize
     window.addEventListener('resize', checkMobile);
-
-    // Cleanup
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -141,7 +93,7 @@ const Hobbies: React.FC = () => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - (carouselRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2; // Scroll speed multiplier
+    const walk = (x - startX) * 2;
     if (carouselRef.current) {
       carouselRef.current.scrollLeft = scrollLeft - walk;
     }
@@ -149,16 +101,12 @@ const Hobbies: React.FC = () => {
 
   const handleMouseUp = () => {
     setIsDragging(false);
-
-    // Determine which card is most visible and set it as active
     if (carouselRef.current) {
       const cardWidth = isMobile
         ? carouselRef.current.offsetWidth
         : carouselRef.current.offsetWidth / 3;
-
       const scrollPosition = carouselRef.current.scrollLeft;
       const newIndex = Math.round(scrollPosition / cardWidth);
-
       setActiveIndex(Math.max(0, Math.min(newIndex, hobbiesData.length - 1)));
     }
   };
@@ -181,16 +129,12 @@ const Hobbies: React.FC = () => {
 
   const handleTouchEnd = () => {
     setIsDragging(false);
-
-    // Determine which card is most visible and set it as active
     if (carouselRef.current) {
       const cardWidth = isMobile
         ? carouselRef.current.offsetWidth
         : carouselRef.current.offsetWidth / 3;
-
       const scrollPosition = carouselRef.current.scrollLeft;
       const newIndex = Math.round(scrollPosition / cardWidth);
-
       setActiveIndex(Math.max(0, Math.min(newIndex, hobbiesData.length - 1)));
     }
   };
@@ -250,7 +194,7 @@ const Hobbies: React.FC = () => {
                   {/* Background Image */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70">
                     <img
-                      src={hobbyBackgrounds[hobby.title]}
+                      src={hobby.background}
                       alt={hobby.title}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
@@ -259,7 +203,9 @@ const Hobbies: React.FC = () => {
                   {/* Content Overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
                     <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary-500/80 backdrop-blur-sm">
-                      {hobbyIcons[hobby.title]}
+                      {React.createElement(hobby.icon, {
+                        size: 32,
+                      })}
                     </div>
                     <h3 className="mb-2 text-2xl font-bold">{hobby.title}</h3>
                     <p className="text-white/90">{hobby.description}</p>

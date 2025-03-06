@@ -14,10 +14,10 @@ export const profileData = {
       proficiency: 100,
     },
     {
-        name: 'English',
-        level: 'Fluent',
-        proficiency: 100,
-      },
+      name: 'English',
+      level: 'Fluent',
+      proficiency: 100,
+    },
     {
       name: 'French',
       level: 'Fluent',
