@@ -6,8 +6,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="w-full border-t border-nord-4 bg-nord-6 py-6 dark:border-nord-3 dark:bg-nord-0">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-between md:flex-row">
-          <div className="mb-4 md:mb-0">
+        <div className="flex items-center justify-between flex-row">
+          <div className="mb-0">
             <a
               href={footerData.resume.url}
               className="flex items-center gap-2 text-nord-3 transition-colors duration-300 hover:text-frost-darker dark:text-nord-4 dark:hover:text-frost-medium"

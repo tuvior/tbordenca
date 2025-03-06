@@ -189,7 +189,7 @@ const Skills: React.FC = () => {
                       </div>
 
                       <div className="flex flex-col">
-                        <span className="font-medium">{skill.name}</span>
+                        <span className="font-medium text-sm md:text-base">{skill.name}</span>
                       </div>
                     </motion.div>
                   ))}

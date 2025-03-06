@@ -69,7 +69,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="mb-3 flex items-center">
-                <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-800 dark:bg-primary-900/30 dark:text-primary-300">
+                <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-xs md:text-sm font-medium text-primary-800 dark:bg-primary-900/30 dark:text-primary-300">
                   <Calendar size={14} className="mr-1.5" />
                   {experience.period}
                 </span>
@@ -79,7 +79,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
               <div className="relative mt-1 flex items-center">
                 <Building size={16} className="mr-1.5 text-primary-500 dark:text-primary-400" />
-                <p className="text-lg font-medium text-primary-600 dark:text-primary-400">
+                <p className="text-base md:text-lg font-medium text-primary-600 dark:text-primary-400">
                   {experience.company}
                 </p>
                 <button
@@ -166,7 +166,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               <div className="border-t border-secondary-200 px-6 pb-6 pt-4 dark:border-secondary-700">
                 <div className="mb-4">
                   <h4 className="mb-2 flex items-center font-semibold">
-                    <Briefcase size={16} className="mr-2 text-primary-500 dark:text-primary-400" />
+                    <Briefcase size={18} className="mr-2 text-primary-500 dark:text-primary-400" />
                     Key Achievements
                   </h4>
                   <ul className="space-y-2 pl-6">

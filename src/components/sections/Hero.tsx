@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
 
         {/* Languages */}
         <motion.div
-          className="mb-4 max-w-md md:mb-8"
+          className="mb-0 max-w-md md:mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}

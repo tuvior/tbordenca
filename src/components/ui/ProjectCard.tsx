@@ -91,7 +91,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="mt-auto flex gap-3 px-6 pb-6">
           {details && (
             <button onClick={handleDetailsClick} className="btn btn-secondary flex-1">
-              View Details
+              {isMobile ? 'View' : 'View Details'}
             </button>
           )}
 

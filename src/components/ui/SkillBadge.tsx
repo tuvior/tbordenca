@@ -20,7 +20,7 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ name, icon, delay = 0 }) => {
       {icon && <div className="text-primary-500 dark:text-primary-400">{icon}</div>}
 
       <div className="flex flex-col">
-        <span className="font-medium">{name}</span>
+        <span className="font-medium text-xs md:text-base">{name}</span>
       </div>
     </motion.div>
   );
