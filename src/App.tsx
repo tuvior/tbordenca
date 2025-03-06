@@ -61,6 +61,24 @@ function App() {
     }
   }, [sectionInViews]);
 
+  // Disable scroll snap when in experience section
+  useEffect(() => {
+    const experienceSection = document.getElementById('experience');
+    const snapContainer = document.querySelector('.snap-container');
+    
+    if (experienceSection && snapContainer) {
+      if (activeSection === 'experience') {
+        // Disable scroll snap when in experience section
+        experienceSection.style.scrollSnapAlign = 'none';
+        experienceSection.style.scrollSnapStop = 'normal';
+      } else {
+        // Re-enable scroll snap when leaving experience section
+        experienceSection.style.scrollSnapAlign = 'start';
+        experienceSection.style.scrollSnapStop = 'always';
+      }
+    }
+  }, [activeSection]);
+
   return (
     <div className={`${theme} flex flex-col h-screen overflow-hidden`}>
       <Header sections={sections} activeSection={activeSection} />

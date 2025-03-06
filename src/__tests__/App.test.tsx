@@ -20,7 +20,7 @@ vi.mock('../context/ThemeContext', () => ({
 describe('App Component', () => {
   it('renders without crashing', () => {
     render(<App />);
-    expect(screen.getByText(/Alex Morgan/i)).toBeInTheDocument();
+    expect(screen.getByText(/Tobias Bordenca/i)).toBeInTheDocument();
   });
 
   it('displays the navigation menu', () => {
@@ -35,7 +35,7 @@ describe('App Component', () => {
 
   it('renders the hero section', () => {
     render(<App />);
-    expect(screen.getByText(/Alex Morgan/i)).toBeInTheDocument();
+    expect(screen.getByText(/Tobias Bordenca/i)).toBeInTheDocument();
     expect(screen.getByText(/View Experience/i)).toBeInTheDocument();
   });
 });

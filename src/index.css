@@ -118,6 +118,11 @@
     padding-bottom: 6rem; /* Add extra padding at the bottom */
   }
   
+  /* Experience section styles - controlled dynamically in App.tsx */
+  #experience {
+    transition: scroll-snap-align 0.3s ease, scroll-snap-stop 0.3s ease;
+  }
+  
   .section-content {
     width: 100%;
     max-width: 6xl;

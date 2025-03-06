@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection }) => {
           onClick={(e) => handleNavClick(e, 'hero')}
           className="text-xl font-display font-bold text-frost-darker dark:text-frost-medium"
         >
-          Alex Morgan
+          tbordenca
         </a>
         
         {/* Desktop Navigation */}

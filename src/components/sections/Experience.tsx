@@ -11,6 +11,7 @@ const Experience: React.FC = () => {
   const companyInfoRefs = useRef<(HTMLDivElement | null)[]>([]);
   const infoButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [isMobile, setIsMobile] = useState(false);
+  const experienceSectionRef = useRef<HTMLDivElement>(null);
   
   // Detect if device is mobile
   useEffect(() => {
@@ -118,7 +119,7 @@ const Experience: React.FC = () => {
   };
   
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
+    <div className="w-full max-w-6xl mx-auto px-4" ref={experienceSectionRef}>
       <SectionTitle 
         title="Professional Experience" 
         subtitle="My journey through product management roles and the impact I've made along the way."
@@ -131,7 +132,7 @@ const Experience: React.FC = () => {
           return (
             <motion.div 
               key={index}
-              className="relative"
+              className="relative experience-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}

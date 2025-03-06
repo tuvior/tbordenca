@@ -1,5 +1,5 @@
-import React from 'react';
-import { Github, Linkedin, Mail, Twitter, FileText } from 'lucide-react';
+import React from "react";
+import { Github, Linkedin, Mail, Twitter, FileText } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
@@ -10,13 +10,13 @@ const Footer: React.FC = () => {
             <a
               href="#"
               className="text-nord-3 dark:text-nord-4 hover:text-frost-darker dark:hover:text-frost-medium transition-colors duration-300 flex items-center gap-2"
-              download="Alex_Morgan_Resume.pdf"
+              download="Tobias Bordenca_Resume.pdf"
             >
               <FileText size={20} />
               <span className="text-sm font-medium">Download CV</span>
             </a>
           </div>
-          
+
           <div className="flex space-x-4">
             <a
               href="#"

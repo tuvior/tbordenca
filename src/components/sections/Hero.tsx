@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="text-frost-darker dark:text-frost-medium">Alex Morgan</span>
+            <span className="text-frost-darker dark:text-frost-medium">Tobias Bordenca</span>
           </h1>
         </motion.div>
         
@@ -144,7 +144,7 @@ const Hero: React.FC = () => {
         <div className="w-full h-full rounded-full overflow-hidden border-6 border-nord-6 dark:border-frost-darker shadow-xl animate-float-enhanced">
           <img
             src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
-            alt="Alex Morgan - Product Manager"
+            alt="Tobias Bordenca - Product Manager"
             className="w-full h-full object-cover"
           />
         </div>
@@ -156,7 +156,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
-          duration: 0.5, 
+          duration: 1, 
           delay: 1, 
           repeat: Infinity, 
           repeatType: 'reverse' 
@@ -166,7 +166,7 @@ const Hero: React.FC = () => {
           href="#experience" 
           className="flex flex-col items-center"
         >
-          <span className="text-sm font-medium text-frost-darker dark:text-frost-medium mb-2">Scroll Down</span>
+          {/* <span className="text-sm font-medium text-frost-darker dark:text-frost-medium mb-2">Scroll Down</span> */}
           <div className="p-2 rounded-full bg-frost-darker dark:bg-frost-dark text-nord-6 shadow-lg hover:bg-frost-dark dark:hover:bg-frost-medium transition-all duration-300 pulse-animation">
             <ChevronDown size={24} />
           </div>

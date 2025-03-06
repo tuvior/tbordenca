@@ -29,10 +29,10 @@ const Contact: React.FC = () => {
             </p>
             
             <a 
-              href="mailto:alex.morgan@example.com" 
+              href="mailto:bordenca.tobias@gmail.com" 
               className="text-xl font-medium text-frost-darker dark:text-frost-medium hover:underline"
             >
-              alex.morgan@example.com
+              bordenca.tobias@gmail.com
             </a>
           </div>
         </motion.div>
