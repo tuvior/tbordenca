@@ -135,7 +135,11 @@ export const skillsData = [
       },
       {
         name: 'Miro',
-        icon: { type: 'image', value: 'https://cdn.brandfetch.io/idAnDTFapY/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B' },
+        icon: {
+          type: 'image',
+          value:
+            'https://cdn.brandfetch.io/idAnDTFapY/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B',
+        },
       },
       {
         name: 'Google Analytics',
@@ -146,7 +150,11 @@ export const skillsData = [
       },
       {
         name: 'Adobe Analytics',
-        icon: { type: 'image', value: 'https://cdn.brandfetch.io/id_KsyK7J9/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B' },
+        icon: {
+          type: 'image',
+          value:
+            'https://cdn.brandfetch.io/id_KsyK7J9/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B',
+        },
       },
     ],
   },
