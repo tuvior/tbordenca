@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Mail, Twitter, FileText } from 'lucide-react';
+import cvUrl from '/doc/Tobias Bordenca Resume.pdf?url';
 
 const Footer: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-4 md:mb-0">
             <a
-              href="/doc/Tobias Bordenca Resume.pdf"
+              href={cvUrl}
               className="flex items-center gap-2 text-nord-3 transition-colors duration-300 hover:text-frost-darker dark:text-nord-4 dark:hover:text-frost-medium"
               download="Tobias Bordenca_Resume.pdf"
             >

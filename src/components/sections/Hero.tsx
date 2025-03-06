@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { ChevronDown, Globe } from 'lucide-react';
+import profileImg from "/img/profile-c.jpg?url";
 
 const Hero: React.FC = () => {
   return (
@@ -150,7 +151,7 @@ const Hero: React.FC = () => {
       >
         <div className="border-6 animate-float-enhanced h-full w-full overflow-hidden rounded-full border-nord-6 shadow-xl dark:border-frost-darker">
           <img
-            src="/img/profile-c.jpg"
+            src={profileImg}
             alt="Tobias Bordenca - Product Manager"
             className="h-full w-full object-cover"
           />
