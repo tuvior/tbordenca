@@ -1,4 +1,12 @@
 import { Bike, Camera, BookOpen, Dumbbell, ChefHat, CakeSlice, Mountain } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
+export type Hobby = {
+  title: string;
+  icon: LucideIcon;
+  description: string;
+  background: string;
+};
 
 export const hobbiesData = [
   {

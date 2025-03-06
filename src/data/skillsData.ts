@@ -1,4 +1,3 @@
-import { i } from 'framer-motion/client';
 import {
   Briefcase,
   BarChart,
@@ -8,18 +7,22 @@ import {
   Layers,
   Code,
   Presentation,
-  GitBranch,
-  Database,
   Lightbulb,
   DatabaseIcon,
 } from 'lucide-react';
+
+export type Skill = {
+  name: string;
+  icon: SkillIcon;
+};
 
 export type SkillIcon = {
   type: 'lucide' | 'image';
   value: typeof Briefcase | string;
 };
 
-export const skillsData = [
+// set correct type as objects with category and list of skills
+export const skillsData: { category: string; skills: Skill[] }[] = [
   {
     category: 'Product',
     skills: [

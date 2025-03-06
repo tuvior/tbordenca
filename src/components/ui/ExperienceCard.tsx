@@ -69,7 +69,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="mb-3 flex items-center">
-                <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-xs md:text-sm font-medium text-primary-800 dark:bg-primary-900/30 dark:text-primary-300">
+                <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-xs font-medium text-primary-800 dark:bg-primary-900/30 dark:text-primary-300 md:text-sm">
                   <Calendar size={14} className="mr-1.5" />
                   {experience.period}
                 </span>
@@ -79,7 +79,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
               <div className="relative mt-1 flex items-center">
                 <Building size={16} className="mr-1.5 text-primary-500 dark:text-primary-400" />
-                <p className="text-base md:text-lg font-medium text-primary-600 dark:text-primary-400">
+                <p className="text-base font-medium text-primary-600 dark:text-primary-400 md:text-lg">
                   {experience.company}
                 </p>
                 <button

@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
-import { skillsData } from '../../data/skillsData';
 import type { SkillIcon } from '../../data/skillsData';
+import { skillsData } from '../../data/skillsData';
 import { Briefcase, Code, Users, Workflow, Search, X } from 'lucide-react';
+import SkillBadge from '../ui/SkillBadge';
 
 const Skills: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredSkills, setFilteredSkills] =
-    useState<{ category: string; skills: { name: string }[] }[]>(skillsData);
+    useState<{ category: string; skills: { name: string; icon: SkillIcon }[] }[]>(skillsData);
 
   // Filter skills based on search query and selected category
   useEffect(() => {
@@ -43,27 +44,6 @@ const Skills: React.FC = () => {
   // Clear search
   const clearSearch = () => {
     setSearchQuery('');
-  };
-
-  // Function to get the appropriate icon or logo for a skill
-  const getSkillIcon = (skill: { name: string; icon: SkillIcon }) => {
-    const icon = skill.icon;
-    if (!icon) return <Briefcase size={24} />;
-
-    if (icon.type === 'image') {
-      return (
-        <div className="flex h-6 w-6 items-center justify-center">
-          <img
-            src={icon.value}
-            alt={`${skill.name} logo`}
-            className="max-h-full max-w-full object-contain"
-          />
-        </div>
-      );
-    } else {
-      const IconComponent = icon.value;
-      return <IconComponent size={24} />;
-    }
   };
 
   // Get category icon
@@ -174,24 +154,11 @@ const Skills: React.FC = () => {
 
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
                   {category.skills.map((skill, skillIndex) => (
-                    <motion.div
+                    <SkillBadge
                       key={skill.name}
-                      className="flex items-center gap-3 rounded-lg bg-white p-3 shadow-md dark:bg-secondary-800"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false }}
-                      transition={{ duration: 0.3, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
-                      whileHover={{ scale: 1.05 }}
-                      layout
-                    >
-                      <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center text-primary-500 dark:text-primary-400">
-                        {getSkillIcon(skill)}
-                      </div>
-
-                      <div className="flex flex-col">
-                        <span className="font-medium text-sm md:text-base">{skill.name}</span>
-                      </div>
-                    </motion.div>
+                      skill={skill}
+                      delay={categoryIndex * 0.1 + skillIndex * 0.05}
+                    />
                   ))}
                 </div>
               </motion.div>

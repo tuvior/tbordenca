@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="w-full border-t border-nord-4 bg-nord-6 py-6 dark:border-nord-3 dark:bg-nord-0">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between flex-row">
+        <div className="flex flex-row items-center justify-between">
           <div className="mb-0">
             <a
               href={footerData.resume.url}
