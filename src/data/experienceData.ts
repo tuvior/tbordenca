@@ -1,70 +1,103 @@
+import evooqLogo from '/img/evooq-black.svg?url';
+
+
+export type Experience = {
+  company: {
+    name: string;
+    description: string;
+    logo: string;
+    website: string;
+  };
+  role: string;
+  period: string;
+  description: string;
+  achievements: string[];
+  relatedProjects: string[];
+};
+
+const evooq = {
+  description: 'Evooq is a Swiss fintech company that provides a white-label wealth management platform for banks and asset managers.',
+  logo: evooqLogo,
+  website: 'https://www.evooq.ch',
+}
+
 export const experienceData = [
   {
-    company: 'TechVision Inc.',
-    role: 'Senior Product Manager',
-    period: 'Jan 2021 - Present',
-    description:
-      'Leading the development of AI-powered analytics platform serving enterprise clients across finance, healthcare, and retail sectors.',
-    achievements: [
-      'Launched 3 major product features that increased user engagement by 45% and reduced churn by 18%',
-      'Led cross-functional team of 12 engineers, designers, and data scientists to deliver quarterly roadmap objectives',
-      'Implemented customer feedback loop that improved NPS score from 32 to 58 within 6 months',
-      'Developed strategic partnerships with 5 key technology providers, expanding platform capabilities',
-    ],
-    companyDescription:
-      'TechVision Inc. is a leading AI and analytics company providing enterprise solutions to Fortune 500 companies. With over 500 employees globally, the company specializes in predictive analytics, business intelligence, and machine learning applications.',
-    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
-    relatedProjects: ['AI Analytics Dashboard', 'E-commerce Personalization Engine'],
-  },
-  {
-    company: 'InnovateSoft',
+    company: {
+      name: 'Evooq',
+      description: evooq.description,
+      logo: evooq.logo,
+      website: evooq.website,
+    },
     role: 'Product Manager',
-    period: 'Mar 2018 - Dec 2020',
+    period: 'Jul 2023 - Present',
     description:
-      'Managed the complete product lifecycle for a SaaS marketing automation platform serving mid-market B2B clients.',
+      'Led in-depth discovery and research of how to expand the scope of Evooq’s Wealth Management application to cover discretionary use cases at scale, opening up a new market segment.',
     achievements: [
-      'Grew monthly recurring revenue from $1.2M to $3.5M through strategic feature development and pricing optimization',
-      'Reduced development cycle time by 30% through implementation of agile methodologies and improved requirements documentation',
-      'Conducted extensive user research that informed product roadmap, resulting in 40% increase in user retention',
-      'Collaborated with marketing team to develop go-to-market strategies for new features, achieving 85% adoption rate',
+      'Led multiple teams in the design and implementation of a major feature, allowing the management of life insurance portfolios in Evooq’s Wealth Management platform, and unlocking the whole French market as a result.',
+      'Maintained multiple product roadmaps, balancing big client requirements with the company’s vision and business goals, ensuring the victory of several RFPs against major competitors.',
+      'Managed the relationship with some key clients, improving communication and ensuring a better product/market fit by having a deeper understanding of their needs.',
     ],
-    companyDescription:
-      'InnovateSoft is a B2B SaaS company specializing in marketing automation and customer engagement tools. The company serves over 2,000 clients globally and has been recognized as a leader in the Gartner Magic Quadrant for Marketing Automation.',
-    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
-    relatedProjects: ['Marketing Automation Platform', 'Remote Team Collaboration Tool'],
+    relatedProjects: ['Wealth Management Application', 'Life Insurance Portfolio Management'],
   },
   {
-    company: 'GlobalTech Solutions',
-    role: 'Associate Product Manager',
-    period: 'Jun 2016 - Feb 2018',
+    company: {
+      name: 'Evooq',
+      description: evooq.description,
+      logo: evooq.logo,
+      website: evooq.website,
+    },
+    role: 'Product Owner',
+    period: 'Oct 2022 - Jan 2025',
     description:
-      'Supported the development of mobile payment solutions for emerging markets, focusing on user experience and feature prioritization.',
+      'Led the research, design, and implementation of an application allowing CIOs and portfolio managers to follow heavily customizable market and macro signals, and implement them in model portfolios.',
     achievements: [
-      'Contributed to product strategy that expanded user base from 500K to 2M users across 5 countries',
-      'Analyzed user behavior data to identify opportunities, resulting in 3 new features that increased transaction volume by 27%',
-      'Coordinated with local market teams to ensure product adaptations met regional requirements and regulations',
-      'Created comprehensive product documentation and training materials that improved internal knowledge sharing',
+      'Increased the delivery of features and quality by restructuring the team processes and providing business guidance to developers, nearly doubling the velocities of the development teams.',
+      'Overhauled the portfolio simulation capabilities of Evooq’s Wealth Management platform, improving product coverage, and flexibility of use, thus boosting user adoption by 40%.',
     ],
-    companyDescription:
-      'GlobalTech Solutions is a fintech company focused on developing payment solutions for emerging markets. The company operates in over 15 countries and has processed more than $5 billion in transactions since its founding in 2010.',
-    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
-    relatedProjects: ['Mobile Payment Solution'],
+    relatedProjects: ['Market Signal Application', 'Model Portfolio Management'],
   },
   {
-    company: 'StartupLaunch',
-    role: 'Product Analyst',
-    period: 'Aug 2014 - May 2016',
+    company: {
+      name: 'Evooq',
+      description: evooq.description,
+      logo: evooq.logo,
+      website: evooq.website,
+    },
+    role: 'Software Engineer',
+    period: 'Aug 2019 - Oct 2022',
     description:
-      'Analyzed market trends and user feedback to inform product decisions for an early-stage health tech startup.',
+      "Finalized the design of a recommender system for financial products for wealth management clients and deployed it to production, improving the company's USP and consequently winning many RFPs.",
     achievements: [
-      'Conducted competitive analysis that identified key market opportunities, leading to successful $5M Series A funding',
-      'Built and maintained product analytics dashboard that provided real-time insights to executive team',
-      'Facilitated user testing sessions that uncovered critical usability issues prior to major release',
-      'Collaborated with engineering team to define and prioritize technical debt reduction initiatives',
+      'Implemented a portfolio optimizer in our portfolio management view, going from a technical, mathematical API to a user-friendly interface.',
     ],
-    companyDescription:
-      'StartupLaunch was a health tech startup focused on developing mobile applications for personal health monitoring and wellness tracking. The company was acquired by a major health insurance provider in 2018.',
-    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
-    relatedProjects: ['Health Monitoring App'],
+    relatedProjects: ['Financial Product Recommender', 'Portfolio Optimizer'],
+  },
+  {
+    company: {
+      name: 'Evooq',
+      description: evooq.description,
+      logo: evooq.logo,
+      website: evooq.website,
+    },
+    role: 'Machine Learning Intern',
+    period: 'Feb 2019 - Aug 2019',
+    description:
+      'Researched and built a proof of concept for a recommender system recommending financial products, trained on a dataset of 11k clients.',
+    achievements: [],
+    relatedProjects: ['Financial Product Recommender'],
+  },
+  {
+    company: {
+      name: 'Credit Suisse',
+      description: 'Credit Suisse is a Swiss multinational investment bank and financial services company.',
+      logo: 'https://cdn.brandfetch.io/id5R0NevJp/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B',
+      website: 'https://www.credit-suisse.com',
+    },
+    role: 'Data Science Intern',
+    period: 'Feb 2018 - Aug 2018',
+    description: '',
+    achievements: [],
+    relatedProjects: [],
   },
 ];

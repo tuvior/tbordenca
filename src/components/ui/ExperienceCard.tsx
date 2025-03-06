@@ -2,18 +2,10 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Briefcase, Building, ExternalLink, Info, X, Link } from 'lucide-react';
 import { projectsData } from '../../data/projectsData';
+import type { Experience } from '../../data/experienceData';
 
 type ExperienceCardProps = {
-  experience: {
-    company: string;
-    role: string;
-    period: string;
-    description: string;
-    achievements: string[];
-    companyDescription: string;
-    logo?: string;
-    relatedProjects: string[];
-  };
+  experience: Experience;
   index: number;
   totalCards: number;
   isExpanded: boolean;
@@ -60,7 +52,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       ref={cardRef}
     >
       <div
-        className={`overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 dark:bg-secondary-800 ${
+        className={`rounded-xl bg-white shadow-lg transition-all duration-300 dark:bg-secondary-800 ${
           isMobile ? 'cursor-pointer' : ''
         } ${isExpanded ? 'ring-2 ring-primary-400 dark:ring-primary-600' : 'hover:shadow-xl'}`}
       >
@@ -80,7 +72,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               <div className="relative mt-1 flex items-center">
                 <Building size={16} className="mr-1.5 text-primary-500 dark:text-primary-400" />
                 <p className="text-base font-medium text-primary-600 dark:text-primary-400 md:text-lg">
-                  {experience.company}
+                  {experience.company.name}
                 </p>
                 <button
                   ref={infoButtonRef}
@@ -109,7 +101,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                             size={16}
                             className="mr-2 text-primary-500 dark:text-primary-400"
                           />
-                          About {experience.company}
+                          About {experience.company.name}
                         </h4>
                         <button
                           onClick={onCompanyInfoToggle}
@@ -120,10 +112,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                       </div>
                       <div className="p-4">
                         <p className="text-sm text-secondary-600 dark:text-secondary-300">
-                          {experience.companyDescription}
+                          {experience.company.description}
                         </p>
                         <a
-                          href="#"
+                          href={experience.company.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="mt-3 inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 dark:text-primary-400 dark:hover:text-primary-300"
                         >
                           Visit company website
@@ -137,11 +131,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             </div>
 
             {/* Company Logo */}
-            {experience.logo && (
+            {experience.company.logo && (
               <div className="ml-4 h-20 w-20 flex-shrink-0 rounded-lg bg-white p-2 shadow-md dark:bg-secondary-700/30 md:h-24 md:w-24">
                 <img
-                  src={experience.logo}
-                  alt={`${experience.company} logo`}
+                  src={experience.company.logo}
+                  alt={`${experience.company.name} logo`}
                   className="h-full w-full object-contain"
                 />
               </div>
