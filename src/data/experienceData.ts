@@ -14,6 +14,7 @@ export const experienceData = [
     companyDescription:
       'TechVision Inc. is a leading AI and analytics company providing enterprise solutions to Fortune 500 companies. With over 500 employees globally, the company specializes in predictive analytics, business intelligence, and machine learning applications.',
     logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
+    relatedProjects: ['AI Analytics Dashboard', 'E-commerce Personalization Engine'],
   },
   {
     company: 'InnovateSoft',
@@ -30,6 +31,7 @@ export const experienceData = [
     companyDescription:
       'InnovateSoft is a B2B SaaS company specializing in marketing automation and customer engagement tools. The company serves over 2,000 clients globally and has been recognized as a leader in the Gartner Magic Quadrant for Marketing Automation.',
     logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
+    relatedProjects: ['Marketing Automation Platform', 'Remote Team Collaboration Tool'],
   },
   {
     company: 'GlobalTech Solutions',
@@ -46,6 +48,7 @@ export const experienceData = [
     companyDescription:
       'GlobalTech Solutions is a fintech company focused on developing payment solutions for emerging markets. The company operates in over 15 countries and has processed more than $5 billion in transactions since its founding in 2010.',
     logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
+    relatedProjects: ['Mobile Payment Solution'],
   },
   {
     company: 'StartupLaunch',
@@ -62,5 +65,6 @@ export const experienceData = [
     companyDescription:
       'StartupLaunch was a health tech startup focused on developing mobile applications for personal health monitoring and wellness tracking. The company was acquired by a major health insurance provider in 2018.',
     logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
+    relatedProjects: ['Health Monitoring App'],
   },
 ];

@@ -2,9 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { ChevronDown, Globe } from 'lucide-react';
-import profileImg from '/img/profile-c.jpg?url';
+import { profileData } from '../../data/profileData';
 
 const Hero: React.FC = () => {
+  // Create the sequence for TypeAnimation
+  const typeSequence = profileData.roles.reduce<(string | number)[]>((acc, role) => {
+    return [...acc, role, 2000];
+  }, []);
+
   return (
     <div className="relative mx-auto flex w-full max-w-6xl flex-col-reverse items-center justify-between gap-8 px-4 md:flex-row md:gap-12">
       {/* Background elements */}
@@ -21,7 +26,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-            <span className="text-frost-darker dark:text-frost-medium">Tobias Bordenca</span>
+            <span className="text-frost-darker dark:text-frost-medium">{profileData.name}</span>
           </h1>
         </motion.div>
 
@@ -32,16 +37,7 @@ const Hero: React.FC = () => {
         >
           <div className="mb-6 h-12 text-2xl font-medium md:text-3xl">
             <TypeAnimation
-              sequence={[
-                'Product Manager',
-                2000,
-                'UX Enthusiast',
-                2000,
-                'Tech Strategist',
-                2000,
-                'Team Leader',
-                2000,
-              ]}
+              sequence={typeSequence}
               wrapper="span"
               speed={50}
               repeat={Infinity}
@@ -56,8 +52,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          Passionate product manager with 8+ years of experience driving innovation and delivering
-          user-centric solutions that solve real problems and create business value.
+          {profileData.description}
         </motion.p>
 
         <motion.div
@@ -89,54 +84,20 @@ const Hero: React.FC = () => {
               <h3 className="text-lg font-medium">Languages</h3>
             </div>
             <div className="space-y-4">
-              <div>
-                <div className="mb-1 flex justify-between">
-                  <span className="text-sm font-medium">English</span>
-                  <span className="text-xs text-nord-3 dark:text-nord-4">Native</span>
+              {profileData.languages.map((language, index) => (
+                <div key={index}>
+                  <div className="mb-1 flex justify-between">
+                    <span className="text-sm font-medium">{language.name}</span>
+                    <span className="text-xs text-nord-3 dark:text-nord-4">{language.level}</span>
+                  </div>
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-nord-4 dark:bg-nord-3">
+                    <div
+                      className="h-full rounded-full bg-frost-darker dark:bg-frost-medium"
+                      style={{ width: `${language.proficiency}%` }}
+                    ></div>
+                  </div>
                 </div>
-                <div className="h-2 w-full overflow-hidden rounded-full bg-nord-4 dark:bg-nord-3">
-                  <div
-                    className="h-full rounded-full bg-frost-darker dark:bg-frost-medium"
-                    style={{ width: '100%' }}
-                  ></div>
-                </div>
-              </div>
-              <div>
-                <div className="mb-1 flex justify-between">
-                  <span className="text-sm font-medium">Spanish</span>
-                  <span className="text-xs text-nord-3 dark:text-nord-4">Advanced</span>
-                </div>
-                <div className="h-2 w-full overflow-hidden rounded-full bg-nord-4 dark:bg-nord-3">
-                  <div
-                    className="h-full rounded-full bg-frost-darker dark:bg-frost-medium"
-                    style={{ width: '85%' }}
-                  ></div>
-                </div>
-              </div>
-              <div>
-                <div className="mb-1 flex justify-between">
-                  <span className="text-sm font-medium">French</span>
-                  <span className="text-xs text-nord-3 dark:text-nord-4">Intermediate</span>
-                </div>
-                <div className="h-2 w-full overflow-hidden rounded-full bg-nord-4 dark:bg-nord-3">
-                  <div
-                    className="h-full rounded-full bg-frost-darker dark:bg-frost-medium"
-                    style={{ width: '60%' }}
-                  ></div>
-                </div>
-              </div>
-              <div>
-                <div className="mb-1 flex justify-between">
-                  <span className="text-sm font-medium">German</span>
-                  <span className="text-xs text-nord-3 dark:text-nord-4">Basic</span>
-                </div>
-                <div className="h-2 w-full overflow-hidden rounded-full bg-nord-4 dark:bg-nord-3">
-                  <div
-                    className="h-full rounded-full bg-frost-darker dark:bg-frost-medium"
-                    style={{ width: '30%' }}
-                  ></div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -151,8 +112,8 @@ const Hero: React.FC = () => {
       >
         <div className="border-6 animate-float-enhanced h-full w-full overflow-hidden rounded-full border-nord-6 shadow-xl dark:border-frost-darker">
           <img
-            src={profileImg}
-            alt="Tobias Bordenca - Product Manager"
+            src={profileData.profileImage}
+            alt={`${profileData.name} - ${profileData.title}`}
             className="h-full w-full object-cover"
           />
         </div>
@@ -165,13 +126,15 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{
           duration: 1,
-          delay: 1,
+          delay: 2,
           repeat: Infinity,
           repeatType: 'reverse',
         }}
       >
         <a href="#experience" className="flex flex-col items-center">
-          {/* <span className="text-sm font-medium text-frost-darker dark:text-frost-medium mb-2">Scroll Down</span> */}
+          {/* <span className="mb-2 text-sm font-medium text-frost-darker dark:text-frost-medium">
+            Scroll Down
+          </span> */}
           <div className="pulse-animation rounded-full bg-frost-darker p-2 text-nord-6 shadow-lg transition-all duration-300 hover:bg-frost-dark dark:bg-frost-dark dark:hover:bg-frost-medium">
             <ChevronDown size={24} />
           </div>

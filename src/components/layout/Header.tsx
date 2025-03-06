@@ -38,12 +38,8 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection }) => {
     }
   };
 
-  // Determine if the current section has a light background
-  const isLightBackground =
-    activeSection === 'hero' ||
-    activeSection === 'skills' ||
-    activeSection === 'education' ||
-    activeSection === 'contact';
+  // Determine if if activeSection has an even index
+  const isLightBackground = sections.findIndex(section => section.id === activeSection) % 2 === 0;
 
   return (
     <header
