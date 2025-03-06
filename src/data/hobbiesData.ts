@@ -1,7 +1,8 @@
 export const hobbiesData = [
   {
     title: 'Cycling',
-    description: 'Weekend rides exploring scenic routes and participating in charity cycling events.',
+    description:
+      'Weekend rides exploring scenic routes and participating in charity cycling events.',
   },
   {
     title: 'Photography',

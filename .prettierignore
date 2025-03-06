@@ -1,0 +1,13 @@
+# Ignore artifacts:
+dist
+node_modules
+coverage
+build
+.git
+.github
+.vscode
+.idea
+.DS_Store
+*.log
+*.lock
+package-lock.json

@@ -58,7 +58,7 @@ describe('ThemeContext', () => {
         <TestComponent />
       </ThemeProvider>
     );
-    
+
     expect(screen.getByTestId('theme').textContent).toBe('light');
   });
 
@@ -68,28 +68,28 @@ describe('ThemeContext', () => {
         <TestComponent />
       </ThemeProvider>
     );
-    
+
     const toggleButton = screen.getByText('Toggle Theme');
     fireEvent.click(toggleButton);
-    
+
     expect(screen.getByTestId('theme').textContent).toBe('dark');
     expect(localStorageMock.setItem).toHaveBeenCalledWith('theme', 'dark');
-    
+
     fireEvent.click(toggleButton);
-    
+
     expect(screen.getByTestId('theme').textContent).toBe('light');
     expect(localStorageMock.setItem).toHaveBeenCalledWith('theme', 'light');
   });
 
   it('uses theme from localStorage if available', () => {
     localStorageMock.getItem.mockReturnValueOnce('dark');
-    
+
     render(
       <ThemeProvider>
         <TestComponent />
       </ThemeProvider>
     );
-    
+
     expect(screen.getByTestId('theme').textContent).toBe('dark');
     expect(localStorageMock.getItem).toHaveBeenCalledWith('theme');
   });

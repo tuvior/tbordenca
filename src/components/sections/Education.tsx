@@ -5,12 +5,12 @@ import { educationData } from '../../data/educationData';
 
 const Education: React.FC = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
-      <SectionTitle 
-        title="Education & Certifications" 
+    <div className="mx-auto w-full max-w-6xl px-4">
+      <SectionTitle
+        title="Education & Certifications"
         subtitle="My academic background and professional certifications that have shaped my expertise."
       />
-      
+
       <div className="space-y-6">
         {educationData.map((item, index) => (
           <EducationCard

@@ -5,32 +5,29 @@ import { Mail } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
-      <SectionTitle 
-        title="Contact" 
-        subtitle="Feel free to reach out if you'd like to connect."
-      />
-      
+    <div className="mx-auto w-full max-w-6xl px-4">
+      <SectionTitle title="Contact" subtitle="Feel free to reach out if you'd like to connect." />
+
       <div className="flex justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.5 }}
-          className="max-w-md w-full"
+          className="w-full max-w-md"
         >
-          <div className="bg-nord-6 dark:bg-nord-1 rounded-xl shadow-lg p-8 text-center border border-nord-5 dark:border-nord-3">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-frost-darker to-aurora-green flex items-center justify-center text-nord-6">
+          <div className="rounded-xl border border-nord-5 bg-nord-6 p-8 text-center shadow-lg dark:border-nord-3 dark:bg-nord-1">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-frost-darker to-aurora-green text-nord-6">
               <Mail size={32} />
             </div>
-            
-            <p className="text-nord-3 dark:text-nord-4 mb-6">
+
+            <p className="mb-6 text-nord-3 dark:text-nord-4">
               The best way to reach me is through email:
             </p>
-            
-            <a 
-              href="mailto:bordenca.tobias@gmail.com" 
-              className="text-xl font-medium text-frost-darker dark:text-frost-medium hover:underline"
+
+            <a
+              href="mailto:bordenca.tobias@gmail.com"
+              className="text-xl font-medium text-frost-darker hover:underline dark:text-frost-medium"
             >
               bordenca.tobias@gmail.com
             </a>
