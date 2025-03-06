@@ -70,14 +70,9 @@ function App() {
 
     sections.forEach((section, index) => {
       const element = document.getElementById(section.id);
-      if (index == currentSectionIndex && index > 0) {
-        if (element) {
-          element.style.scrollSnapAlign = 'none';
-        }
-      } else {
-        if (element) {
-          element.style.scrollSnapAlign = 'start';
-        }
+      if (element) {
+        element.style.scrollSnapAlign =
+          index === currentSectionIndex && index > 0 ? 'none' : 'start';
       }
     });
   }, [activeSection]);
