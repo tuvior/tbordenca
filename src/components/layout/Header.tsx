@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection }) => {
             ? 'bg-nord-6/90 py-2 shadow-md backdrop-blur-md dark:bg-nord-0/90'
             : 'bg-nord-5/90 py-2 shadow-md backdrop-blur-md dark:bg-nord-1/90'
           : isDarkBackground
-            ? 'bg-nord-6/40 py-4 backdrop-blur-sm dark:bg-nord-0/40'
+            ? 'py-4 backdrop-blur-sm'
             : 'bg-nord-5/40 py-4 backdrop-blur-sm dark:bg-nord-1/40'
       }`}
     >

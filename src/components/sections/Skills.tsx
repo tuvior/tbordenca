@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
-import { skillsData, skillIcons } from '../../data/skillsData';
+import { skillsData } from '../../data/skillsData';
+import type { SkillIcon } from '../../data/skillsData';
 import { Briefcase, Code, Users, Workflow, Search, X } from 'lucide-react';
 
 const Skills: React.FC = () => {
@@ -45,8 +46,8 @@ const Skills: React.FC = () => {
   };
 
   // Function to get the appropriate icon or logo for a skill
-  const getSkillIcon = (skill: { name: string }) => {
-    const icon = skillIcons[skill.name];
+  const getSkillIcon = (skill: { name: string, icon: SkillIcon }) => {
+    const icon = skill.icon;
     if (!icon) return <Briefcase size={24} />;
 
     if (icon.type === 'image') {
