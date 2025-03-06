@@ -82,8 +82,7 @@ const Experience: React.FC = () => {
             }}
             onMouseLeave={() => {
               if (!isMobile) {
-                // Optional: uncomment the line below if you want cards to collapse on mouse leave
-                // setExpandedCards(new Set());
+                setExpandedCards(new Set());
               }
             }}
             onCompanyInfoToggle={(e: React.MouseEvent) => {
