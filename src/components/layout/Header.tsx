@@ -39,16 +39,16 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection }) => {
   };
 
   // Determine if if activeSection has an even index
-  const isLightBackground = sections.findIndex(section => section.id === activeSection) % 2 === 0;
+  const isDarkBackground = sections.findIndex(section => section.id === activeSection) % 2 === 0;
 
   return (
     <header
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? isLightBackground
+          ? isDarkBackground
             ? 'bg-nord-6/90 py-2 shadow-md backdrop-blur-md dark:bg-nord-0/90'
             : 'bg-nord-5/90 py-2 shadow-md backdrop-blur-md dark:bg-nord-1/90'
-          : isLightBackground
+          : isDarkBackground
             ? 'bg-nord-6/40 py-4 backdrop-blur-sm dark:bg-nord-0/40'
             : 'bg-nord-5/40 py-4 backdrop-blur-sm dark:bg-nord-1/40'
       }`}
