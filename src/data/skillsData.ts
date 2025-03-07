@@ -1,5 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 import {
+  AppWindow,
   BarChart,
   BrainCircuit,
   Briefcase,
@@ -9,6 +10,8 @@ import {
   CloudLightning,
   Code,
   Database,
+  EthernetPort,
+  GitCompareArrows,
   Landmark,
   Layers,
   Lightbulb,
@@ -36,11 +39,15 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
       { name: 'Product Strategy', icon: { type: 'lucide', value: Briefcase } },
       { name: 'Market Research', icon: { type: 'lucide', value: BarChart } },
       { name: 'User Research', icon: { type: 'lucide', value: Users } },
-      { name: 'Product Roadmapping', icon: { type: 'lucide', value: ChartNoAxesGantt } },
-      { name: 'Data Analysis', icon: { type: 'lucide', value: LineChart } },
-      { name: 'UX Design', icon: { type: 'lucide', value: Layers } },
+      { name: 'Roadmap Planning', icon: { type: 'lucide', value: ChartNoAxesGantt } },
+      { name: 'Competitive Analysis', icon: { type: 'lucide', value: GitCompareArrows } },
+      { name: 'UX Design', icon: { type: 'lucide', value: AppWindow } },
       { name: 'Problem Solving', icon: { type: 'lucide', value: Lightbulb } },
       { name: 'Innovation', icon: { type: 'lucide', value: Lightbulb } },
+      {
+        name: 'Agile Methodologies',
+        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/scrum-1.svg' },
+      },
     ],
   },
   {
@@ -53,16 +60,13 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
     ],
   },
   {
-    category: 'Management',
+    category: 'Miscellaneous',
     skills: [
-      {
-        name: 'Agile/Scrum',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/scrum-1.svg' },
-      },
       { name: 'Team Leadership', icon: { type: 'lucide', value: Users } },
       { name: 'Stakeholder Management', icon: { type: 'lucide', value: Users } },
       { name: 'Technical Writing', icon: { type: 'lucide', value: Code } },
       { name: 'Public Speaking', icon: { type: 'lucide', value: Presentation } },
+      { name: 'Client Management', icon: { type: 'lucide', value: Users } },
     ],
   },
   {
@@ -121,12 +125,27 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
         icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/kubernets.svg' },
       },
       {
+        name: 'Terraform',
+        icon: {
+          type: 'image',
+          value: 'https://cdn.worldvectorlogo.com/logos/terraform-enterprise.svg',
+        },
+      },
+      {
+        name: 'Nomad',
+        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/nomad-2.svg' },
+      },
+      {
         name: 'Git',
         icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/git-icon.svg' },
       },
       {
         name: 'SQL',
         icon: { type: 'lucide', value: Database },
+      },
+      {
+        name: 'API Design',
+        icon: { type: 'lucide', value: EthernetPort },
       },
     ],
   },

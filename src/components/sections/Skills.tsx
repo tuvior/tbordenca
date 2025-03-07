@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
 import type { SkillIcon } from '../../data/skillsData';
 import { skillsData } from '../../data/skillsData';
-import { Briefcase, Code, Users, Workflow, Book, Search, X } from 'lucide-react';
+import { Briefcase, Code, Users, Workflow, Book, Search, X, Speech } from 'lucide-react';
 import SkillBadge from '../ui/SkillBadge';
 
 const Skills: React.FC = () => {
@@ -55,8 +55,8 @@ const Skills: React.FC = () => {
         return <Book className="mr-2" size={20} />;
       case 'Technical':
         return <Code className="mr-2" size={20} />;
-      case 'Management':
-        return <Users className="mr-2" size={20} />;
+      case 'Miscellaneous':
+        return <Speech className="mr-2" size={20} />;
       case 'Tools':
         return <Workflow className="mr-2" size={20} />;
       default:

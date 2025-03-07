@@ -3,7 +3,7 @@ import imageUrl from '/img/profile-c.jpg?url';
 export const profileData = {
   name: 'Tobias Bordenca',
   title: 'Product Manager',
-  roles: ['Product Manager', 'UX Enthusiast', 'Tech Strategist', 'Team Leader'],
+  roles: ['Product Manager', 'UX Enthusiast', 'Leader', 'Architect'],
   description:
     'Passionate product manager with 8+ years of experience driving innovation and delivering user-centric solutions that solve real problems and create business value.',
   profileImage: imageUrl,
