@@ -84,7 +84,7 @@ function App() {
         <section
           id="hero"
           ref={heroRef}
-          className="section-snap bg-gradient-to-br from-nord-6 to-frost-light/10 dark:from-nord-0 dark:to-nord-1"
+          className="section-snap bg-gradient-to-br from-nord-6 to-nord-7/10 dark:from-nord-0 dark:to-nord-1"
         >
           <div className="section-content">
             <Hero />
@@ -132,7 +132,7 @@ function App() {
         <section
           id="contact"
           ref={contactRef}
-          className="section-snap bg-gradient-to-br from-nord-6 to-frost-light/10 dark:from-nord-0 dark:to-nord-1"
+          className="section-snap bg-gradient-to-br from-nord-6 to-nord-7/10 dark:from-nord-0 dark:to-nord-1"
         >
           <div className="section-content">
             <Contact />

@@ -55,20 +55,6 @@ export default {
           900: '#3B4252', // nord1
           950: '#2E3440', // nord0
         },
-        // Aurora colors as accents
-        aurora: {
-          red: '#BF616A',    // nord11
-          orange: '#D08770',  // nord12
-          yellow: '#EBCB8B',  // nord13
-          green: '#A3BE8C',   // nord14
-          purple: '#B48EAD',  // nord15
-        },
-        frost: {
-          light: '#8FBCBB',   // nord7
-          medium: '#88C0D0',  // nord8
-          dark: '#81A1C1',    // nord9
-          darker: '#5E81AC',  // nord10
-        }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection }) => {
         <a
           href="#hero"
           onClick={e => handleNavClick(e, 'hero')}
-          className="font-display text-xl font-bold text-frost-darker dark:text-frost-medium"
+          className="font-display text-xl font-bold text-nord-10 dark:text-nord-8"
         >
           tbordenca
         </a>
@@ -72,8 +72,8 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection }) => {
                   onClick={e => handleNavClick(e, section.id)}
                   className={`font-medium transition-colors duration-300 ${
                     activeSection === section.id
-                      ? 'text-frost-darker dark:text-frost-medium'
-                      : 'text-nord-3 hover:text-frost-darker dark:text-nord-4 dark:hover:text-frost-medium'
+                      ? 'text-nord-10 dark:text-nord-8'
+                      : 'text-nord-3 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8'
                   }`}
                 >
                   {section.label}
@@ -122,7 +122,7 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection }) => {
                   onClick={e => handleNavClick(e, section.id)}
                   className={`block py-2 font-medium ${
                     activeSection === section.id
-                      ? 'text-frost-darker dark:text-frost-medium'
+                      ? 'text-nord-10 dark:text-nord-8'
                       : 'text-nord-3 dark:text-nord-4'
                   }`}
                 >

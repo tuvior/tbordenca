@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
           className="w-full max-w-md"
         >
           <div className="rounded-xl border border-nord-5 bg-nord-6 p-8 text-center shadow-lg dark:border-nord-3 dark:bg-nord-1">
-            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-frost-darker to-aurora-green text-nord-6">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-nord-10 to-nord-14 text-nord-6">
               <Mail size={32} />
             </div>
 
@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
 
             <a
               href={`mailto:${contactData.email}`}
-              className="text-xl font-medium text-frost-darker hover:underline dark:text-frost-medium"
+              className="text-xl font-medium text-nord-10 hover:underline dark:text-nord-8"
             >
               {contactData.email}
             </a>

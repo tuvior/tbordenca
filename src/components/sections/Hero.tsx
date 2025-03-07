@@ -14,8 +14,8 @@ const Hero: React.FC = () => {
     <div className="relative mx-auto flex w-full max-w-6xl flex-col-reverse items-center justify-between gap-8 px-4 md:flex-row md:gap-12">
       {/* Background elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full bg-frost-medium/20 blur-3xl dark:bg-frost-medium/10"></div>
-        <div className="absolute bottom-1/3 right-1/4 h-96 w-96 rounded-full bg-aurora-green/10 blur-3xl dark:bg-aurora-green/5"></div>
+        <div className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full bg-nord-8/20 blur-3xl dark:bg-nord-8/10"></div>
+        <div className="absolute bottom-1/3 right-1/4 h-96 w-96 rounded-full bg-nord-14/10 blur-3xl dark:bg-nord-14/5"></div>
       </div>
 
       {/* Content */}
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-            <span className="text-frost-darker dark:text-frost-medium">{profileData.name}</span>
+            <span className="text-nord-10 dark:text-nord-8">{profileData.name}</span>
           </h1>
         </motion.div>
 
@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
         >
           <div className="rounded-xl border border-nord-4 bg-nord-6 p-4 shadow-md dark:border-nord-3 dark:bg-nord-1">
             <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-frost-light/20 text-frost-darker dark:bg-frost-light/10 dark:text-frost-medium">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-nord-7/20 text-nord-10 dark:bg-nord-7/10 dark:text-nord-8">
                 <Globe size={18} />
               </div>
               <h3 className="text-lg font-medium">Languages</h3>
@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
                   </div>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-nord-4 dark:bg-nord-3">
                     <div
-                      className="h-full rounded-full bg-frost-darker dark:bg-frost-medium"
+                      className="h-full rounded-full bg-nord-10 dark:bg-nord-8"
                       style={{ width: `${language.proficiency}%` }}
                     ></div>
                   </div>
@@ -110,7 +110,7 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <div className="border-6 animate-float-enhanced h-full w-full overflow-hidden rounded-full border-nord-6 shadow-xl dark:border-frost-darker">
+        <div className="border-6 animate-float-enhanced h-full w-full overflow-hidden rounded-full border-nord-6 shadow-xl dark:border-nord-10">
           <img
             src={profileData.profileImage}
             alt={`${profileData.name} - ${profileData.title}`}
@@ -132,10 +132,10 @@ const Hero: React.FC = () => {
         }}
       >
         <a href="#experience" className="flex flex-col items-center">
-          {/* <span className="mb-2 text-sm font-medium text-frost-darker dark:text-frost-medium">
+          {/* <span className="mb-2 text-sm font-medium text-nord-10 dark:text-nord-8">
             Scroll Down
           </span> */}
-          <div className="pulse-animation rounded-full bg-frost-darker p-2 text-nord-6 shadow-lg transition-all duration-300 hover:bg-frost-dark dark:bg-frost-dark dark:hover:bg-frost-medium">
+          <div className="pulse-animation rounded-full bg-nord-10 p-2 text-nord-6 shadow-lg transition-all duration-300 hover:bg-nord-9 dark:bg-nord-9 dark:hover:bg-nord-8">
             <ChevronDown size={24} />
           </div>
         </a>

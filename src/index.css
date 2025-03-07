@@ -91,7 +91,7 @@
   }
 
   .btn-primary {
-    @apply bg-frost-darker text-nord-6 shadow-md hover:bg-frost-dark hover:shadow-lg;
+    @apply bg-nord-10 text-nord-6 shadow-md hover:bg-nord-9 hover:shadow-lg;
   }
 
   .btn-secondary {
@@ -99,7 +99,7 @@
   }
 
   .skill-badge {
-    @apply rounded-full bg-frost-light/20 px-3 py-1 text-sm font-medium text-frost-darker dark:bg-frost-light/10 dark:text-frost-light;
+    @apply rounded-full bg-nord-7/20 px-3 py-1 text-sm font-medium text-nord-10 dark:bg-nord-7/10 dark:text-nord-7;
   }
 
   /* Scroll Snap System */
@@ -135,7 +135,7 @@
   /* Enhanced floating animation for profile image */
   .animate-float-enhanced {
     animation: float-enhanced 4s ease-in-out infinite;
-    @apply border-6 border-nord-6 shadow-xl dark:border-frost-darker;
+    @apply border-6 border-nord-6 shadow-xl dark:border-nord-10;
   }
 
   @keyframes float-enhanced {
@@ -187,9 +187,9 @@
   .gradient-text {
     background: linear-gradient(
       90deg,
-      theme('colors.frost.darker'),
-      theme('colors.aurora.green'),
-      theme('colors.aurora.purple')
+      theme('colors.nord.10'),
+      theme('colors.nord.14'),
+      theme('colors.nord.15')
     );
     background-size: 200% auto;
     background-clip: text;

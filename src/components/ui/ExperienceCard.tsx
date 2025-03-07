@@ -225,8 +225,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       {/* Timeline connector with enhanced visibility */}
       {index < totalCards - 1 && (
         <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-full transform flex-col items-center">
-          <div className="h-2 w-2 rounded-full bg-aurora-purple"></div>
-          <div className="h-6 w-1 bg-gradient-to-b from-aurora-purple to-frost-darker dark:to-frost-medium"></div>
+          <div className="h-2 w-2 rounded-full bg-nord-15"></div>
+          <div className="h-6 w-1 bg-gradient-to-b from-nord-15 to-nord-10 dark:to-nord-8"></div>
         </div>
       )}
     </motion.div>
