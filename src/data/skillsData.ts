@@ -1,14 +1,20 @@
+import type { LucideIcon } from 'lucide-react';
 import {
-  Briefcase,
   BarChart,
-  Users,
-  Workflow,
-  LineChart,
-  Layers,
+  BrainCircuit,
+  Briefcase,
+  Building2,
+  ChartCandlestick,
+  ChartNoAxesGantt,
+  CloudLightning,
   Code,
-  Presentation,
+  Database,
+  Landmark,
+  Layers,
   Lightbulb,
-  DatabaseIcon,
+  LineChart,
+  Presentation,
+  Users,
 } from 'lucide-react';
 
 export type Skill = {
@@ -18,7 +24,7 @@ export type Skill = {
 
 export type SkillIcon = {
   type: 'lucide' | 'image';
-  value: typeof Briefcase | string;
+  value: LucideIcon | string;
 };
 
 // set correct type as objects with category and list of skills
@@ -26,17 +32,24 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
   {
     category: 'Product',
     skills: [
+      { name: 'B2B', icon: { type: 'lucide', value: Building2 } },
       { name: 'Product Strategy', icon: { type: 'lucide', value: Briefcase } },
       { name: 'Market Research', icon: { type: 'lucide', value: BarChart } },
       { name: 'User Research', icon: { type: 'lucide', value: Users } },
-      { name: 'Product Roadmapping', icon: { type: 'lucide', value: Workflow } },
-      { name: 'A/B Testing', icon: { type: 'lucide', value: LineChart } },
+      { name: 'Product Roadmapping', icon: { type: 'lucide', value: ChartNoAxesGantt } },
       { name: 'Data Analysis', icon: { type: 'lucide', value: LineChart } },
-      { name: 'UX/UI Design', icon: { type: 'lucide', value: Layers } },
-      { name: 'Wireframing', icon: { type: 'lucide', value: Layers } },
-      { name: 'Prototyping', icon: { type: 'lucide', value: Layers } },
+      { name: 'UX Design', icon: { type: 'lucide', value: Layers } },
       { name: 'Problem Solving', icon: { type: 'lucide', value: Lightbulb } },
       { name: 'Innovation', icon: { type: 'lucide', value: Lightbulb } },
+    ],
+  },
+  {
+    category: 'Fields',
+    skills: [
+      { name: 'Wealth Management', icon: { type: 'lucide', value: Landmark } },
+      { name: 'Risk Management', icon: { type: 'lucide', value: CloudLightning } },
+      { name: 'Financial Products', icon: { type: 'lucide', value: ChartCandlestick } },
+      { name: 'Artificial Intelligence', icon: { type: 'lucide', value: BrainCircuit } },
     ],
   },
   {
@@ -113,7 +126,7 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
       },
       {
         name: 'SQL',
-        icon: { type: 'lucide', value: DatabaseIcon },
+        icon: { type: 'lucide', value: Database },
       },
     ],
   },
