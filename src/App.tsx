@@ -14,10 +14,10 @@ import Footer from './components/layout/Footer';
 const sections = [
   { id: 'hero', label: 'Home' },
   { id: 'experience', label: 'Experience' },
-  { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
-  { id: 'education', label: 'Education' },
   { id: 'hobbies', label: 'Hobbies' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -39,19 +39,19 @@ function App() {
     () => [
       { id: 'hero', inView: heroInView },
       { id: 'experience', inView: experienceInView },
-      { id: 'skills', inView: skillsInView },
       { id: 'projects', inView: projectsInView },
-      { id: 'education', inView: educationInView },
       { id: 'hobbies', inView: hobbiesInView },
+      { id: 'skills', inView: skillsInView },
+      { id: 'education', inView: educationInView },
       { id: 'contact', inView: contactInView },
     ],
     [
       heroInView,
       experienceInView,
-      skillsInView,
       projectsInView,
-      educationInView,
       hobbiesInView,
+      skillsInView,
+      educationInView,
       contactInView,
     ]
   );
@@ -84,7 +84,7 @@ function App() {
         <section
           id="hero"
           ref={heroRef}
-          className="section-snap bg-gradient-to-br from-nord-6 to-nord-7/10 dark:from-nord-0 dark:to-nord-1"
+          className="section-snap bg-gradient-to-br from-nord-6 to-nord-8/15 dark:from-nord-0 dark:to-nord-3"
         >
           <div className="section-content">
             <Hero />
@@ -101,25 +101,9 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" ref={skillsRef} className="section-snap bg-nord-6 dark:bg-nord-0">
-          <div className="section-content">
-            <Skills />
-          </div>
-        </section>
-
-        <section id="projects" ref={projectsRef} className="section-snap bg-nord-5 dark:bg-nord-1">
+        <section id="projects" ref={projectsRef} className="section-snap bg-nord-6 dark:bg-nord-0">
           <div className="section-content">
             <Projects />
-          </div>
-        </section>
-
-        <section
-          id="education"
-          ref={educationRef}
-          className="section-snap bg-nord-6 dark:bg-nord-0"
-        >
-          <div className="section-content">
-            <Education />
           </div>
         </section>
 
@@ -129,10 +113,26 @@ function App() {
           </div>
         </section>
 
+        <section id="skills" ref={skillsRef} className="section-snap bg-nord-6 dark:bg-nord-0">
+          <div className="section-content">
+            <Skills />
+          </div>
+        </section>
+
+        <section
+          id="education"
+          ref={educationRef}
+          className="section-snap bg-nord-5 dark:bg-nord-1"
+        >
+          <div className="section-content">
+            <Education />
+          </div>
+        </section>
+
         <section
           id="contact"
           ref={contactRef}
-          className="section-snap bg-gradient-to-br from-nord-6 to-nord-7/10 dark:from-nord-0 dark:to-nord-1"
+          className="section-snap bg-gradient-to-br from-nord-6 to-nord-8/15 dark:from-nord-0 dark:to-nord-2"
         >
           <div className="section-content">
             <Contact />

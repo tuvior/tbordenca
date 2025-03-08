@@ -12,34 +12,24 @@ const categoryColors = {
       'bg-nord-6 text-nord-3 hover:bg-nord-5 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-3',
   },
   Product: {
-    selected:
-      'bg-nord-15/10 text-nord-15 dark:bg-nord-15/20 hover:bg-nord-15/20 dark:hover:bg-nord-15/30',
-    unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-15/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-15/30',
+    selected: 'bg-nord-15/10 text-nord-15 dark:bg-nord-15/20 hover:bg-nord-15/20 dark:hover:bg-nord-15/30',
+    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-15/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-15/30',
   },
   Fields: {
-    selected:
-      'bg-nord-8/10 text-nord-8 dark:bg-nord-8/20 hover:bg-nord-8/20 dark:hover:bg-nord-8/30',
-    unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-8/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-8/30',
+    selected: 'bg-nord-7/10 text-nord-7 dark:bg-nord-7/20 hover:bg-nord-7/20 dark:hover:bg-nord-7/30',
+    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-7/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-7/30',
   },
   Technical: {
-    selected:
-      'bg-nord-9/10 text-nord-9 dark:bg-nord-9/20 hover:bg-nord-9/20 dark:hover:bg-nord-9/30',
-    unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-9/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-9/30',
+    selected: 'bg-nord-9/10 text-nord-9 dark:bg-nord-9/20 hover:bg-nord-9/20 dark:hover:bg-nord-9/30',
+    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-9/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-9/30',
   },
   Miscellaneous: {
-    selected:
-      'bg-nord-10/10 text-nord-10 dark:bg-nord-10/20 hover:bg-nord-10/20 dark:hover:bg-nord-10/30',
-    unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-10/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-10/30',
+    selected: 'bg-nord-8/10 text-nord-8 dark:bg-nord-8/20 hover:bg-nord-8/20 dark:hover:bg-nord-8/30',
+    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-8/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-8/30',
   },
   Tools: {
-    selected:
-      'bg-nord-7/10 text-nord-7 dark:bg-nord-7/20 hover:bg-nord-7/20 dark:hover:bg-nord-7/30',
-    unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-7/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-7/30',
+    selected: 'bg-nord-10/10 text-nord-10 dark:bg-nord-10/20 hover:bg-nord-10/20 dark:hover:bg-nord-10/30',
+    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-10/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-10/30',
   },
 };
 
@@ -131,7 +121,6 @@ const Skills: React.FC = () => {
                   selectedCategory === category
                     ? categoryColors[category as keyof typeof categoryColors].selected
                     : categoryColors[category as keyof typeof categoryColors].unselected
-                  // : 'bg-nord-6 text-nord-3 hover:bg-nord-5 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-3'
                 }`}
               >
                 {category}
@@ -157,7 +146,7 @@ const Skills: React.FC = () => {
         ) : (
           <motion.div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4" layout>
             {allSkills
-              .sort((a, b) => a.name.localeCompare(b.name))
+              // .sort((a, b) => a.name.localeCompare(b.name))
               .map((skill, index) => (
                 <SkillBadge
                   key={skill.name}

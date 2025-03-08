@@ -62,7 +62,7 @@ export default {
         mono: ['Fira Code', 'monospace'],
       },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
+        float: 'float 6s ease-in-out infinite',
         'slide-up': 'slideUp 0.5s ease-out',
         'slide-down': 'slideDown 0.5s ease-out',
         'fade-in': 'fadeIn 0.5s ease-out',
@@ -86,11 +86,11 @@ export default {
         },
       },
       spacing: {
-        '128': '32rem',
-        '144': '36rem',
+        128: '32rem',
+        144: '36rem',
       },
       transitionDuration: {
-        '2000': '2000ms',
+        2000: '2000ms',
       },
     },
   },
