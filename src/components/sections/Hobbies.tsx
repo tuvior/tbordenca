@@ -150,7 +150,7 @@ const Hobbies: React.FC = () => {
         {/* Carousel Navigation Buttons */}
         <button
           onClick={handlePrev}
-          className="absolute left-0 top-1/2 z-10 -ml-4 -translate-y-1/2 transform rounded-full bg-white/80 p-2 text-primary-600 shadow-lg transition-all duration-300 hover:bg-white dark:bg-secondary-800/80 dark:text-primary-400 dark:hover:bg-secondary-700 md:ml-0"
+          className="absolute left-0 top-1/2 z-10 -ml-4 -translate-y-1/2 transform rounded-full bg-white/80 p-2 text-nord-3 shadow-lg transition-all duration-300 hover:bg-white dark:bg-nord-2/80 dark:text-nord-9 dark:hover:bg-nord-3 md:ml-0"
           aria-label="Previous hobby"
         >
           <ChevronLeft size={24} />
@@ -158,7 +158,7 @@ const Hobbies: React.FC = () => {
 
         <button
           onClick={handleNext}
-          className="absolute right-0 top-1/2 z-10 -mr-4 -translate-y-1/2 transform rounded-full bg-white/80 p-2 text-primary-600 shadow-lg transition-all duration-300 hover:bg-white dark:bg-secondary-800/80 dark:text-primary-400 dark:hover:bg-secondary-700 md:mr-0"
+          className="absolute right-0 top-1/2 z-10 -mr-4 -translate-y-1/2 transform rounded-full bg-white/80 p-2 text-nord-3 shadow-lg transition-all duration-300 hover:bg-white dark:bg-nord-2/80 dark:text-nord-9 dark:hover:bg-nord-3 md:mr-0"
           aria-label="Next hobby"
         >
           <ChevronRight size={24} />
@@ -198,8 +198,8 @@ const Hobbies: React.FC = () => {
               onClick={() => handleDotClick(index)}
               className={`h-3 w-3 rounded-full transition-all duration-300 ${
                 activeIndex === index
-                  ? 'w-6 bg-primary-500'
-                  : 'bg-secondary-300 hover:bg-secondary-400 dark:bg-secondary-600 dark:hover:bg-secondary-500'
+                  ? 'w-6 bg-nord-10'
+                  : 'bg-nord-4 hover:bg-secondary-400 dark:bg-nord-10 dark:hover:bg-nord-9'
               }`}
               aria-label={`Go to hobby ${index + 1}`}
             />

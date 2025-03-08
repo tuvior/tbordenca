@@ -1,67 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
-import type { SkillIcon } from '../../data/skillsData';
 import { skillsData } from '../../data/skillsData';
-import { Briefcase, Code, Workflow, Book, Search, X, Speech } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import SkillBadge from '../ui/SkillBadge';
+
+const categoryColors = {
+  All: {
+    selected: 'bg-nord-10 text-white hover:bg-nord-10/20',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-5 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-3',
+  },
+  Product: {
+    selected:
+      'bg-nord-15/10 text-nord-15 dark:bg-nord-15/20 hover:bg-nord-15/20 dark:hover:bg-nord-15/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-15/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-15/30',
+  },
+  Fields: {
+    selected:
+      'bg-nord-8/10 text-nord-8 dark:bg-nord-8/20 hover:bg-nord-8/20 dark:hover:bg-nord-8/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-8/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-8/30',
+  },
+  Technical: {
+    selected:
+      'bg-nord-9/10 text-nord-9 dark:bg-nord-9/20 hover:bg-nord-9/20 dark:hover:bg-nord-9/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-9/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-9/30',
+  },
+  Miscellaneous: {
+    selected:
+      'bg-nord-10/10 text-nord-10 dark:bg-nord-10/20 hover:bg-nord-10/20 dark:hover:bg-nord-10/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-10/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-10/30',
+  },
+  Tools: {
+    selected:
+      'bg-nord-7/10 text-nord-7 dark:bg-nord-7/20 hover:bg-nord-7/20 dark:hover:bg-nord-7/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-7/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-7/30',
+  },
+};
+
+const allCategories = Object.keys(categoryColors);
 
 const Skills: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [filteredSkills, setFilteredSkills] =
-    useState<{ category: string; skills: { name: string; icon: SkillIcon }[] }[]>(skillsData);
+  const [allSkills, setAllSkills] = useState(
+    skillsData.flatMap(category =>
+      category.skills.map(skill => ({
+        ...skill,
+        category: category.category,
+      }))
+    )
+  );
 
   // Filter skills based on search query and selected category
   useEffect(() => {
-    if (searchQuery === '' && selectedCategory === 'All') {
-      setFilteredSkills(skillsData);
-      return;
-    }
+    const filteredSkills = skillsData
+      .flatMap(category =>
+        category.skills.map(skill => ({
+          ...skill,
+          category: category.category,
+        }))
+      )
+      .filter(skill => {
+        const matchesSearch = skill.name.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = selectedCategory === 'All' || skill.category === selectedCategory;
+        return matchesSearch && matchesCategory;
+      });
 
-    const filtered = skillsData
-      .map(category => {
-        // Filter by category if needed
-        if (selectedCategory !== 'All' && category.category !== selectedCategory) {
-          return { ...category, skills: [] };
-        }
-
-        // Filter by search query
-        const filteredSkills = category.skills.filter(skill =>
-          skill.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-
-        return { ...category, skills: filteredSkills };
-      })
-      .filter(category => category.skills.length > 0);
-
-    setFilteredSkills(filtered);
+    setAllSkills(filteredSkills);
   }, [searchQuery, selectedCategory]);
-
-  // Get all unique categories
-  const allCategories = ['All', ...skillsData.map(category => category.category)];
 
   // Clear search
   const clearSearch = () => {
     setSearchQuery('');
-  };
-
-  // Get category icon
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'Product':
-        return <Briefcase className="mr-2" size={20} />;
-      case 'Fields':
-        return <Book className="mr-2" size={20} />;
-      case 'Technical':
-        return <Code className="mr-2" size={20} />;
-      case 'Miscellaneous':
-        return <Speech className="mr-2" size={20} />;
-      case 'Tools':
-        return <Workflow className="mr-2" size={20} />;
-      default:
-        return null;
-    }
   };
 
   return (
@@ -90,7 +106,7 @@ const Skills: React.FC = () => {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder="Search skills..."
-              className="w-full rounded-lg border border-secondary-300 bg-white py-2 pl-10 pr-10 text-secondary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:border-secondary-700 dark:bg-secondary-800 dark:text-secondary-200 dark:focus:ring-primary-400"
+              className="w-full rounded-lg border border-nord-4 bg-white py-2 pl-10 pr-10 text-nord-2 focus:outline-none focus:ring-2 focus:ring-nord-10 dark:border-nord-3 dark:bg-nord-2 dark:text-nord-5 dark:focus:ring-nord-9"
             />
             {searchQuery && (
               <button
@@ -99,7 +115,7 @@ const Skills: React.FC = () => {
               >
                 <X
                   size={18}
-                  className="text-secondary-400 hover:text-secondary-600 dark:hover:text-secondary-200"
+                  className="text-secondary-400 hover:text-nord-10 dark:hover:text-nord-5"
                 />
               </button>
             )}
@@ -113,8 +129,9 @@ const Skills: React.FC = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-primary-500 text-white'
-                    : 'bg-secondary-100 text-secondary-700 hover:bg-secondary-200 dark:bg-secondary-800 dark:text-secondary-300 dark:hover:bg-secondary-700'
+                    ? categoryColors[category as keyof typeof categoryColors].selected
+                    : categoryColors[category as keyof typeof categoryColors].unselected
+                  // : 'bg-nord-6 text-nord-3 hover:bg-nord-5 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-3'
                 }`}
               >
                 {category}
@@ -126,46 +143,32 @@ const Skills: React.FC = () => {
 
       {/* Skills grid */}
       <AnimatePresence>
-        {filteredSkills.length === 0 ? (
+        {allSkills.length === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="py-12 text-center"
           >
-            <p className="text-lg text-secondary-500 dark:text-secondary-400">
+            <p className="text-lg text-nord-9 dark:text-secondary-400">
               No skills found matching your search.
             </p>
           </motion.div>
         ) : (
-          <div className="grid grid-cols-1 gap-8">
-            {filteredSkills.map((category, categoryIndex) => (
-              <motion.div
-                key={category.category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                exit={{ opacity: 0, y: -20 }}
-                layout
-              >
-                <h3 className="mb-4 flex items-center text-xl font-bold">
-                  {getCategoryIcon(category.category)}
-                  {category.category}
-                </h3>
-
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <SkillBadge
-                      key={skill.name}
-                      skill={skill}
-                      delay={categoryIndex * 0.1 + skillIndex * 0.05}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4" layout>
+            {allSkills
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((skill, index) => (
+                <SkillBadge
+                  key={skill.name}
+                  skill={skill}
+                  categoryColor={
+                    categoryColors[skill.category as keyof typeof categoryColors].selected
+                  }
+                  delay={index * 0.02}
+                />
+              ))}
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

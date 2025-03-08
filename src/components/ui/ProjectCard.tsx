@@ -22,19 +22,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detect if device is mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
-    // Initial check
     checkMobile();
-
-    // Add event listener for window resize
     window.addEventListener('resize', checkMobile);
-
-    // Cleanup
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -54,11 +47,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <>
       <motion.div
-        className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-secondary-800"
+        className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-nord-2"
         whileHover={{ y: -5 }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.4 }}
         onClick={handleCardClick}
       >
@@ -74,13 +67,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         <div className={`flex-grow p-6 ${isMobile ? 'cursor-pointer' : ''}`}>
           <h3 className="mb-2 text-xl font-bold">{title}</h3>
-          <p className="mb-4 text-secondary-600 dark:text-secondary-400">{description}</p>
+          <p className="mb-4 text-nord-10 dark:text-secondary-400">{description}</p>
 
           <div className="mb-4 flex flex-wrap gap-2">
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="rounded-full bg-primary-100 px-2 py-1 text-xs text-primary-800 dark:bg-primary-900/30 dark:text-primary-300"
+                className="rounded-full bg-nord-6 px-2 py-1 text-xs text-nord-1 dark:bg-nord-0/30 dark:text-nord-4"
               >
                 {tag}
               </span>
@@ -116,17 +109,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           onClick={() => setIsModalOpen(false)}
         >
           <motion.div
-            className="max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-xl bg-white shadow-xl dark:bg-secondary-800"
+            className="max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-xl bg-white shadow-xl dark:bg-nord-2"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             onClick={e => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-secondary-200 p-6 dark:border-secondary-700">
+            <div className="flex items-center justify-between border-b border-nord-5 p-6 dark:border-nord-3">
               <h3 className="text-2xl font-bold">{title}</h3>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="rounded-full p-2 text-secondary-500 hover:bg-secondary-100 hover:text-secondary-700 dark:text-secondary-400 dark:hover:bg-secondary-700 dark:hover:text-secondary-200"
+                className="rounded-full p-2 text-nord-9 hover:bg-nord-6 hover:text-nord-3 dark:text-secondary-400 dark:hover:bg-nord-3 dark:hover:text-nord-5"
               >
                 <X size={24} />
               </button>
@@ -145,7 +138,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="rounded-full bg-primary-100 px-3 py-1 text-sm text-primary-800 dark:bg-primary-900/30 dark:text-primary-300"
+                    className="rounded-full bg-nord-6 px-3 py-1 text-sm text-nord-1 dark:bg-nord-0/30 dark:text-nord-4"
                   >
                     {tag}
                   </span>

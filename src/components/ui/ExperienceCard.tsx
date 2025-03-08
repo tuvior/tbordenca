@@ -63,16 +63,16 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       ref={cardRef}
     >
       <div
-        className={`rounded-xl bg-white shadow-lg transition-all duration-300 dark:bg-secondary-800 ${
+        className={`rounded-xl bg-white shadow-lg transition-all duration-300 dark:bg-nord-2 ${
           isMobile && hasExpandableContent ? 'cursor-pointer' : ''
-        } ${isExpanded ? 'ring-2 ring-primary-400 dark:ring-primary-600' : 'hover:shadow-xl'}`}
+        } ${isExpanded ? 'ring-2 ring-nord-9 dark:ring-nord-3' : 'hover:shadow-xl'}`}
       >
         {/* Card Header */}
         <div className="p-6">
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="mb-3 flex items-center">
-                <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-xs font-medium text-primary-800 dark:bg-primary-900/30 dark:text-primary-300 md:text-sm">
+                <span className="inline-flex items-center rounded-full bg-nord-6 px-3 py-1 text-xs font-medium text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 md:text-sm">
                   <Calendar size={14} className="mr-1.5" />
                   {experience.period}
                 </span>
@@ -81,14 +81,14 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               <h3 className="mb-2 text-2xl font-bold md:text-3xl">{experience.role}</h3>
 
               <div className="relative mt-1 flex items-center">
-                <Building size={16} className="mr-1.5 text-primary-500 dark:text-primary-400" />
-                <p className="text-base font-medium text-primary-600 dark:text-primary-400 md:text-lg">
+                <Building size={16} className="mr-1.5 text-nord-10 dark:text-nord-9" />
+                <p className="text-base font-medium text-nord-3 dark:text-nord-9 md:text-lg">
                   {experience.company.name}
                 </p>
                 <button
                   ref={infoButtonRef}
                   onClick={onCompanyInfoToggle}
-                  className="ml-2 rounded-full p-1 text-secondary-500 transition-colors hover:bg-secondary-100 hover:text-primary-500 dark:text-secondary-400 dark:hover:bg-secondary-700 dark:hover:text-primary-400"
+                  className="ml-2 rounded-full p-1 text-nord-9 transition-colors hover:bg-nord-6 hover:text-nord-10 dark:text-secondary-400 dark:hover:bg-nord-3 dark:hover:text-nord-9"
                   aria-label="Company info"
                 >
                   <Info size={14} />
@@ -99,37 +99,37 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                   {showCompanyInfo && (
                     <motion.div
                       ref={companyInfoRef}
-                      className="absolute left-0 top-full z-50 mt-2 w-72 rounded-lg border border-secondary-200 bg-white shadow-xl dark:border-secondary-700 dark:bg-secondary-800 md:w-80"
+                      className="absolute left-0 top-full z-50 mt-2 w-72 rounded-lg border border-nord-5 bg-white shadow-xl dark:border-nord-3 dark:bg-nord-2 md:w-80"
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
                       onClick={e => e.stopPropagation()}
                     >
-                      <div className="flex items-center justify-between border-b border-secondary-200 p-4 dark:border-secondary-700">
+                      <div className="flex items-center justify-between border-b border-nord-5 p-4 dark:border-nord-3">
                         <h4 className="flex items-center font-semibold">
                           <Building
                             size={16}
-                            className="mr-2 text-primary-500 dark:text-primary-400"
+                            className="mr-2 text-nord-10 dark:text-nord-9"
                           />
                           About {experience.company.name}
                         </h4>
                         <button
                           onClick={onCompanyInfoToggle}
-                          className="text-secondary-500 hover:text-secondary-700 dark:text-secondary-400 dark:hover:text-secondary-200"
+                          className="text-nord-9 hover:text-nord-3 dark:text-secondary-400 dark:hover:text-nord-5"
                         >
                           <X size={16} />
                         </button>
                       </div>
                       <div className="p-4">
-                        <p className="text-sm text-secondary-600 dark:text-secondary-300">
+                        <p className="text-sm text-nord-10 dark:text-nord-4">
                           {experience.company.description}
                         </p>
                         <a
                           href={experience.company.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-3 inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 dark:text-primary-400 dark:hover:text-primary-300"
+                          className="mt-3 inline-flex items-center text-sm font-medium text-nord-10 hover:text-nord-3 dark:text-nord-9 dark:hover:text-nord-4"
                         >
                           Visit company website
                           <ExternalLink size={14} className="ml-1" />
@@ -143,7 +143,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
             {/* Company Logo */}
             {experience.company.logo && (
-              <div className="ml-4 h-20 w-20 flex-shrink-0 rounded-lg bg-white p-2 shadow-md dark:bg-secondary-700/30 md:h-24 md:w-24">
+              <div className="ml-4 h-20 w-20 flex-shrink-0 rounded-lg bg-white p-2 shadow-md dark:bg-nord-3/30 md:h-24 md:w-24">
                 <img
                   src={experience.company.logo}
                   alt={`${experience.company.name} logo`}
@@ -153,18 +153,18 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             )}
           </div>
 
-          <p className="mt-4 text-secondary-600 dark:text-secondary-300">
+          <p className="mt-4 text-nord-10 dark:text-nord-4">
             {experience.description}
           </p>
 
           {/* Mobile Expand Indicator */}
           {isMobile && hasExpandableContent && !isExpanded && (
             <div className="mt-4 flex flex-col items-center justify-center">
-              <span className="text-sm text-secondary-500 dark:text-secondary-400">Show more</span>
+              <span className="text-sm text-nord-9 dark:text-secondary-400">Show more</span>
               <motion.div
                 animate={{ y: [0, 3, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
-                className="rounded-full bg-secondary-100 text-secondary-500 dark:bg-secondary-800 dark:text-secondary-400"
+                className="rounded-full bg-nord-6 text-nord-9 dark:bg-nord-2 dark:text-secondary-400"
               >
                 <ChevronDown size={20} />
               </motion.div>
@@ -182,13 +182,13 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               transition={{ duration: 0.3 }}
               className="overflow-hidden"
             >
-              <div className="border-t border-secondary-200 px-6 pb-6 pt-4 dark:border-secondary-700">
+              <div className="border-t border-nord-5 px-6 pb-6 pt-4 dark:border-nord-3">
                 {experience.achievements.length > 0 && (
                   <div className="mb-4">
                     <h4 className="mb-2 flex items-center font-semibold">
                       <Briefcase
                         size={18}
-                        className="mr-2 text-primary-500 dark:text-primary-400"
+                        className="mr-2 text-nord-10 dark:text-nord-9"
                       />
                       Key Achievements
                     </h4>
@@ -196,7 +196,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                       {experience.achievements.map((achievement, i) => (
                         <li
                           key={i}
-                          className="list-disc text-secondary-700 dark:text-secondary-300"
+                          className="list-disc text-nord-3 dark:text-nord-4"
                         >
                           {achievement}
                         </li>
@@ -209,7 +209,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                 {relatedProjects.length > 0 && (
                   <div className="mt-6">
                     <h4 className="mb-3 flex items-center font-semibold">
-                      <Link size={16} className="mr-2 text-primary-500 dark:text-primary-400" />
+                      <Link size={16} className="mr-2 text-nord-10 dark:text-nord-9" />
                       Related Projects
                     </h4>
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -217,7 +217,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                         <a
                           key={i}
                           href={`#projects-${project.title.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="flex items-center rounded-lg bg-secondary-50 p-3 transition-colors hover:bg-secondary-100 dark:bg-secondary-800/50 dark:hover:bg-secondary-700/50"
+                          className="flex items-center rounded-lg bg-secondary-50 p-3 transition-colors hover:bg-nord-6 dark:bg-nord-2/50 dark:hover:bg-nord-3/50"
                         >
                           <div className="mr-3 h-10 w-10 flex-shrink-0 overflow-hidden rounded-md">
                             {project.image && (
@@ -229,10 +229,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                             )}
                           </div>
                           <div>
-                            <h5 className="font-medium text-secondary-800 dark:text-secondary-200">
+                            <h5 className="font-medium text-nord-2 dark:text-nord-5">
                               {project.title}
                             </h5>
-                            <p className="text-xs text-secondary-500 dark:text-secondary-400">
+                            <p className="text-xs text-nord-9 dark:text-secondary-400">
                               {project.tags.join(', ')}
                             </p>
                           </div>

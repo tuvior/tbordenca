@@ -5,6 +5,7 @@ import { Briefcase } from 'lucide-react';
 
 type SkillBadgeProps = {
   skill: Skill;
+  categoryColor: string;
   delay: number;
 };
 
@@ -29,19 +30,19 @@ const buildSkillIcon = (skill: { name: string; icon: SkillIcon }) => {
   }
 };
 
-const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, delay }) => {
+const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, categoryColor, delay }) => {
   return (
     <motion.div
       key={skill.name}
-      className="flex items-center gap-3 rounded-lg bg-white p-3 shadow-md dark:bg-secondary-800"
+      className={`flex items-center gap-3 rounded-lg p-3 shadow-md transition-colors duration-300 ${categoryColor}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 0.3, delay: delay }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, transition: { delay: 0.1 } }}
       layout
     >
-      <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center text-primary-500 dark:text-primary-400">
+      <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center">
         {buildSkillIcon(skill)}
       </div>
 
