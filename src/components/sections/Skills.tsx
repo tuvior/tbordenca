@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
 import type { SkillIcon } from '../../data/skillsData';
 import { skillsData } from '../../data/skillsData';
-import { Briefcase, Code, Users, Workflow, Book, Search, X, Speech } from 'lucide-react';
+import { Briefcase, Code, Workflow, Book, Search, X, Speech } from 'lucide-react';
 import SkillBadge from '../ui/SkillBadge';
 
 const Skills: React.FC = () => {

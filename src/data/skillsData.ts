@@ -13,9 +13,7 @@ import {
   EthernetPort,
   GitCompareArrows,
   Landmark,
-  Layers,
   Lightbulb,
-  LineChart,
   Presentation,
   Users,
 } from 'lucide-react';

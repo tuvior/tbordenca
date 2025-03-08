@@ -1,6 +1,15 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Briefcase, Building, ExternalLink, Info, X, Link } from 'lucide-react';
+import {
+  Calendar,
+  Briefcase,
+  Building,
+  ExternalLink,
+  Info,
+  X,
+  Link,
+  ChevronDown,
+} from 'lucide-react';
 import { projectsData } from '../../data/projectsData';
 import type { Experience } from '../../data/experienceData';
 
@@ -39,6 +48,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
     experience.relatedProjects.includes(project.title)
   );
 
+  const hasExpandableContent = experience.achievements.length > 0 || relatedProjects.length > 0;
+
   return (
     <motion.div
       className="experience-card relative"
@@ -46,14 +57,14 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      onClick={onCardClick}
+      onClick={hasExpandableContent ? onCardClick : undefined}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       ref={cardRef}
     >
       <div
         className={`rounded-xl bg-white shadow-lg transition-all duration-300 dark:bg-secondary-800 ${
-          isMobile ? 'cursor-pointer' : ''
+          isMobile && hasExpandableContent ? 'cursor-pointer' : ''
         } ${isExpanded ? 'ring-2 ring-primary-400 dark:ring-primary-600' : 'hover:shadow-xl'}`}
       >
         {/* Card Header */}
@@ -145,11 +156,25 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           <p className="mt-4 text-secondary-600 dark:text-secondary-300">
             {experience.description}
           </p>
+
+          {/* Mobile Expand Indicator */}
+          {isMobile && hasExpandableContent && !isExpanded && (
+            <div className="mt-4 flex flex-col items-center justify-center">
+              <span className="text-sm text-secondary-500 dark:text-secondary-400">Show more</span>
+              <motion.div
+                animate={{ y: [0, 3, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="rounded-full bg-secondary-100 text-secondary-500 dark:bg-secondary-800 dark:text-secondary-400"
+              >
+                <ChevronDown size={20} />
+              </motion.div>
+            </div>
+          )}
         </div>
 
         {/* Expandable Content */}
         <AnimatePresence>
-          {isExpanded && (
+          {isExpanded && hasExpandableContent && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
@@ -222,7 +247,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         </AnimatePresence>
       </div>
 
-      {/* Timeline connector with enhanced visibility */}
+      {/* Card Separator */}
       {index < totalCards - 1 && (
         <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-full transform flex-col items-center">
           <div className="h-2 w-2 rounded-full bg-nord-15"></div>
