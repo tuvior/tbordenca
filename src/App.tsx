@@ -11,52 +11,51 @@ import Hobbies from './components/sections/Hobbies';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 
+const gradientBg = 'bg-gradient-to-br from-nord-6 to-nord-8/15 dark:from-nord-0 dark:to-nord-3';
+
 const sections = [
-  { id: 'hero', label: 'Home' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'hobbies', label: 'Hobbies' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'education', label: 'Education' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'hero', label: 'Home', component: Hero, bgColor: gradientBg },
+  { id: 'experience', label: 'Experience', component: Experience },
+  { id: 'projects', label: 'Projects', component: Projects },
+  { id: 'hobbies', label: 'Hobbies', component: Hobbies },
+  { id: 'skills', label: 'Skills', component: Skills },
+  { id: 'education', label: 'Education', component: Education },
+  { id: 'contact', label: 'Contact', component: Contact, bgColor: gradientBg },
 ];
 
 function App() {
   const { theme } = useTheme();
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Create individual refs for each section
-  const [heroRef, heroInView] = useInView({ threshold: 0.2, triggerOnce: false });
-  const [experienceRef, experienceInView] = useInView({ threshold: 0.2, triggerOnce: false });
-  const [skillsRef, skillsInView] = useInView({ threshold: 0.2, triggerOnce: false });
-  const [projectsRef, projectsInView] = useInView({ threshold: 0.2, triggerOnce: false });
-  const [educationRef, educationInView] = useInView({ threshold: 0.2, triggerOnce: false });
-  const [hobbiesRef, hobbiesInView] = useInView({ threshold: 0.2, triggerOnce: false });
-  const [contactRef, contactInView] = useInView({ threshold: 0.2, triggerOnce: false });
+  const hero = useInView({ threshold: 0.2, triggerOnce: false });
+  const experience = useInView({ threshold: 0.2, triggerOnce: false });
+  const skills = useInView({ threshold: 0.2, triggerOnce: false });
+  const projects = useInView({ threshold: 0.2, triggerOnce: false });
+  const education = useInView({ threshold: 0.2, triggerOnce: false });
+  const hobbies = useInView({ threshold: 0.2, triggerOnce: false });
+  const contact = useInView({ threshold: 0.2, triggerOnce: false });
 
-  // Use useMemo to prevent the array from being recreated on every render
+  const sectionRefs = useMemo(
+    () => ({
+      hero,
+      experience,
+      skills,
+      projects,
+      education,
+      hobbies,
+      contact,
+    }),
+    [hero, experience, skills, projects, education, hobbies, contact]
+  );
   const sectionInViews = useMemo(
-    () => [
-      { id: 'hero', inView: heroInView },
-      { id: 'experience', inView: experienceInView },
-      { id: 'projects', inView: projectsInView },
-      { id: 'hobbies', inView: hobbiesInView },
-      { id: 'skills', inView: skillsInView },
-      { id: 'education', inView: educationInView },
-      { id: 'contact', inView: contactInView },
-    ],
-    [
-      heroInView,
-      experienceInView,
-      projectsInView,
-      hobbiesInView,
-      skillsInView,
-      educationInView,
-      contactInView,
-    ]
+    () =>
+      sections.map(section => ({
+        id: section.id,
+        inView: sectionRefs[section.id as keyof typeof sectionRefs][1],
+      })),
+    [sectionRefs]
   );
 
-  // Update active section based on which section is in view
   useEffect(() => {
     const visibleSection = sectionInViews.find(section => section.inView);
     if (visibleSection) {
@@ -64,7 +63,6 @@ function App() {
     }
   }, [sectionInViews]);
 
-  // Handle scroll behavior
   useEffect(() => {
     const currentSectionIndex = sections.findIndex(section => section.id === activeSection);
 
@@ -81,66 +79,26 @@ function App() {
     <div className={`${theme} flex h-screen flex-col overflow-hidden`}>
       <Header sections={sections} activeSection={activeSection} />
       <main className="snap-container flex-grow overflow-y-auto">
-        <section
-          id="hero"
-          ref={heroRef}
-          className="section-snap bg-gradient-to-br from-nord-6 to-nord-8/15 dark:from-nord-0 dark:to-nord-3"
-        >
-          <div className="section-content">
-            <Hero />
-          </div>
-        </section>
-
-        <section
-          id="experience"
-          ref={experienceRef}
-          className="section-snap bg-nord-5 dark:bg-nord-1"
-        >
-          <div className="section-content">
-            <Experience />
-          </div>
-        </section>
-
-        <section id="projects" ref={projectsRef} className="section-snap bg-nord-6 dark:bg-nord-0">
-          <div className="section-content">
-            <Projects />
-          </div>
-        </section>
-
-        <section id="hobbies" ref={hobbiesRef} className="section-snap bg-nord-5 dark:bg-nord-1">
-          <div className="section-content">
-            <Hobbies />
-          </div>
-        </section>
-
-        <section id="skills" ref={skillsRef} className="section-snap bg-nord-6 dark:bg-nord-0">
-          <div className="section-content">
-            <Skills />
-          </div>
-        </section>
-
-        <section
-          id="education"
-          ref={educationRef}
-          className="section-snap bg-nord-5 dark:bg-nord-1"
-        >
-          <div className="section-content">
-            <Education />
-          </div>
-        </section>
-
-        <section
-          id="contact"
-          ref={contactRef}
-          className="section-snap bg-gradient-to-br from-nord-6 to-nord-8/15 dark:from-nord-0 dark:to-nord-2"
-        >
-          <div className="section-content">
-            <Contact />
-          </div>
-          <div className="py-16">
-            {/* Extra padding at the bottom of the last section to ensure footer visibility */}
-          </div>
-        </section>
+        {sections.map((section, index) => {
+          const SectionComponent = section.component;
+          const [ref] = sectionRefs[section.id as keyof typeof sectionRefs];
+          const bgColor =
+            section.bgColor ||
+            (index % 2 === 0 ? 'bg-nord-6 dark:bg-nord-0' : 'bg-nord-5 dark:bg-nord-1');
+          return (
+            <section
+              key={section.id}
+              id={section.id}
+              ref={ref}
+              className={`section-snap ${bgColor}`}
+            >
+              <div className="section-content">
+                <SectionComponent />
+              </div>
+              {section.id === 'contact' && <div className="py-16"></div>}
+            </section>
+          );
+        })}
       </main>
       <Footer />
     </div>

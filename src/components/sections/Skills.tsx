@@ -7,29 +7,39 @@ import SkillBadge from '../ui/SkillBadge';
 
 const categoryColors = {
   All: {
-    selected: 'bg-nord-10 text-white hover:bg-nord-10/20',
+    selected: 'bg-nord-10 text-white hover:bg-nord-9',
     unselected:
       'bg-nord-6 text-nord-3 hover:bg-nord-5 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-3',
   },
   Product: {
-    selected: 'bg-nord-15/10 text-nord-15 dark:bg-nord-15/20 hover:bg-nord-15/20 dark:hover:bg-nord-15/30',
-    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-15/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-15/30',
+    selected:
+      'bg-nord-15/10 text-nord-15 dark:bg-nord-15/20 hover:bg-nord-15/20 dark:hover:bg-nord-15/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-15/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-15/30',
   },
   Fields: {
-    selected: 'bg-nord-7/10 text-nord-7 dark:bg-nord-7/20 hover:bg-nord-7/20 dark:hover:bg-nord-7/30',
-    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-7/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-7/30',
+    selected:
+      'bg-nord-7/10 text-nord-7 dark:bg-nord-7/20 hover:bg-nord-7/20 dark:hover:bg-nord-7/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-7/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-7/30',
   },
   Technical: {
-    selected: 'bg-nord-9/10 text-nord-9 dark:bg-nord-9/20 hover:bg-nord-9/20 dark:hover:bg-nord-9/30',
-    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-9/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-9/30',
+    selected:
+      'bg-nord-9/10 text-nord-9 dark:bg-nord-9/20 hover:bg-nord-9/20 dark:hover:bg-nord-9/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-9/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-9/30',
   },
   Miscellaneous: {
-    selected: 'bg-nord-8/10 text-nord-8 dark:bg-nord-8/20 hover:bg-nord-8/20 dark:hover:bg-nord-8/30',
-    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-8/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-8/30',
+    selected:
+      'bg-nord-8/10 text-nord-8 dark:bg-nord-8/20 hover:bg-nord-8/20 dark:hover:bg-nord-8/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-8/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-8/30',
   },
   Tools: {
-    selected: 'bg-nord-10/10 text-nord-10 dark:bg-nord-10/20 hover:bg-nord-10/20 dark:hover:bg-nord-10/30',
-    unselected: 'bg-nord-6 text-nord-3 hover:bg-nord-10/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-10/30',
+    selected:
+      'bg-nord-10/10 text-nord-10 dark:bg-nord-10/20 hover:bg-nord-10/20 dark:hover:bg-nord-10/30',
+    unselected:
+      'bg-nord-6 text-nord-3 hover:bg-nord-10/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-10/30',
   },
 };
 
@@ -38,6 +48,7 @@ const allCategories = Object.keys(categoryColors);
 const Skills: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isMobile, setIsMobile] = useState(false);
   const [allSkills, setAllSkills] = useState(
     skillsData.flatMap(category =>
       category.skills.map(skill => ({
@@ -46,6 +57,17 @@ const Skills: React.FC = () => {
       }))
     )
   );
+
+  // Detect if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Filter skills based on search query and selected category
   useEffect(() => {
@@ -151,6 +173,7 @@ const Skills: React.FC = () => {
                 <SkillBadge
                   key={skill.name}
                   skill={skill}
+                  isMobile={isMobile}
                   categoryColor={
                     categoryColors[skill.category as keyof typeof categoryColors].selected
                   }

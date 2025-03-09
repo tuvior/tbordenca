@@ -1,22 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import type { Skill, SkillIcon } from '../../data/skillsData';
+import type { Skill } from '../../data/skillsData';
 import { Briefcase } from 'lucide-react';
 
 type SkillBadgeProps = {
   skill: Skill;
+  isMobile: boolean;
   categoryColor: string;
   delay: number;
 };
 
-// Function to get the appropriate icon or logo for a skill
-const buildSkillIcon = (skill: { name: string; icon: SkillIcon }) => {
-  const icon = skill.icon;
-  if (!icon) return <Briefcase size={24} />;
+const buildSkillIcon = (skill: Skill, isMobile: boolean) => {
+  const { icon } = skill;
+  const size = isMobile ? 20 : 24;
+  const sizeClass = isMobile ? 'h-5 w-5' : 'h-6 w-6';
+
+  if (!icon) return <Briefcase size={size} />;
 
   if (icon.type === 'image') {
     return (
-      <div className="flex h-6 w-6 items-center justify-center">
+      <div className={`flex ${sizeClass} items-center justify-center`}>
         <img
           src={typeof icon.value === 'string' ? icon.value : ''}
           alt={`${skill.name} logo`}
@@ -24,13 +27,13 @@ const buildSkillIcon = (skill: { name: string; icon: SkillIcon }) => {
         />
       </div>
     );
-  } else {
-    const IconComponent = icon.value;
-    return <IconComponent size={24} />;
   }
+
+  const IconComponent = icon.value;
+  return <IconComponent size={size} />;
 };
 
-const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, categoryColor, delay }) => {
+const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, isMobile, categoryColor, delay }) => {
   return (
     <motion.div
       key={skill.name}
@@ -42,8 +45,8 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, categoryColor, delay }) 
       whileHover={{ scale: 1.05, transition: { delay: 0.1 } }}
       layout
     >
-      <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center">
-        {buildSkillIcon(skill)}
+      <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center text-sm md:text-base">
+        {buildSkillIcon(skill, isMobile)}
       </div>
 
       <div className="flex flex-col">

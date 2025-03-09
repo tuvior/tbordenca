@@ -1,6 +1,5 @@
 import evooqLogo from '/img/evooq-black.svg?url';
 
-
 export type Experience = {
   company: {
     name: string;
@@ -16,10 +15,11 @@ export type Experience = {
 };
 
 const evooq = {
-  description: 'Evooq is a Swiss fintech company that provides a white-label wealth management platform for banks and asset managers.',
+  description:
+    'Evooq is a Swiss fintech company that provides a white-label wealth management platform for banks and asset managers.',
   logo: evooqLogo,
   website: 'https://www.evooq.ch',
-}
+};
 
 export const experienceData = [
   {
@@ -90,7 +90,8 @@ export const experienceData = [
   {
     company: {
       name: 'Credit Suisse',
-      description: 'Credit Suisse is a Swiss multinational investment bank and financial services company.',
+      description:
+        'Credit Suisse is a Swiss multinational investment bank and financial services company.',
       logo: 'https://cdn.brandfetch.io/id5R0NevJp/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B',
       website: 'https://www.credit-suisse.com',
     },

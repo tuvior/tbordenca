@@ -46,9 +46,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
           <span>{period}</span>
         </div>
 
-        {description && (
-          <p className="mt-3 text-nord-10 dark:text-nord-4">{description}</p>
-        )}
+        {description && <p className="mt-3 text-nord-10 dark:text-nord-4">{description}</p>}
       </div>
     </motion.div>
   );

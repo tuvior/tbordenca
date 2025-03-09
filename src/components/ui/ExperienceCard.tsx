@@ -108,10 +108,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                     >
                       <div className="flex items-center justify-between border-b border-nord-5 p-4 dark:border-nord-3">
                         <h4 className="flex items-center font-semibold">
-                          <Building
-                            size={16}
-                            className="mr-2 text-nord-10 dark:text-nord-9"
-                          />
+                          <Building size={16} className="mr-2 text-nord-10 dark:text-nord-9" />
                           About {experience.company.name}
                         </h4>
                         <button
@@ -153,9 +150,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             )}
           </div>
 
-          <p className="mt-4 text-nord-10 dark:text-nord-4">
-            {experience.description}
-          </p>
+          <p className="mt-4 text-nord-10 dark:text-nord-4">{experience.description}</p>
 
           {/* Mobile Expand Indicator */}
           {isMobile && hasExpandableContent && !isExpanded && (
@@ -186,18 +181,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                 {experience.achievements.length > 0 && (
                   <div className="mb-4">
                     <h4 className="mb-2 flex items-center font-semibold">
-                      <Briefcase
-                        size={18}
-                        className="mr-2 text-nord-10 dark:text-nord-9"
-                      />
+                      <Briefcase size={18} className="mr-2 text-nord-10 dark:text-nord-9" />
                       Key Achievements
                     </h4>
                     <ul className="space-y-2 pl-6">
                       {experience.achievements.map((achievement, i) => (
-                        <li
-                          key={i}
-                          className="list-disc text-nord-3 dark:text-nord-4"
-                        >
+                        <li key={i} className="list-disc text-nord-3 dark:text-nord-4">
                           {achievement}
                         </li>
                       ))}
