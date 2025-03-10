@@ -107,5 +107,5 @@ export const photos: Photo[] = [
     location: 'Death Valley, California, USA',
     date: new Date('2023-07-01'),
     camera: 'Sony A7SIII',
-  }
+  },
 ];

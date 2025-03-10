@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Photo } from '../../data/photographyData';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Calendar, Camera } from 'lucide-react';
 
 type ProjectCardProps = {
   photo: Photo;
@@ -9,6 +10,7 @@ type ProjectCardProps = {
 
 const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isInfoShown, setIsInfoShown] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -22,10 +24,12 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
   }, []);
 
   const handlePhotoClick = (e: React.MouseEvent) => {
-    if (isMobile) return;
-
     e.stopPropagation();
-    setIsModalOpen(true);
+    if (isMobile) {
+      setIsInfoShown(!isInfoShown);
+    } else {
+      setIsModalOpen(true);
+    }
   };
 
   return (
@@ -41,28 +45,17 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
         onClick={handlePhotoClick}
       >
         <img src={photo.url} alt={photo.title} className="w-full object-cover" />
-        {isMobile ? (
-          <AnimatePresence>
-            <motion.div
-              className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-4 text-white"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <div id={`info-${index}`} className="opacity-0 transition-opacity duration-300">
-                <h3 className="text-lg font-bold">{photo.title}</h3>
-                <p className="text-sm">{photo.description}</p>
-                <span className="mt-2 text-xs opacity-75">{photo.category}</span>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        ) : (
-          <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-4 text-white opacity-0 transition-all duration-300 ease-in-out hover:opacity-100">
-            <h3 className="text-lg font-bold">{photo.title}</h3>
-            <p className="text-sm">{photo.description}</p>
-            <span className="mt-2 text-xs opacity-75">{photo.category}</span>
-          </div>
-        )}
+
+        <div
+          className={`absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-4 text-nord-6 ${
+            isMobile && isInfoShown
+              ? 'opacity-100'
+              : 'opacity-0 transition-all duration-300 ease-in-out hover:opacity-100'
+          } `}
+        >
+          <h3 className="text-lg font-bold">{photo.title}</h3>
+          <p className="text-sm">{photo.description}</p>
+        </div>
       </motion.div>
       {isModalOpen && (
         <div
@@ -75,10 +68,24 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
               alt={photo.title}
               className="max-h-[85vh] max-w-[90vw] object-contain"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-black/40 to-black/60 p-4 text-white">
-              <h3 className="text-lg font-bold">{photo.title}</h3>
-              <p className="text-sm">{photo.description}</p>
-              <span className="mt-2 text-xs opacity-75">{photo.category}</span>
+
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-black/70 p-4 pt-16 text-nord-6">
+              <div className="flex items-end justify-between">
+                <div>
+                  <h3 className="text-lg font-bold">{photo.title}</h3>
+                  <p className="text-sm">{photo.description}</p>
+                </div>
+                <div className="flex flex-col items-end gap-1 text-nord-5">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-3 w-3 opacity-75" />
+                    <span className="text-xs opacity-75">{photo.date.toLocaleDateString()}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Camera className="h-3 w-3 opacity-75" />
+                    <span className="text-xs opacity-75">{photo.camera}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
