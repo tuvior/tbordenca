@@ -5,6 +5,7 @@ import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import Experience from './components/sections/Experience';
 import Skills from './components/sections/Skills';
+import Photography from './components/sections/Photography';
 import Projects from './components/sections/Projects';
 import Education from './components/sections/Education';
 import Hobbies from './components/sections/Hobbies';
@@ -18,6 +19,7 @@ const sections = [
   { id: 'experience', label: 'Experience', component: Experience },
   { id: 'projects', label: 'Projects', component: Projects },
   { id: 'hobbies', label: 'Hobbies', component: Hobbies },
+  { id: 'photography', label: 'Photography', component: Photography },
   { id: 'skills', label: 'Skills', component: Skills },
   { id: 'education', label: 'Education', component: Education },
   { id: 'contact', label: 'Contact', component: Contact, bgColor: gradientBg },
@@ -33,6 +35,7 @@ function App() {
   const projects = useInView({ threshold: 0.2, triggerOnce: false });
   const education = useInView({ threshold: 0.2, triggerOnce: false });
   const hobbies = useInView({ threshold: 0.2, triggerOnce: false });
+  const photography = useInView({ threshold: 0.2, triggerOnce: false });
   const contact = useInView({ threshold: 0.2, triggerOnce: false });
 
   const sectionRefs = useMemo(
@@ -43,9 +46,10 @@ function App() {
       projects,
       education,
       hobbies,
+      photography,
       contact,
     }),
-    [hero, experience, skills, projects, education, hobbies, contact]
+    [hero, experience, skills, projects, education, hobbies, photography, contact]
   );
   const sectionInViews = useMemo(
     () =>
