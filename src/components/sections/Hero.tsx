@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <div className="border-6 animate-float-enhanced h-full w-full overflow-hidden rounded-full border-nord-6 shadow-xl dark:border-nord-10">
+        <div className="border-4 animate-float-enhanced h-full w-full overflow-hidden rounded-full border-nord-6 shadow-xl dark:border-nord-10">
           <img
             src={profileData.profileImage}
             alt={`${profileData.name} - ${profileData.title}`}
