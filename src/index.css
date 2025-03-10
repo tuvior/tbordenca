@@ -135,7 +135,6 @@
   /* Enhanced floating animation for profile image */
   .animate-float-enhanced {
     animation: float-enhanced 4s ease-in-out infinite;
-    @apply border-6 border-nord-6 shadow-xl dark:border-nord-10;
   }
 
   @keyframes float-enhanced {

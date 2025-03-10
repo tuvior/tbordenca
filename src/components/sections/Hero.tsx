@@ -12,13 +12,6 @@ const Hero: React.FC = () => {
 
   return (
     <div className="relative mx-auto flex w-full max-w-6xl flex-col-reverse items-center justify-between gap-8 px-4 md:flex-row md:gap-12">
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full bg-nord-8/20 blur-3xl dark:bg-nord-8/10"></div>
-        <div className="absolute bottom-1/3 right-1/4 h-96 w-96 rounded-full bg-nord-14/10 blur-3xl dark:bg-nord-14/5"></div>
-      </div>
-
-      {/* Content */}
       <div className="mt-6 flex-1 text-center md:mt-0 md:text-left">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -103,9 +96,8 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Profile Image */}
       <motion.div
-        className="relative mx-auto h-56 w-56 md:mx-0 md:h-72 md:w-72"
+        className="relative mx-auto h-56 w-56 md:mx-0 md:h-96 md:w-96"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -119,7 +111,6 @@ const Hero: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Scroll indicator - only visible on desktop */}
       <motion.div
         className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 transform md:block"
         initial={{ opacity: 0, y: -20 }}
@@ -132,9 +123,6 @@ const Hero: React.FC = () => {
         }}
       >
         <a href="#experience" className="flex flex-col items-center">
-          {/* <span className="mb-2 text-sm font-medium text-nord-10 dark:text-nord-8">
-            Scroll Down
-          </span> */}
           <div className="pulse-animation rounded-full bg-nord-10 p-2 text-nord-6 shadow-lg transition-all duration-300 hover:bg-nord-9 dark:bg-nord-9 dark:hover:bg-nord-8">
             <ChevronDown size={24} />
           </div>
