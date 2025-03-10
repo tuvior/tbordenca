@@ -34,29 +34,31 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
 
   return (
     <>
-      <motion.div
-        key={photo.title}
-        className="relative cursor-pointer overflow-hidden rounded-lg"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: index * 0.1 }}
-        whileHover={{ y: -2, transition: { delay: 0.1 } }}
-        onClick={handlePhotoClick}
-      >
-        <img src={photo.url} alt={photo.title} className="w-full object-cover" />
-
-        <div
-          className={`absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-4 text-nord-6 ${
-            isMobile && isInfoShown
-              ? 'opacity-100'
-              : 'opacity-0 transition-all duration-300 ease-in-out hover:opacity-100'
-          } `}
+      <AnimatePresence>
+        <motion.div
+          key={photo.title}
+          className="relative cursor-pointer overflow-hidden rounded-lg"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: index * 0.1 }}
+          whileHover={{ y: -2, transition: { delay: 0.1 } }}
+          onClick={handlePhotoClick}
         >
-          <h3 className="text-lg font-bold">{photo.title}</h3>
-          <p className="text-sm">{photo.description}</p>
-        </div>
-      </motion.div>
+          <img src={photo.url} alt={photo.title} className="w-full object-cover" />
+
+          <div
+            className={`absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-4 text-nord-6 ${
+              isMobile && isInfoShown
+                ? 'opacity-100'
+                : 'opacity-0 transition-all duration-300 ease-in-out hover:opacity-100'
+            } `}
+          >
+            <h3 className="text-lg font-bold">{photo.title}</h3>
+            <p className="text-sm">{photo.description}</p>
+          </div>
+        </motion.div>
+      </AnimatePresence>
       {isModalOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"

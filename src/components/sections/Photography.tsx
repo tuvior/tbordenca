@@ -16,7 +16,8 @@ const Photography: React.FC = () => {
       selectedCategory === 'All'
         ? photos
         : photos.filter(photo => photo.category === selectedCategory);
-    setAllPhotos(filteredPhotos);
+    const shuffledPhotos = [...filteredPhotos].sort(() => Math.random() - 0.5);
+    setAllPhotos(shuffledPhotos);
   }, [selectedCategory]);
 
   return (
