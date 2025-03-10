@@ -1,6 +1,19 @@
 import resumeUrl from '/doc/Tobias Bordenca Resume.pdf?url';
 
-export const footerData = {
+export type FooterData = {
+  resume: {
+    fileName: string;
+    url: string;
+  };
+  socialLinks: {
+    linkedin?: string;
+    github?: string;
+    twitter?: string;
+    email?: string;
+  };
+};
+
+export const footerData: FooterData = {
   resume: {
     fileName: 'Tobias_Bordenca_Resume.pdf',
     url: resumeUrl,
@@ -8,7 +21,6 @@ export const footerData = {
   socialLinks: {
     linkedin: 'https://linkedin.com/in/tbordenca',
     github: 'https://github.com/tuvior',
-    twitter: 'https://twitter.com/_tuvior',
     email: 'mailto:bordenca.tobias@gmail.com',
   },
 };
