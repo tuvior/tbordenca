@@ -53,12 +53,21 @@ const Photography: React.FC = () => {
         </div>
       </motion.div>
 
-      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 900: 2, 1000: 3 }}>
-        <Masonry gutter="1.5px">
-          {allPhotos
-            .map((photo, index) => <PhotoEntry key={photo.title} photo={photo} index={index} />)}
-        </Masonry>
-      </ResponsiveMasonry>
+      <div className="relative h-[calc(100vh-30rem)]">
+        <div className="absolute inset-x-0 top-0 z-10 h-8 bg-gradient-to-b from-nord-6 to-transparent dark:from-nord-0" />
+        <div className="h-full overflow-y-auto">
+          <div className="py-5">
+            <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 900: 2, 1000: 3 }}>
+              <Masonry gutter="1.5px">
+                {allPhotos.map((photo, index) => (
+                  <PhotoEntry key={photo.title} photo={photo} index={index} />
+                ))}
+              </Masonry>
+            </ResponsiveMasonry>
+          </div>
+        </div>
+        <div className="absolute inset-x-0 bottom-0 z-10 h-8 bg-gradient-to-t from-nord-6 to-transparent dark:from-nord-0" />
+      </div>
     </div>
   );
 };
