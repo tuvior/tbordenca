@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import SectionTitle from '../ui/SectionTitle';
 import { skillsData } from '../../data/skillsData';
 import { Search, X } from 'lucide-react';

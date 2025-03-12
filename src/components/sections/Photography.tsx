@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import SectionTitle from '../ui/SectionTitle';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { photos } from '../../data/photographyData';
 import PhotoEntry from '../ui/PhotoEntry';
+import LazyLoad from 'react-lazy-load';
 
 const Photography: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -16,8 +17,8 @@ const Photography: React.FC = () => {
       selectedCategory === 'All'
         ? photos
         : photos.filter(photo => photo.category === selectedCategory);
-    const shuffledPhotos = [...filteredPhotos].sort(() => Math.random() - 0.5);
-    setAllPhotos(shuffledPhotos);
+
+    setAllPhotos(filteredPhotos);
   }, [selectedCategory]);
 
   return (
@@ -53,12 +54,12 @@ const Photography: React.FC = () => {
         </div>
       </motion.div>
 
-      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 900: 2, 1000: 3 }}>
         <Masonry gutter="1.5px">
           {allPhotos.map((photo, index) => (
-            <AnimatePresence>
+            <LazyLoad key={index}>
               <PhotoEntry key={photo.title} photo={photo} index={index} />
-            </AnimatePresence>
+            </LazyLoad>
           ))}
         </Masonry>
       </ResponsiveMasonry>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { TypeAnimation } from 'react-type-animation';
 import { ChevronDown, Globe } from 'lucide-react';
 import { profileData } from '../../data/profileData';

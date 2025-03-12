@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import SectionTitle from '../ui/SectionTitle';
 import { Mail } from 'lucide-react';
 import { contactData } from '../../data/contactData';
