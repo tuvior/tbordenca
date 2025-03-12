@@ -28,7 +28,7 @@ const Photography: React.FC = () => {
       />
 
       <motion.div
-        className="mb-8"
+        className="mb-1"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
@@ -53,10 +53,10 @@ const Photography: React.FC = () => {
         </div>
       </motion.div>
 
-      <div className="relative h-[calc(100vh-30rem)]">
+      <div className="relative h-[calc(100vh-23rem)]">
         <div className="absolute inset-x-0 top-0 z-10 h-8 bg-gradient-to-b from-nord-6 to-transparent dark:from-nord-0" />
         <div className="h-full overflow-y-auto">
-          <div className="py-5">
+          <div className="py-8">
             <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 900: 2, 1000: 3 }}>
               <Masonry gutter="1.5px">
                 {allPhotos.map((photo, index) => (

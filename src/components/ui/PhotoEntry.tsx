@@ -79,7 +79,7 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
         </motion.div>
         {isModalOpen && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-nord-0/95"
             onClick={() => setIsModalOpen(false)}
           >
             <div className="relative max-h-[90vh] max-w-[90vw]">
