@@ -4,7 +4,6 @@ import SectionTitle from '../ui/SectionTitle';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { photos } from '../../data/photographyData';
 import PhotoEntry from '../ui/PhotoEntry';
-import LazyLoad from 'react-lazy-load';
 
 const Photography: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -56,11 +55,8 @@ const Photography: React.FC = () => {
 
       <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 900: 2, 1000: 3 }}>
         <Masonry gutter="1.5px">
-          {allPhotos.map((photo, index) => (
-            <LazyLoad key={index}>
-              <PhotoEntry key={photo.title} photo={photo} index={index} />
-            </LazyLoad>
-          ))}
+          {allPhotos
+            .map((photo, index) => <PhotoEntry key={photo.title} photo={photo} index={index} />)}
         </Masonry>
       </ResponsiveMasonry>
     </div>
