@@ -24,7 +24,7 @@ const HobbyCard: React.FC<HobbyCardProps> = ({ hobby, handleClick, isSelected, i
         onClick={handleClick}
       >
         {/* Background Image */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70">
+        <div className="absolute inset-0">
           <img
             src={hobby.background}
             alt={hobby.title}
@@ -33,14 +33,12 @@ const HobbyCard: React.FC<HobbyCardProps> = ({ hobby, handleClick, isSelected, i
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-nord-10/80 backdrop-blur-sm">
-            {React.createElement(hobby.icon, {
-              size: 32,
-            })}
+        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
+          <div className="absolute left-6 top-6 flex h-14 w-14 items-center justify-center rounded-full bg-nord-10/80 backdrop-blur-sm">
+            {React.createElement(hobby.icon, { size: 32 })}
           </div>
-          <h3 className="mb-2 text-2xl font-bold drop-shadow-lg">{hobby.title}</h3>
-          <p className="text-white/90  drop-shadow-lg">{hobby.description}</p>
+          <h3 className="mb-2 text-xl font-bold text-nord-4 drop-shadow-lg">{hobby.title}</h3>
+          <p className="text-base text-nord-6/85 drop-shadow-lg">{hobby.description}</p>
         </div>
       </motion.div>
     </div>
