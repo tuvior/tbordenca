@@ -1,6 +1,21 @@
 import imageUrl from '/img/profile-c.jpg?url';
 
-export const profileData = {
+export type Language = {
+  name: string;
+  level: string;
+  proficiency: number;
+};
+
+export type ProfileData = {
+  name: string;
+  title: string;
+  roles: string[];
+  description: string;
+  profileImage: string;
+  languages: Language[];
+};
+
+export const profileData: ProfileData = {
   name: 'Tobias Bordenca',
   title: 'Product Manager',
   roles: ['Product Manager', 'UX Enthusiast', 'Leader', 'Architect'],
