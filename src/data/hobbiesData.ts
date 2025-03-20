@@ -13,7 +13,7 @@ export const hobbiesData = [
     title: 'Weightlifting',
     icon: Dumbbell,
     description:
-      'Strength training and powerlifting to build muscle mass and improve overall fitness.',
+      'Strength training and powerlifting, especially focusing on the main compound lifts.',
     background:
       'https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
@@ -21,35 +21,35 @@ export const hobbiesData = [
     title: 'Cycling',
     icon: Bike,
     description:
-      'Weekend rides exploring scenic routes and participating in charity cycling events.',
+      'Zwifting in the winter and outdoor road cycling in the summer, exploring the idea of getting back into mountain biking.',
     background:
       'https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
   },
   {
     title: 'Rock Climbing',
     icon: Mountain,
-    description: 'Indoor bouldering and outdoor climbing trips to national parks.',
+    description: 'Indoor rock climbing and bouldering, with plans to try outdoor climbing.',
     background:
       'https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=2144&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     title: 'Cooking',
     icon: ChefHat,
-    description: 'Experimenting with international cuisines and hosting dinner parties.',
+    description: 'Experimenting with new recipes and cooking techniques and exploring ethnic cuisines.',
     background:
       'https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?q=80&w=2078&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     title: 'Baking',
     icon: CakeSlice,
-    description: 'Creating artisanal breads, pastries, and desserts from scratch.',
+    description: 'Baking cakes, cookies, and pastries, with a focus on techniques.',
     background:
       'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     title: 'Reading',
     icon: BookOpen,
-    description: 'Business innovation books, science fiction, and biographies of tech pioneers.',
+    description: 'A good balance between non-fiction to stimulate the mind, and non-fiction to feed creativity.',
     background:
       'https://images.unsplash.com/photo-1513001900722-370f803f498d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
   },
