@@ -17,6 +17,11 @@ type ThemeProviderProps = {
   children: ReactNode;
 };
 
+const updateThemeColor = (theme: string) => {
+  const themeColor = theme === 'dark' ? '#2E3440' : '#ECEFF4';
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', themeColor);
+};
+
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // Check if user has a theme preference in localStorage or prefers dark mode
   const [theme, setTheme] = useState(() => {
@@ -36,6 +41,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // Update theme in localStorage and document when theme changes
   useEffect(() => {
     localStorage.setItem('theme', theme);
+    updateThemeColor(theme);
 
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
