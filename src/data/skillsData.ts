@@ -96,7 +96,7 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
       },
       {
         name: 'JavaScript',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/logo-javascript.svg' },
+        icon: { type: 'image', value: 'https://www.svgrepo.com/show/303206/javascript-logo.svg' },
       },
       {
         name: 'TypeScript',
