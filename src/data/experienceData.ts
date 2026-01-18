@@ -15,6 +15,7 @@ export type Experience = {
 };
 
 const evooq = {
+  name: 'Evooq',
   description:
     'Evooq is a Swiss fintech company that provides a white-label wealth management platform for banks and asset managers.',
   logo: evooqLogo,
@@ -23,12 +24,7 @@ const evooq = {
 
 export const experienceData = [
   {
-    company: {
-      name: 'Evooq',
-      description: evooq.description,
-      logo: evooq.logo,
-      website: evooq.website,
-    },
+    company: evooq,
     role: 'Product Manager',
     period: 'Jul 2023 - Jul 2025',
     description:
@@ -41,12 +37,7 @@ export const experienceData = [
     relatedProjects: ['Wealth Management Application', 'Life Insurance Portfolio Management'],
   },
   {
-    company: {
-      name: 'Evooq',
-      description: evooq.description,
-      logo: evooq.logo,
-      website: evooq.website,
-    },
+    company: evooq,
     role: 'Product Owner',
     period: 'Oct 2022 - Jan 2025',
     description:
@@ -58,12 +49,7 @@ export const experienceData = [
     relatedProjects: ['Market Signal Application', 'Model Portfolio Management'],
   },
   {
-    company: {
-      name: 'Evooq',
-      description: evooq.description,
-      logo: evooq.logo,
-      website: evooq.website,
-    },
+    company: evooq,
     role: 'Software Engineer',
     period: 'Aug 2019 - Oct 2022',
     description:
@@ -74,12 +60,7 @@ export const experienceData = [
     relatedProjects: ['Financial Product Recommender', 'Portfolio Optimizer'],
   },
   {
-    company: {
-      name: 'Evooq',
-      description: evooq.description,
-      logo: evooq.logo,
-      website: evooq.website,
-    },
+    company: evooq,
     role: 'Machine Learning Intern',
     period: 'Feb 2019 - Aug 2019',
     description:

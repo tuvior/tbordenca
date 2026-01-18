@@ -10,6 +10,9 @@ const Hobbies: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const dragDistanceRef = useRef(0);
+  const suppressClickRef = useRef(false);
+  const dragThreshold = 8;
   const carouselRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -43,6 +46,9 @@ const Hobbies: React.FC = () => {
 
   // Reset auto-play when active index changes
   useEffect(() => {
+    if (isDragging) {
+      return;
+    }
     if (autoPlayRef.current) {
       clearInterval(autoPlayRef.current);
     }
@@ -68,7 +74,7 @@ const Hobbies: React.FC = () => {
         clearInterval(autoPlayRef.current);
       }
     };
-  }, [activeIndex, isMobile]);
+  }, [activeIndex, isMobile, isDragging]);
 
   const handlePrev = () => {
     setActiveIndex(prevIndex => (prevIndex - 1 + hobbiesData.length) % hobbiesData.length);
@@ -79,12 +85,16 @@ const Hobbies: React.FC = () => {
   };
 
   const handleDotClick = (index: number) => {
+    if (suppressClickRef.current || isDragging) {
+      return;
+    }
     setActiveIndex(index);
   };
 
   // Mouse drag handlers for desktop
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
+    dragDistanceRef.current = 0;
     setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0));
     setScrollLeft(carouselRef.current?.scrollLeft || 0);
   };
@@ -94,6 +104,7 @@ const Hobbies: React.FC = () => {
     e.preventDefault();
     const x = e.pageX - (carouselRef.current?.offsetLeft || 0);
     const walk = (x - startX) * 2;
+    dragDistanceRef.current = Math.max(dragDistanceRef.current, Math.abs(walk));
     if (carouselRef.current) {
       carouselRef.current.scrollLeft = scrollLeft - walk;
     }
@@ -101,6 +112,12 @@ const Hobbies: React.FC = () => {
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    if (dragDistanceRef.current > dragThreshold) {
+      suppressClickRef.current = true;
+      setTimeout(() => {
+        suppressClickRef.current = false;
+      }, 0);
+    }
     if (carouselRef.current) {
       const cardWidth = isMobile
         ? carouselRef.current.offsetWidth
@@ -114,6 +131,7 @@ const Hobbies: React.FC = () => {
   // Touch handlers for mobile
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsDragging(true);
+    dragDistanceRef.current = 0;
     setStartX(e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0));
     setScrollLeft(carouselRef.current?.scrollLeft || 0);
   };
@@ -122,6 +140,7 @@ const Hobbies: React.FC = () => {
     if (!isDragging) return;
     const x = e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0);
     const walk = (x - startX) * 2;
+    dragDistanceRef.current = Math.max(dragDistanceRef.current, Math.abs(walk));
     if (carouselRef.current) {
       carouselRef.current.scrollLeft = scrollLeft - walk;
     }
@@ -129,6 +148,12 @@ const Hobbies: React.FC = () => {
 
   const handleTouchEnd = () => {
     setIsDragging(false);
+    if (dragDistanceRef.current > dragThreshold) {
+      suppressClickRef.current = true;
+      setTimeout(() => {
+        suppressClickRef.current = false;
+      }, 0);
+    }
     if (carouselRef.current) {
       const cardWidth = isMobile
         ? carouselRef.current.offsetWidth
@@ -167,7 +192,7 @@ const Hobbies: React.FC = () => {
         {/* Carousel Container */}
         <div
           ref={carouselRef}
-          className="overflow-hidden"
+          className={`overflow-x-auto overflow-y-hidden ${isDragging ? 'snap-none' : 'snap-x snap-mandatory'}`}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -177,7 +202,7 @@ const Hobbies: React.FC = () => {
           onTouchEnd={handleTouchEnd}
           style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
         >
-          <div className="flex snap-x snap-mandatory transition-transform duration-500">
+          <div className="flex">
             {hobbiesData.map((hobby, index) => (
               <HobbyCard
                 key={index}
