@@ -30,7 +30,7 @@ export const experienceData = [
       website: evooq.website,
     },
     role: 'Product Manager',
-    period: 'Jul 2023 - Present',
+    period: 'Jul 2023 - Jul 2025',
     description:
       'Led in-depth discovery and research of how to expand the scope of Evooq’s Wealth Management application to cover discretionary use cases at scale, opening up a new market segment.',
     achievements: [

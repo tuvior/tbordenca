@@ -7,7 +7,11 @@ type SkillBadgeProps = {
   skill: Skill;
   isMobile: boolean;
   categoryColor: string;
-  delay: number;
+};
+
+const badgeVariants = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.25 } },
 };
 
 const buildSkillIcon = (skill: Skill, isMobile: boolean) => {
@@ -33,17 +37,13 @@ const buildSkillIcon = (skill: Skill, isMobile: boolean) => {
   return <IconComponent size={size} />;
 };
 
-const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, isMobile, categoryColor, delay }) => {
+const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, isMobile, categoryColor }) => {
   return (
     <motion.div
       key={skill.name}
       className={`flex items-center gap-3 rounded-lg p-3 shadow-md transition-colors duration-300 ${categoryColor}`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ duration: 0.3, delay: delay }}
+      variants={badgeVariants}
       whileHover={{ scale: 1.05, transition: { delay: 0.1 } }}
-      layout
     >
       <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center text-sm md:text-base">
         {buildSkillIcon(skill, isMobile)}

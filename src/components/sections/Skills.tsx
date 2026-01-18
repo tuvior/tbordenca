@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useInView } from 'react-intersection-observer';
 import SectionTitle from '../ui/SectionTitle';
 import { skillsData } from '../../data/skillsData';
 import { Search, X } from 'lucide-react';
@@ -44,6 +45,13 @@ const categoryColors = {
 };
 
 const allCategories = Object.keys(categoryColors);
+const gridVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.04 },
+  },
+};
 
 const Skills: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -57,6 +65,7 @@ const Skills: React.FC = () => {
       }))
     )
   );
+  const [gridRef, gridInView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   // Detect if device is mobile
   useEffect(() => {
@@ -104,7 +113,7 @@ const Skills: React.FC = () => {
         className="mb-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5 }}
       >
         <div className="flex flex-col gap-4 md:flex-row">
@@ -166,10 +175,16 @@ const Skills: React.FC = () => {
             </p>
           </motion.div>
         ) : (
-          <motion.div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4" layout>
+          <motion.div
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
+            variants={gridVariants}
+            initial="hidden"
+            animate={gridInView ? 'show' : 'hidden'}
+            ref={gridRef}
+          >
             {allSkills
               // .sort((a, b) => a.name.localeCompare(b.name))
-              .map((skill, index) => (
+              .map(skill => (
                 <SkillBadge
                   key={skill.name}
                   skill={skill}
@@ -177,7 +192,6 @@ const Skills: React.FC = () => {
                   categoryColor={
                     categoryColors[skill.category as keyof typeof categoryColors].selected
                   }
-                  delay={index * 0.02}
                 />
               ))}
           </motion.div>

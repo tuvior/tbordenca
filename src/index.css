@@ -171,6 +171,17 @@
     }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float-enhanced,
+    .pulse-animation {
+      animation: none !important;
+    }
+
+    .snap-container {
+      scroll-behavior: auto;
+    }
+  }
+
   /* Horizontal snap scrolling for carousels */
   .snap-x {
     scroll-snap-type: x mandatory;

@@ -13,7 +13,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle }) => {
         className="relative inline-block"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
+        viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.5 }}
       >
         <h2 className="gradient-text relative z-10 text-3xl font-bold md:text-4xl">{title}</h2>
@@ -27,7 +27,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle }) => {
           className="mx-auto mt-6 max-w-2xl text-nord-3 dark:text-nord-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {subtitle}
