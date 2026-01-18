@@ -112,7 +112,7 @@
 
   .section-snap {
     scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-stop: normal;
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -126,8 +126,7 @@
   }
 
   .section-content {
-    width: 100%;
-    max-width: 6xl;
+    @apply w-full max-w-6xl;
     padding: 6rem 1rem 2rem; /* Increased top padding to account for fixed header */
     margin: 0 auto;
   }

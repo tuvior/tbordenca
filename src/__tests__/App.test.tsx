@@ -12,9 +12,8 @@ mockIntersectionObserver.mockReturnValue({
 window.IntersectionObserver = mockIntersectionObserver;
 
 // Mock the context
-vi.mock('../context/ThemeContext', () => ({
+vi.mock('../context/ThemeContextBase', () => ({
   useTheme: () => ({ theme: 'light', toggleTheme: vi.fn() }),
-  ThemeProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
 describe('App Component', () => {

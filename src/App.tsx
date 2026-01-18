@@ -1,6 +1,6 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { useTheme } from './context/ThemeContext';
+import { useTheme } from './context/ThemeContextBase';
 import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import Experience from './components/sections/Experience';
@@ -28,15 +28,24 @@ const sections = [
 function App() {
   const { theme } = useTheme();
   const [activeSection, setActiveSection] = useState('hero');
+  const mainRef = useRef<HTMLElement | null>(null);
 
-  const hero = useInView({ threshold: 0.2, triggerOnce: false });
-  const experience = useInView({ threshold: 0.2, triggerOnce: false });
-  const skills = useInView({ threshold: 0.2, triggerOnce: false });
-  const projects = useInView({ threshold: 0.2, triggerOnce: false });
-  const education = useInView({ threshold: 0.2, triggerOnce: false });
-  const hobbies = useInView({ threshold: 0.2, triggerOnce: false });
-  const photography = useInView({ threshold: 0.2, triggerOnce: false });
-  const contact = useInView({ threshold: 0.2, triggerOnce: false });
+  const observerOptions = useMemo(
+    () => ({
+      threshold: [0, 0.25, 0.5, 0.75, 1],
+      triggerOnce: false,
+    }),
+    []
+  );
+
+  const hero = useInView(observerOptions);
+  const experience = useInView(observerOptions);
+  const skills = useInView(observerOptions);
+  const projects = useInView(observerOptions);
+  const education = useInView(observerOptions);
+  const hobbies = useInView(observerOptions);
+  const photography = useInView(observerOptions);
+  const contact = useInView(observerOptions);
 
   const sectionRefs = useMemo(
     () => ({
@@ -51,38 +60,32 @@ function App() {
     }),
     [hero, experience, skills, projects, education, hobbies, photography, contact]
   );
-  const sectionInViews = useMemo(
+  const sectionVisibility = useMemo(
     () =>
       sections.map(section => ({
         id: section.id,
-        inView: sectionRefs[section.id as keyof typeof sectionRefs][1],
+        ratio: sectionRefs[section.id as keyof typeof sectionRefs][2]?.intersectionRatio ?? 0,
       })),
     [sectionRefs]
   );
 
   useEffect(() => {
-    const visibleSection = sectionInViews.find(section => section.inView);
-    if (visibleSection) {
-      setActiveSection(visibleSection.id);
+    if (sectionVisibility.length === 0) {
+      return;
     }
-  }, [sectionInViews]);
-
-  useEffect(() => {
-    const currentSectionIndex = sections.findIndex(section => section.id === activeSection);
-
-    sections.forEach((section, index) => {
-      const element = document.getElementById(section.id);
-      if (element) {
-        element.style.scrollSnapAlign =
-          index === currentSectionIndex && index > 0 ? 'none' : 'start';
-      }
-    });
-  }, [activeSection]);
+    const mostVisible = sectionVisibility.reduce(
+      (best, current) => (current.ratio > best.ratio ? current : best),
+      sectionVisibility[0]
+    );
+    if (mostVisible && mostVisible.id !== activeSection) {
+      setActiveSection(mostVisible.id);
+    }
+  }, [sectionVisibility, activeSection]);
 
   return (
     <div className={`${theme} flex h-screen flex-col overflow-hidden`}>
-      <Header sections={sections} activeSection={activeSection} />
-      <main className="snap-container flex-grow overflow-y-auto">
+      <Header sections={sections} activeSection={activeSection} scrollContainerRef={mainRef} />
+      <main ref={mainRef} className="snap-container flex-grow overflow-y-auto">
         {sections.map((section, index) => {
           const SectionComponent = section.component;
           const [ref] = sectionRefs[section.id as keyof typeof sectionRefs];

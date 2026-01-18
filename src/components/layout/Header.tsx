@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '../../context/ThemeContextBase';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 
 type HeaderProps = {
   sections: { id: string; label: string }[];
   activeSection: string;
+  scrollContainerRef?: React.RefObject<HTMLElement>;
 };
 
-const Header: React.FC<HeaderProps> = ({ sections, activeSection }) => {
+const Header: React.FC<HeaderProps> = ({ sections, activeSection, scrollContainerRef }) => {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll event to change header appearance
   useEffect(() => {
+    const container = scrollContainerRef?.current;
+    const target: HTMLElement | Window = container ?? window;
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      const scrollTop = container ? container.scrollTop : window.scrollY;
+      setScrolled(scrollTop > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    handleScroll();
+    target.addEventListener('scroll', handleScroll, { passive: true });
+    return () => target.removeEventListener('scroll', handleScroll);
+  }, [scrollContainerRef]);
 
   // Close mobile menu when clicking a navigation link
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
