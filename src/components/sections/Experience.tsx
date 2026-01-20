@@ -52,48 +52,53 @@ const Experience: React.FC = () => {
         subtitle="My journey through product management roles and the impact I've made along the way."
       />
 
-      <div className="space-y-6">
-        {experienceData.map((experience, index) => (
-          <ExperienceCard
-            key={index}
-            experience={experience}
-            index={index}
-            totalCards={experienceData.length}
-            isExpanded={expandedCards.has(index)}
-            isMobile={isMobile}
-            showCompanyInfo={showCompanyInfo === index}
-            onCardClick={() => {
-              if (isMobile) {
-                setExpandedCards(prev => {
-                  const newExpandedCards = new Set(prev);
-                  if (newExpandedCards.has(index)) {
-                    newExpandedCards.delete(index);
-                  } else {
-                    newExpandedCards.add(index);
-                  }
-                  return newExpandedCards;
-                });
-              }
-            }}
-            onMouseEnter={() => {
-              if (!isMobile) {
-                setExpandedCards(new Set([index]));
-              }
-            }}
-            onMouseLeave={() => {
-              if (!isMobile) {
-                setExpandedCards(new Set());
-              }
-            }}
-            onCompanyInfoToggle={(e: React.MouseEvent) => {
-              e.stopPropagation();
-              setShowCompanyInfo(showCompanyInfo === index ? null : index);
-            }}
-            companyInfoRef={el => (companyInfoRefs.current[index] = el)}
-            infoButtonRef={el => (infoButtonRefs.current[index] = el)}
-            cardRef={el => (cardRefs.current[index] = el)}
-          />
-        ))}
+      <div className="relative">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-5 top-6 h-[calc(100%-3rem)] w-px bg-gradient-to-b from-nord-10 via-nord-14 to-nord-15 dark:from-nord-7 dark:via-nord-9 dark:to-nord-10 md:left-1/2 md:-translate-x-1/2"
+        />
+        <div className="space-y-12 md:space-y-0">
+          {experienceData.map((experience, index) => (
+            <ExperienceCard
+              key={index}
+              experience={experience}
+              index={index}
+              isExpanded={expandedCards.has(index)}
+              isMobile={isMobile}
+              showCompanyInfo={showCompanyInfo === index}
+              onCardClick={() => {
+                if (isMobile) {
+                  setExpandedCards(prev => {
+                    const newExpandedCards = new Set(prev);
+                    if (newExpandedCards.has(index)) {
+                      newExpandedCards.delete(index);
+                    } else {
+                      newExpandedCards.add(index);
+                    }
+                    return newExpandedCards;
+                  });
+                }
+              }}
+              onMouseEnter={() => {
+                if (!isMobile) {
+                  setExpandedCards(new Set([index]));
+                }
+              }}
+              onMouseLeave={() => {
+                if (!isMobile) {
+                  setExpandedCards(new Set());
+                }
+              }}
+              onCompanyInfoToggle={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                setShowCompanyInfo(showCompanyInfo === index ? null : index);
+              }}
+              companyInfoRef={el => (companyInfoRefs.current[index] = el)}
+              infoButtonRef={el => (infoButtonRefs.current[index] = el)}
+              cardRef={el => (cardRefs.current[index] = el)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
