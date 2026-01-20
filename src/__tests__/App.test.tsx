@@ -1,15 +1,17 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import App from '../App';
 
-// Mock the intersection observer
-const mockIntersectionObserver = vi.fn();
-mockIntersectionObserver.mockReturnValue({
-  observe: () => null,
-  unobserve: () => null,
-  disconnect: () => null,
-});
-window.IntersectionObserver = mockIntersectionObserver;
+vi.mock('react-responsive-masonry', () => ({
+  __esModule: true,
+  default: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="masonry">{children}</div>
+  ),
+  ResponsiveMasonry: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="responsive-masonry">{children}</div>
+  ),
+}));
 
 // Mock the context
 vi.mock('../context/ThemeContextBase', () => ({
@@ -18,23 +20,32 @@ vi.mock('../context/ThemeContextBase', () => ({
 
 describe('App Component', () => {
   it('renders without crashing', () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
     expect(screen.getByText(/Tobias Bordenca/i)).toBeInTheDocument();
   });
 
   it('displays the navigation menu', () => {
-    render(<App />);
-    expect(screen.getByText(/Home/i)).toBeInTheDocument();
-    expect(screen.getByText(/Experience/i)).toBeInTheDocument();
-    expect(screen.getByText(/Skills/i)).toBeInTheDocument();
-    expect(screen.getByText(/Projects/i)).toBeInTheDocument();
-    expect(screen.getByText(/Education/i)).toBeInTheDocument();
-    expect(screen.getByText(/Hobbies/i)).toBeInTheDocument();
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getByRole('link', { name: /^Home$/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Resume$/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Projects$/i })).toBeInTheDocument();
   });
 
   it('renders the hero section', () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
     expect(screen.getByText(/Tobias Bordenca/i)).toBeInTheDocument();
-    expect(screen.getByText(/View Experience/i)).toBeInTheDocument();
+    expect(screen.getByText(/View Resume/i)).toBeInTheDocument();
   });
 });

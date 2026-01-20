@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { TypeAnimation } from 'react-type-animation';
-import { ChevronDown, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { profileData } from '../../data/profileData';
-import LanguagesCard from '../ui/LanguagesCard';
 
 const Hero: React.FC = () => {
   // Create the sequence for TypeAnimation
@@ -55,15 +54,14 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <a href="#experience" className="btn btn-primary">
-            View Experience
-          </a>
-          <a href="#projects" className="btn btn-secondary">
+          <Link to="/resume" className="btn btn-primary">
+            View Resume
+          </Link>
+          <Link to="/projects" className="btn btn-secondary">
             See Projects
-          </a>
+          </Link>
         </motion.div>
 
-        <LanguagesCard languages={profileData.languages} />
       </div>
 
       <motion.div
@@ -81,23 +79,6 @@ const Hero: React.FC = () => {
         </div>
       </motion.div>
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 transform md:block"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 1,
-          delay: 2,
-          repeat: Infinity,
-          repeatType: 'reverse',
-        }}
-      >
-        <a href="#experience" className="flex flex-col items-center">
-          <div className="pulse-animation rounded-full bg-nord-10 p-2 text-nord-6 shadow-lg transition-all duration-300 hover:bg-nord-9 dark:bg-nord-9 dark:hover:bg-nord-8">
-            <ChevronDown size={24} />
-          </div>
-        </a>
-      </motion.div>
     </div>
   );
 };

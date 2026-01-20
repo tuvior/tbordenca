@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ExternalLink, X } from 'lucide-react';
+import { Briefcase, Code2, ExternalLink, X } from 'lucide-react';
 
 type ProjectCardProps = {
   title: string;
@@ -9,6 +9,7 @@ type ProjectCardProps = {
   tags: string[];
   link?: string;
   details?: string;
+  type?: 'product' | 'development';
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -18,9 +19,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   tags,
   link,
   details,
+  type,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const typeMeta =
+    type === 'product'
+      ? { label: 'Product', Icon: Briefcase }
+      : type === 'development'
+        ? { label: 'Development', Icon: Code2 }
+        : null;
 
   useEffect(() => {
     const checkMobile = () => {
@@ -66,7 +74,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
 
         <div className={`flex-grow p-6 ${isMobile ? 'cursor-pointer' : ''}`}>
-          <h3 className="mb-2 text-xl font-bold">{title}</h3>
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <h3 className="text-xl font-bold">{title}</h3>
+            {typeMeta && (
+              <span className="inline-flex items-center gap-2 rounded-full bg-nord-6 px-3 py-1 text-xs font-medium text-nord-1 dark:bg-nord-0/30 dark:text-nord-4">
+                <typeMeta.Icon size={14} />
+                {typeMeta.label}
+              </span>
+            )}
+          </div>
           <p className="mb-4 text-nord-10 dark:text-secondary-400">{description}</p>
 
           <div className="mb-4 flex flex-wrap gap-2">
@@ -116,7 +132,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             onClick={e => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-nord-5 p-6 dark:border-nord-3">
-              <h3 className="text-2xl font-bold">{title}</h3>
+              <div className="flex items-center gap-3">
+                <h3 className="text-2xl font-bold">{title}</h3>
+                {typeMeta && (
+                  <span className="inline-flex items-center gap-2 rounded-full bg-nord-6 px-3 py-1 text-xs font-medium text-nord-1 dark:bg-nord-0/30 dark:text-nord-4">
+                    <typeMeta.Icon size={14} />
+                    {typeMeta.label}
+                  </span>
+                )}
+              </div>
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="rounded-full p-2 text-nord-9 hover:bg-nord-6 hover:text-nord-3 dark:text-secondary-400 dark:hover:bg-nord-3 dark:hover:text-nord-5"

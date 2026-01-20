@@ -1,46 +1,35 @@
 import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContextBase';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 
-type HeaderProps = {
-  sections: { id: string; label: string }[];
-  activeSection: string;
-  scrollContainerRef?: React.RefObject<HTMLElement>;
-};
+const navItems = [
+  { label: 'Home', to: '/' },
+  { label: 'Resume', to: '/resume' },
+  { label: 'Projects', to: '/projects' },
+];
 
-const Header: React.FC<HeaderProps> = ({ sections, activeSection, scrollContainerRef }) => {
+const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll event to change header appearance
   useEffect(() => {
-    const container = scrollContainerRef?.current;
-    const target: HTMLElement | Window = container ?? window;
     const handleScroll = () => {
-      const scrollTop = container ? container.scrollTop : window.scrollY;
-      setScrolled(scrollTop > 50);
+      setScrolled(window.scrollY > 50);
     };
 
     handleScroll();
-    target.addEventListener('scroll', handleScroll, { passive: true });
-    return () => target.removeEventListener('scroll', handleScroll);
-  }, [scrollContainerRef]);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  // Close mobile menu when clicking a navigation link
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
+  const handleNavClick = () => {
     setIsMenuOpen(false);
-
-    // Smooth scroll to section
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
-  // Determine if if activeSection has an even index
-  const isDarkBackground = sections.findIndex(section => section.id === activeSection) % 2 === 0;
+  const isDarkBackground = true;
 
   return (
     <header
@@ -55,30 +44,29 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection, scrollContaine
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        <a
-          href="#hero"
-          onClick={e => handleNavClick(e, 'hero')}
-          className="font-display text-xl font-bold text-nord-10 dark:text-nord-8"
-        >
+        <Link to="/" className="font-display text-xl font-bold text-nord-10 dark:text-nord-8">
           tbordenca
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center space-x-8 md:flex">
           <ul className="flex space-x-6">
-            {sections.map(section => (
-              <li key={section.id}>
-                <a
-                  href={`#${section.id}`}
-                  onClick={e => handleNavClick(e, section.id)}
-                  className={`font-medium transition-colors duration-300 ${
-                    activeSection === section.id
-                      ? 'text-nord-10 dark:text-nord-8'
-                      : 'text-nord-3 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8'
-                  }`}
+            {navItems.map(item => (
+              <li key={item.to}>
+                <NavLink
+                  to={item.to}
+                  end={item.to === '/'}
+                  onClick={handleNavClick}
+                  className={({ isActive }) =>
+                    `font-medium transition-colors duration-300 ${
+                      isActive
+                        ? 'text-nord-10 dark:text-nord-8'
+                        : 'text-nord-3 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8'
+                    }`
+                  }
                 >
-                  {section.label}
-                </a>
+                  {item.label}
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -116,19 +104,22 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection, scrollContaine
       {isMenuOpen && (
         <nav className="bg-nord-6/95 shadow-lg backdrop-blur-md dark:bg-nord-0/95 md:hidden">
           <ul className="space-y-4 px-6 py-4">
-            {sections.map(section => (
-              <li key={section.id}>
-                <a
-                  href={`#${section.id}`}
-                  onClick={e => handleNavClick(e, section.id)}
-                  className={`block py-2 font-medium ${
-                    activeSection === section.id
-                      ? 'text-nord-10 dark:text-nord-8'
-                      : 'text-nord-3 dark:text-nord-4'
-                  }`}
+            {navItems.map(item => (
+              <li key={item.to}>
+                <NavLink
+                  to={item.to}
+                  end={item.to === '/'}
+                  onClick={handleNavClick}
+                  className={({ isActive }) =>
+                    `block py-2 font-medium ${
+                      isActive
+                        ? 'text-nord-10 dark:text-nord-8'
+                        : 'text-nord-3 dark:text-nord-4'
+                    }`
+                  }
                 >
-                  {section.label}
-                </a>
+                  {item.label}
+                </NavLink>
               </li>
             ))}
           </ul>

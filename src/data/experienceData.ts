@@ -17,69 +17,101 @@ export type Experience = {
 const evooq = {
   name: 'Evooq',
   description:
-    'Evooq is a Swiss fintech company that provides a white-label wealth management platform for banks and asset managers.',
+    'Evooq is a Swiss fintech company providing a white-label wealth management platform used by private banks and asset managers across Europe and Asia.',
   logo: evooqLogo,
   website: 'https://www.evooq.ch',
 };
 
-export const experienceData = [
+export const experienceData: Experience[] = [
   {
     company: evooq,
     role: 'Product Manager',
-    period: 'Jul 2023 - Jul 2025',
+    period: 'Jul 2023 – Jul 2025',
     description:
-      'Led in-depth discovery and research of how to expand the scope of Evooq’s Wealth Management application to cover discretionary use cases at scale, opening up a new market segment.',
+      'Owned and shaped multiple core modules of Evooq\'s Wealth Management platform, from strategy and discovery to delivery and large-scale adoption by tier-1 banks. Acted as product lead across regulatory, business, and technical dimensions.',
     achievements: [
-      'Led multiple teams in the design and implementation of a major feature, allowing the management of life insurance portfolios in Evooq’s Wealth Management platform, and unlocking the whole French market as a result.',
-      'Maintained multiple product roadmaps, balancing big client requirements with the company’s vision and business goals, ensuring the victory of several RFPs against major competitors.',
-      'Managed the relationship with some key clients, improving communication and ensuring a better product/market fit by having a deeper understanding of their needs.',
+      'Led end-to-end delivery of several platform modules, accompanying products from early conception to large-scale adoption by banks worldwide.',
+      'Overhauled the portfolio optimizer from methodology to UX, simplifying core workflows and driving a significant increase in adoption, contributing ~2M ARR.',
+      'Enabled LLM-supported investment proposal summaries for end clients, reducing proposal finalization time from hours/days to near-instant.',
+      'Unlocked the French market by leading the design and rollout of life insurance portfolio management within the platform.',
+      'Owned the regulatory watch (e.g. LSFin, MiFID II), translating new requirements into concrete platform changes and coordinating execution across product teams.',
+      'Ran a multi-module, multi-team roadmap balancing client demands, technical evolution, and long-term platform quality.',
+      'Supported enterprise sales and RFPs as product and subject-matter expert, contributing to multiple competitive wins.',
     ],
-    relatedProjects: ['Wealth Management Application', 'Life Insurance Portfolio Management'],
+    relatedProjects: [
+      'Wealth Management Platform',
+      'Portfolio Optimizer',
+      'Life Insurance Portfolio Management',
+      'LLM Investment Proposals',
+      'Regulatory Compliance',
+    ],
   },
   {
     company: evooq,
     role: 'Product Owner',
-    period: 'Oct 2022 - Jan 2025',
+    period: 'Nov 2022 – Jan 2025',
     description:
-      'Led the research, design, and implementation of an application allowing CIOs and portfolio managers to follow heavily customizable market and macro signals, and implement them in model portfolios.',
+      'Owned day-to-day product execution for the portfolio simulation page of the Wealth Platform and the Investment Workbench, acting as the bridge between business, clients, and delivery teams.',
     achievements: [
-      'Increased the delivery of features and quality by restructuring the team processes and providing business guidance to developers, nearly doubling the velocities of the development teams.',
-      'Overhauled the portfolio simulation capabilities of Evooq’s Wealth Management platform, improving product coverage, and flexibility of use, thus boosting user adoption by 40%.',
+      'Designed and delivered a market and macro-signal application allowing CIOs and portfolio managers to monitor, customize, and operationalize investment signals.',
+      'Built a data pipeline ingesting technical and macro-economic data, transforming manual, day-long processes into real-time dashboards.',
+      'Managed and prioritized the product backlog, wrote detailed user stories, and validated delivered features to ensure high functional and technical quality.',
+      'Improved delivery efficiency and predictability by refining team processes and clarifying product intent, nearly doubling team velocity.',
+      'Acted as primary product contact for internal stakeholders, sales, and clients, ensuring alignment between delivery and business priorities.',
     ],
-    relatedProjects: ['Market Signal Application', 'Model Portfolio Management'],
+    relatedProjects: [
+      'Investment Workbench',
+      'Market & Macro Signal Application',
+      'Model Portfolio Management',
+    ],
   },
   {
     company: evooq,
     role: 'Software Engineer',
-    period: 'Aug 2019 - Oct 2022',
+    period: 'Jun 2019 – Oct 2022',
     description:
-      "Finalized the design of a recommender system for financial products for wealth management clients and deployed it to production, improving the company's USP and consequently winning many RFPs.",
+      'Worked as a backend-oriented software engineer on core wealth management products, contributing from architecture and prototyping to production support.',
     achievements: [
-      'Implemented a portfolio optimizer in our portfolio management view, going from a technical, mathematical API to a user-friendly interface.',
+      'Designed and implemented a financial product recommender system trained on ~11k client profiles, which evolved from proof of concept into a long-term product differentiator.',
+      'Delivered a user-facing portfolio optimizer by translating complex quantitative and mathematical APIs into intuitive product workflows.',
+      'Owned several services end-to-end, from design and development to deployment, monitoring, and production support.',
+      'Regularly reviewed pull requests, improved code quality and tooling, and contributed to technical documentation.',
+      'Actively supported production operations through troubleshooting, root-cause analysis, and cross-team collaboration.',
     ],
-    relatedProjects: ['Financial Product Recommender', 'Portfolio Optimizer'],
+    relatedProjects: [
+      'Financial Product Recommender',
+      'Portfolio Optimizer',
+      'Wealth Management Backend Services',
+    ],
   },
   {
     company: evooq,
     role: 'Machine Learning Intern',
-    period: 'Feb 2019 - Aug 2019',
+    period: 'Feb 2019 – Jun 2019',
     description:
-      'Researched and built a proof of concept for a recommender system recommending financial products, trained on a dataset of 11k clients.',
-    achievements: [],
+      'Conducted applied machine learning research focused on recommender systems for wealth management use cases.',
+    achievements: [
+      'Researched, trained, and evaluated a recommendation engine for financial products using real client data.',
+      'Delivered a production-ready proof of concept that later became the foundation for a core platform feature.',
+    ],
     relatedProjects: ['Financial Product Recommender'],
   },
   {
     company: {
       name: 'Credit Suisse',
       description:
-        'Credit Suisse is a Swiss multinational investment bank and financial services company.',
+        'Swiss multinational investment bank and financial services company.',
       logo: 'https://cdn.brandfetch.io/id5R0NevJp/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B',
       website: 'https://www.credit-suisse.com',
     },
     role: 'Data Science Intern',
-    period: 'Feb 2018 - Aug 2018',
-    description: '',
-    achievements: [],
+    period: 'Feb 2018 – Aug 2018',
+    description:
+      'Worked on applied data science initiatives within a large banking environment.',
+    achievements: [
+      'Supported data analysis and modeling tasks in a regulated financial context.',
+      'Gained hands-on exposure to large-scale data, enterprise constraints, and banking workflows.',
+    ],
     relatedProjects: [],
   },
 ];

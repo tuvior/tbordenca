@@ -5,7 +5,7 @@ export const educationData = [
     field: 'Computer Science',
     period: '2017 - 2019',
     description:
-      "Focused on product management, entrepreneurship, and technology strategy. Participated in the university's startup incubator program and led a team that won the annual business plan competition.",
+      "Focused on machine learning, artificial intelligence and programming language design. Thesis on building a recommendation system for private banking client using collaborative filtering techniques.",
     logo: 'https://www.epfl.ch/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg',
   },
   {
@@ -14,7 +14,7 @@ export const educationData = [
     field: 'Computer Science',
     period: '2013 - 2016',
     description:
-      'Graduated with honors. Coursework included software engineering, human-computer interaction, and artificial intelligence. Completed a senior project on predictive analytics for e-commerce.',
+      'Coursework included software engineering, human-computer interaction, and artificial intelligence. ',
     logo: 'https://www.epfl.ch/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg',
   },
 ];
