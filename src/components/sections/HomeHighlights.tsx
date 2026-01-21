@@ -22,7 +22,7 @@ const HomeHighlights: React.FC = () => {
             <h3 className="text-lg font-medium">Focus</h3>
           </div>
           <div className="flex flex-wrap gap-2">
-            {profileData.roles.map(role => (
+            {profileData.focus.map(role => (
               <span key={role} className="skill-badge">
                 {role}
               </span>
