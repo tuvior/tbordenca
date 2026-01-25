@@ -4,8 +4,6 @@ import Hobbies from "@/components/sections/Hobbies";
 import HomeHighlights from "@/components/sections/HomeHighlights";
 import PhotographyHighlights from "@/components/sections/PhotographyHighlights";
 
-const gradientBg = "bg-gradient-to-br from-nord-6 to-nord-8/15 dark:from-nord-0 dark:to-nord-3";
-
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "Portfolio highlights, hobbies, and photography from Tobias Bordenca.",
@@ -14,7 +12,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <section className={`${gradientBg} py-16`}>
+      <section className="bg-nord-6 py-16 dark:bg-nord-0">
         <Hero />
       </section>
 

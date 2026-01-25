@@ -53,7 +53,7 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, isMobile, categoryColor 
       variants={badgeVariants}
       whileHover={{ scale: 1.05, transition: { delay: 0.1 } }}
     >
-      <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center text-sm md:text-base">
+      <div className="flex h-6 w-6 shrink-0 items-center justify-center text-sm md:text-base">
         {buildSkillIcon(skill, isMobile)}
       </div>
 

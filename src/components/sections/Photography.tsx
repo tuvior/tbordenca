@@ -43,7 +43,7 @@ const Photography: React.FC = () => {
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   selectedCategory === category
                     ? 'bg-nord-10 text-white hover:bg-nord-9'
-                    : 'bg-nord-6 text-nord-3 hover:bg-nord-5 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-3'
+                    : 'bg-white text-nord-3 hover:bg-nord-5 dark:bg-nord-1 dark:text-nord-4 dark:hover:bg-nord-2'
                 }`}
               >
                 {category}

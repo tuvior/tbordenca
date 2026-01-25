@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FileText, Github, Linkedin, Mail, Sparkles, Twitter } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
+import Card from '../ui/Card';
 import { contactData } from '../../data/contactData';
 import { footerData } from '../../data/footerData';
 import { profileData } from '../../data/profileData';
@@ -15,92 +16,99 @@ const HomeHighlights: React.FC = () => {
       />
 
       <div className="grid gap-6 md:grid-cols-3">
-        <div className="card">
-          <div className="mb-4 flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-nord-7/20 text-nord-10 dark:bg-nord-7/10 dark:text-nord-8">
-              <Sparkles size={18} />
-            </div>
-            <h3 className="text-lg font-medium">Focus</h3>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {profileData.focus.map(role => (
-              <span key={role} className="skill-badge">
-                {role}
-              </span>
-            ))}
-          </div>
-        </div>
+        <Card title="Focus" icon={<Sparkles size={18} />} contentClassName="items-center justify-center">
+          <div className="flex w-full flex-wrap items-center justify-center gap-3">
+            {profileData.focus.map((role, index) => {
+              const tagStyles = [
+                'rotate-1 scale-[0.98]',
+                '-rotate-1 scale-[1.02]',
+                'rotate-0 scale-100',
+                'rotate-2 scale-[1.03]',
+                '-rotate-2 scale-[0.97]',
+                'rotate-0 scale-[1.01]',
+              ];
 
-        <div className="card">
-          <div className="mb-4 flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-nord-7/20 text-nord-10 dark:bg-nord-7/10 dark:text-nord-8">
-              <Mail size={18} />
-            </div>
-            <h3 className="text-lg font-medium">Contact</h3>
+              return (
+                <span
+                  key={role}
+                  className={`inline-flex h-10 items-center rounded-full bg-nord-6/80 px-4 text-sm font-medium leading-none text-nord-1 shadow-sm ring-1 ring-nord-5/40 transition-transform duration-300 hover:-translate-y-0.5 dark:bg-nord-1 dark:text-nord-5 dark:ring-nord-3/60 ${
+                    tagStyles[index % tagStyles.length]
+                  }`}
+                >
+                  {role}
+                </span>
+              );
+            })}
           </div>
-          <p className="mb-4 text-nord-3 dark:text-nord-4">{contactData.message}</p>
-          <a
-            href={`mailto:${contactData.email}`}
-            className="text-base font-medium text-nord-10 hover:underline dark:text-nord-8"
-          >
+        </Card>
+
+        <Card
+          title="Contact"
+          icon={<Mail size={18} />}
+          className="overflow-hidden"
+          contentClassName="items-center justify-center gap-4 text-center"
+          decoration={
+            <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-nord-10/10 blur-2xl dark:bg-nord-9/20" />
+          }
+          footer={
+            <div className="flex items-center justify-end gap-3">
+              {footerData.socialLinks.linkedin && (
+                <a
+                  href={footerData.socialLinks.linkedin}
+                  className="text-nord-3 transition-colors duration-300 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8"
+                  aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin size={18} />
+                </a>
+              )}
+              {footerData.socialLinks.github && (
+                <a
+                  href={footerData.socialLinks.github}
+                  className="text-nord-3 transition-colors duration-300 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8"
+                  aria-label="GitHub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github size={18} />
+                </a>
+              )}
+              {footerData.socialLinks.twitter && (
+                <a
+                  href={footerData.socialLinks.twitter}
+                  className="text-nord-3 transition-colors duration-300 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8"
+                  aria-label="Twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Twitter size={18} />
+                </a>
+              )}
+            </div>
+          }
+        >
+          <p className="text-nord-3 dark:text-nord-4">{contactData.message}</p>
+          <a href={`mailto:${contactData.email}`} className="btn btn-secondary inline-flex items-center">
             {contactData.email}
           </a>
-          <div className="mt-4 flex gap-3">
-            {footerData.socialLinks.linkedin && (
-              <a
-                href={footerData.socialLinks.linkedin}
-                className="text-nord-3 transition-colors duration-300 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8"
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={18} />
-              </a>
-            )}
-            {footerData.socialLinks.github && (
-              <a
-                href={footerData.socialLinks.github}
-                className="text-nord-3 transition-colors duration-300 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8"
-                aria-label="GitHub"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github size={18} />
-              </a>
-            )}
-            {footerData.socialLinks.twitter && (
-              <a
-                href={footerData.socialLinks.twitter}
-                className="text-nord-3 transition-colors duration-300 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8"
-                aria-label="Twitter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Twitter size={18} />
-              </a>
-            )}
-          </div>
-        </div>
+        </Card>
 
-        <div className="card">
-          <div className="mb-4 flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-nord-7/20 text-nord-10 dark:bg-nord-7/10 dark:text-nord-8">
-              <FileText size={18} />
-            </div>
-            <h3 className="text-lg font-medium">Resume</h3>
-          </div>
+        <Card title="Resume" icon={<FileText size={18} />}>
           <p className="mb-6 text-nord-3 dark:text-nord-4">
             Prefer the traditional format? Download the full CV in one click.
           </p>
-          <Link
-            href={footerData.resume.url}
-            className="btn btn-primary inline-flex items-center gap-2"
-            download={footerData.resume.fileName}
-          >
-            Download CV
-            <FileText size={16} />
-          </Link>
-        </div>
+          <div className="flex justify-center">
+            <Link
+              href={footerData.resume.url}
+              className="btn btn-primary inline-flex items-center gap-2"
+              download={footerData.resume.fileName}
+            >
+              Download CV
+              <FileText size={16} />
+            </Link>
+          </div>
+        </Card>
       </div>
     </div>
   );

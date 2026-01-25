@@ -79,7 +79,7 @@
   }
 
   .card {
-    @apply rounded-xl bg-nord-6 p-6 shadow-lg transition-all duration-300 dark:bg-nord-1;
+    @apply rounded-xl bg-white p-6 shadow-lg transition-all duration-300 dark:bg-nord-2;
   }
 
   .btn {
@@ -91,7 +91,7 @@
   }
 
   .btn-secondary {
-    @apply bg-nord-5 text-nord-0 shadow-md hover:bg-nord-4 hover:shadow-lg dark:bg-nord-2 dark:text-nord-6 dark:hover:bg-nord-3;
+    @apply bg-nord-5 text-nord-0 shadow-md hover:bg-nord-4 hover:shadow-lg dark:bg-nord-1 dark:text-nord-6 dark:hover:bg-nord-0;
   }
 
   .skill-badge {
