@@ -168,6 +168,17 @@ const Hobbies: React.FC = () => {
     }
   };
 
+  const handleCarouselKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      handlePrev();
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      handleNext();
+    }
+  };
+
   return (
     <div className="mx-auto w-full max-w-6xl px-4">
       <SectionTitle
@@ -197,6 +208,10 @@ const Hobbies: React.FC = () => {
         <div
           ref={carouselRef}
           className={`overflow-x-auto overflow-y-hidden ${isDragging ? 'snap-none' : 'snap-x snap-mandatory'}`}
+          role="listbox"
+          aria-label="Hobbies carousel"
+          tabIndex={0}
+          onKeyDown={handleCarouselKeyDown}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}

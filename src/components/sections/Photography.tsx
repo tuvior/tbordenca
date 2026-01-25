@@ -54,7 +54,7 @@ const Photography: React.FC = () => {
       </motion.div>
 
       <div className="relative h-[calc(100vh-23rem)]">
-        <div className="from-nord-6 dark:from-nord-0 absolute inset-x-0 top-0 z-10 h-8 bg-gradient-to-b to-transparent" />
+        <div className="from-nord-6 dark:from-nord-0 absolute inset-x-0 top-0 z-10 h-8 bg-linear-to-b to-transparent" />
         <div className="h-full overflow-y-auto">
           <div className="py-8">
             <div className="grid gap-[1.5px] sm:grid-cols-2 lg:grid-cols-3">

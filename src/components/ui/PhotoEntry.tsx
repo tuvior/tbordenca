@@ -29,12 +29,23 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const handlePhotoClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const activatePhoto = () => {
     if (isMobile) {
       setIsInfoShown(!isInfoShown);
     } else {
       setIsModalOpen(true);
+    }
+  };
+
+  const handlePhotoClick = (e: React.SyntheticEvent) => {
+    e.stopPropagation();
+    activatePhoto();
+  };
+
+  const handlePhotoKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handlePhotoClick(e);
     }
   };
 
@@ -49,6 +60,9 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
         transition={{ duration: 0.4, delay: 0.05 + index * 0.05 }}
         whileHover={{ y: -2, transition: { delay: 0.1 } }}
         onClick={handlePhotoClick}
+        onKeyDown={handlePhotoKeyDown}
+        role="button"
+        tabIndex={0}
       >
         <Image
           src={withBasePath(photo.url)}
@@ -60,7 +74,7 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
         />
 
         <div
-          className={`text-nord-6 absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-4 ${
+          className={`text-nord-6 absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black/70 to-transparent p-4 ${
             isMobile && isInfoShown
               ? 'opacity-100'
               : 'opacity-0 transition-all duration-300 ease-in-out hover:opacity-100'
@@ -74,6 +88,15 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
         <div
           className="bg-nord-0/95 fixed inset-0 z-50 flex items-center justify-center"
           onClick={() => setIsModalOpen(false)}
+          onKeyDown={event => {
+            if (event.key === 'Escape' || event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              setIsModalOpen(false);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Close photo preview"
         >
           <div className="relative max-h-[90vh] max-w-[90vw]">
             <Image
@@ -85,7 +108,7 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
               className="max-h-[85vh] max-w-[90vw] object-contain"
             />
 
-            <div className="text-nord-6 absolute right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-black/70 p-4 pt-16">
+            <div className="text-nord-6 absolute right-0 bottom-0 left-0 bg-linear-to-b from-transparent to-black/70 p-4 pt-16">
               <div className="flex items-end justify-between">
                 <div>
                   <h3 className="text-nord-8 text-lg font-bold">{photo.title}</h3>

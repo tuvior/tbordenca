@@ -56,6 +56,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   const columnClasses = isLeftAligned ? 'md:col-start-1 md:pr-12' : 'md:col-start-2 md:pl-12';
   const connectorClasses = isLeftAligned ? 'md:right-1/2 md:left-auto' : 'md:left-1/2';
   const overlapClasses = isLeftAligned ? '' : 'md:-mt-24';
+  const handleCardKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!hasExpandableContent) {
+      return;
+    }
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onCardClick();
+    }
+  };
 
   return (
     <div className={`md:mb-12 ${overlapClasses}`}>
@@ -84,6 +93,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                 isMobile && hasExpandableContent ? 'cursor-pointer' : ''
               } ${isExpanded ? 'ring-nord-9 dark:ring-nord-3 ring-2' : 'hover:shadow-xl'}`}
               onClick={hasExpandableContent ? onCardClick : undefined}
+              onKeyDown={hasExpandableContent ? handleCardKeyDown : undefined}
+              role={hasExpandableContent ? 'button' : undefined}
+              tabIndex={hasExpandableContent ? 0 : undefined}
+              aria-expanded={hasExpandableContent ? isExpanded : undefined}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >

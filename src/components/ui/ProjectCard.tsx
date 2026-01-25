@@ -29,6 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const isCardInteractive = Boolean(details && isMobile);
   const typeMeta =
     type === 'product'
       ? { label: 'Product', Icon: Briefcase }
@@ -51,6 +52,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     }
   };
 
+  const handleCardKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!isCardInteractive) {
+      return;
+    }
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleCardClick();
+    }
+  };
+
   const handleDetailsClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (details) {
@@ -67,10 +78,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4 }}
-        onClick={handleCardClick}
+        onClick={isCardInteractive ? handleCardClick : undefined}
+        onKeyDown={isCardInteractive ? handleCardKeyDown : undefined}
+        role={isCardInteractive ? 'button' : undefined}
+        tabIndex={isCardInteractive ? 0 : undefined}
+        aria-expanded={isCardInteractive ? isModalOpen : undefined}
       >
         {image && (
-          <div className={`relative h-48 overflow-hidden ${isMobile ? 'cursor-pointer' : ''}`}>
+          <div
+            className={`relative h-48 overflow-hidden ${isCardInteractive ? 'cursor-pointer' : ''}`}
+          >
             <Image
               src={withBasePath(image)}
               alt={title}
@@ -81,7 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         )}
 
-        <div className={`flex-grow p-6 ${isMobile ? 'cursor-pointer' : ''}`}>
+        <div className={`flex-grow p-6 ${isCardInteractive ? 'cursor-pointer' : ''}`}>
           <div className="mb-2 flex items-center justify-between gap-2">
             <h3 className="text-xl font-bold">{title}</h3>
             {typeMeta && (
@@ -131,6 +148,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
           onClick={() => setIsModalOpen(false)}
+          onKeyDown={event => {
+            if (event.key === 'Escape' || event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              setIsModalOpen(false);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Close project details"
         >
           <motion.div
             className="dark:bg-nord-2 max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-xl bg-white shadow-xl"
