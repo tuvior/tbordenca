@@ -1,8 +1,11 @@
-import React, { useMemo } from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { photos } from '../../data/photographyData';
-import PhotoEntry from '../ui/PhotoEntry';
+"use client";
+
+import type React from "react";
+
+import { useMemo } from "react";
+import SectionTitle from "../ui/SectionTitle";
+import PhotoEntry from "../ui/PhotoEntry";
+import { photos } from "../../data/photographyData";
 
 const PhotographyHighlights: React.FC = () => {
   const highlightedPhotos = useMemo(() => {
@@ -17,13 +20,11 @@ const PhotographyHighlights: React.FC = () => {
         title="Photography Highlights"
         subtitle="A small, recent selection from my travel and street photography."
       />
-      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 900: 2, 1100: 3 }}>
-        <Masonry gutter="12px">
-          {highlightedPhotos.map((photo, index) => (
-            <PhotoEntry key={photo.title} photo={photo} index={index} />
-          ))}
-        </Masonry>
-      </ResponsiveMasonry>
+      <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        {highlightedPhotos.map((photo, index) => (
+          <PhotoEntry key={photo.title} photo={photo} index={index} />
+        ))}
+      </div>
     </div>
   );
 };

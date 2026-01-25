@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FileText, Github, Linkedin, Mail, Sparkles, Twitter } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 import { contactData } from '../../data/contactData';
@@ -91,14 +92,14 @@ const HomeHighlights: React.FC = () => {
           <p className="mb-6 text-nord-3 dark:text-nord-4">
             Prefer the traditional format? Download the full CV in one click.
           </p>
-          <a
+          <Link
             href={footerData.resume.url}
             className="btn btn-primary inline-flex items-center gap-2"
             download={footerData.resume.fileName}
           >
             Download CV
             <FileText size={16} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

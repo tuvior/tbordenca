@@ -1,5 +1,8 @@
-import React from 'react';
-import { motion } from 'motion/react';
+"use client";
+
+import type React from "react";
+
+import { motion } from "motion/react";
 
 type SectionTitleProps = {
   title: string;

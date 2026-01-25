@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { useInView } from 'react-intersection-observer';
-import SectionTitle from '../ui/SectionTitle';
-import { skillsData } from '../../data/skillsData';
-import { Search, X } from 'lucide-react';
-import SkillBadge from '../ui/SkillBadge';
+"use client";
+
+import type React from "react";
+
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Search, X } from "lucide-react";
+import SectionTitle from "../ui/SectionTitle";
+import SkillBadge from "../ui/SkillBadge";
+import { skillsData } from "../../data/skillsData";
+import { useInView } from "@/hooks/useInView";
 
 const categoryColors = {
   All: {
@@ -54,18 +58,13 @@ const gridVariants = {
 };
 
 const Skills: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [isMobile, setIsMobile] = useState(false);
-  const [allSkills, setAllSkills] = useState(
-    skillsData.flatMap(category =>
-      category.skills.map(skill => ({
-        ...skill,
-        category: category.category,
-      }))
-    )
-  );
-  const [gridRef, gridInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [gridRef, gridInView] = useInView<HTMLDivElement>({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   // Detect if device is mobile
   useEffect(() => {
@@ -78,27 +77,22 @@ const Skills: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Filter skills based on search query and selected category
-  useEffect(() => {
-    const filteredSkills = skillsData
-      .flatMap(category =>
-        category.skills.map(skill => ({
-          ...skill,
-          category: category.category,
-        }))
-      )
-      .filter(skill => {
-        const matchesSearch = skill.name.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesCategory = selectedCategory === 'All' || skill.category === selectedCategory;
-        return matchesSearch && matchesCategory;
-      });
-
-    setAllSkills(filteredSkills);
-  }, [searchQuery, selectedCategory]);
+  const filteredSkills = skillsData
+    .flatMap(category =>
+      category.skills.map(skill => ({
+        ...skill,
+        category: category.category,
+      }))
+    )
+    .filter(skill => {
+      const matchesSearch = skill.name.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCategory = selectedCategory === "All" || skill.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    });
 
   // Clear search
   const clearSearch = () => {
-    setSearchQuery('');
+    setSearchQuery("");
   };
 
   return (
@@ -163,7 +157,7 @@ const Skills: React.FC = () => {
 
       {/* Skills grid */}
       <AnimatePresence>
-        {allSkills.length === 0 ? (
+        {filteredSkills.length === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -177,12 +171,13 @@ const Skills: React.FC = () => {
         ) : (
           <motion.div
             className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
+            key={`${selectedCategory}-${searchQuery}`}
             variants={gridVariants}
             initial="hidden"
             animate={gridInView ? 'show' : 'hidden'}
             ref={gridRef}
           >
-            {allSkills
+            {filteredSkills
               // .sort((a, b) => a.name.localeCompare(b.name))
               .map(skill => (
                 <SkillBadge

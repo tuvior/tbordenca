@@ -1,8 +1,11 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import SectionTitle from '../ui/SectionTitle';
-import { Mail } from 'lucide-react';
-import { contactData } from '../../data/contactData';
+"use client";
+
+import type React from "react";
+
+import { motion } from "motion/react";
+import { Mail } from "lucide-react";
+import SectionTitle from "../ui/SectionTitle";
+import { contactData } from "../../data/contactData";
 
 const Contact: React.FC = () => {
   return (

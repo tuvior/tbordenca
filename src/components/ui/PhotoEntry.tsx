@@ -1,7 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import type { Photo } from '../../data/photographyData';
-import { motion } from 'motion/react';
-import { Calendar, Camera, MapPin } from 'lucide-react';
+"use client";
+
+import type React from "react";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { Calendar, Camera, MapPin } from "lucide-react";
+import type { Photo } from "../../data/photographyData";
+import { withBasePath } from "@/lib/basePath";
 
 type ProjectCardProps = {
   photo: Photo;
@@ -44,12 +50,13 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
         whileHover={{ y: -2, transition: { delay: 0.1 } }}
         onClick={handlePhotoClick}
       >
-        <img
-          src={photo.url}
+        <Image
+          src={withBasePath(photo.url)}
           alt={photo.title}
-          loading="lazy"
-          decoding="async"
-          className="w-full object-cover"
+          width={photo.width}
+          height={photo.height}
+          sizes="(max-width: 900px) 100vw, (max-width: 1000px) 50vw, 33vw"
+          className="h-auto w-full object-cover"
         />
 
         <div
@@ -69,11 +76,12 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
           onClick={() => setIsModalOpen(false)}
         >
           <div className="relative max-h-[90vh] max-w-[90vw]">
-            <img
-              src={photo.url}
+            <Image
+              src={withBasePath(photo.url)}
               alt={photo.title}
-              loading="lazy"
-              decoding="async"
+              width={photo.width}
+              height={photo.height}
+              sizes="90vw"
               className="max-h-[85vh] max-w-[90vw] object-contain"
             />
 

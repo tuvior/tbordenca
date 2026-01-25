@@ -1,25 +1,31 @@
-import React from 'react';
-import Education from '../components/sections/Education';
-import Experience from '../components/sections/Experience';
-import Skills from '../components/sections/Skills';
-import SectionTitle from '../components/ui/SectionTitle';
-import { footerData } from '../data/footerData';
-import { profileData } from '../data/profileData';
+import type { Metadata } from "next";
+import Link from "next/link";
+import Education from "@/components/sections/Education";
+import Experience from "@/components/sections/Experience";
+import Skills from "@/components/sections/Skills";
+import SectionTitle from "@/components/ui/SectionTitle";
+import { footerData } from "@/data/footerData";
+import { profileData } from "@/data/profileData";
+
+export const metadata: Metadata = {
+  title: "Resume",
+  description: "Experience, skills, and education for Tobias Bordenca.",
+};
 
 const getProficiencyColor = (proficiency: number): string => {
   if (proficiency >= 80) {
-    return 'bg-nord-14';
+    return "bg-nord-14";
   }
   if (proficiency >= 60) {
-    return 'bg-nord-14/70';
+    return "bg-nord-14/70";
   }
   if (proficiency >= 40) {
-    return 'bg-nord-14/40';
+    return "bg-nord-14/40";
   }
-  return 'bg-nord-14/20';
+  return "bg-nord-14/20";
 };
 
-const ResumePage: React.FC = () => {
+export default function ResumePage() {
   return (
     <>
       <section className="bg-nord-6 py-16 dark:bg-nord-0">
@@ -32,10 +38,7 @@ const ResumePage: React.FC = () => {
 
       <section className="bg-nord-6 py-16 dark:bg-nord-0">
         <div className="mx-auto w-full max-w-6xl px-4">
-          <SectionTitle
-            title="Languages"
-            subtitle="How I communicate across teams and cultures."
-          />
+          <SectionTitle title="Languages" subtitle="How I communicate across teams and cultures." />
           <div className="rounded-2xl border border-nord-4 bg-nord-6/70 p-8 shadow-lg dark:border-nord-3 dark:bg-nord-1/60">
             <div className="grid gap-6 md:grid-cols-2">
               {profileData.languages.map(language => (
@@ -67,18 +70,16 @@ const ResumePage: React.FC = () => {
         <div className="mx-auto w-full max-w-6xl px-4">
           <SectionTitle title="Download Resume" />
           <div className="flex justify-center">
-            <a
+            <Link
               href={footerData.resume.url}
               className="btn btn-primary inline-flex items-center gap-2"
               download={footerData.resume.fileName}
             >
               Download CV
-            </a>
+            </Link>
           </div>
         </div>
       </section>
     </>
   );
-};
-
-export default ResumePage;
+}

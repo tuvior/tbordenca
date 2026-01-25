@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
-import SectionTitle from '../ui/SectionTitle';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { photos } from '../../data/photographyData';
-import PhotoEntry from '../ui/PhotoEntry';
+"use client";
+
+import type React from "react";
+
+import { useMemo, useState } from "react";
+import { motion } from "motion/react";
+import SectionTitle from "../ui/SectionTitle";
+import PhotoEntry from "../ui/PhotoEntry";
+import { photos } from "../../data/photographyData";
 
 const Photography: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [allPhotos, setAllPhotos] = useState(photos);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const allCategories = ['All', ...new Set(photos.map(photo => photo.category))];
 
-  useEffect(() => {
-    const filteredPhotos =
-      selectedCategory === 'All'
-        ? photos
-        : photos.filter(photo => photo.category === selectedCategory);
-
-    setAllPhotos(filteredPhotos);
+  const filteredPhotos = useMemo(() => {
+    if (selectedCategory === "All") {
+      return photos;
+    }
+    return photos.filter(photo => photo.category === selectedCategory);
   }, [selectedCategory]);
 
   return (
@@ -57,13 +57,11 @@ const Photography: React.FC = () => {
         <div className="absolute inset-x-0 top-0 z-10 h-8 bg-gradient-to-b from-nord-6 to-transparent dark:from-nord-0" />
         <div className="h-full overflow-y-auto">
           <div className="py-8">
-            <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 900: 2, 1000: 3 }}>
-              <Masonry gutter="1.5px">
-                {allPhotos.map((photo, index) => (
-                  <PhotoEntry key={photo.title} photo={photo} index={index} />
-                ))}
-              </Masonry>
-            </ResponsiveMasonry>
+            <div className="grid gap-[1.5px] sm:grid-cols-2 lg:grid-cols-3">
+              {filteredPhotos.map((photo, index) => (
+                <PhotoEntry key={photo.title} photo={photo} index={index} />
+              ))}
+            </div>
           </div>
         </div>
         <div className="absolute inset-x-0 bottom-0 z-10 h-8 bg-gradient-to-t from-nord-6 to-transparent dark:from-nord-0" />

@@ -1,7 +1,12 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import type { Skill } from '../../data/skillsData';
-import { Briefcase } from 'lucide-react';
+"use client";
+
+import type React from "react";
+
+import Image from "next/image";
+import { motion } from "motion/react";
+import { Briefcase } from "lucide-react";
+import type { Skill } from "../../data/skillsData";
+import { withBasePath } from "@/lib/basePath";
 
 type SkillBadgeProps = {
   skill: Skill;
@@ -21,12 +26,15 @@ const buildSkillIcon = (skill: Skill, isMobile: boolean) => {
 
   if (!icon) return <Briefcase size={size} />;
 
-  if (icon.type === 'image') {
+  if (icon.type === 'image' && typeof icon.value === 'string') {
     return (
       <div className={`flex ${sizeClass} items-center justify-center`}>
-        <img
-          src={typeof icon.value === 'string' ? icon.value : ''}
+        <Image
+          src={withBasePath(icon.value)}
           alt={`${skill.name} logo`}
+          width={size}
+          height={size}
+          sizes={`${size}px`}
           className="max-h-full max-w-full object-contain"
         />
       </div>

@@ -1,8 +1,13 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { TypeAnimation } from 'react-type-animation';
-import { Link } from 'react-router-dom';
-import { profileData } from '../../data/profileData';
+"use client";
+
+import type React from "react";
+
+import Image from "next/image";
+import { motion } from "motion/react";
+import { TypeAnimation } from "react-type-animation";
+import Link from "next/link";
+import { profileData } from "../../data/profileData";
+import { withBasePath } from "@/lib/basePath";
 
 const Hero: React.FC = () => {
   // Create the sequence for TypeAnimation
@@ -54,10 +59,10 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <Link to="/resume" className="btn btn-primary">
+          <Link href="/resume" className="btn btn-primary">
             View Resume
           </Link>
-          <Link to="/projects" className="btn btn-secondary">
+          <Link href="/projects" className="btn btn-secondary">
             See Projects
           </Link>
         </motion.div>
@@ -70,11 +75,15 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <div className="animate-float-enhanced h-full w-full overflow-hidden rounded-full border-4 border-nord-6 shadow-xl dark:border-nord-10">
-          <img
-            src={profileData.profileImage}
+        <div className="animate-float-enhanced relative h-full w-full overflow-hidden rounded-full border-4 border-nord-6 shadow-xl dark:border-nord-10">
+          <Image
+            src={withBasePath(profileData.profileImage)}
             alt={`${profileData.name} - ${profileData.title}`}
-            className="h-full w-full object-cover"
+            fill
+            sizes="(min-width: 768px) 384px, 224px"
+            className="object-cover"
+            priority
+            quality={85}
           />
         </div>
       </motion.div>

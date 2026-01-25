@@ -1,8 +1,12 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import { motion } from 'motion/react';
-import SectionTitle from '../ui/SectionTitle';
-import ProjectCard from '../ui/ProjectCard';
-import { projectsData } from '../../data/projectsData';
+"use client";
+
+import type React from "react";
+
+import { useMemo, useState } from "react";
+import { motion } from "motion/react";
+import SectionTitle from "../ui/SectionTitle";
+import ProjectCard from "../ui/ProjectCard";
+import { projectsData } from "../../data/projectsData";
 
 type Project = (typeof projectsData)[number];
 
@@ -20,10 +24,6 @@ const Projects: React.FC<ProjectsProps> = ({
   showFilters = true,
 }) => {
   const [activeFilter, setActiveFilter] = useState('All');
-
-  useEffect(() => {
-    setActiveFilter('All');
-  }, [projects, showFilters]);
 
   const allCategories = useMemo(() => {
     if (!showFilters) {

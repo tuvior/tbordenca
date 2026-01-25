@@ -1,7 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import { experienceData } from '../../data/experienceData';
-import ExperienceCard from '../ui/ExperienceCard';
+"use client";
+
+import type React from "react";
+
+import { useEffect, useRef, useState } from "react";
+import SectionTitle from "../ui/SectionTitle";
+import ExperienceCard from "../ui/ExperienceCard";
+import { experienceData } from "../../data/experienceData";
 
 const Experience: React.FC = () => {
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
@@ -93,9 +97,15 @@ const Experience: React.FC = () => {
                 e.stopPropagation();
                 setShowCompanyInfo(showCompanyInfo === index ? null : index);
               }}
-              companyInfoRef={el => (companyInfoRefs.current[index] = el)}
-              infoButtonRef={el => (infoButtonRefs.current[index] = el)}
-              cardRef={el => (cardRefs.current[index] = el)}
+              companyInfoRef={el => {
+                companyInfoRefs.current[index] = el;
+              }}
+              infoButtonRef={el => {
+                infoButtonRefs.current[index] = el;
+              }}
+              cardRef={el => {
+                cardRefs.current[index] = el;
+              }}
             />
           ))}
         </div>

@@ -1,6 +1,10 @@
-import { Globe } from 'lucide-react';
-import { motion } from 'motion/react';
-import type { Language } from '../../data/profileData';
+"use client";
+
+import type React from "react";
+
+import { Globe } from "lucide-react";
+import { motion } from "motion/react";
+import type { Language } from "../../data/profileData";
 
 type LanguagesCardProps = {
   languages: Language[];

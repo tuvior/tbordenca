@@ -1,17 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../../tailwind.config.js";
+@import "tailwindcss";
 
 @layer base {
   html,
   body,
-  #root {
+  #__next {
     @apply h-full;
     overflow-x: hidden;
   }
 
   body {
-    @apply bg-nord-6 text-nord-0 transition-colors duration-300 dark:bg-nord-0 dark:text-nord-6;
+    @apply bg-nord-6 font-sans text-nord-0 transition-colors duration-300 dark:bg-nord-0 dark:text-nord-6;
   }
 
   h1,
@@ -43,7 +42,6 @@
     @apply text-base md:text-lg;
   }
 
-  /* Custom scrollbar styling */
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -60,20 +58,18 @@
     @apply bg-nord-3 dark:bg-nord-2;
   }
 
-  /* Hide scrollbar when not in use */
   ::-webkit-scrollbar-thumb {
     background-clip: content-box;
     border: 2px solid transparent;
   }
 
-  /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: theme('colors.nord.4') transparent;
+    scrollbar-color: theme("colors.nord.4") transparent;
   }
 
   .dark * {
-    scrollbar-color: theme('colors.nord.3') transparent;
+    scrollbar-color: theme("colors.nord.3") transparent;
   }
 }
 
@@ -102,7 +98,6 @@
     @apply rounded-full bg-nord-7/20 px-3 py-1 text-sm font-medium text-nord-10 dark:bg-nord-7/10 dark:text-nord-7;
   }
 
-  /* Scroll Snap System */
   .snap-container {
     scroll-snap-type: y proximity;
     height: 100%;
@@ -122,16 +117,15 @@
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s ease;
-    padding-bottom: 6rem; /* Add extra padding at the bottom */
+    padding-bottom: 6rem;
   }
 
   .section-content {
     @apply w-full max-w-6xl;
-    padding: 6rem 1rem 2rem; /* Increased top padding to account for fixed header */
+    padding: 6rem 1rem 2rem;
     margin: 0 auto;
   }
 
-  /* Enhanced floating animation for profile image */
   .animate-float-enhanced {
     animation: float-enhanced 4s ease-in-out infinite;
   }
@@ -151,7 +145,6 @@
     }
   }
 
-  /* Pulse animation for scroll indicator */
   .pulse-animation {
     animation: pulse 2s infinite;
   }
@@ -182,7 +175,6 @@
     }
   }
 
-  /* Horizontal snap scrolling for carousels */
   .snap-x {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -192,13 +184,12 @@
     scroll-snap-align: center;
   }
 
-  /* Animated gradient text for section titles */
   .gradient-text {
     background: linear-gradient(
       90deg,
-      theme('colors.nord.10'),
-      theme('colors.nord.14'),
-      theme('colors.nord.15')
+      theme("colors.nord.10"),
+      theme("colors.nord.14"),
+      theme("colors.nord.15")
     );
     background-size: 200% auto;
     background-clip: text;

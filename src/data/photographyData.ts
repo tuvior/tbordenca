@@ -1,25 +1,27 @@
-import photo1Url from '/img/photos/20210722_104720.jpg?url';
-import photo3Url from '/img/photos/20220309_110403.jpg?url';
-import photo4Url from '/img/photos/20220517_133251.jpg?url';
-import photo5Url from '/img/photos/20230419_190124.jpg?url';
-import photo6Url from '/img/photos/20230503_204233.jpg?url';
-import photo7Url from '/img/photos/20230506_164530.jpg?url';
-import photo10Url from '/img/photos/20230805_140212.jpg?url';
-import photo12Url from '/img/photos/20240915_132542.jpg?url';
-import photo13Url from '/img/photos/20241013_112203.jpg?url';
-import photo14Url from '/img/photos/20241013_121452.jpg?url';
-import photo15Url from '/img/photos/20241014_140053.jpg?url';
-import photo16Url from '/img/photos/20241016_122102.jpg?url';
-import photo17Url from '/img/photos/20241018_103321.jpg?url';
-import photo18Url from '/img/photos/20241019_105749.jpg?url';
-import photo19Url from '/img/photos/20241019_121625.jpg?url';
-import photo20Url from '/img/photos/20241019_124802.jpg?url';
-import photo21Url from '/img/photos/20241021_215132~2.jpg?url';
-import photo22Url from '/img/photos/20241023_131316 (2).jpg?url';
-import photo23Url from '/img/photos/20241024_163948.jpg?url';
+const photo1Url = "/img/photos/20210722_104720.jpg";
+const photo3Url = "/img/photos/20220309_110403.jpg";
+const photo4Url = "/img/photos/20220517_133251.jpg";
+const photo5Url = "/img/photos/20230419_190124.jpg";
+const photo6Url = "/img/photos/20230503_204233.jpg";
+const photo7Url = "/img/photos/20230506_164530.jpg";
+const photo10Url = "/img/photos/20230805_140212.jpg";
+const photo12Url = "/img/photos/20240915_132542.jpg";
+const photo13Url = "/img/photos/20241013_112203.jpg";
+const photo14Url = "/img/photos/20241013_121452.jpg";
+const photo15Url = "/img/photos/20241014_140053.jpg";
+const photo16Url = "/img/photos/20241016_122102.jpg";
+const photo17Url = "/img/photos/20241018_103321.jpg";
+const photo18Url = "/img/photos/20241019_105749.jpg";
+const photo19Url = "/img/photos/20241019_121625.jpg";
+const photo20Url = "/img/photos/20241019_124802.jpg";
+const photo21Url = "/img/photos/20241021_215132~2.jpg";
+const photo22Url = "/img/photos/20241023_131316 (2).jpg";
+const photo23Url = "/img/photos/20241024_163948.jpg";
 
 export type Photo = {
   url: string;
+  width: number;
+  height: number;
   title: string;
   category: string;
   description: string;
@@ -47,6 +49,8 @@ const categories = {
 export const photos: Photo[] = [
   {
     url: photo1Url,
+    width: 4032,
+    height: 3024,
     title: 'Horses',
     category: categories.landscape,
     description: 'Horses spotted in the sea off a mountain on a Greek island.',
@@ -56,6 +60,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo3Url,
+    width: 4032,
+    height: 3024,
     title: 'Half and half',
     category: categories.landscape,
     description: 'The line between sunny and stormy immortalized in Mauritius.',
@@ -65,6 +71,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo4Url,
+    width: 4000,
+    height: 3000,
     title: 'Skyline',
     category: categories.architecture,
     description: 'Towering skyline in the business district of Singapore.',
@@ -74,6 +82,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo5Url,
+    width: 4000,
+    height: 3000,
     title: 'Regatta',
     category: categories.landscape,
     description: 'Sailboats racing the sun rays.',
@@ -83,6 +93,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo6Url,
+    width: 4000,
+    height: 3000,
     title: 'Nesting',
     category: categories.landscape,
     description: 'A crow enjoying the golden hour.',
@@ -92,6 +104,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo7Url,
+    width: 4000,
+    height: 3000,
     title: 'Sit down',
     category: categories.landscape,
     description: "Somebody's fishing spot.",
@@ -101,6 +115,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo10Url,
+    width: 4000,
+    height: 3000,
     title: 'Partenza',
     category: categories.landscape,
     description: 'Dock in Locarno',
@@ -110,6 +126,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo12Url,
+    width: 3000,
+    height: 4000,
     title: 'Red and blue',
     category: categories.landscape,
     description: 'Sister boats floating with the Vesuvio in the background.',
@@ -119,6 +137,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo13Url,
+    width: 2962,
+    height: 3950,
     title: 'Shanghai architecture',
     category: 'Architecture',
     description: 'A modern building in Shanghai.',
@@ -128,6 +148,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo14Url,
+    width: 4000,
+    height: 3000,
     title: 'Cyperpunk',
     category: 'Travel',
     description: 'Busy streets of Shanghai.',
@@ -137,6 +159,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo15Url,
+    width: 2969,
+    height: 3959,
     title: 'Old architecture',
     category: 'Travel',
     description: 'European architecture in Shanghai.',
@@ -146,6 +170,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo16Url,
+    width: 3000,
+    height: 4000,
     title: 'Untitled 16',
     category: 'Nature',
     description: 'Description pending',
@@ -155,6 +181,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo17Url,
+    width: 3000,
+    height: 4000,
     title: 'Untitled 17',
     category: 'Nature',
     description: 'Description pending',
@@ -164,6 +192,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo18Url,
+    width: 3000,
+    height: 4000,
     title: 'Untitled 18',
     category: 'Nature',
     description: 'Description pending',
@@ -173,6 +203,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo19Url,
+    width: 2963,
+    height: 3950,
     title: 'Untitled 19',
     category: 'Nature',
     description: 'Description pending',
@@ -182,6 +214,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo20Url,
+    width: 3000,
+    height: 4000,
     title: 'Untitled 20',
     category: 'Nature',
     description: 'Description pending',
@@ -191,6 +225,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo21Url,
+    width: 3000,
+    height: 4000,
     title: 'Untitled 21',
     category: 'Nature',
     description: 'Description pending',
@@ -200,6 +236,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo22Url,
+    width: 3000,
+    height: 4000,
     title: 'Untitled 22',
     category: 'Nature',
     description: 'Description pending',
@@ -209,6 +247,8 @@ export const photos: Photo[] = [
   },
   {
     url: photo23Url,
+    width: 3000,
+    height: 4000,
     title: 'Untitled 23',
     category: 'Nature',
     description: 'Description pending',

@@ -1,5 +1,9 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+"use client";
+
+import type React from "react";
+
+import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
 import {
   Calendar,
   Briefcase,
@@ -9,9 +13,10 @@ import {
   X,
   Link,
   ChevronDown,
-} from 'lucide-react';
-import { projectsData } from '../../data/projectsData';
-import type { Experience } from '../../data/experienceData';
+} from "lucide-react";
+import { projectsData } from "../../data/projectsData";
+import type { Experience } from "../../data/experienceData";
+import { withBasePath } from "@/lib/basePath";
 
 type ExperienceCardProps = {
   experience: Experience;
@@ -157,11 +162,13 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
                   {/* Company Logo */}
                   {experience.company.logo && (
-                    <div className="ml-4 h-20 w-20 flex-shrink-0 rounded-lg bg-white p-2 shadow-md dark:bg-nord-3/30 md:h-24 md:w-24">
-                      <img
-                        src={experience.company.logo}
+                    <div className="relative ml-4 h-20 w-20 flex-shrink-0 rounded-lg bg-white p-2 shadow-md dark:bg-nord-3/30 md:h-24 md:w-24">
+                      <Image
+                        src={withBasePath(experience.company.logo)}
                         alt={`${experience.company.name} logo`}
-                        className="h-full w-full object-contain"
+                        fill
+                        sizes="96px"
+                        className="object-contain"
                       />
                     </div>
                   )}
@@ -225,12 +232,14 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                                 href={`#projects-${project.title.toLowerCase().replace(/\s+/g, '-')}`}
                                 className="flex items-center rounded-lg bg-secondary-50 p-3 transition-colors hover:bg-nord-6 dark:bg-nord-2/50 dark:hover:bg-nord-3/50"
                               >
-                                <div className="mr-3 h-10 w-10 flex-shrink-0 overflow-hidden rounded-md">
+                                <div className="relative mr-3 h-10 w-10 flex-shrink-0 overflow-hidden rounded-md">
                                   {project.image && (
-                                    <img
+                                    <Image
                                       src={project.image}
                                       alt={project.title}
-                                      className="h-full w-full object-cover"
+                                      fill
+                                      sizes="40px"
+                                      className="object-cover"
                                     />
                                   )}
                                 </div>

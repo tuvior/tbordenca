@@ -1,8 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import HobbyCard from '../ui/HobbyCard';
-import { hobbiesData } from '../../data/hobbiesData';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+"use client";
+
+import type React from "react";
+
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import SectionTitle from "../ui/SectionTitle";
+import HobbyCard from "../ui/HobbyCard";
+import { hobbiesData } from "../../data/hobbiesData";
 
 const Hobbies: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);

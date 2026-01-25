@@ -1,4 +1,4 @@
-import evooqLogo from '/img/evooq-black.svg?url';
+const evooqLogo = "/img/evooq-black.svg";
 
 export type Experience = {
   company: {
@@ -15,11 +15,11 @@ export type Experience = {
 };
 
 const evooq = {
-  name: 'Evooq',
+  name: "Evooq",
   description:
-    'Evooq is a Swiss fintech company providing a white-label wealth management platform used by private banks and asset managers across Europe and Asia.',
+    "Evooq is a Swiss fintech company providing a white-label wealth management platform used by private banks and asset managers across Europe and Asia.",
   logo: evooqLogo,
-  website: 'https://www.evooq.ch',
+  website: "https://www.evooq.ch",
 };
 
 export const experienceData: Experience[] = [

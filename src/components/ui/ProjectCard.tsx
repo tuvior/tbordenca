@@ -1,6 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
-import { Briefcase, Code2, ExternalLink, X } from 'lucide-react';
+"use client";
+
+import type React from "react";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { Briefcase, Code2, ExternalLink, X } from "lucide-react";
+import { withBasePath } from "@/lib/basePath";
 
 type ProjectCardProps = {
   title: string;
@@ -64,11 +70,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         onClick={handleCardClick}
       >
         {image && (
-          <div className={`h-48 overflow-hidden ${isMobile ? 'cursor-pointer' : ''}`}>
-            <img
-              src={image}
+          <div className={`relative h-48 overflow-hidden ${isMobile ? 'cursor-pointer' : ''}`}>
+            <Image
+              src={withBasePath(image)}
               alt={title}
-              className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover transition-transform duration-500 hover:scale-110"
             />
           </div>
         )}
@@ -151,7 +159,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
             <div className="p-6">
               {image && (
-                <img src={image} alt={title} className="mb-6 h-64 w-full rounded-lg object-cover" />
+                <div className="relative mb-6 h-64 w-full overflow-hidden rounded-lg">
+                  <Image
+                    src={withBasePath(image)}
+                    alt={title}
+                    fill
+                    sizes="(min-width: 1024px) 60vw, 90vw"
+                    className="object-cover"
+                  />
+                </div>
               )}
 
               <div className="prose dark:prose-invert max-w-none">

@@ -1,6 +1,10 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import type { Hobby } from '../../data/hobbiesData';
+"use client";
+
+import Image from "next/image";
+import React from "react";
+import { motion } from "motion/react";
+import type { Hobby } from "../../data/hobbiesData";
+import { withBasePath } from "@/lib/basePath";
 
 type HobbyCardProps = {
   hobby: Hobby;
@@ -25,10 +29,12 @@ const HobbyCard: React.FC<HobbyCardProps> = ({ hobby, handleClick, isSelected, i
       >
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
-            src={hobby.background}
+          <Image
+            src={withBasePath(hobby.background)}
             alt={hobby.title}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            fill
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
         </div>
 
