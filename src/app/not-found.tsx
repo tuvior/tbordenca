@@ -1,31 +1,21 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
 export default function NotFound() {
   return (
-    <section className="bg-nord-6 py-16 dark:bg-nord-0">
-      <div className="mx-auto w-full max-w-6xl px-4">
-        <div className="card flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-nord-9 dark:text-nord-8">
-              404
-            </p>
-            <h1 className="text-3xl font-semibold md:text-4xl">
-              This page went off the map.
-            </h1>
+    <section className="bg-nord-6 py-20 dark:bg-nord-0">
+      <div className="mx-auto flex min-h-[60vh] w-full max-w-6xl flex-col items-center justify-center px-4 text-center">
+        <div className="space-y-8">
+          <p className="text-8xl font-black text-nord-9 md:text-9xl dark:text-nord-6">
+            404
+          </p>
+          <div className="space-y-6">
+            <div className="relative inline-block">
+              <h1 className="gradient-text relative z-10 text-3xl font-bold md:text-4xl">
+                This page went off the map.
+              </h1>
+              <div className="absolute -bottom-2 left-1/2 h-1 w-36 -translate-x-1/2 transform rounded-full bg-linear-to-r from-nord-10 via-nord-14 to-nord-15"></div>
+            </div>
             <p className="max-w-xl text-base text-nord-3 dark:text-nord-4">
-              The page you were looking for does not exist or has moved. Head back to
-              the portfolio highlights and projects.
+              The page you were looking for does not exist or has moved.
             </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/" className="btn btn-primary inline-flex items-center gap-2">
-              Back home
-              <ArrowRight size={16} />
-            </Link>
-            <Link href="/projects" className="btn btn-secondary">
-              View projects
-            </Link>
           </div>
         </div>
       </div>
