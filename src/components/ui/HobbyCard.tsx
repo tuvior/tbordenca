@@ -15,7 +15,7 @@ type HobbyCardProps = {
 
 const HobbyCard: React.FC<HobbyCardProps> = ({ hobby, handleClick, isSelected, index }) => {
   return (
-    <div key={hobby.title} className={`w-full flex-shrink-0 snap-center p-3 md:w-1/3`}>
+    <div key={hobby.title} className={`w-full shrink-0 snap-center p-3 md:w-1/3`}>
       <motion.div
         className={`group relative h-80 overflow-hidden rounded-xl shadow-lg ${
           isSelected ? 'ring-nord-10 dark:ring-nord-9 ring-2' : ''
@@ -39,7 +39,7 @@ const HobbyCard: React.FC<HobbyCardProps> = ({ hobby, handleClick, isSelected, i
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
+        <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black/80 via-black/40 to-transparent p-6">
           <div className="bg-nord-10/80 absolute top-6 left-6 flex h-14 w-14 items-center justify-center rounded-full backdrop-blur-sm">
             {React.createElement(hobby.icon, { size: 32 })}
           </div>

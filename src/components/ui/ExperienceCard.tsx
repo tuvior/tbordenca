@@ -176,7 +176,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
                   {/* Company Logo */}
                   {experience.company.logo && (
-                    <div className="dark:bg-nord-3/30 relative ml-4 h-20 w-20 flex-shrink-0 rounded-lg bg-white p-2 shadow-md md:h-24 md:w-24">
+                    <div className="dark:bg-nord-3/30 relative ml-4 h-20 w-20 shrink-0 rounded-lg bg-white p-2 shadow-md md:h-24 md:w-24">
                       <Image
                         src={withBasePath(experience.company.logo)}
                         alt={`${experience.company.name} logo`}
@@ -246,7 +246,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                                 href={`#projects-${project.title.toLowerCase().replace(/\s+/g, '-')}`}
                                 className="bg-secondary-50 hover:bg-nord-6 dark:bg-nord-2/50 dark:hover:bg-nord-3/50 flex items-center rounded-lg p-3 transition-colors"
                               >
-                                <div className="relative mr-3 h-10 w-10 flex-shrink-0 overflow-hidden rounded-md">
+                                <div className="relative mr-3 h-10 w-10 shrink-0 overflow-hidden rounded-md">
                                   {project.image && (
                                     <Image
                                       src={project.image}

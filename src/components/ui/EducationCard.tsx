@@ -35,7 +35,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
       transition={{ duration: 0.4, delay }}
     >
       {logo && (
-        <div className="relative mx-auto h-16 w-16 flex-shrink-0 md:mx-0 md:h-20 md:w-20">
+        <div className="relative mx-auto h-16 w-16 shrink-0 md:mx-0 md:h-20 md:w-20">
           <Image
             src={withBasePath(logo)}
             alt={`${institution} logo`}

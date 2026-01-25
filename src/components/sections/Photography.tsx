@@ -64,7 +64,7 @@ const Photography: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="from-nord-6 dark:from-nord-0 absolute inset-x-0 bottom-0 z-10 h-8 bg-gradient-to-t to-transparent" />
+        <div className="from-nord-6 dark:from-nord-0 absolute inset-x-0 bottom-0 z-10 h-8 bg-linear-to-t to-transparent" />
       </div>
     </div>
   );

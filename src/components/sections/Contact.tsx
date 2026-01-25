@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
           className="w-full max-w-md"
         >
           <div className="border-nord-5 bg-nord-6 dark:border-nord-3 dark:bg-nord-1 rounded-xl border p-8 text-center shadow-lg">
-            <div className="from-nord-10 to-nord-14 text-nord-6 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br">
+            <div className="from-nord-10 to-nord-14 text-nord-6 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br">
               <Mail size={32} />
             </div>
 
