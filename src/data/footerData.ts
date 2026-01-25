@@ -1,5 +1,3 @@
-const resumeUrl = "/doc/Tobias Bordenca Resume.pdf";
-
 export type FooterData = {
   resume: {
     fileName: string;
@@ -15,12 +13,12 @@ export type FooterData = {
 
 export const footerData: FooterData = {
   resume: {
-    fileName: "Tobias_Bordenca_Resume.pdf",
-    url: resumeUrl,
+    fileName: 'Tobias_Bordenca_Resume.pdf',
+    url: '/doc/Tobias Bordenca Resume.pdf',
   },
   socialLinks: {
-    linkedin: "https://linkedin.com/in/tbordenca",
-    github: "https://github.com/tuvior",
-    email: "mailto:bordenca.tobias@gmail.com",
+    linkedin: 'https://linkedin.com/in/tbordenca',
+    github: 'https://github.com/tuvior',
+    email: 'mailto:bordenca.tobias@gmail.com',
   },
 };

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { motion } from "motion/react";
-import { Calendar, Camera, MapPin } from "lucide-react";
-import type { Photo } from "../../data/photographyData";
-import { withBasePath } from "@/lib/basePath";
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
+import { Calendar, Camera, MapPin } from 'lucide-react';
+import type { Photo } from '../../data/photographyData';
+import { withBasePath } from '@/lib/basePath';
 
 type ProjectCardProps = {
   photo: Photo;
@@ -60,19 +60,19 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
         />
 
         <div
-          className={`absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-4 text-nord-6 ${
+          className={`text-nord-6 absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-4 ${
             isMobile && isInfoShown
               ? 'opacity-100'
               : 'opacity-0 transition-all duration-300 ease-in-out hover:opacity-100'
           } `}
         >
-          <h3 className="text-lg font-bold text-nord-8">{photo.title}</h3>
+          <h3 className="text-nord-8 text-lg font-bold">{photo.title}</h3>
           <p className="text-sm">{photo.description}</p>
         </div>
       </motion.div>
       {isModalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-nord-0/95"
+          className="bg-nord-0/95 fixed inset-0 z-50 flex items-center justify-center"
           onClick={() => setIsModalOpen(false)}
         >
           <div className="relative max-h-[90vh] max-w-[90vw]">
@@ -85,28 +85,28 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
               className="max-h-[85vh] max-w-[90vw] object-contain"
             />
 
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-black/70 p-4 pt-16 text-nord-6">
-                <div className="flex items-end justify-between">
-                  <div>
-                    <h3 className="text-lg font-bold text-nord-8">{photo.title}</h3>
-                    <p className="text-sm">{photo.description}</p>
+            <div className="text-nord-6 absolute right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-black/70 p-4 pt-16">
+              <div className="flex items-end justify-between">
+                <div>
+                  <h3 className="text-nord-8 text-lg font-bold">{photo.title}</h3>
+                  <p className="text-sm">{photo.description}</p>
+                </div>
+                <div className="text-nord-5 flex flex-col items-end gap-1">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="text-nord-8 h-3 w-3 opacity-75" />
+                    <span className="text-xs opacity-75">{photo.date.toLocaleDateString()}</span>
                   </div>
-                  <div className="flex flex-col items-end gap-1 text-nord-5">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3 text-nord-8 opacity-75" />
-                      <span className="text-xs opacity-75">{photo.date.toLocaleDateString()}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3 text-nord-8 opacity-75" />
-                      <span className="text-xs opacity-75">{photo.location}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Camera className="h-3 w-3 text-nord-8 opacity-75" />
-                      <span className="text-xs opacity-75">{photo.camera}</span>
-                    </div>
+                  <div className="flex items-center gap-1">
+                    <MapPin className="text-nord-8 h-3 w-3 opacity-75" />
+                    <span className="text-xs opacity-75">{photo.location}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Camera className="text-nord-8 h-3 w-3 opacity-75" />
+                    <span className="text-xs opacity-75">{photo.camera}</span>
                   </div>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       )}

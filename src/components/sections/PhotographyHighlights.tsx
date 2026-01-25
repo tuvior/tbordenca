@@ -1,17 +1,15 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import { useMemo } from "react";
-import SectionTitle from "../ui/SectionTitle";
-import PhotoEntry from "../ui/PhotoEntry";
-import { photos } from "../../data/photographyData";
+import { useMemo } from 'react';
+import SectionTitle from '../ui/SectionTitle';
+import PhotoEntry from '../ui/PhotoEntry';
+import { photos } from '../../data/photographyData';
 
 const PhotographyHighlights: React.FC = () => {
   const highlightedPhotos = useMemo(() => {
-    return [...photos]
-      .sort((a, b) => b.date.getTime() - a.date.getTime())
-      .slice(0, 6);
+    return [...photos].sort((a, b) => b.date.getTime() - a.date.getTime()).slice(0, 6);
   }, []);
 
   return (

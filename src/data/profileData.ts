@@ -1,4 +1,4 @@
-const imageUrl = "/img/profile-c.jpg";
+const imageUrl = '/img/profile-c.jpg';
 
 export type Language = {
   name: string;
@@ -17,12 +17,12 @@ export type ProfileData = {
 };
 
 export const profileData: ProfileData = {
-  name: "Tobias Bordenca",
-  title: "Product Manager",
-  roles: ["Product Manager", "UX Enthusiast", "Leader", "Architect"],
-  focus: ["Fintech", "Consumer Software", "SaaS"],
+  name: 'Tobias Bordenca',
+  title: 'Product Manager',
+  roles: ['Product Manager', 'UX Enthusiast', 'Leader', 'Architect'],
+  focus: ['Fintech', 'Consumer Software', 'SaaS'],
   description:
-    "Passionate product manager with 6+ years of experience driving innovation and delivering user-centric solutions that solve real problems and create business value.",
+    'Passionate product manager with 6+ years of experience driving innovation and delivering user-centric solutions that solve real problems and create business value.',
   profileImage: imageUrl,
   languages: [
     {

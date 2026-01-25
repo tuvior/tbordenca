@@ -1,9 +1,9 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
-const basePath = "/tbordenca";
+const basePath = '/tbordenca';
 
 const nextConfig: NextConfig = {
-  output: "export",
+  output: 'export',
   basePath,
   assetPrefix: basePath,
   env: {

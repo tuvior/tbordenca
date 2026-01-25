@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Search, X } from "lucide-react";
-import SectionTitle from "../ui/SectionTitle";
-import SkillBadge from "../ui/SkillBadge";
-import { skillsData } from "../../data/skillsData";
-import { useInView } from "@/hooks/useInView";
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Search, X } from 'lucide-react';
+import SectionTitle from '../ui/SectionTitle';
+import SkillBadge from '../ui/SkillBadge';
+import { skillsData } from '../../data/skillsData';
+import { useInView } from '@/hooks/useInView';
 
 const categoryColors = {
   All: {
@@ -58,8 +58,8 @@ const gridVariants = {
 };
 
 const Skills: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [isMobile, setIsMobile] = useState(false);
   const [gridRef, gridInView] = useInView<HTMLDivElement>({
     triggerOnce: true,
@@ -86,13 +86,13 @@ const Skills: React.FC = () => {
     )
     .filter(skill => {
       const matchesSearch = skill.name.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = selectedCategory === "All" || skill.category === selectedCategory;
+      const matchesCategory = selectedCategory === 'All' || skill.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
 
   // Clear search
   const clearSearch = () => {
-    setSearchQuery("");
+    setSearchQuery('');
   };
 
   return (
@@ -121,7 +121,7 @@ const Skills: React.FC = () => {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder="Search skills..."
-              className="w-full rounded-lg border border-nord-4 bg-white py-2 pl-10 pr-10 text-nord-2 focus:outline-none focus:ring-2 focus:ring-nord-10 dark:border-nord-3 dark:bg-nord-2 dark:text-nord-5 dark:focus:ring-nord-9"
+              className="border-nord-4 text-nord-2 focus:ring-nord-10 dark:border-nord-3 dark:bg-nord-2 dark:text-nord-5 dark:focus:ring-nord-9 w-full rounded-lg border bg-white py-2 pr-10 pl-10 focus:ring-2 focus:outline-none"
             />
             {searchQuery && (
               <button
@@ -164,7 +164,7 @@ const Skills: React.FC = () => {
             exit={{ opacity: 0 }}
             className="py-12 text-center"
           >
-            <p className="text-lg text-nord-9 dark:text-secondary-400">
+            <p className="text-nord-9 dark:text-secondary-400 text-lg">
               No skills found matching your search.
             </p>
           </motion.div>

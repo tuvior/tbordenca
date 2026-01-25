@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 type InViewOptions = IntersectionObserverInit & {
   triggerOnce?: boolean;
@@ -13,11 +13,11 @@ export function useInView<T extends Element>({
   triggerOnce = false,
 }: InViewOptions = {}) {
   const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(() => typeof IntersectionObserver === "undefined");
+  const [inView, setInView] = useState(() => typeof IntersectionObserver === 'undefined');
 
   useEffect(() => {
     const node = ref.current;
-    if (!node || typeof IntersectionObserver === "undefined") {
+    if (!node || typeof IntersectionObserver === 'undefined') {
       return;
     }
 

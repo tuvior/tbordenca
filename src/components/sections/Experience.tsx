@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import { useEffect, useRef, useState } from "react";
-import SectionTitle from "../ui/SectionTitle";
-import ExperienceCard from "../ui/ExperienceCard";
-import { experienceData } from "../../data/experienceData";
+import { useEffect, useRef, useState } from 'react';
+import SectionTitle from '../ui/SectionTitle';
+import ExperienceCard from '../ui/ExperienceCard';
+import { experienceData } from '../../data/experienceData';
 
 const Experience: React.FC = () => {
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
@@ -59,7 +59,7 @@ const Experience: React.FC = () => {
       <div className="relative">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-5 top-6 h-[calc(100%-3rem)] w-px bg-gradient-to-b from-nord-10 via-nord-14 to-nord-15 dark:from-nord-7 dark:via-nord-9 dark:to-nord-10 md:left-1/2 md:-translate-x-1/2"
+          className="from-nord-10 via-nord-14 to-nord-15 dark:from-nord-7 dark:via-nord-9 dark:to-nord-10 pointer-events-none absolute top-6 left-5 h-[calc(100%-3rem)] w-px bg-gradient-to-b md:left-1/2 md:-translate-x-1/2"
         />
         <div className="space-y-12 md:space-y-0">
           {experienceData.map((experience, index) => (

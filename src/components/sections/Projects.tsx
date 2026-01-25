@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import { useMemo, useState } from "react";
-import { motion } from "motion/react";
-import SectionTitle from "../ui/SectionTitle";
-import ProjectCard from "../ui/ProjectCard";
-import { projectsData } from "../../data/projectsData";
+import { useMemo, useState } from 'react';
+import { motion } from 'motion/react';
+import SectionTitle from '../ui/SectionTitle';
+import ProjectCard from '../ui/ProjectCard';
+import { projectsData } from '../../data/projectsData';
 
 type Project = (typeof projectsData)[number];
 
@@ -56,7 +56,7 @@ const Projects: React.FC<ProjectsProps> = ({
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                 activeFilter === category
                   ? 'bg-nord-10 text-white'
-                  : 'bg-white text-nord-3 hover:bg-nord-5 dark:bg-nord-1 dark:text-nord-4 dark:hover:bg-nord-2'
+                  : 'text-nord-3 hover:bg-nord-5 dark:bg-nord-1 dark:text-nord-4 dark:hover:bg-nord-2 bg-white'
               }`}
             >
               {category}

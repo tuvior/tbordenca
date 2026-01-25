@@ -5,7 +5,7 @@ export const educationData = [
     field: 'Computer Science',
     period: '2017 - 2019',
     description:
-      "Focused on machine learning, artificial intelligence and programming language design. Thesis on building a recommendation system for private banking client using collaborative filtering techniques.",
+      'Focused on machine learning, artificial intelligence and programming language design. Thesis on building a recommendation system for private banking client using collaborative filtering techniques.',
     logo: 'https://www.epfl.ch/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg',
   },
   {

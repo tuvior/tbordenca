@@ -35,7 +35,8 @@ export const hobbiesData = [
   {
     title: 'Cooking',
     icon: ChefHat,
-    description: 'Experimenting with new recipes and cooking techniques and exploring ethnic cuisines.',
+    description:
+      'Experimenting with new recipes and cooking techniques and exploring ethnic cuisines.',
     background:
       'https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?q=80&w=2078&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
@@ -49,7 +50,8 @@ export const hobbiesData = [
   {
     title: 'Reading',
     icon: BookOpen,
-    description: 'A good balance between non-fiction to stimulate the mind, and non-fiction to feed creativity.',
+    description:
+      'A good balance between non-fiction to stimulate the mind, and non-fiction to feed creativity.',
     background:
       'https://images.unsplash.com/photo-1513001900722-370f803f498d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
   },

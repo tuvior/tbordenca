@@ -1,4 +1,4 @@
-const evooqLogo = "/img/evooq-black.svg";
+const evooqLogo = '/img/evooq-black.svg';
 
 export type Experience = {
   company: {
@@ -15,11 +15,11 @@ export type Experience = {
 };
 
 const evooq = {
-  name: "Evooq",
+  name: 'Evooq',
   description:
-    "Evooq is a Swiss fintech company providing a white-label wealth management platform used by private banks and asset managers across Europe and Asia.",
+    'Evooq is a Swiss fintech company providing a white-label wealth management platform used by private banks and asset managers across Europe and Asia.',
   logo: evooqLogo,
-  website: "https://www.evooq.ch",
+  website: 'https://www.evooq.ch',
 };
 
 export const experienceData: Experience[] = [
@@ -28,7 +28,7 @@ export const experienceData: Experience[] = [
     role: 'Product Manager',
     period: 'Jul 2023 – Jul 2025',
     description:
-      'Owned and shaped multiple core modules of Evooq\'s Wealth Management platform, from strategy and discovery to delivery and large-scale adoption by tier-1 banks. Acted as product lead across regulatory, business, and technical dimensions.',
+      "Owned and shaped multiple core modules of Evooq's Wealth Management platform, from strategy and discovery to delivery and large-scale adoption by tier-1 banks. Acted as product lead across regulatory, business, and technical dimensions.",
     achievements: [
       'Led end-to-end delivery of several platform modules, accompanying products from early conception to large-scale adoption by banks worldwide.',
       'Overhauled the portfolio optimizer from methodology to UX, simplifying core workflows and driving a significant increase in adoption, contributing ~2M ARR.',
@@ -99,15 +99,13 @@ export const experienceData: Experience[] = [
   {
     company: {
       name: 'Credit Suisse',
-      description:
-        'Swiss multinational investment bank and financial services company.',
+      description: 'Swiss multinational investment bank and financial services company.',
       logo: 'https://cdn.brandfetch.io/id5R0NevJp/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B',
       website: 'https://www.credit-suisse.com',
     },
     role: 'Data Science Intern',
     period: 'Feb 2018 – Aug 2018',
-    description:
-      'Worked on applied data science initiatives within a large banking environment.',
+    description: 'Worked on applied data science initiatives within a large banking environment.',
     achievements: [
       'Supported data analysis and modeling tasks in a regulated financial context.',
       'Gained hands-on exposure to large-scale data, enterprise constraints, and banking workflows.',

@@ -1,32 +1,32 @@
-import { profileData } from "@/data/profileData";
-import type { Metadata } from "next";
-import { Fira_Code, Inter, Poppins } from "next/font/google";
-import Script from "next/script";
-import Footer from "./_components/Footer";
-import Header from "./_components/Header";
-import ScrollToTop from "./_components/ScrollToTop";
-import { ThemeProvider } from "./_context/ThemeProvider";
-import "./globals.css";
+import { profileData } from '@/data/profileData';
+import type { Metadata } from 'next';
+import { Fira_Code, Inter, Poppins } from 'next/font/google';
+import Script from 'next/script';
+import Footer from './_components/Footer';
+import Header from './_components/Header';
+import ScrollToTop from './_components/ScrollToTop';
+import { ThemeProvider } from './_context/ThemeProvider';
+import './globals.css';
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
+  subsets: ['latin'],
+  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
 });
 
 const poppins = Poppins({
-  subsets: ["latin"],
-  variable: "--font-poppins",
-  weight: ["400", "500", "600", "700"],
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  weight: ['400', '500', '600', '700'],
 });
 
 const firaCode = Fira_Code({
-  subsets: ["latin"],
-  variable: "--font-fira-code",
-  weight: ["400", "500", "600"],
+  subsets: ['latin'],
+  variable: '--font-fira-code',
+  weight: ['400', '500', '600'],
 });
 
-const siteUrl = "https://tuvior.github.io/tbordenca";
+const siteUrl = 'https://tuvior.github.io/tbordenca';
 const ogImageUrl = `${siteUrl}/img/preview.png`;
 
 const themeInitScript = `
@@ -52,14 +52,14 @@ const themeInitScript = `
 `;
 
 const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Website",
-  name: "tbordenca",
+  '@context': 'https://schema.org',
+  '@type': 'Website',
+  name: 'tbordenca',
   url: siteUrl,
-  description: "Product Manager Portfolio",
+  description: 'Product Manager Portfolio',
   image: ogImageUrl,
   author: {
-    "@type": "Person",
+    '@type': 'Person',
     name: profileData.name,
   },
 };
@@ -73,10 +73,10 @@ export const metadata: Metadata = {
   description: profileData.description,
   openGraph: {
     title: profileData.name,
-    siteName: "tbordenca",
-    description: "Product Manager Portfolio",
-    type: "website",
-    locale: "en_US",
+    siteName: 'tbordenca',
+    description: 'Product Manager Portfolio',
+    type: 'website',
+    locale: 'en_US',
     url: siteUrl,
     images: [
       {
@@ -105,7 +105,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${poppins.variable} ${firaCode.variable} min-h-screen flex flex-col antialiased`}
+        className={`${inter.variable} ${poppins.variable} ${firaCode.variable} flex min-h-screen flex-col antialiased`}
       >
         <ThemeProvider>
           <ScrollToTop />

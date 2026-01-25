@@ -1,5 +1,5 @@
-@config "../../tailwind.config.js";
-@import "tailwindcss";
+@config '../../tailwind.config.js';
+@import 'tailwindcss';
 
 @layer base {
   html,
@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-nord-6 font-sans text-nord-0 transition-colors duration-300 dark:bg-nord-0 dark:text-nord-6;
+    @apply bg-nord-6 text-nord-0 dark:bg-nord-0 dark:text-nord-6 font-sans transition-colors duration-300;
   }
 
   h1,
@@ -51,7 +51,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-nord-4 dark:bg-nord-3;
+    @apply bg-nord-4 dark:bg-nord-3 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -65,11 +65,11 @@
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: theme("colors.nord.4") transparent;
+    scrollbar-color: theme('colors.nord.4') transparent;
   }
 
   .dark * {
-    scrollbar-color: theme("colors.nord.3") transparent;
+    scrollbar-color: theme('colors.nord.3') transparent;
   }
 }
 
@@ -79,7 +79,7 @@
   }
 
   .card {
-    @apply rounded-xl bg-white p-6 shadow-lg transition-all duration-300 dark:bg-nord-2;
+    @apply dark:bg-nord-2 rounded-xl bg-white p-6 shadow-lg transition-all duration-300;
   }
 
   .btn {
@@ -87,15 +87,15 @@
   }
 
   .btn-primary {
-    @apply bg-nord-10 text-nord-6 shadow-md hover:bg-nord-9 hover:shadow-lg;
+    @apply bg-nord-10 text-nord-6 hover:bg-nord-9 shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-nord-5 text-nord-0 shadow-md hover:bg-nord-4 hover:shadow-lg dark:bg-nord-1 dark:text-nord-6 dark:hover:bg-nord-0;
+    @apply bg-nord-5 text-nord-0 hover:bg-nord-4 dark:bg-nord-1 dark:text-nord-6 dark:hover:bg-nord-0 shadow-md hover:shadow-lg;
   }
 
   .skill-badge {
-    @apply rounded-full bg-nord-7/20 px-3 py-1 text-sm font-medium text-nord-10 dark:bg-nord-7/10 dark:text-nord-7;
+    @apply bg-nord-7/20 text-nord-10 dark:bg-nord-7/10 dark:text-nord-7 rounded-full px-3 py-1 text-sm font-medium;
   }
 
   .snap-container {
@@ -187,9 +187,9 @@
   .gradient-text {
     background: linear-gradient(
       90deg,
-      theme("colors.nord.10"),
-      theme("colors.nord.14"),
-      theme("colors.nord.15")
+      theme('colors.nord.10'),
+      theme('colors.nord.14'),
+      theme('colors.nord.15')
     );
     background-size: 200% auto;
     background-clip: text;
@@ -212,7 +212,7 @@
 }
 
 .timeline-card {
-  @apply relative rounded-xl bg-nord-6 p-6 shadow-lg transition-all duration-300 dark:bg-nord-1;
+  @apply bg-nord-6 dark:bg-nord-1 relative rounded-xl p-6 shadow-lg transition-all duration-300;
   perspective: 1000px;
   transform-style: preserve-3d;
 }
@@ -224,7 +224,7 @@
 
 .timeline-card-front,
 .timeline-card-back {
-  @apply backface-hidden absolute h-full w-full rounded-xl p-6;
+  @apply absolute h-full w-full rounded-xl p-6 backface-hidden;
 }
 
 .timeline-card-back {

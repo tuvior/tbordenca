@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import Image from "next/image";
-import { motion } from "motion/react";
-import { Briefcase } from "lucide-react";
-import type { Skill } from "../../data/skillsData";
-import { withBasePath } from "@/lib/basePath";
+import Image from 'next/image';
+import { motion } from 'motion/react';
+import { Briefcase } from 'lucide-react';
+import type { Skill } from '../../data/skillsData';
+import { withBasePath } from '@/lib/basePath';
 
 type SkillBadgeProps = {
   skill: Skill;

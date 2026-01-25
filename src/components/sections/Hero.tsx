@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import Image from "next/image";
-import { motion } from "motion/react";
-import { TypeAnimation } from "react-type-animation";
-import Link from "next/link";
-import { profileData } from "../../data/profileData";
-import { withBasePath } from "@/lib/basePath";
+import Image from 'next/image';
+import { motion } from 'motion/react';
+import { TypeAnimation } from 'react-type-animation';
+import Link from 'next/link';
+import { profileData } from '../../data/profileData';
+import { withBasePath } from '@/lib/basePath';
 
 const Hero: React.FC = () => {
   // Create the sequence for TypeAnimation
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
         </motion.div>
 
         <motion.p
-          className="mx-auto mb-8 max-w-2xl text-lg text-nord-3 dark:text-nord-4 md:mx-0 md:text-xl"
+          className="text-nord-3 dark:text-nord-4 mx-auto mb-8 max-w-2xl text-lg md:mx-0 md:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -66,7 +66,6 @@ const Hero: React.FC = () => {
             See Projects
           </Link>
         </motion.div>
-
       </div>
 
       <motion.div
@@ -75,7 +74,7 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <div className="animate-float-enhanced relative h-full w-full overflow-hidden rounded-full border-4 border-nord-6 shadow-xl dark:border-nord-10">
+        <div className="animate-float-enhanced border-nord-6 dark:border-nord-10 relative h-full w-full overflow-hidden rounded-full border-4 shadow-xl">
           <Image
             src={withBasePath(profileData.profileImage)}
             alt={`${profileData.name} - ${profileData.title}`}
@@ -87,7 +86,6 @@ const Hero: React.FC = () => {
           />
         </div>
       </motion.div>
-
     </div>
   );
 };

@@ -1,23 +1,3 @@
-const photo1Url = "/img/photos/20210722_104720.jpg";
-const photo3Url = "/img/photos/20220309_110403.jpg";
-const photo4Url = "/img/photos/20220517_133251.jpg";
-const photo5Url = "/img/photos/20230419_190124.jpg";
-const photo6Url = "/img/photos/20230503_204233.jpg";
-const photo7Url = "/img/photos/20230506_164530.jpg";
-const photo10Url = "/img/photos/20230805_140212.jpg";
-const photo12Url = "/img/photos/20240915_132542.jpg";
-const photo13Url = "/img/photos/20241013_112203.jpg";
-const photo14Url = "/img/photos/20241013_121452.jpg";
-const photo15Url = "/img/photos/20241014_140053.jpg";
-const photo16Url = "/img/photos/20241016_122102.jpg";
-const photo17Url = "/img/photos/20241018_103321.jpg";
-const photo18Url = "/img/photos/20241019_105749.jpg";
-const photo19Url = "/img/photos/20241019_121625.jpg";
-const photo20Url = "/img/photos/20241019_124802.jpg";
-const photo21Url = "/img/photos/20241021_215132~2.jpg";
-const photo22Url = "/img/photos/20241023_131316 (2).jpg";
-const photo23Url = "/img/photos/20241024_163948.jpg";
-
 export type Photo = {
   url: string;
   width: number;
@@ -48,7 +28,7 @@ const categories = {
 
 export const photos: Photo[] = [
   {
-    url: photo1Url,
+    url: '/img/photos/20210722_104720.jpg',
     width: 4032,
     height: 3024,
     title: 'Horses',
@@ -59,7 +39,7 @@ export const photos: Photo[] = [
     camera: cameras.s20,
   },
   {
-    url: photo3Url,
+    url: '/img/photos/20220309_110403.jpg',
     width: 4032,
     height: 3024,
     title: 'Half and half',
@@ -70,7 +50,7 @@ export const photos: Photo[] = [
     camera: cameras.s20,
   },
   {
-    url: photo4Url,
+    url: '/img/photos/20220517_133251.jpg',
     width: 4000,
     height: 3000,
     title: 'Skyline',
@@ -81,7 +61,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo5Url,
+    url: '/img/photos/20230419_190124.jpg',
     width: 4000,
     height: 3000,
     title: 'Regatta',
@@ -92,7 +72,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo6Url,
+    url: '/img/photos/20230503_204233.jpg',
     width: 4000,
     height: 3000,
     title: 'Nesting',
@@ -103,7 +83,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo7Url,
+    url: '/img/photos/20230506_164530.jpg',
     width: 4000,
     height: 3000,
     title: 'Sit down',
@@ -114,7 +94,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo10Url,
+    url: '/img/photos/20230805_140212.jpg',
     width: 4000,
     height: 3000,
     title: 'Partenza',
@@ -125,7 +105,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo12Url,
+    url: '/img/photos/20240915_132542.jpg',
     width: 3000,
     height: 4000,
     title: 'Red and blue',
@@ -136,7 +116,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo13Url,
+    url: '/img/photos/20241013_112203.jpg',
     width: 2962,
     height: 3950,
     title: 'Shanghai architecture',
@@ -147,7 +127,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo14Url,
+    url: '/img/photos/20241013_121452.jpg',
     width: 4000,
     height: 3000,
     title: 'Cyperpunk',
@@ -158,7 +138,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo15Url,
+    url: '/img/photos/20241014_140053.jpg',
     width: 2969,
     height: 3959,
     title: 'Old architecture',
@@ -169,7 +149,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo16Url,
+    url: '/img/photos/20241016_122102.jpg',
     width: 3000,
     height: 4000,
     title: 'Untitled 16',
@@ -180,7 +160,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo17Url,
+    url: '/img/photos/20241018_103321.jpg',
     width: 3000,
     height: 4000,
     title: 'Untitled 17',
@@ -191,7 +171,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo18Url,
+    url: '/img/photos/20241019_105749.jpg',
     width: 3000,
     height: 4000,
     title: 'Untitled 18',
@@ -202,7 +182,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo19Url,
+    url: '/img/photos/20241019_121625.jpg',
     width: 2963,
     height: 3950,
     title: 'Untitled 19',
@@ -213,7 +193,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo20Url,
+    url: '/img/photos/20241019_124802.jpg',
     width: 3000,
     height: 4000,
     title: 'Untitled 20',
@@ -224,7 +204,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo21Url,
+    url: '/img/photos/20241021_215132~2.jpg',
     width: 3000,
     height: 4000,
     title: 'Untitled 21',
@@ -235,7 +215,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo22Url,
+    url: '/img/photos/20241023_131316 (2).jpg',
     width: 3000,
     height: 4000,
     title: 'Untitled 22',
@@ -246,7 +226,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: photo23Url,
+    url: '/img/photos/20241024_163948.jpg',
     width: 3000,
     height: 4000,
     title: 'Untitled 23',

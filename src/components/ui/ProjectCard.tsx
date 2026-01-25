@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { motion } from "motion/react";
-import { Briefcase, Code2, ExternalLink, X } from "lucide-react";
-import { withBasePath } from "@/lib/basePath";
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
+import { Briefcase, Code2, ExternalLink, X } from 'lucide-react';
+import { withBasePath } from '@/lib/basePath';
 
 type ProjectCardProps = {
   title: string;
@@ -61,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <>
       <motion.div
-        className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-nord-2"
+        className="dark:bg-nord-2 flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg"
         whileHover={{ y: -5 }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -85,19 +85,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="mb-2 flex items-center justify-between gap-2">
             <h3 className="text-xl font-bold">{title}</h3>
             {typeMeta && (
-              <span className="inline-flex items-center gap-2 rounded-full bg-nord-6 px-3 py-1 text-xs font-medium text-nord-1 dark:bg-nord-0/30 dark:text-nord-4">
+              <span className="bg-nord-6 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium">
                 <typeMeta.Icon size={14} />
                 {typeMeta.label}
               </span>
             )}
           </div>
-          <p className="mb-4 text-nord-10 dark:text-secondary-400">{description}</p>
+          <p className="text-nord-10 dark:text-secondary-400 mb-4">{description}</p>
 
           <div className="mb-4 flex flex-wrap gap-2">
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="rounded-full bg-nord-6 px-2 py-1 text-xs text-nord-1 dark:bg-nord-0/30 dark:text-nord-4"
+                className="bg-nord-6 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 rounded-full px-2 py-1 text-xs"
               >
                 {tag}
               </span>
@@ -133,17 +133,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           onClick={() => setIsModalOpen(false)}
         >
           <motion.div
-            className="max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-xl bg-white shadow-xl dark:bg-nord-2"
+            className="dark:bg-nord-2 max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-xl bg-white shadow-xl"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             onClick={e => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-nord-5 p-6 dark:border-nord-3">
+            <div className="border-nord-5 dark:border-nord-3 flex items-center justify-between border-b p-6">
               <div className="flex items-center gap-3">
                 <h3 className="text-2xl font-bold">{title}</h3>
                 {typeMeta && (
-                  <span className="inline-flex items-center gap-2 rounded-full bg-nord-6 px-3 py-1 text-xs font-medium text-nord-1 dark:bg-nord-0/30 dark:text-nord-4">
+                  <span className="bg-nord-6 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium">
                     <typeMeta.Icon size={14} />
                     {typeMeta.label}
                   </span>
@@ -151,7 +151,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="rounded-full p-2 text-nord-9 hover:bg-nord-6 hover:text-nord-3 dark:text-secondary-400 dark:hover:bg-nord-3 dark:hover:text-nord-5"
+                className="text-nord-9 hover:bg-nord-6 hover:text-nord-3 dark:text-secondary-400 dark:hover:bg-nord-3 dark:hover:text-nord-5 rounded-full p-2"
               >
                 <X size={24} />
               </button>
@@ -178,7 +178,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="rounded-full bg-nord-6 px-3 py-1 text-sm text-nord-1 dark:bg-nord-0/30 dark:text-nord-4"
+                    className="bg-nord-6 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 rounded-full px-3 py-1 text-sm"
                   >
                     {tag}
                   </span>

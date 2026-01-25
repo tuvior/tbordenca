@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import { useMemo, useState } from "react";
-import { motion } from "motion/react";
-import SectionTitle from "../ui/SectionTitle";
-import PhotoEntry from "../ui/PhotoEntry";
-import { photos } from "../../data/photographyData";
+import { useMemo, useState } from 'react';
+import { motion } from 'motion/react';
+import SectionTitle from '../ui/SectionTitle';
+import PhotoEntry from '../ui/PhotoEntry';
+import { photos } from '../../data/photographyData';
 
 const Photography: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   const allCategories = ['All', ...new Set(photos.map(photo => photo.category))];
 
   const filteredPhotos = useMemo(() => {
-    if (selectedCategory === "All") {
+    if (selectedCategory === 'All') {
       return photos;
     }
     return photos.filter(photo => photo.category === selectedCategory);
@@ -42,8 +42,8 @@ const Photography: React.FC = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-nord-10 text-white hover:bg-nord-9'
-                    : 'bg-white text-nord-3 hover:bg-nord-5 dark:bg-nord-1 dark:text-nord-4 dark:hover:bg-nord-2'
+                    ? 'bg-nord-10 hover:bg-nord-9 text-white'
+                    : 'text-nord-3 hover:bg-nord-5 dark:bg-nord-1 dark:text-nord-4 dark:hover:bg-nord-2 bg-white'
                 }`}
               >
                 {category}
@@ -54,7 +54,7 @@ const Photography: React.FC = () => {
       </motion.div>
 
       <div className="relative h-[calc(100vh-23rem)]">
-        <div className="absolute inset-x-0 top-0 z-10 h-8 bg-gradient-to-b from-nord-6 to-transparent dark:from-nord-0" />
+        <div className="from-nord-6 dark:from-nord-0 absolute inset-x-0 top-0 z-10 h-8 bg-gradient-to-b to-transparent" />
         <div className="h-full overflow-y-auto">
           <div className="py-8">
             <div className="grid gap-[1.5px] sm:grid-cols-2 lg:grid-cols-3">
@@ -64,7 +64,7 @@ const Photography: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-0 z-10 h-8 bg-gradient-to-t from-nord-6 to-transparent dark:from-nord-0" />
+        <div className="from-nord-6 dark:from-nord-0 absolute inset-x-0 bottom-0 z-10 h-8 bg-gradient-to-t to-transparent" />
       </div>
     </div>
   );
