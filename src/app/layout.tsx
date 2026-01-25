@@ -26,6 +26,7 @@ const firaCode = Fira_Code({
   weight: ['400', '500', '600'],
 });
 
+const siteName = 'tbordenca';
 const siteUrl = 'https://tuvior.github.io/tbordenca';
 const ogImageUrl = `${siteUrl}/img/preview.png`;
 
@@ -67,13 +68,13 @@ const jsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profileData.name} - ${profileData.title}`,
-    template: `%s - ${profileData.name}`,
+    default: siteName,
+    template: `%s - ${siteName}`,
   },
   description: profileData.description,
   openGraph: {
     title: profileData.name,
-    siteName: 'tbordenca',
+    siteName: siteName,
     description: 'Product Manager Portfolio',
     type: 'website',
     locale: 'en_US',

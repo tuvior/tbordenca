@@ -1,13 +1,7 @@
-import type { Metadata } from 'next';
 import Hero from '@/components/sections/Hero';
 import Hobbies from '@/components/sections/Hobbies';
 import HomeHighlights from '@/components/sections/HomeHighlights';
 import PhotographyHighlights from '@/components/sections/PhotographyHighlights';
-
-export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Portfolio highlights, hobbies, and photography from Tobias Bordenca.',
-};
 
 export default function HomePage() {
   return (
