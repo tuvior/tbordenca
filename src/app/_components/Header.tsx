@@ -8,6 +8,7 @@ import { useTheme } from '../_context/ThemeContextBase';
 
 const navItems = [
   { label: 'Home', to: '/' },
+  // { label: 'Blog', to: '/blog' },
   { label: 'Resume', to: '/resume' },
   { label: 'Projects', to: '/projects' },
 ];
@@ -17,6 +18,22 @@ export default function Header() {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const normalizePath = (value: string) => {
+    const trimmed = value.replace(/\/+$/, '');
+    return trimmed === '' ? '/' : trimmed;
+  };
+
+  const isRouteActive = (target: string) => {
+    const current = normalizePath(pathname ?? '/');
+    const normalizedTarget = normalizePath(target);
+
+    if (normalizedTarget === '/') {
+      return current === '/';
+    }
+
+    return current === normalizedTarget || current.startsWith(`${normalizedTarget}/`);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +53,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+      className={`site-header fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         scrolled
           ? isDarkBackground
             ? 'bg-nord-6/90 dark:bg-nord-0/90 py-2 shadow-md backdrop-blur-md'
@@ -54,7 +71,7 @@ export default function Header() {
         <nav className="hidden items-center space-x-8 md:flex">
           <ul className="flex space-x-6">
             {navItems.map(item => {
-              const isActive = pathname === item.to;
+              const isActive = isRouteActive(item.to);
 
               return (
                 <li key={item.to}>
@@ -79,7 +96,7 @@ export default function Header() {
             className="bg-nord-5/80 text-nord-0 hover:bg-nord-4 dark:bg-nord-2/80 dark:text-nord-6 dark:hover:bg-nord-3 rounded-full p-2 transition-colors duration-300"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </nav>
 
@@ -106,7 +123,7 @@ export default function Header() {
         <nav className="bg-nord-6/95 dark:bg-nord-0/95 shadow-lg backdrop-blur-md md:hidden">
           <ul className="space-y-4 px-6 py-4">
             {navItems.map(item => {
-              const isActive = pathname === item.to;
+              const isActive = isRouteActive(item.to);
 
               return (
                 <li key={item.to}>

@@ -1,6 +1,6 @@
 import { profileData } from '@/data/profileData';
 import type { Metadata } from 'next';
-import { Fira_Code, Inter, Poppins } from 'next/font/google';
+import { Inter, JetBrains_Mono, Poppins } from 'next/font/google';
 import Script from 'next/script';
 import Footer from './_components/Footer';
 import Header from './_components/Header';
@@ -20,10 +20,11 @@ const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
 });
 
-const firaCode = Fira_Code({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-fira-code',
-  weight: ['400', '500', '600'],
+  variable: '--font-jetbrains-mono',
+  style: ['normal', 'italic'],
+  weight: ['400', '700'],
 });
 
 const siteName = 'tbordenca';
@@ -106,7 +107,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${poppins.variable} ${firaCode.variable} flex min-h-screen flex-col antialiased`}
+        className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} flex min-h-screen flex-col antialiased`}
       >
         <ThemeProvider>
           <ScrollToTop />

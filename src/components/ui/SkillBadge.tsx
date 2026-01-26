@@ -34,7 +34,6 @@ const buildSkillIcon = (skill: Skill, isMobile: boolean) => {
           alt={`${skill.name} logo`}
           width={size}
           height={size}
-          sizes={`${size}px`}
           className="max-h-full max-w-full object-contain"
         />
       </div>

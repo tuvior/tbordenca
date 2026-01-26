@@ -53,7 +53,7 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
         display: ['var(--font-poppins)', 'sans-serif'],
-        mono: ['var(--font-fira-code)', 'monospace'],
+        mono: ['var(--font-jetbrains-mono)', 'monospace'],
       },
       animation: {
         float: 'float 6s ease-in-out infinite',

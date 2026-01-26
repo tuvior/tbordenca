@@ -44,7 +44,7 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
       { name: 'Innovation', icon: { type: 'lucide', value: Lightbulb } },
       {
         name: 'Agile Methodologies',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/scrum-1.svg' },
+        icon: { type: 'image', value: '/img/skills/scrum.svg' },
       },
     ],
   },
@@ -72,70 +72,70 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
     skills: [
       {
         name: 'Python',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/python-5.svg' },
+        icon: { type: 'image', value: '/img/skills/python.svg' },
       },
       {
         name: 'Java',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/java-14.svg' },
+        icon: { type: 'image', value: '/img/skills/java.svg' },
       },
       {
         name: 'Kotlin',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/kotlin-1.svg' },
+        icon: { type: 'image', value: '/img/skills/kotlin.svg' },
       },
       {
         name: 'Scala',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/scala-4.svg' },
+        icon: { type: 'image', value: '/img/skills/scala.svg' },
       },
       {
         name: 'Spring Boot',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/spring-boot-1.svg' },
+        icon: { type: 'image', value: '/img/skills/spring-boot.svg' },
       },
       {
         name: 'HTML/CSS',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/css-3.svg' },
+        icon: { type: 'image', value: '/img/skills/css.svg' },
       },
       {
         name: 'JavaScript',
-        icon: { type: 'image', value: 'https://www.svgrepo.com/show/303206/javascript-logo.svg' },
+        icon: { type: 'image', value: '/img/skills/javascript.svg' },
       },
       {
         name: 'TypeScript',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/typescript.svg' },
+        icon: { type: 'image', value: '/img/skills/typescript.svg' },
       },
       {
         name: 'React',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/react-2.svg' },
+        icon: { type: 'image', value: '/img/skills/react.svg' },
       },
       {
         name: 'Vue.js',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/vue-9.svg' },
+        icon: { type: 'image', value: '/img/skills/vue.svg' },
       },
       {
         name: 'Node.js',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg' },
+        icon: { type: 'image', value: '/img/skills/nodejs.svg' },
       },
       {
         name: 'Docker',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/docker.svg' },
+        icon: { type: 'image', value: '/img/skills/docker.svg' },
       },
       {
         name: 'Kubernetes',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/kubernets.svg' },
+        icon: { type: 'image', value: '/img/skills/kubernetes.svg' },
       },
       {
         name: 'Terraform',
         icon: {
           type: 'image',
-          value: 'https://cdn.worldvectorlogo.com/logos/terraform-enterprise.svg',
+          value: '/img/skills/terraform.svg',
         },
       },
       {
         name: 'Nomad',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/nomad-2.svg' },
+        icon: { type: 'image', value: '/img/skills/nomad.svg' },
       },
       {
         name: 'Git',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/git-icon.svg' },
+        icon: { type: 'image', value: '/img/skills/git.svg' },
       },
       {
         name: 'SQL',
@@ -152,41 +152,36 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
     skills: [
       {
         name: 'Excel',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/excel-4.svg' },
+        icon: { type: 'image', value: '/img/skills/excel.svg' },
       },
       {
         name: 'Jira',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/jira-1.svg' },
+        icon: { type: 'image', value: '/img/skills/jira.svg' },
       },
       {
         name: 'Confluence',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/confluence-1.svg' },
+        icon: { type: 'image', value: '/img/skills/confluence.svg' },
       },
       {
         name: 'Figma',
-        icon: { type: 'image', value: 'https://cdn.worldvectorlogo.com/logos/figma-icon.svg' },
+        icon: { type: 'image', value: '/img/skills/figma.svg' },
       },
       {
         name: 'Miro',
-        icon: {
-          type: 'image',
-          value:
-            'https://cdn.brandfetch.io/idAnDTFapY/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B',
-        },
+        icon: { type: 'image', value: '/img/skills/miro.svg' },
       },
       {
         name: 'Google Analytics',
         icon: {
           type: 'image',
-          value: 'https://cdn.worldvectorlogo.com/logos/google-analytics-4.svg',
+          value: '/img/skills/google-analytics.svg',
         },
       },
       {
         name: 'Adobe Analytics',
         icon: {
           type: 'image',
-          value:
-            'https://cdn.brandfetch.io/id_KsyK7J9/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B',
+          value: '/img/skills/adobe-analytics.svg',
         },
       },
     ],

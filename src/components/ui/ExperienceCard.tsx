@@ -181,6 +181,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                         src={withBasePath(experience.company.logo)}
                         alt={`${experience.company.name} logo`}
                         fill
+                        loading="eager"
                         sizes="96px"
                         className="object-contain"
                       />
