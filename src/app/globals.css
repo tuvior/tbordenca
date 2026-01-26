@@ -290,11 +290,11 @@
   }
 
   .mdx .mdx-image {
-    @apply relative my-6 block overflow-hidden rounded-2xl border border-nord-4/50 bg-nord-6/80 dark:border-nord-3/60 dark:bg-nord-1/70;
+    @apply border-nord-4/50 bg-nord-6/80 dark:border-nord-3/60 dark:bg-nord-1/70 relative my-6 mt-6 block overflow-hidden rounded-2xl border shadow-xl;
   }
 
   .mdx .mdx-image__img {
-    @apply h-auto w-full;
+    @apply block h-auto w-full;
   }
 
   .mdx sup a {
@@ -338,18 +338,6 @@
 
   .code-block {
     @apply border-nord-4/50 bg-nord-6/80 dark:border-nord-3/60 dark:bg-nord-1/70 relative mt-6 overflow-hidden rounded-2xl border shadow-xl;
-  }
-
-  .code-block::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent);
-    pointer-events: none;
-  }
-
-  .dark .code-block::before {
-    background: linear-gradient(180deg, rgba(76, 86, 106, 0.35), transparent);
   }
 
   .code-block--shiki {
@@ -544,6 +532,7 @@
     }
 
     .mdx [data-rehype-pretty-code-figure],
+    .mdx-image,
     .mdx .mdx-callout {
       width: calc(100% + (var(--mdx-breakout) * 2));
       margin-left: calc(var(--mdx-breakout) * -1);

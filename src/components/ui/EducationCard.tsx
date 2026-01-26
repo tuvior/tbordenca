@@ -2,10 +2,9 @@
 
 import type React from 'react';
 
-import Image from 'next/image';
-import { motion } from 'motion/react';
 import { Calendar } from 'lucide-react';
-import { withBasePath } from '@/lib/basePath';
+import { motion } from 'motion/react';
+import Image, { StaticImageData } from 'next/image';
 
 type EducationCardProps = {
   institution: string;
@@ -13,7 +12,7 @@ type EducationCardProps = {
   field: string;
   period: string;
   description?: string;
-  logo?: string;
+  logo?: StaticImageData;
   delay?: number;
 };
 
@@ -35,13 +34,12 @@ const EducationCard: React.FC<EducationCardProps> = ({
       transition={{ duration: 0.4, delay }}
     >
       {logo && (
-        <div className="relative mx-auto h-16 w-16 shrink-0 md:mx-0 md:h-20 md:w-20">
+        <div className="dark:bg-nord-3/30 relative ml-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-white p-2 shadow-md md:h-20 md:w-20">
           <Image
-            src={withBasePath(logo)}
+            src={logo}
             alt={`${institution} logo`}
-            fill
+            style={{ objectFit: 'contain' }}
             sizes="80px"
-            className="object-contain"
           />
         </div>
       )}

@@ -1,4 +1,16 @@
-export const educationData = [
+import epflLogo from '@/assets/img/companies/epfl.svg';
+import { StaticImageData } from 'next/image';
+
+export type Education = {
+  institution: string;
+  degree: string;
+  field: string;
+  period: string;
+  description: string;
+  logo: StaticImageData;
+};
+
+export const educationData: Education[] = [
   {
     institution: 'EPFL (Swiss Federal Institute of Technology in Lausanne)',
     degree: 'MSc',
@@ -6,7 +18,7 @@ export const educationData = [
     period: '2017 - 2019',
     description:
       'Focused on machine learning, artificial intelligence and programming language design. Thesis on building a recommendation system for private banking client using collaborative filtering techniques.',
-    logo: 'https://www.epfl.ch/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg',
+    logo: epflLogo,
   },
   {
     institution: 'EPFL (Swiss Federal Institute of Technology in Lausanne)',
@@ -15,6 +27,6 @@ export const educationData = [
     period: '2013 - 2016',
     description:
       'Coursework included software engineering, human-computer interaction, and artificial intelligence. ',
-    logo: 'https://www.epfl.ch/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg',
+    logo: epflLogo,
   },
 ];

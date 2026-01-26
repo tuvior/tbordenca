@@ -65,12 +65,11 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
         tabIndex={0}
       >
         <Image
-          src={withBasePath(photo.url)}
+          src={typeof photo.url === 'string' ? withBasePath(photo.url) : photo.url}
           alt={photo.title}
-          width={photo.width}
-          height={photo.height}
           sizes="(max-width: 900px) 100vw, (max-width: 1000px) 50vw, 33vw"
           className="h-auto w-full object-cover"
+          unoptimized={false}
         />
 
         <div
@@ -100,12 +99,11 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
         >
           <div className="relative max-h-[90vh] max-w-[90vw]">
             <Image
-              src={withBasePath(photo.url)}
+              src={typeof photo.url === 'string' ? withBasePath(photo.url) : photo.url}
               alt={photo.title}
-              width={photo.width}
-              height={photo.height}
               sizes="90vw"
               className="max-h-[85vh] max-w-[90vw] object-contain"
+              unoptimized={false}
             />
 
             <div className="text-nord-6 absolute right-0 bottom-0 left-0 bg-linear-to-b from-transparent to-black/70 p-4 pt-16">

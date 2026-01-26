@@ -1,3 +1,27 @@
+import adobeAnalyticsLogo from '@/assets/img/skills/adobe-analytics.svg';
+import confluenceLogo from '@/assets/img/skills/confluence.svg';
+import cssLogo from '@/assets/img/skills/css.svg';
+import dockerLogo from '@/assets/img/skills/docker.svg';
+import excelLogo from '@/assets/img/skills/excel.svg';
+import figmaLogo from '@/assets/img/skills/figma.svg';
+import gitLogo from '@/assets/img/skills/git.svg';
+import googleAnalyticsLogo from '@/assets/img/skills/google-analytics.svg';
+import javaLogo from '@/assets/img/skills/java.svg';
+import javascriptLogo from '@/assets/img/skills/javascript.svg';
+import jiraLogo from '@/assets/img/skills/jira.svg';
+import kotlinLogo from '@/assets/img/skills/kotlin.svg';
+import kubernetesLogo from '@/assets/img/skills/kubernetes.svg';
+import miroLogo from '@/assets/img/skills/miro.svg';
+import nodejsLogo from '@/assets/img/skills/nodejs.svg';
+import nomadLogo from '@/assets/img/skills/nomad.svg';
+import pythonLogo from '@/assets/img/skills/python.svg';
+import reactLogo from '@/assets/img/skills/react.svg';
+import scalaLogo from '@/assets/img/skills/scala.svg';
+import scrumLogo from '@/assets/img/skills/scrum.svg';
+import springBootLogo from '@/assets/img/skills/spring-boot.svg';
+import terraformLogo from '@/assets/img/skills/terraform.svg';
+import typescriptLogo from '@/assets/img/skills/typescript.svg';
+import vueLogo from '@/assets/img/skills/vue.svg';
 import type { LucideIcon } from 'lucide-react';
 import {
   AppWindow,
@@ -17,6 +41,7 @@ import {
   Presentation,
   Users,
 } from 'lucide-react';
+import { StaticImageData } from 'next/image';
 
 export type Skill = {
   name: string;
@@ -25,7 +50,7 @@ export type Skill = {
 
 export type SkillIcon = {
   type: 'lucide' | 'image';
-  value: LucideIcon | string;
+  value: LucideIcon | StaticImageData;
 };
 
 // set correct type as objects with category and list of skills
@@ -44,7 +69,7 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
       { name: 'Innovation', icon: { type: 'lucide', value: Lightbulb } },
       {
         name: 'Agile Methodologies',
-        icon: { type: 'image', value: '/img/skills/scrum.svg' },
+        icon: { type: 'image', value: scrumLogo },
       },
     ],
   },
@@ -72,70 +97,70 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
     skills: [
       {
         name: 'Python',
-        icon: { type: 'image', value: '/img/skills/python.svg' },
+        icon: { type: 'image', value: pythonLogo },
       },
       {
         name: 'Java',
-        icon: { type: 'image', value: '/img/skills/java.svg' },
+        icon: { type: 'image', value: javaLogo },
       },
       {
         name: 'Kotlin',
-        icon: { type: 'image', value: '/img/skills/kotlin.svg' },
+        icon: { type: 'image', value: kotlinLogo },
       },
       {
         name: 'Scala',
-        icon: { type: 'image', value: '/img/skills/scala.svg' },
+        icon: { type: 'image', value: scalaLogo },
       },
       {
         name: 'Spring Boot',
-        icon: { type: 'image', value: '/img/skills/spring-boot.svg' },
+        icon: { type: 'image', value: springBootLogo },
       },
       {
         name: 'HTML/CSS',
-        icon: { type: 'image', value: '/img/skills/css.svg' },
+        icon: { type: 'image', value: cssLogo },
       },
       {
         name: 'JavaScript',
-        icon: { type: 'image', value: '/img/skills/javascript.svg' },
+        icon: { type: 'image', value: javascriptLogo },
       },
       {
         name: 'TypeScript',
-        icon: { type: 'image', value: '/img/skills/typescript.svg' },
+        icon: { type: 'image', value: typescriptLogo },
       },
       {
         name: 'React',
-        icon: { type: 'image', value: '/img/skills/react.svg' },
+        icon: { type: 'image', value: reactLogo },
       },
       {
         name: 'Vue.js',
-        icon: { type: 'image', value: '/img/skills/vue.svg' },
+        icon: { type: 'image', value: vueLogo },
       },
       {
         name: 'Node.js',
-        icon: { type: 'image', value: '/img/skills/nodejs.svg' },
+        icon: { type: 'image', value: nodejsLogo },
       },
       {
         name: 'Docker',
-        icon: { type: 'image', value: '/img/skills/docker.svg' },
+        icon: { type: 'image', value: dockerLogo },
       },
       {
         name: 'Kubernetes',
-        icon: { type: 'image', value: '/img/skills/kubernetes.svg' },
+        icon: { type: 'image', value: kubernetesLogo },
       },
       {
         name: 'Terraform',
         icon: {
           type: 'image',
-          value: '/img/skills/terraform.svg',
+          value: terraformLogo,
         },
       },
       {
         name: 'Nomad',
-        icon: { type: 'image', value: '/img/skills/nomad.svg' },
+        icon: { type: 'image', value: nomadLogo },
       },
       {
         name: 'Git',
-        icon: { type: 'image', value: '/img/skills/git.svg' },
+        icon: { type: 'image', value: gitLogo },
       },
       {
         name: 'SQL',
@@ -152,36 +177,36 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
     skills: [
       {
         name: 'Excel',
-        icon: { type: 'image', value: '/img/skills/excel.svg' },
+        icon: { type: 'image', value: excelLogo },
       },
       {
         name: 'Jira',
-        icon: { type: 'image', value: '/img/skills/jira.svg' },
+        icon: { type: 'image', value: jiraLogo },
       },
       {
         name: 'Confluence',
-        icon: { type: 'image', value: '/img/skills/confluence.svg' },
+        icon: { type: 'image', value: confluenceLogo },
       },
       {
         name: 'Figma',
-        icon: { type: 'image', value: '/img/skills/figma.svg' },
+        icon: { type: 'image', value: figmaLogo },
       },
       {
         name: 'Miro',
-        icon: { type: 'image', value: '/img/skills/miro.svg' },
+        icon: { type: 'image', value: miroLogo },
       },
       {
         name: 'Google Analytics',
         icon: {
           type: 'image',
-          value: '/img/skills/google-analytics.svg',
+          value: googleAnalyticsLogo,
         },
       },
       {
         name: 'Adobe Analytics',
         icon: {
           type: 'image',
-          value: '/img/skills/adobe-analytics.svg',
+          value: adobeAnalyticsLogo,
         },
       },
     ],

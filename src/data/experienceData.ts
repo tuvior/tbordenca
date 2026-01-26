@@ -1,10 +1,12 @@
-const evooqLogo = '/img/evooq-black.svg';
+import evooqLogo from '@/assets/img/companies/evooq-black.svg';
+import csLogo from '@/assets/img/companies/credit-suisse.svg';
+import { StaticImageData } from 'next/image';
 
 export type Experience = {
   company: {
     name: string;
     description: string;
-    logo: string;
+    logo: StaticImageData;
     website: string;
   };
   role: string;
@@ -100,7 +102,7 @@ export const experienceData: Experience[] = [
     company: {
       name: 'Credit Suisse',
       description: 'Swiss multinational investment bank and financial services company.',
-      logo: 'https://cdn.brandfetch.io/id5R0NevJp/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B',
+      logo: csLogo,
       website: 'https://www.credit-suisse.com',
     },
     role: 'Data Science Intern',

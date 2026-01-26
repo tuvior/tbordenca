@@ -176,14 +176,13 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
                   {/* Company Logo */}
                   {experience.company.logo && (
-                    <div className="dark:bg-nord-3/30 relative ml-4 h-20 w-20 shrink-0 rounded-lg bg-white p-2 shadow-md md:h-24 md:w-24">
+                    <div className="dark:bg-nord-3/30 relative ml-4 flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-white p-2 shadow-md md:h-24 md:w-24">
                       <Image
-                        src={withBasePath(experience.company.logo)}
+                        src={experience.company.logo}
                         alt={`${experience.company.name} logo`}
-                        fill
-                        loading="eager"
                         sizes="96px"
-                        className="object-contain"
+                        style={{ objectFit: 'contain' }}
+                        priority
                       />
                     </div>
                   )}

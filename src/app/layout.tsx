@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const siteName = 'tbordenca';
 const siteUrl = 'https://tuvior.github.io/tbordenca';
-const ogImageUrl = `${siteUrl}/img/preview.png`;
+const ogImageUrl = `${siteUrl}/preview.png`;
 
 const themeInitScript = `
 (() => {

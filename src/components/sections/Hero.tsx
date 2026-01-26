@@ -7,7 +7,6 @@ import { motion } from 'motion/react';
 import { TypeAnimation } from 'react-type-animation';
 import Link from 'next/link';
 import { profileData } from '../../data/profileData';
-import { withBasePath } from '@/lib/basePath';
 
 const Hero: React.FC = () => {
   // Create the sequence for TypeAnimation
@@ -76,13 +75,12 @@ const Hero: React.FC = () => {
       >
         <div className="animate-float-enhanced border-nord-6 dark:border-nord-10 relative h-full w-full overflow-hidden rounded-full border-4 shadow-xl">
           <Image
-            src={withBasePath(profileData.profileImage)}
+            src={profileData.profileImage}
             alt={`${profileData.name} - ${profileData.title}`}
             fill
             sizes="(min-width: 768px) 384px, 224px"
             className="object-cover"
             priority
-            quality={85}
           />
         </div>
       </motion.div>

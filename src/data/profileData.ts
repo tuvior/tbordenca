@@ -1,3 +1,6 @@
+import { StaticImageData } from 'next/image';
+import profileImage from '@/assets/img/profile-c.jpg';
+
 export type Language = {
   name: string;
   level: string;
@@ -10,7 +13,7 @@ export type ProfileData = {
   roles: string[];
   focus: string[];
   description: string;
-  profileImage: string;
+  profileImage: StaticImageData;
   languages: Language[];
 };
 
@@ -21,7 +24,7 @@ export const profileData: ProfileData = {
   focus: ['Fintech', 'Consumer Software', 'SaaS'],
   description:
     'Passionate product manager with 6+ years of experience driving innovation and delivering user-centric solutions that solve real problems and create business value.',
-  profileImage: '/img/profile-c.jpg',
+  profileImage: profileImage,
   languages: [
     {
       name: 'Italian',
