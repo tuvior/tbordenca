@@ -15,6 +15,7 @@ import miroLogo from '@/assets/img/skills/miro.svg';
 import nextjsLogo from '@/assets/img/skills/next-js.svg';
 import nodejsLogo from '@/assets/img/skills/nodejs.svg';
 import nomadLogo from '@/assets/img/skills/nomad.svg';
+import postHogLogo from '@/assets/img/skills/posthog.svg';
 import pythonLogo from '@/assets/img/skills/python.svg';
 import reactLogo from '@/assets/img/skills/react.svg';
 import rustLogo from '@/assets/img/skills/rust.svg';
@@ -123,6 +124,7 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
       { name: 'Confluence', icon: { type: 'image', value: confluenceLogo } },
       { name: 'Figma', icon: { type: 'image', value: figmaLogo } },
       { name: 'Miro', icon: { type: 'image', value: miroLogo } },
+      { name: 'PostHog', icon: { type: 'image', value: postHogLogo } },
       { name: 'Google Analytics', icon: { type: 'image', value: googleAnalyticsLogo } },
       { name: 'Adobe Analytics', icon: { type: 'image', value: adobeAnalyticsLogo } },
     ],
