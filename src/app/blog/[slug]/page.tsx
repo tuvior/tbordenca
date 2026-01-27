@@ -28,7 +28,7 @@ export const generateStaticParams = async () => {
   return posts.map(post => ({ slug: post.slug }));
 };
 
-export const generateMetadata = async ({ params }: BlogPostPageProps) => {
+export async function generateMetadata({ params }: BlogPostPageProps) {
   try {
     const { slug } = await resolveParams(params);
     const meta = getPostMeta(slug);
@@ -46,7 +46,7 @@ export const generateMetadata = async ({ params }: BlogPostPageProps) => {
   } catch {
     return {};
   }
-};
+}
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   try {
@@ -63,11 +63,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       .filter((post): post is NonNullable<typeof post> => Boolean(post));
 
     return (
-      <article className="blog-article bg-transparent py-16">
+      <article className="blog-article bg-transparent py-16 pt-2">
         <div className="mx-auto w-full max-w-3xl px-4">
           <header className="mt-6">
             <h1 className="font-display mt-4 text-4xl md:text-5xl">{meta.title}</h1>
-            <p className="text-nord-3 dark:text-nord-4 mt-4 text-lg">{meta.description}</p>
+            <p className="text-nord-2 dark:text-nord-4 mt-2 text-lg">{meta.description}</p>
             <div className="text-nord-3 dark:text-nord-4 mt-4 flex flex-wrap items-center gap-3 text-sm">
               <span>{formatBlogDate(meta.date)}</span>
               {meta.tags?.map(tag => (
@@ -89,7 +89,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           )}
 
-          <div className="mdx mt-10">{content}</div>
+          <div className="mdx mt-30">{content}</div>
 
           {relatedPosts && relatedPosts.length > 0 && (
             <section className="mt-16">

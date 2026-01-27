@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import SectionTitle from '@/components/ui/SectionTitle';
 import withBasePath from '@/lib/basePath';
 import { formatBlogDate, getAllPosts } from '@/lib/blog';
 
@@ -12,15 +13,10 @@ export default function BlogIndexPage() {
   return (
     <section className="bg-nord-6 dark:bg-nord-0 py-16">
       <div className="mx-auto w-full max-w-4xl px-4">
-        <header className="mb-12">
-          <p className="text-nord-9 dark:text-nord-8 text-xs font-semibold tracking-[0.3em] uppercase">
-            Blog
-          </p>
-          <h1 className="font-display mt-4 text-4xl md:text-5xl">Writing & product notes</h1>
-          <p className="text-nord-3 dark:text-nord-4 mt-4 max-w-2xl text-lg">
-            Short essays on product, design, and engineering craft.
-          </p>
-        </header>
+        <SectionTitle
+          title="Blog"
+          subtitle="Short essays on product, design, and engineering craft."
+        />
 
         <div className="space-y-8">
           {posts.length === 0 && (
