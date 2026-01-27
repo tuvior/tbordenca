@@ -286,7 +286,11 @@
   }
 
   .mdx a {
-    @apply text-nord-10 decoration-nord-10/50 hover:text-nord-9 dark:text-nord-8 dark:decoration-nord-8/50 dark:hover:text-nord-7 underline underline-offset-4;
+    @apply text-nord-0 dark:text-nord-6 decoration-nord-10 dark:decoration-nord-8 font-bold underline decoration-2 underline-offset-5 hover:no-underline;
+  }
+
+  .mdx .mdx-caption > p {
+    @apply -mt-2! text-center text-base;
   }
 
   .mdx .mdx-image {

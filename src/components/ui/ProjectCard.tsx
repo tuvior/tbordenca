@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Briefcase, Code2, ExternalLink, X } from 'lucide-react';
-import { withBasePath } from '@/lib/basePath';
+import withBasePath from '@/lib/basePath';
 
 type ProjectCardProps = {
   title: string;

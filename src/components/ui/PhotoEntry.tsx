@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Camera, MapPin } from 'lucide-react';
 import type { Photo } from '../../data/photographyData';
-import { withBasePath } from '@/lib/basePath';
+import withBasePath from '@/lib/basePath';
 
 type ProjectCardProps = {
   photo: Photo;

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ExternalLink } from 'lucide-react';
 import type { AnchorHTMLAttributes } from 'react';
 
 const isInternalLink = (href: string) => href.startsWith('/');
@@ -29,8 +30,20 @@ export default function MdxLink({ href = '', children, ...rest }: MdxLinkProps) 
   }
 
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...rest}
+      className="group inline-flex items-center gap-1"
+    >
       {children}
+      <ExternalLink
+        size={14}
+        strokeWidth={3}
+        aria-hidden="true"
+        className="group-hover:text-nord-10 group-hover:dark:text-nord-8 inline-block"
+      />
     </a>
   );
 }

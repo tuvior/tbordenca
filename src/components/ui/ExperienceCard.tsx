@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 import { projectsData } from '../../data/projectsData';
 import type { Experience } from '../../data/experienceData';
-import { withBasePath } from '@/lib/basePath';
 
 type ExperienceCardProps = {
   experience: Experience;

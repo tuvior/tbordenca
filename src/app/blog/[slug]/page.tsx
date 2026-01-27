@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { formatBlogDate, getAllPosts, getPostBySlug, getPostMeta } from '@/lib/blog';
-import { withBasePath } from '@/lib/basePath';
+import withBasePath from '@/lib/basePath';
 import Image from 'next/image';
 
 export const dynamic = 'force-static';
