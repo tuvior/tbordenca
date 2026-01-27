@@ -67,11 +67,10 @@ export default function PhotoEntry({ photo, index }: ProjectCardProps) {
         tabIndex={0}
       >
         <Image
-          src={typeof photo.url === 'string' ? withBasePath(photo.url) : photo.url}
+          src={photo.image}
           alt={photo.title}
           sizes="(max-width: 900px) 100vw, (max-width: 1000px) 50vw, 33vw"
           className="h-auto w-full object-cover"
-          unoptimized={false}
         />
 
         <div
@@ -99,14 +98,8 @@ export default function PhotoEntry({ photo, index }: ProjectCardProps) {
           tabIndex={0}
           aria-label="Close photo preview"
         >
-          <div className="relative max-h-[90vh] max-w-[90vw]">
-            <Image
-              src={typeof photo.url === 'string' ? withBasePath(photo.url) : photo.url}
-              alt={photo.title}
-              sizes="90vw"
-              className="max-h-[85vh] max-w-[90vw] object-contain"
-              unoptimized={false}
-            />
+          <div className="relative h-11/12">
+            <Image src={photo.image} alt={photo.title} className="max-h-full w-auto" />
 
             <div className="text-nord-6 absolute right-0 bottom-0 left-0 bg-linear-to-b from-transparent to-black/70 p-4 pt-16">
               <div className="flex items-end justify-between">

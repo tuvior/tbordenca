@@ -13,15 +13,15 @@ import cyberpunk from '@/assets/img/photos/20241013_121452.jpg';
 import oldArchitecture from '@/assets/img/photos/20241014_140053.jpg';
 import untitled16 from '@/assets/img/photos/20241016_122102.jpg';
 import untitled17 from '@/assets/img/photos/20241018_103321.jpg';
-import untitled18 from '@/assets/img/photos/20241019_105749.jpg';
-import untitled19 from '@/assets/img/photos/20241019_121625.jpg';
-import untitled20 from '@/assets/img/photos/20241019_124802.jpg';
-import untitled21 from '@/assets/img/photos/20241021_215132.jpg';
-import untitled22 from '@/assets/img/photos/20241023_131316.jpg';
-import untitled23 from '@/assets/img/photos/20241024_163948.jpg';
+import browsing from '@/assets/img/photos/20241019_105749.jpg';
+import subjects from '@/assets/img/photos/20241019_121625.jpg';
+import orangeWay from '@/assets/img/photos/20241019_124802.jpg';
+import lanterns from '@/assets/img/photos/20241021_215132.jpg';
+import aloneOnTheWall from '@/assets/img/photos/20241023_131316.jpg';
+import twoPagodas from '@/assets/img/photos/20241024_163948.jpg';
 
 export type Photo = {
-  url: string | StaticImageData;
+  image: StaticImageData;
   title: string;
   category: string;
   description: string;
@@ -47,7 +47,7 @@ const categories = {
 
 export const photos: Photo[] = [
   {
-    url: horses,
+    image: horses,
     title: 'Horses',
     category: categories.landscape,
     description: 'Horses spotted in the sea off a mountain on a Greek island.',
@@ -56,7 +56,7 @@ export const photos: Photo[] = [
     camera: cameras.s20,
   },
   {
-    url: halfAndHalf,
+    image: halfAndHalf,
     title: 'Half and half',
     category: categories.landscape,
     description: 'The line between sunny and stormy immortalized in Mauritius.',
@@ -65,7 +65,7 @@ export const photos: Photo[] = [
     camera: cameras.s20,
   },
   {
-    url: skyline,
+    image: skyline,
     title: 'Skyline',
     category: categories.architecture,
     description: 'Towering skyline in the business district of Singapore.',
@@ -74,7 +74,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: regatta,
+    image: regatta,
     title: 'Regatta',
     category: categories.landscape,
     description: 'Sailboats racing the sun rays.',
@@ -83,7 +83,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: nesting,
+    image: nesting,
     title: 'Nesting',
     category: categories.landscape,
     description: 'A crow enjoying the golden hour.',
@@ -92,7 +92,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: sitDown,
+    image: sitDown,
     title: 'Sit down',
     category: categories.landscape,
     description: "Somebody's fishing spot.",
@@ -101,7 +101,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: partenza,
+    image: partenza,
     title: 'Partenza',
     category: categories.landscape,
     description: 'Dock in Locarno',
@@ -110,7 +110,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: redAndBlue,
+    image: redAndBlue,
     title: 'Red and blue',
     category: categories.landscape,
     description: 'Sister boats floating with the Vesuvio in the background.',
@@ -119,7 +119,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: shanghaiArchitecture,
+    image: shanghaiArchitecture,
     title: 'Shanghai architecture',
     category: 'Architecture',
     description: 'A modern building in Shanghai.',
@@ -128,7 +128,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: cyberpunk,
+    image: cyberpunk,
     title: 'Cyperpunk',
     category: 'Travel',
     description: 'Busy streets of Shanghai.',
@@ -137,7 +137,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: oldArchitecture,
+    image: oldArchitecture,
     title: 'Old architecture',
     category: 'Travel',
     description: 'European architecture in Shanghai.',
@@ -146,7 +146,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: untitled16,
+    image: untitled16,
     title: 'Untitled 16',
     category: 'Nature',
     description: 'Description pending',
@@ -155,7 +155,7 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: untitled17,
+    image: untitled17,
     title: 'Untitled 17',
     category: 'Nature',
     description: 'Description pending',
@@ -164,56 +164,56 @@ export const photos: Photo[] = [
     camera: cameras.s22,
   },
   {
-    url: untitled18,
-    title: 'Untitled 18',
-    category: 'Nature',
-    description: 'Description pending',
-    location: 'Location unknown',
+    image: browsing,
+    title: 'Browsing',
+    category: categories.travel,
+    description: 'A man browsing through the market stalls.',
+    location: 'Luoyang, China',
     date: new Date('2024-10-19'),
     camera: cameras.s22,
   },
   {
-    url: untitled19,
-    title: 'Untitled 19',
-    category: 'Nature',
-    description: 'Description pending',
-    location: 'Location unknown',
+    image: subjects,
+    title: 'Subjects',
+    category: categories.travel,
+    description: 'Who is photographing whom?',
+    location: 'Luoyang, China',
     date: new Date('2024-10-19'),
     camera: cameras.s22,
   },
   {
-    url: untitled20,
-    title: 'Untitled 20',
-    category: 'Nature',
-    description: 'Description pending',
-    location: 'Location unknown',
+    image: orangeWay,
+    title: 'Orange way',
+    category: categories.travel,
+    description: 'Walkway surrounded by lanterns.',
+    location: 'Luoyang, China',
     date: new Date('2024-10-19'),
     camera: cameras.s22,
   },
   {
-    url: untitled21,
-    title: 'Untitled 21',
-    category: 'Nature',
-    description: 'Description pending',
-    location: 'Location unknown',
+    image: lanterns,
+    title: 'Lanterns',
+    category: categories.travel,
+    description: 'Lanterns showing the way in a cold night.',
+    location: 'Pingyao, China',
     date: new Date('2024-10-21'),
     camera: cameras.s22,
   },
   {
-    url: untitled22,
-    title: 'Untitled 22',
-    category: 'Nature',
-    description: 'Description pending',
-    location: 'Location unknown',
+    image: aloneOnTheWall,
+    title: 'Alone on the wall',
+    category: categories.travel,
+    description: 'Walking on a forgotten segment of the Great Wall of China.',
+    location: 'Beijing, China',
     date: new Date('2024-10-23'),
     camera: cameras.s22,
   },
   {
-    url: untitled23,
-    title: 'Untitled 23',
-    category: 'Nature',
-    description: 'Description pending',
-    location: 'Location unknown',
+    image: twoPagodas,
+    title: 'Two pagodas',
+    category: categories.travel,
+    description: 'Pavillon of Everlasting Spring from Jingshan Park.',
+    location: 'Beijing, China',
     date: new Date('2024-10-24'),
     camera: cameras.s22,
   },
