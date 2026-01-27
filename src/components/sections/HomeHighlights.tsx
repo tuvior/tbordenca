@@ -1,4 +1,4 @@
-import { FileText, Github, Linkedin, Mail, Sparkles, Twitter } from 'lucide-react';
+import { FileText, Mail, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 import { contactData } from '../../data/contactData';
@@ -54,65 +54,26 @@ export default function HomeHighlights() {
           decoration={
             <div className="bg-nord-10/10 dark:bg-nord-9/20 pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full blur-2xl" />
           }
-          footer={
-            <div className="flex items-center justify-end gap-3">
-              {footerData.socialLinks.linkedin && (
-                <a
-                  href={footerData.socialLinks.linkedin}
-                  className="text-nord-3 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8 transition-colors duration-300"
-                  aria-label="LinkedIn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin size={18} />
-                </a>
-              )}
-              {footerData.socialLinks.github && (
-                <a
-                  href={footerData.socialLinks.github}
-                  className="text-nord-3 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8 transition-colors duration-300"
-                  aria-label="GitHub"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github size={18} />
-                </a>
-              )}
-              {footerData.socialLinks.twitter && (
-                <a
-                  href={footerData.socialLinks.twitter}
-                  className="text-nord-3 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8 transition-colors duration-300"
-                  aria-label="Twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Twitter size={18} />
-                </a>
-              )}
-            </div>
-          }
         >
           <p className="text-nord-3 dark:text-nord-4">{contactData.message}</p>
-          <a
+          <Link
             href={`mailto:${contactData.email}`}
             className="btn btn-secondary inline-flex items-center"
           >
             {contactData.email}
-          </a>
+          </Link>
         </Card>
 
         <Card title="Resume" icon={<FileText size={18} />}>
-          <p className="text-nord-3 dark:text-nord-4 mb-6">
-            Prefer the traditional format? Download the full CV in one click.
-          </p>
+          <p className="text-nord-3 dark:text-nord-4 mb-6">Are you here for a good old PDF?</p>
           <div className="flex justify-center">
             <Link
               href={footerData.resume.url}
-              className="btn btn-primary inline-flex items-center gap-2"
+              className="btn btn-secondary inline-flex items-center gap-2"
               download={footerData.resume.fileName}
             >
-              Download CV
               <FileText size={16} />
+              Download
             </Link>
           </div>
         </Card>

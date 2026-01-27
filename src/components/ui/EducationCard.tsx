@@ -32,7 +32,7 @@ export default function EducationCard({
       transition={{ duration: 0.4, delay }}
     >
       {logo && (
-        <div className="dark:bg-nord-3/30 relative ml-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-white p-2 shadow-md md:h-20 md:w-20">
+        <div className="dark:bg-nord-3/30 relative flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-white p-2 shadow-md md:ml-4 md:h-20 md:w-20">
           <Image
             src={logo}
             alt={`${institution} logo`}

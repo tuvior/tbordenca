@@ -282,7 +282,7 @@
   }
 
   .mdx li::marker {
-    @apply text-nord-10  font-bold;
+    @apply text-nord-10 font-bold;
   }
 
   /* Tailwind doesn't like :dark inside ::marker selector */
@@ -377,6 +377,17 @@
 
   .code-block__pre {
     @apply overflow-x-auto bg-transparent pt-12 pb-6 text-[1rem] leading-6 font-medium;
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-variant-ligatures: contextual;
+    font-feature-settings:
+      'calt' 1,
+      'liga' 1,
+      'clig' 1,
+      'calt' 1;
+  }
+
+  .mdx :not(pre) > code {
+    @apply bg-nord-3/10 dark:bg-nord-3/40 rounded-[3px] px-1.5 py-0.5;
     font-family: var(--font-jetbrains-mono), monospace;
     font-variant-ligatures: contextual;
     font-feature-settings:

@@ -10,7 +10,7 @@ import { useTheme } from '../_context/ThemeContextBase';
 
 const navItems = [
   { label: 'Home', to: '/' },
-  // { label: 'Blog', to: '/blog' },
+  { label: 'Blog', to: '/blog' },
   { label: 'Resume', to: '/resume' },
   { label: 'Projects', to: '/projects' },
 ];

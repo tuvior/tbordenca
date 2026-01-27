@@ -53,7 +53,7 @@ export default function Experience() {
     <div className="mx-auto w-full max-w-6xl px-4" ref={experienceSectionRef}>
       <SectionTitle
         title="Professional Experience"
-        subtitle="My journey through product management roles and the impact I've made along the way."
+        subtitle="My journey through tech and into product management."
       />
 
       <div className="relative">

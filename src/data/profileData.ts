@@ -22,9 +22,9 @@ export const profileData: ProfileData = {
   name: 'Tobias Bordenca',
   title: 'Product Manager',
   roles: ['Product Manager', 'UX Enthusiast', 'Leader', 'Architect'],
-  focus: ['Fintech', 'Consumer Software', 'SaaS'],
+  focus: ['Fintech', 'Wealth Management', 'SaaS', 'API', 'Consumer'],
   description:
-    'Passionate product manager with 6+ years of experience driving innovation and delivering user-centric solutions that solve real problems and create business value.',
+    'Passionate product manager with 7+ years of experience driving innovation and delivering user-centric solutions that solve real problems and create business value.',
   profileImage: profileImage,
   languages: [
     {
@@ -40,12 +40,22 @@ export const profileData: ProfileData = {
     {
       name: 'French',
       level: 'Fluent',
-      proficiency: 95,
+      proficiency: 100,
     },
     {
       name: 'German',
-      level: 'Lower Intermediate',
+      level: 'Intermediate',
       proficiency: 40,
+    },
+    {
+      name: 'Spanish',
+      level: 'Lower Intermediate',
+      proficiency: 25,
+    },
+    {
+      name: 'Portuguese',
+      level: 'Lower Intermediate',
+      proficiency: 25,
     },
   ],
 };

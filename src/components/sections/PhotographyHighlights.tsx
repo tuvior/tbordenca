@@ -15,7 +15,7 @@ export default function PhotographyHighlights() {
     <div className="mx-auto w-full max-w-6xl px-4">
       <SectionTitle
         title="Photography Highlights"
-        subtitle="A small, recent selection from my travel and street photography."
+        subtitle="A random selection from my travel and street photography."
       />
       <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         {highlightedPhotos.map((photo, index) => (

@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 
 import withBasePath from '@/lib/basePath';
 import { formatBlogDate, getAllPosts, getPostBySlug, getPostMeta } from '@/lib/blog';
+import ArticleTag from '@/components/ui/ArticleTag';
+import { Calendar } from 'lucide-react';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -66,14 +68,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <article className="blog-article bg-transparent py-16 pt-2">
         <div className="mx-auto w-full max-w-3xl px-4">
           <header className="mt-6">
-            <h1 className="font-display mt-4 text-4xl md:text-5xl">{meta.title}</h1>
-            <p className="text-nord-2 dark:text-nord-4 mt-2 text-lg">{meta.description}</p>
+            <h1 className="mb-4 text-4xl font-bold md:text-4xl lg:text-5xl">
+              <span className="text-nord-10 dark:text-nord-8">{meta.title}</span>
+            </h1>
+            <p className="text-nord-2 dark:text-nord-4 mb-6 text-xl font-medium md:text-2xl">
+              {meta.description}
+            </p>
             <div className="text-nord-3 dark:text-nord-4 mt-4 flex flex-wrap items-center gap-3 text-sm">
-              <span>{formatBlogDate(meta.date)}</span>
+              <span className="flex items-center">
+                <Calendar size={18} className="mr-1 inline" />
+                {formatBlogDate(meta.date)}
+              </span>
               {meta.tags?.map(tag => (
-                <span key={tag} className="skill-badge">
-                  {tag}
-                </span>
+                <ArticleTag key={tag} tag={tag} />
               ))}
             </div>
           </header>
@@ -82,7 +89,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="mt-10">
               <Image
                 src={withBasePath(meta.cover)}
-                alt=""
+                alt="Article cover"
                 className="max-h-105 w-full rounded-2xl object-cover"
                 loading="lazy"
               />

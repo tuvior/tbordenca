@@ -1,11 +1,13 @@
 'use client';
 
+import { Github, Linkedin, Twitter } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TypeAnimation } from 'react-type-animation';
 
-import { profileData } from '../../data/profileData';
+import { footerData } from '@/data/footerData';
+import { profileData } from '@/data/profileData';
 
 export default function Hero() {
   const typeSequence = profileData.roles.reduce<(string | number)[]>((acc, role) => {
@@ -59,9 +61,21 @@ export default function Hero() {
           <Link href="/resume" className="btn btn-primary">
             View Resume
           </Link>
-          <Link href="/projects" className="btn btn-secondary">
-            See Projects
-          </Link>
+          {footerData.socialLinks.github ? (
+            <Link href={footerData.socialLinks.github} className="btn btn-secondary">
+              <Github />
+            </Link>
+          ) : undefined}
+          {footerData.socialLinks.linkedin ? (
+            <Link href={footerData.socialLinks.linkedin} className="btn btn-secondary">
+              <Linkedin />
+            </Link>
+          ) : undefined}
+          {footerData.socialLinks.twitter ? (
+            <Link href={footerData.socialLinks.twitter} className="btn btn-secondary">
+              <Twitter />
+            </Link>
+          ) : undefined}
         </motion.div>
       </div>
 
