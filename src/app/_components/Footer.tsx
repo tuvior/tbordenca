@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, Twitter, FileText } from 'lucide-react';
 import Link from 'next/link';
+
 import { footerData } from '@/data/footerData';
 
 export default function Footer() {

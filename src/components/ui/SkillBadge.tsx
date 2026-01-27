@@ -1,10 +1,9 @@
 'use client';
 
-import type React from 'react';
-
-import Image, { StaticImageData } from 'next/image';
-import { motion } from 'motion/react';
 import { Briefcase, LucideIcon } from 'lucide-react';
+import { motion } from 'motion/react';
+import Image, { StaticImageData } from 'next/image';
+
 import type { Skill } from '../../data/skillsData';
 
 type SkillBadgeProps = {
@@ -41,7 +40,7 @@ const buildSkillIcon = (skill: Skill, isMobile: boolean) => {
   return <IconComponent size={size} />;
 };
 
-const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, isMobile, categoryColor }) => {
+export default function SkillBadge({ skill, isMobile, categoryColor }: SkillBadgeProps) {
   return (
     <motion.div
       key={skill.name}
@@ -58,6 +57,4 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ skill, isMobile, categoryColor 
       </div>
     </motion.div>
   );
-};
-
-export default SkillBadge;
+}

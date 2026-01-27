@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+
 import type { ReactElement } from 'react';
+
 import matter from 'gray-matter';
 
 import { compileBlogMdx } from '@/lib/blogMdx';

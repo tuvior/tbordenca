@@ -1,7 +1,5 @@
 'use client';
 
-import type React from 'react';
-
 import { Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
@@ -16,7 +14,7 @@ type EducationCardProps = {
   delay?: number;
 };
 
-const EducationCard: React.FC<EducationCardProps> = ({
+export default function EducationCard({
   institution,
   degree,
   field,
@@ -24,7 +22,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
   description,
   logo,
   delay = 0,
-}) => {
+}: EducationCardProps) {
   return (
     <motion.div
       className="dark:bg-nord-2 flex flex-col gap-4 rounded-xl bg-white p-6 shadow-lg md:flex-row"
@@ -59,6 +57,4 @@ const EducationCard: React.FC<EducationCardProps> = ({
       </div>
     </motion.div>
   );
-};
-
-export default EducationCard;
+}

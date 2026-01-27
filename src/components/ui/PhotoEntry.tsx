@@ -1,20 +1,22 @@
 'use client';
 
 import type React from 'react';
-
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+
 import { Calendar, Camera, MapPin } from 'lucide-react';
-import type { Photo } from '../../data/photographyData';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+
 import withBasePath from '@/lib/basePath';
+
+import type { Photo } from '../../data/photographyData';
 
 type ProjectCardProps = {
   photo: Photo;
   index: number;
 };
 
-const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
+export default function PhotoEntry({ photo, index }: ProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInfoShown, setIsInfoShown] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -133,6 +135,4 @@ const PhotoEntry: React.FC<ProjectCardProps> = ({ photo, index }) => {
       )}
     </>
   );
-};
-
-export default PhotoEntry;
+}

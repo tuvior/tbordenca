@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+
 import { BadgeInfo, OctagonAlert, TriangleAlert } from 'lucide-react';
 
 const typeLabels: Record<'info' | 'warning' | 'error', string> = {

@@ -1,12 +1,12 @@
 'use client';
 
-import type React from 'react';
-
 import { useMemo, useState } from 'react';
+
 import { motion } from 'motion/react';
-import SectionTitle from '../ui/SectionTitle';
-import ProjectCard from '../ui/ProjectCard';
+
 import { projectsData } from '../../data/projectsData';
+import ProjectCard from '../ui/ProjectCard';
+import SectionTitle from '../ui/SectionTitle';
 
 type Project = (typeof projectsData)[number];
 
@@ -17,12 +17,12 @@ type ProjectsProps = {
   showFilters?: boolean;
 };
 
-const Projects: React.FC<ProjectsProps> = ({
+export default function Projects({
   title = 'Project Portfolio',
   subtitle = "A showcase of products and initiatives I've led or contributed to significantly.",
   projects = projectsData,
   showFilters = true,
-}) => {
+}: ProjectsProps) {
   const [activeFilter, setActiveFilter] = useState('All');
 
   const allCategories = useMemo(() => {
@@ -86,6 +86,4 @@ const Projects: React.FC<ProjectsProps> = ({
       </div>
     </div>
   );
-};
-
-export default Projects;
+}

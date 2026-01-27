@@ -1,8 +1,8 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import prettierRecommended from 'eslint-plugin-prettier/recommended';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
+import prettierRecommended from 'eslint-plugin-prettier/recommended';
 import tailwindCanonicalClasses from 'eslint-plugin-tailwind-canonical-classes';
 
 const tailwindPlugin = tailwindCanonicalClasses.default ?? tailwindCanonicalClasses;
@@ -28,6 +28,25 @@ const eslintConfig = defineConfig([
         'warn',
         {
           cssPath: './src/app/globals.css',
+        },
+      ],
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal'],
+          pathGroups: [
+            {
+              pattern: 'react',
+              group: 'external',
+              position: 'before',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['react'],
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
         },
       ],
     },

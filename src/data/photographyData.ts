@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 import horses from '@/assets/img/photos/20210722_104720.jpg';
 import halfAndHalf from '@/assets/img/photos/20220309_110403.jpg';
 import skyline from '@/assets/img/photos/20220517_133251.jpg';
@@ -17,7 +19,6 @@ import untitled20 from '@/assets/img/photos/20241019_124802.jpg';
 import untitled21 from '@/assets/img/photos/20241021_215132.jpg';
 import untitled22 from '@/assets/img/photos/20241023_131316.jpg';
 import untitled23 from '@/assets/img/photos/20241024_163948.jpg';
-import { StaticImageData } from 'next/image';
 
 export type Photo = {
   url: string | StaticImageData;

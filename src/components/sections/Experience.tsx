@@ -1,13 +1,13 @@
 'use client';
 
 import type React from 'react';
-
 import { useEffect, useRef, useState } from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import ExperienceCard from '../ui/ExperienceCard';
-import { experienceData } from '../../data/experienceData';
 
-const Experience: React.FC = () => {
+import { experienceData } from '../../data/experienceData';
+import ExperienceCard from '../ui/ExperienceCard';
+import SectionTitle from '../ui/SectionTitle';
+
+export default function Experience() {
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
   const [showCompanyInfo, setShowCompanyInfo] = useState<number | null>(null);
   const companyInfoRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -112,6 +112,4 @@ const Experience: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Experience;
+}

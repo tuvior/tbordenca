@@ -1,15 +1,13 @@
 'use client';
 
-import type React from 'react';
-
-import Image from 'next/image';
 import { motion } from 'motion/react';
-import { TypeAnimation } from 'react-type-animation';
+import Image from 'next/image';
 import Link from 'next/link';
+import { TypeAnimation } from 'react-type-animation';
+
 import { profileData } from '../../data/profileData';
 
-const Hero: React.FC = () => {
-  // Create the sequence for TypeAnimation
+export default function Hero() {
   const typeSequence = profileData.roles.reduce<(string | number)[]>((acc, role) => {
     return [...acc, role, 2000];
   }, []);
@@ -86,6 +84,4 @@ const Hero: React.FC = () => {
       </motion.div>
     </div>
   );
-};
-
-export default Hero;
+}

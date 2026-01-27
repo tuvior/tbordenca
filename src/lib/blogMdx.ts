@@ -1,15 +1,18 @@
-import { mdxComponents } from '@/components/mdx/mdxComponents';
-import type { CompileOptions } from '@mdx-js/mdx';
-import { compileMDX } from 'next-mdx-remote/rsc';
 import fs from 'node:fs';
 import path from 'node:path';
+
 import type { ReactElement } from 'react';
+
+import type { CompileOptions } from '@mdx-js/mdx';
+import { compileMDX } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
 import remarkDirective from 'remark-directive';
 import remarkGfm from 'remark-gfm';
 import type { ThemeRegistrationRaw } from 'shiki';
 import type { Node } from 'unist';
 import { SKIP, visit } from 'unist-util-visit';
+
+import { mdxComponents } from '@/components/mdx/mdxComponents';
 
 const THEME_DIR = path.join(process.cwd(), 'src', 'lib', 'themes');
 const NORD_DARK_THEME_PATH = path.join(THEME_DIR, 'nord-dark.json');

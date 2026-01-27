@@ -1,11 +1,12 @@
 'use client';
 
 import type React from 'react';
-
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+
 import { Briefcase, Code2, ExternalLink, X } from 'lucide-react';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+
 import withBasePath from '@/lib/basePath';
 
 type ProjectCardProps = {
@@ -18,7 +19,7 @@ type ProjectCardProps = {
   type?: 'product' | 'development';
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+export default function ProjectCard({
   title,
   description,
   image,
@@ -26,7 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   link,
   details,
   type,
-}) => {
+}: ProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const isCardInteractive = Boolean(details && isMobile);
@@ -98,7 +99,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         )}
 
-        <div className={`flex-grow p-6 ${isCardInteractive ? 'cursor-pointer' : ''}`}>
+        <div className={`grow p-6 ${isCardInteractive ? 'cursor-pointer' : ''}`}>
           <div className="mb-2 flex items-center justify-between gap-2">
             <h3 className="text-xl font-bold">{title}</h3>
             {typeMeta && (
@@ -229,6 +230,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       )}
     </>
   );
-};
-
-export default ProjectCard;
+}

@@ -1,9 +1,8 @@
-import React from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import EducationCard from '../ui/EducationCard';
 import { educationData } from '../../data/educationData';
+import EducationCard from '../ui/EducationCard';
+import SectionTitle from '../ui/SectionTitle';
 
-const Education: React.FC = () => {
+export default function Education() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4">
       <SectionTitle
@@ -27,6 +26,4 @@ const Education: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Education;
+}

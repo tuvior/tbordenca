@@ -1,7 +1,5 @@
 'use client';
 
-import type React from 'react';
-
 import { motion } from 'motion/react';
 
 type SectionTitleProps = {
@@ -9,7 +7,7 @@ type SectionTitleProps = {
   subtitle?: string;
 };
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle }) => {
+export default function SectionTitle({ title, subtitle }: SectionTitleProps) {
   return (
     <div className="mb-12 text-center">
       <motion.div
@@ -38,6 +36,4 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle }) => {
       )}
     </div>
   );
-};
-
-export default SectionTitle;
+}

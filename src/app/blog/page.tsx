@@ -1,8 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
-import { formatBlogDate, getAllPosts } from '@/lib/blog';
 import withBasePath from '@/lib/basePath';
-import Image from 'next/image';
+import { formatBlogDate, getAllPosts } from '@/lib/blog';
 
 export const dynamic = 'force-static';
 

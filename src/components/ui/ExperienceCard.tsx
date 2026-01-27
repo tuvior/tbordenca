@@ -2,8 +2,6 @@
 
 import type React from 'react';
 
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'motion/react';
 import {
   Calendar,
   Briefcase,
@@ -14,8 +12,11 @@ import {
   Link,
   ChevronDown,
 } from 'lucide-react';
-import { projectsData } from '../../data/projectsData';
+import { motion, AnimatePresence } from 'motion/react';
+import Image from 'next/image';
+
 import type { Experience } from '../../data/experienceData';
+import { projectsData } from '../../data/projectsData';
 
 type ExperienceCardProps = {
   experience: Experience;
@@ -32,7 +33,7 @@ type ExperienceCardProps = {
   cardRef: React.RefCallback<HTMLDivElement>;
 };
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({
+export default function ExperienceCard({
   experience,
   index,
   isExpanded,
@@ -45,7 +46,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   companyInfoRef,
   infoButtonRef,
   cardRef,
-}) => {
+}: ExperienceCardProps) {
   const relatedProjects = projectsData.filter(project =>
     experience.relatedProjects.includes(project.title)
   );
@@ -279,6 +280,4 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       </motion.div>
     </div>
   );
-};
-
-export default ExperienceCard;
+}

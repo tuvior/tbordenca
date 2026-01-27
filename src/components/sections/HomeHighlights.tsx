@@ -1,13 +1,13 @@
-import React from 'react';
-import Link from 'next/link';
 import { FileText, Github, Linkedin, Mail, Sparkles, Twitter } from 'lucide-react';
-import SectionTitle from '../ui/SectionTitle';
-import Card from '../ui/Card';
+import Link from 'next/link';
+
 import { contactData } from '../../data/contactData';
 import { footerData } from '../../data/footerData';
 import { profileData } from '../../data/profileData';
+import Card from '../ui/Card';
+import SectionTitle from '../ui/SectionTitle';
 
-const HomeHighlights: React.FC = () => {
+export default function HomeHighlights() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4">
       <SectionTitle
@@ -119,6 +119,4 @@ const HomeHighlights: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default HomeHighlights;
+}

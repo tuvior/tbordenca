@@ -1,3 +1,24 @@
+import type { LucideIcon } from 'lucide-react';
+import {
+  AppWindow,
+  BarChart,
+  BrainCircuit,
+  Briefcase,
+  Building2,
+  ChartCandlestick,
+  ChartNoAxesGantt,
+  CloudLightning,
+  Code,
+  Database,
+  EthernetPort,
+  GitCompareArrows,
+  Landmark,
+  Lightbulb,
+  Presentation,
+  Users,
+} from 'lucide-react';
+import { StaticImageData } from 'next/image';
+
 import adobeAnalyticsLogo from '@/assets/img/skills/adobe-analytics.svg';
 import confluenceLogo from '@/assets/img/skills/confluence.svg';
 import cssLogo from '@/assets/img/skills/css.svg';
@@ -25,26 +46,6 @@ import springBootLogo from '@/assets/img/skills/spring-boot.svg';
 import terraformLogo from '@/assets/img/skills/terraform.svg';
 import typescriptLogo from '@/assets/img/skills/typescript.svg';
 import vueLogo from '@/assets/img/skills/vue.svg';
-import type { LucideIcon } from 'lucide-react';
-import {
-  AppWindow,
-  BarChart,
-  BrainCircuit,
-  Briefcase,
-  Building2,
-  ChartCandlestick,
-  ChartNoAxesGantt,
-  CloudLightning,
-  Code,
-  Database,
-  EthernetPort,
-  GitCompareArrows,
-  Landmark,
-  Lightbulb,
-  Presentation,
-  Users,
-} from 'lucide-react';
-import { StaticImageData } from 'next/image';
 
 export type Skill = {
   name: string;

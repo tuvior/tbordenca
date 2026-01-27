@@ -1,14 +1,15 @@
 'use client';
 
 import type React from 'react';
-
 import { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import SectionTitle from '../ui/SectionTitle';
-import HobbyCard from '../ui/HobbyCard';
-import { hobbiesData } from '../../data/hobbiesData';
 
-const Hobbies: React.FC = () => {
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+import { hobbiesData } from '../../data/hobbiesData';
+import HobbyCard from '../ui/HobbyCard';
+import SectionTitle from '../ui/SectionTitle';
+
+export default function Hobbies() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -252,6 +253,4 @@ const Hobbies: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Hobbies;
+}

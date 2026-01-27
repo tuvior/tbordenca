@@ -1,16 +1,16 @@
-import type React from 'react';
+import type { ReactNode } from 'react';
 
 type CardProps = {
   title: string;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  footer?: React.ReactNode;
-  decoration?: React.ReactNode;
+  icon?: ReactNode;
+  children: ReactNode;
+  footer?: ReactNode;
+  decoration?: ReactNode;
   className?: string;
   contentClassName?: string;
 };
 
-const Card: React.FC<CardProps> = ({
+export default function Card({
   title,
   icon,
   children,
@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({
   decoration,
   className = '',
   contentClassName = '',
-}) => {
+}: CardProps) {
   return (
     <div className={`card relative flex h-full flex-col ${className}`.trim()}>
       {decoration}
@@ -37,6 +37,4 @@ const Card: React.FC<CardProps> = ({
       ) : null}
     </div>
   );
-};
-
-export default Card;
+}

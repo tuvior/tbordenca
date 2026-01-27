@@ -1,14 +1,16 @@
 'use client';
 
 import type React from 'react';
-
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+
 import { Search, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+
+import { useInView } from '@/hooks/useInView';
+
+import { skillsData } from '../../data/skillsData';
 import SectionTitle from '../ui/SectionTitle';
 import SkillBadge from '../ui/SkillBadge';
-import { skillsData } from '../../data/skillsData';
-import { useInView } from '@/hooks/useInView';
 
 const categoryColors = {
   All: {
@@ -57,7 +59,7 @@ const gridVariants = {
   },
 };
 
-const Skills: React.FC = () => {
+export default function Skills() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [isMobile, setIsMobile] = useState(false);
@@ -194,6 +196,4 @@ const Skills: React.FC = () => {
       </AnimatePresence>
     </div>
   );
-};
-
-export default Skills;
+}

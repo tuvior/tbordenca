@@ -1,14 +1,14 @@
 'use client';
 
-import type React from 'react';
-
 import { useMemo, useState } from 'react';
-import { motion } from 'motion/react';
-import SectionTitle from '../ui/SectionTitle';
-import PhotoEntry from '../ui/PhotoEntry';
-import { photos } from '../../data/photographyData';
 
-const Photography: React.FC = () => {
+import { motion } from 'motion/react';
+
+import { photos } from '../../data/photographyData';
+import PhotoEntry from '../ui/PhotoEntry';
+import SectionTitle from '../ui/SectionTitle';
+
+export default function Photography() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const allCategories = ['All', ...new Set(photos.map(photo => photo.category))];
@@ -68,6 +68,4 @@ const Photography: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Photography;
+}

@@ -1,4 +1,5 @@
 import { StaticImageData } from 'next/image';
+
 import profileImage from '@/assets/img/profile-c.jpg';
 
 export type Language = {

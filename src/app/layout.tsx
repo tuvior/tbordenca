@@ -1,7 +1,9 @@
-import { profileData } from '@/data/profileData';
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono, Poppins } from 'next/font/google';
 import Script from 'next/script';
+
+import { profileData } from '@/data/profileData';
+
 import Footer from './_components/Footer';
 import Header from './_components/Header';
 import ScrollToTop from './_components/ScrollToTop';

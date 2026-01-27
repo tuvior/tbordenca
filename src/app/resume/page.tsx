@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+
 import Education from '@/components/sections/Education';
 import Experience from '@/components/sections/Experience';
 import Skills from '@/components/sections/Skills';

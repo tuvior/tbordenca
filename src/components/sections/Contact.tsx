@@ -1,13 +1,12 @@
 'use client';
 
-import type React from 'react';
-
-import { motion } from 'motion/react';
 import { Mail } from 'lucide-react';
-import SectionTitle from '../ui/SectionTitle';
-import { contactData } from '../../data/contactData';
+import { motion } from 'motion/react';
 
-const Contact: React.FC = () => {
+import { contactData } from '../../data/contactData';
+import SectionTitle from '../ui/SectionTitle';
+
+export default function Contact() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4">
       <SectionTitle title={contactData.title} subtitle={contactData.subtitle} />
@@ -38,6 +37,4 @@ const Contact: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Contact;
+}

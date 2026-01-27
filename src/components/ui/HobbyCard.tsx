@@ -1,10 +1,13 @@
 'use client';
 
-import Image from 'next/image';
 import React from 'react';
+
 import { motion } from 'motion/react';
-import type { Hobby } from '../../data/hobbiesData';
+import Image from 'next/image';
+
 import withBasePath from '@/lib/basePath';
+
+import type { Hobby } from '../../data/hobbiesData';
 
 type HobbyCardProps = {
   hobby: Hobby;
@@ -13,7 +16,7 @@ type HobbyCardProps = {
   index: number;
 };
 
-const HobbyCard: React.FC<HobbyCardProps> = ({ hobby, handleClick, isSelected, index }) => {
+export default function HobbyCard({ hobby, handleClick, isSelected, index }: HobbyCardProps) {
   return (
     <div key={hobby.title} className={`w-full shrink-0 snap-center p-3 md:w-1/3`}>
       <motion.div
@@ -49,6 +52,4 @@ const HobbyCard: React.FC<HobbyCardProps> = ({ hobby, handleClick, isSelected, i
       </motion.div>
     </div>
   );
-};
-
-export default HobbyCard;
+}

@@ -1,6 +1,7 @@
-import evooqLogo from '@/assets/img/companies/evooq-black.svg';
-import csLogo from '@/assets/img/companies/credit-suisse.svg';
 import { StaticImageData } from 'next/image';
+
+import csLogo from '@/assets/img/companies/credit-suisse.svg';
+import evooqLogo from '@/assets/img/companies/evooq-black.svg';
 
 export type Experience = {
   company: {

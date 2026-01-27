@@ -4,6 +4,7 @@ import type React from 'react';
 
 import { Globe } from 'lucide-react';
 import { motion } from 'motion/react';
+
 import type { Language } from '../../data/profileData';
 
 type LanguagesCardProps = {
@@ -23,7 +24,7 @@ const getProficiencyColor = (proficiency: number): string => {
   }
 };
 
-const LanguagesCard: React.FC<LanguagesCardProps> = ({ languages }) => {
+export default function LanguagesCard({ languages }: LanguagesCardProps) {
   return (
     <motion.div
       className="mb-0 max-w-md md:mb-8"
@@ -57,6 +58,4 @@ const LanguagesCard: React.FC<LanguagesCardProps> = ({ languages }) => {
       </div>
     </motion.div>
   );
-};
-
-export default LanguagesCard;
+}

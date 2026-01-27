@@ -1,7 +1,9 @@
+import type { CSSProperties, ComponentPropsWithoutRef } from 'react';
+
+import Image from 'next/image';
+
 import withBasePath from '@/lib/basePath';
 import getLocalImageSize from '@/lib/imageSize';
-import Image from 'next/image';
-import type { CSSProperties, ComponentPropsWithoutRef } from 'react';
 
 type MdxImageProps = ComponentPropsWithoutRef<'img'> & {
   src?: string;

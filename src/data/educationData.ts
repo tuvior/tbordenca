@@ -1,5 +1,6 @@
-import epflLogo from '@/assets/img/companies/epfl.svg';
 import { StaticImageData } from 'next/image';
+
+import epflLogo from '@/assets/img/companies/epfl.svg';
 
 export type Education = {
   institution: string;
