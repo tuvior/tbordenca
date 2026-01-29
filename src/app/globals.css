@@ -358,47 +358,18 @@
     @apply border-nord-4/50 bg-nord-6/80 dark:border-nord-3/60 dark:bg-nord-1/70 relative mt-6 overflow-hidden rounded-2xl border shadow-xl;
   }
 
-  .code-block--shiki {
-    background: transparent;
-    background-color: var(--code-bg-light, transparent);
-  }
-
-  .code-block--shiki::before {
-    display: none;
-  }
-
-  .dark .code-block--shiki {
-    background-color: var(--code-bg-dark, var(--code-bg-light, transparent));
-  }
-
   .code-block__language {
     @apply border-nord-4/60 bg-nord-6/90 text-nord-0 dark:border-nord-3/60 dark:bg-nord-0/80 dark:text-nord-6 absolute top-3 left-4 rounded-full border px-3 py-1 text-[0.65rem] font-semibold tracking-[0.3em] uppercase;
   }
 
   .code-block__pre {
-    @apply overflow-x-auto bg-transparent pt-12 pb-6 text-[1rem] leading-6 font-medium;
+    @apply overflow-x-auto pt-12 pb-6 leading-6;
     font-family: var(--font-jetbrains-mono), monospace;
-    font-variant-ligatures: contextual;
-    font-feature-settings:
-      'calt' 1,
-      'liga' 1,
-      'clig' 1,
-      'calt' 1;
   }
 
   .mdx :not(pre) > code {
     @apply bg-nord-3/10 dark:bg-nord-3/40 rounded-[3px] px-1.5 py-0.5;
     font-family: var(--font-jetbrains-mono), monospace;
-    font-variant-ligatures: contextual;
-    font-feature-settings:
-      'calt' 1,
-      'liga' 1,
-      'clig' 1,
-      'calt' 1;
-  }
-
-  .code-block--shiki .code-block__pre {
-    background-color: transparent !important;
   }
 
   .code-block__pre code span {
@@ -415,15 +386,13 @@
 
   .code-block__pre .line,
   .code-block__pre [data-line] {
-    display: block;
-    padding: 0 1.75rem;
+    @apply px-4 md:px-7;
   }
 
   .code-block__pre .line.line-highlighted,
   .code-block__pre [data-line].line-highlighted {
     background: linear-gradient(90deg, rgba(136, 192, 208, 0.2), transparent);
     position: relative;
-    padding-left: 1.75rem;
   }
 
   .dark .code-block__pre .line.line-highlighted,
@@ -460,46 +429,22 @@
     @apply border-nord-4/60 bg-nord-6/90 text-nord-0 dark:border-nord-3/60 dark:bg-nord-0/80 dark:text-nord-6 absolute top-3 right-3 rounded-full border px-3 py-1 text-[0.65rem] font-semibold tracking-[0.25em] uppercase opacity-70 transition-opacity duration-300 hover:opacity-100 focus-visible:opacity-100;
   }
 
-  .mdx-callout {
-    @apply border-nord-4/50 text-nord-0 dark:border-nord-3/60 dark:text-nord-6 relative my-6 rounded-2xl border px-5 py-4 shadow-lg;
-    border-left-width: 4px;
-  }
-
-  .mdx-callout__header {
-    @apply flex items-center gap-2;
-  }
-
   .mdx-callout__icon {
-    @apply border-nord-4/60 bg-nord-6 text-nord-0 dark:border-nord-3/60 dark:bg-nord-0 dark:text-nord-6 flex h-7 w-7 items-center justify-center rounded-full border;
+    @apply border-nord-4/60 bg-nord-6 text-nord-0 dark:border-nord-3/60 dark:bg-nord-0 dark:text-nord-6 flex h-8 w-8 items-center justify-center rounded-full border;
   }
 
-  .mdx-callout__title {
-    @apply text-[0.65rem] font-semibold tracking-[0.3em] uppercase;
-  }
-
-  .mdx-callout__content {
-    @apply text-nord-2 dark:text-nord-5 mt-3;
+  .mdx-callout p:first-child,
+  .mdx-callout div:first-child,
+  .mdx-callout figure:first-child {
+    @apply mt-0;
   }
 
   .mdx-callout [data-rehype-pretty-code-figure] {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0.75rem;
-    padding: 0 0.75rem;
-    box-sizing: border-box;
-  }
-
-  .mdx-callout [data-rehype-pretty-code-figure] .code-block {
-    width: 100%;
-  }
-
-  .mdx-callout [data-rehype-pretty-code-figure] .code-block {
-    margin: 0;
+    @apply py-0 px-1 md:px-3;
   }
 
   .mdx-callout[data-callout='info'] {
-    border-left-color: theme('colors.nord.8');
+    border-left-color: theme('colors.nord.8') !important;
     background: linear-gradient(120deg, rgba(136, 192, 208, 0.18), rgba(236, 239, 244, 0.9));
   }
 
@@ -508,7 +453,7 @@
   }
 
   .mdx-callout[data-callout='info'] .mdx-callout__icon {
-    border-color: theme('colors.nord.8');
+    border-color: theme('colors.nord.8') !important;
     background: rgba(136, 192, 208, 0.15);
     color: theme('colors.nord.8');
   }
@@ -518,7 +463,7 @@
   }
 
   .mdx-callout[data-callout='warning'] {
-    border-left-color: theme('colors.nord.13');
+    border-left-color: theme('colors.nord.13') !important;
     background: linear-gradient(120deg, rgba(235, 203, 139, 0.2), rgba(236, 239, 244, 0.9));
   }
 
@@ -527,7 +472,7 @@
   }
 
   .mdx-callout[data-callout='warning'] .mdx-callout__icon {
-    border-color: theme('colors.nord.13');
+    border-color: theme('colors.nord.13') !important;
     background: rgba(235, 203, 139, 0.18);
     color: theme('colors.nord.13');
   }
@@ -537,7 +482,7 @@
   }
 
   .mdx-callout[data-callout='error'] {
-    border-left-color: theme('colors.nord.11');
+    border-left-color: theme('colors.nord.11') !important;
     background: linear-gradient(120deg, rgba(191, 97, 106, 0.18), rgba(236, 239, 244, 0.9));
   }
 
@@ -546,7 +491,7 @@
   }
 
   .mdx-callout[data-callout='error'] .mdx-callout__icon {
-    border-color: theme('colors.nord.11');
+    border-color: theme('colors.nord.11') !important;
     background: rgba(191, 97, 106, 0.15);
     color: theme('colors.nord.11');
   }
@@ -555,41 +500,23 @@
     color: theme('colors.nord.11');
   }
 
-  @media (min-width: 768px) {
-    .mdx {
-      --mdx-breakout: 2rem;
-    }
-
-    .mdx [data-rehype-pretty-code-figure],
-    .mdx-image,
-    .mdx .mdx-callout {
-      width: calc(100% + (var(--mdx-breakout) * 2));
-      margin-left: calc(var(--mdx-breakout) * -1);
-      margin-right: calc(var(--mdx-breakout) * -1);
-    }
-  }
-
-  .mdx [data-rehype-pretty-code-figure] .code-block {
-    width: 100%;
+  .mdx [data-rehype-pretty-code-figure],
+  .mdx-image,
+  .mdx .mdx-callout {
+    @apply -mx-4 md:-mx-8;
   }
 
   .mdx-spoiler {
-    @apply border-nord-4/50 bg-nord-6/90 dark:border-nord-3/50 dark:bg-nord-1/80 my-6 rounded-2xl border px-5 py-4 shadow-lg;
+    @apply my-6 py-4;
   }
 
   .mdx-spoiler__summary {
-    @apply text-nord-10 dark:text-nord-8 flex cursor-pointer items-center gap-2 font-medium;
+    @apply text-nord-10 dark:text-nord-8 before:text-nord-9 dark:before:text-nord-8 flex cursor-pointer items-center gap-2 font-medium before:transition-transform before:duration-200 before:ease-in-out before:content-['➙'];
     list-style: none;
   }
 
   .mdx-spoiler__summary::-webkit-details-marker {
     display: none;
-  }
-
-  .mdx-spoiler__summary::before {
-    content: '>';
-    @apply text-nord-9 dark:text-nord-8;
-    transition: transform 0.2s ease;
   }
 
   .mdx-spoiler[open] .mdx-spoiler__summary::before {

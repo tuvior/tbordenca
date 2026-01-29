@@ -1,11 +1,12 @@
+import { Calendar } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next/types';
 
+import ArticleTag from '@/components/ui/ArticleTag';
 import withBasePath from '@/lib/basePath';
 import { formatBlogDate, getAllPosts, getPostBySlug, getPostMeta } from '@/lib/blog';
-import ArticleTag from '@/components/ui/ArticleTag';
-import { Calendar } from 'lucide-react';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -30,13 +31,16 @@ export const generateStaticParams = async () => {
   return posts.map(post => ({ slug: post.slug }));
 };
 
-export async function generateMetadata({ params }: BlogPostPageProps) {
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
     const { slug } = await resolveParams(params);
     const meta = getPostMeta(slug);
 
     return {
       title: meta.title,
+      alternates: {
+        canonical: `/blog/${slug}`,
+      },
       description: meta.description,
       openGraph: {
         title: meta.title,
