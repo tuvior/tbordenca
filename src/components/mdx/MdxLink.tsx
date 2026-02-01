@@ -7,6 +7,8 @@ const isInternalLink = (href: string) => href.startsWith('/');
 
 type MdxLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href?: string;
+  'data-footnote-ref'?: string;
+  'data-footnote-backref'?: string;
 };
 
 export default function MdxLink({ href = '', children, className, ...rest }: MdxLinkProps) {
