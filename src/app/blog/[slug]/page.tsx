@@ -22,7 +22,7 @@ const resolveParams = async (params: BlogPostPageProps['params']) => {
 };
 
 export const generateStaticParams = async () => {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
   if (posts.length === 0) {
     return [{ slug: EMPTY_SLUG }];
@@ -34,7 +34,7 @@ export const generateStaticParams = async () => {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
     const { slug } = await resolveParams(params);
-    const meta = getPostMeta(slug);
+    const meta = await getPostMeta(slug);
 
     return {
       title: meta.title,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   try {
     const { slug } = await resolveParams(params);
-    const allPosts = getAllPosts();
+    const allPosts = await getAllPosts();
 
     if (allPosts.length === 0 && slug === EMPTY_SLUG) {
       notFound();

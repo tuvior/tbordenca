@@ -4,8 +4,8 @@ import { getAllPosts } from '@/lib/blog';
 
 export const dynamic = 'force-static';
 
-export default function BlogIndexPage() {
-  const articles = getAllPosts();
+export default async function BlogIndexPage() {
+  const articles = await getAllPosts();
 
   return (
     <section className="bg-nord-6 dark:bg-nord-0 py-16">

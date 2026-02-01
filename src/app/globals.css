@@ -399,19 +399,17 @@
     @apply px-4 md:px-7;
   }
 
-  .code-block__pre .line.line-highlighted,
-  .code-block__pre [data-line].line-highlighted {
+  [data-highlighted-line] {
     background: linear-gradient(90deg, rgba(136, 192, 208, 0.2), transparent);
     position: relative;
   }
 
-  .dark .code-block__pre .line.line-highlighted,
-  .dark .code-block__pre [data-line].line-highlighted {
+  .dark [data-highlighted-line] {
     background: linear-gradient(90deg, rgba(136, 192, 208, 0.25), transparent);
+    position: relative;
   }
 
-  .code-block__pre .line.line-highlighted::before,
-  .code-block__pre [data-line].line-highlighted::before {
+  [data-highlighted-line]::before {
     content: '';
     position: absolute;
     left: 0;
@@ -423,14 +421,12 @@
     box-shadow: 0 0 10px rgba(136, 192, 208, 0.5);
   }
 
-  .code-block__pre .line.line-highlighted + .line.line-highlighted::before,
-  .code-block__pre [data-line].line-highlighted + [data-line].line-highlighted::before {
+  [data-highlighted-line] + [data-highlighted-line]::before {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
 
-  .code-block__pre .line.line-highlighted:has(+ .line.line-highlighted)::before,
-  .code-block__pre [data-line].line-highlighted:has(+ [data-line].line-highlighted)::before {
+  [data-highlighted-line]:has(+ [data-highlighted-line])::before {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -445,7 +441,7 @@
   }
 
   .mdx-callout [data-rehype-pretty-code-figure] {
-    @apply py-0 px-1 md:px-2;
+    @apply px-1 py-0 md:px-2;
   }
 
   .mdx-callout[data-callout='info'] {
@@ -465,7 +461,6 @@
   .dark .mdx-callout[data-callout='warning'] {
     background: linear-gradient(120deg, rgba(235, 203, 139, 0.18), rgba(59, 66, 82, 0.9));
   }
-
 
   .mdx-callout[data-callout='error'] {
     border-left-color: theme('colors.nord.11') !important;

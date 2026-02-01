@@ -1,11 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import type { ReactElement } from 'react';
-
-import matter from 'gray-matter';
-
-import { compileBlogMdx } from '@/lib/blogMdx';
+import { createElement, type ReactElement } from 'react';
 
 const CONTENT_DIR = path.join(process.cwd(), 'src', 'content', 'blog');
 const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
@@ -27,6 +23,11 @@ export type BlogPostMeta = BlogFrontmatter & {
 export type BlogPost = {
   meta: BlogPostMeta;
   content: ReactElement;
+};
+
+type BlogMdxModule = {
+  default: (props: Record<string, unknown>) => ReactElement;
+  metadata?: Record<string, unknown>;
 };
 
 const parseBlogDate = (value: string): Date | null => {
@@ -135,9 +136,9 @@ const getDateTimestamp = (value: string) => {
   return parsed ? parsed.getTime() : 0;
 };
 
-const getMdxPath = (slug: string) => path.join(CONTENT_DIR, `${slug}.mdx`);
-
-const readPostFile = (slug: string) => fs.readFileSync(getMdxPath(slug), 'utf-8');
+const importPostModule = async (slug: string): Promise<BlogMdxModule> => {
+  return import(`@/content/blog/${slug}.mdx`);
+};
 
 export const getPostSlugs = () => {
   if (!fs.existsSync(CONTENT_DIR)) {
@@ -150,15 +151,14 @@ export const getPostSlugs = () => {
     .map(file => file.replace(/\.mdx$/, ''));
 };
 
-export const getPostMeta = (slug: string): BlogPostMeta => {
-  const file = readPostFile(slug);
-  const { data } = matter(file);
+export const getPostMeta = async (slug: string): Promise<BlogPostMeta> => {
+  const { metadata } = await importPostModule(slug);
 
-  return parseFrontmatter(data, slug);
+  return parseFrontmatter((metadata ?? {}) as Record<string, unknown>, slug);
 };
 
-export const getAllPosts = (): BlogPostMeta[] => {
-  const posts = getPostSlugs().map(getPostMeta);
+export const getAllPosts = async (): Promise<BlogPostMeta[]> => {
+  const posts = await Promise.all(getPostSlugs().map(slug => getPostMeta(slug)));
 
   return posts
     .filter(post => !post.draft)
@@ -166,13 +166,11 @@ export const getAllPosts = (): BlogPostMeta[] => {
 };
 
 export const getPostBySlug = async (slug: string): Promise<BlogPost> => {
-  const file = readPostFile(slug);
-  const { content, data } = matter(file);
-  const meta = parseFrontmatter(data, slug);
-  const mdxContent = await compileBlogMdx(content);
+  const { default: Post, metadata } = await importPostModule(slug);
+  const meta = parseFrontmatter((metadata ?? {}) as Record<string, unknown>, slug);
 
   return {
     meta,
-    content: mdxContent,
+    content: createElement(Post),
   };
 };
