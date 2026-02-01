@@ -45,7 +45,9 @@ export default function MdxImage({
   const numericHeight = parseDimension(height);
   const resolvedSizes = typeof sizes === 'string' ? sizes : '100vw';
   const styleObject = typeof style === 'object' && style ? (style as CSSProperties) : undefined;
-  const imageClassName = ['mdx-image__img', className].filter(Boolean).join(' ');
+  const imageClassName = ['block h-auto w-full', className].filter(Boolean).join(' ');
+  const wrapperClassName =
+    '-mx-4 md:-mx-8 border-nord-4/50 bg-nord-6/80 dark:border-nord-3/60 dark:bg-nord-1/70 relative my-6 mb-6 block overflow-hidden rounded-2xl border shadow-xl';
   const intrinsicSize = numericWidth && numericHeight ? null : getLocalImageSize(resolvedSrc);
   let resolvedWidth = numericWidth ?? intrinsicSize?.width;
   let resolvedHeight = numericHeight ?? intrinsicSize?.height;
@@ -60,7 +62,7 @@ export default function MdxImage({
 
   if (resolvedWidth && resolvedHeight) {
     return (
-      <span className="mdx-image">
+      <span className={wrapperClassName}>
         <Image
           src={resolvedSrc}
           alt={alt}
@@ -76,7 +78,7 @@ export default function MdxImage({
   }
 
   return (
-    <span className="mdx-image">
+    <span className={wrapperClassName}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={resolvedSrc} alt={alt} className={imageClassName} style={styleObject} {...rest} />
     </span>

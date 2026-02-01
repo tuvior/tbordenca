@@ -113,6 +113,13 @@ export default function CodeBlock({
     return { preStyle: nextPreStyle, wrapperStyle: wrapperStyleValue };
   }, [normalizedStyle]);
   const useShikiTheme = hasTheme && Boolean(wrapperStyle);
+  const mergedPreStyle = useMemo(() => {
+    const baseStyle: CSSProperties = {
+      fontFamily: 'var(--font-jetbrains-mono), monospace',
+    };
+
+    return preStyle ? { ...baseStyle, ...preStyle } : baseStyle;
+  }, [preStyle]);
 
   const normalizeCodeText = (value: string) => {
     const lines = value.replace(/\r\n/g, '\n').split('\n');
@@ -162,15 +169,22 @@ export default function CodeBlock({
 
   return (
     <div
-      className={['code-block group', useShikiTheme ? 'code-block--shiki' : '']
+      className={[
+        'code-block group relative mb-6 overflow-hidden rounded-2xl border border-nord-4/50 bg-nord-6/80 shadow-xl dark:border-nord-3/60 dark:bg-nord-1/70',
+        useShikiTheme ? 'code-block--shiki' : '',
+      ]
         .filter(Boolean)
         .join(' ')}
       style={wrapperStyle}
     >
-      {language && <span className="code-block__language">{language}</span>}
+      {language && (
+        <span className="code-block__language border-nord-4/60 bg-nord-6/90 text-nord-0 dark:border-nord-3/60 dark:bg-nord-0/80 dark:text-nord-6 absolute top-3 left-4 rounded-full border px-3 py-1 text-[0.65rem] font-semibold tracking-[0.3em] uppercase">
+          {language}
+        </span>
+      )}
       <button
         type="button"
-        className="code-block__button"
+        className="code-block__button border-nord-4/60 bg-nord-6/90 text-nord-0 dark:border-nord-3/60 dark:bg-nord-0/80 dark:text-nord-6 absolute top-3 right-3 rounded-full border px-3 py-1 text-[0.65rem] font-semibold tracking-[0.25em] uppercase opacity-70 transition-opacity duration-300 hover:opacity-100 focus-visible:opacity-100"
         onClick={handleCopy}
         aria-label="Copy code to clipboard"
       >
@@ -178,9 +192,11 @@ export default function CodeBlock({
       </button>
       <pre
         ref={preRef}
-        className={['code-block__pre', className].filter(Boolean).join(' ')}
+        className={['code-block__pre overflow-x-auto pt-12 pb-6 leading-6', className]
+          .filter(Boolean)
+          .join(' ')}
         data-language={language}
-        style={preStyle}
+        style={mergedPreStyle}
         {...rest}
       >
         {children}
