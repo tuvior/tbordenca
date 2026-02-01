@@ -5,6 +5,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
 import remarkDirective from 'remark-directive';
 import remarkGfm from 'remark-gfm';
+import remarkSmartypants from 'remark-smartypants';
 import type { Node } from 'unist';
 import { visit } from 'unist-util-visit';
 
@@ -78,7 +79,7 @@ const rehypePrettyCodeOptions = {
 };
 
 const mdxCompilerOptions: CompileOptions = {
-  remarkPlugins: [remarkGfm, remarkDirective, remarkCallouts],
+  remarkPlugins: [remarkGfm, remarkDirective, remarkCallouts, remarkSmartypants],
   rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]] as CompileOptions['rehypePlugins'],
 };
 

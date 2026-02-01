@@ -5,5 +5,5 @@ type CaptionProps = {
 };
 
 export default function Caption({ children }: CaptionProps) {
-  return <span className="mdx-caption">{children}</span>;
+  return <span className="mdx-caption mb-5 block">{children}</span>;
 }
