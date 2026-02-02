@@ -241,81 +241,6 @@
 }
 
 @layer components {
-  .mdx {
-    @apply text-nord-0 dark:text-nord-6 text-base leading-relaxed md:text-lg;
-  }
-
-  .mdx h1,
-  .mdx h2,
-  .mdx h3,
-  .mdx h4 {
-    @apply font-display text-nord-12 dark:text-nord-15!;
-  }
-
-  .mdx h2 {
-    @apply mt-12 mb-6 text-3xl;
-  }
-
-  .mdx h3 {
-    @apply mt-10 mb-5 text-2xl;
-  }
-
-  .mdx h4,
-  .mdx h5,
-  .mdx h6 {
-    @apply mb-3;
-  }
-
-  .mdx p:not(:last-child) {
-    @apply mb-5;
-  }
-
-  .mdx ul,
-  .mdx ol {
-    @apply mb-4 pl-8;
-  }
-
-  .mdx ul {
-    @apply list-disc;
-  }
-
-  .mdx ol {
-    @apply list-decimal;
-  }
-
-  .mdx li {
-    @apply mt-2 mb-2 pl-4;
-  }
-
-  .mdx li::marker {
-    @apply text-nord-10 font-bold;
-  }
-
-  /* Tailwind doesn't like :dark inside ::marker selector */
-  .dark .mdx li::marker {
-    @apply text-nord-8;
-  }
-
-  .mdx blockquote {
-    @apply border-nord-9/60 text-nord-3 dark:border-nord-8/60 dark:text-nord-4 mb-6 border-l-4 pl-4 italic;
-  }
-
-  .mdx hr {
-    @apply border-nord-4/50 dark:border-nord-3/60 my-12 border-t;
-  }
-
-  .mdx .mdx-caption > p {
-    @apply -mt-2! text-center text-base;
-  }
-
-  .mdx .footnotes {
-    @apply border-nord-4/60 text-nord-3 dark:border-nord-3/60 dark:text-nord-4 mt-12 border-t pt-6 text-sm;
-  }
-
-  .mdx .footnotes ol {
-    @apply pl-5;
-  }
-
   body.blog-post {
     background-image:
       radial-gradient(1200px circle at 20% -10%, rgba(129, 161, 193, 0.2), transparent 55%),
@@ -373,9 +298,5 @@
   [data-highlighted-line]:has(+ [data-highlighted-line])::before {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-  }
-
-  .mdx [data-rehype-pretty-code-figure] {
-    @apply -mx-4 md:-mx-8;
   }
 }

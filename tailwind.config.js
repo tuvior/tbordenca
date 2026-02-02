@@ -86,7 +86,128 @@ module.exports = {
       transitionDuration: {
         2000: '2000ms',
       },
+      typography: theme => {
+        const displayFont = theme('fontFamily.display', ['var(--font-poppins)', 'sans-serif']);
+        const displayFontValue = Array.isArray(displayFont) ? displayFont.join(', ') : displayFont;
+        const fontSizeSm = theme('fontSize.sm', ['0.875rem']);
+        const fontSizeSmValue = Array.isArray(fontSizeSm) ? fontSizeSm[0] : fontSizeSm;
+
+        return {
+          DEFAULT: {
+            css: {
+              color: theme('colors.nord.0'),
+              h1: {
+                color: theme('colors.nord.12'),
+                fontFamily: displayFontValue,
+              },
+              h2: {
+                color: theme('colors.nord.12'),
+                fontFamily: displayFontValue,
+              },
+              h3: {
+                color: theme('colors.nord.12'),
+                fontFamily: displayFontValue,
+              },
+              h4: {
+                color: theme('colors.nord.12'),
+                fontFamily: displayFontValue,
+              },
+              blockquote: {
+                color: theme('colors.nord.3'),
+                borderLeftColor: 'rgba(129, 161, 193, 0.6)',
+              },
+              hr: {
+                borderColor: 'rgba(216, 222, 233, 0.5)',
+              },
+              'ol > li::marker': {
+                color: theme('colors.nord.10'),
+                fontWeight: '700',
+              },
+              'ul > li::marker': {
+                color: theme('colors.nord.10'),
+                fontWeight: '700',
+              },
+              '.footnotes': {
+                marginTop: theme('spacing.12'),
+                paddingTop: theme('spacing.6'),
+                borderTopWidth: '1px',
+                borderTopStyle: 'solid',
+                borderTopColor: 'rgba(216, 222, 233, 0.6)',
+                color: theme('colors.nord.3'),
+                fontSize: fontSizeSmValue,
+              },
+              '.footnotes ol': {
+                paddingLeft: theme('spacing.5'),
+              },
+              '[data-rehype-pretty-code-figure]': {
+                marginLeft: `-${theme('spacing.4')}`,
+                marginRight: `-${theme('spacing.4')}`,
+                '@screen md': {
+                  marginLeft: `-${theme('spacing.8')}`,
+                  marginRight: `-${theme('spacing.8')}`,
+                },
+              },
+            },
+          },
+          invert: {
+            css: {
+              color: theme('colors.nord.6'),
+              h1: {
+                color: theme('colors.nord.15'),
+                fontFamily: displayFontValue,
+              },
+              h2: {
+                color: theme('colors.nord.15'),
+                fontFamily: displayFontValue,
+              },
+              h3: {
+                color: theme('colors.nord.15'),
+                fontFamily: displayFontValue,
+              },
+              h4: {
+                color: theme('colors.nord.15'),
+                fontFamily: displayFontValue,
+              },
+              blockquote: {
+                color: theme('colors.nord.4'),
+                borderLeftColor: 'rgba(136, 192, 208, 0.6)',
+              },
+              hr: {
+                borderColor: 'rgba(76, 86, 106, 0.6)',
+              },
+              'ol > li::marker': {
+                color: theme('colors.nord.8'),
+                fontWeight: '700',
+              },
+              'ul > li::marker': {
+                color: theme('colors.nord.8'),
+                fontWeight: '700',
+              },
+              '.footnotes': {
+                marginTop: theme('spacing.12'),
+                paddingTop: theme('spacing.6'),
+                borderTopWidth: '1px',
+                borderTopStyle: 'solid',
+                borderTopColor: 'rgba(76, 86, 106, 0.6)',
+                color: theme('colors.nord.4'),
+                fontSize: fontSizeSmValue,
+              },
+              '.footnotes ol': {
+                paddingLeft: theme('spacing.5'),
+              },
+              '[data-rehype-pretty-code-figure]': {
+                marginLeft: `-${theme('spacing.4')}`,
+                marginRight: `-${theme('spacing.4')}`,
+                '@screen md': {
+                  marginLeft: `-${theme('spacing.8')}`,
+                  marginRight: `-${theme('spacing.8')}`,
+                },
+              },
+            },
+          },
+        };
+      },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

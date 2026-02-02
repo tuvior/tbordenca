@@ -1,7 +1,6 @@
 @reference 'tailwindcss';
 
-.root :global(div:last-child),
-.root :global(figure:last-child) {
+.content > :global(:last-child) {
   @apply mb-0;
 }
 

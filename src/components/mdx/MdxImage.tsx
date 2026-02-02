@@ -47,7 +47,7 @@ export default function MdxImage({
   const styleObject = typeof style === 'object' && style ? (style as CSSProperties) : undefined;
   const imageClassName = ['block h-auto w-full', className].filter(Boolean).join(' ');
   const wrapperClassName =
-    '-mx-4 md:-mx-8 border-nord-4/50 bg-nord-6/80 dark:border-nord-3/60 dark:bg-nord-1/70 relative my-6 mb-6 block overflow-hidden rounded-2xl border shadow-xl';
+    'not-prose -mx-4 md:-mx-8 border-nord-4/50 bg-nord-6/80 dark:border-nord-3/60 dark:bg-nord-1/70 relative my-6 mb-6 block overflow-hidden rounded-2xl border shadow-xl';
   const intrinsicSize = numericWidth && numericHeight ? null : getLocalImageSize(resolvedSrc);
   let resolvedWidth = numericWidth ?? intrinsicSize?.width;
   let resolvedHeight = numericHeight ?? intrinsicSize?.height;

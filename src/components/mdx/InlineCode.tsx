@@ -28,7 +28,7 @@ export default function InlineCode({
   const blockCode = isBlockCode(className, dataLanguage, dataTheme);
   const combinedClassName = blockCode
     ? className
-    : ['bg-nord-3/10 dark:bg-nord-3/40 rounded-[3px] px-1.5 py-0.5', className]
+    : ['not-prose bg-nord-3/10 dark:bg-nord-3/40 rounded-[3px] px-1.5 py-0.5', className]
         .filter(Boolean)
         .join(' ');
   const combinedStyle = blockCode

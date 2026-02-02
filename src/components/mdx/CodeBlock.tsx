@@ -170,7 +170,7 @@ export default function CodeBlock({
   return (
     <div
       className={[
-        'code-block group relative mb-6 overflow-hidden rounded-2xl border border-nord-4/50 bg-nord-6/80 shadow-xl dark:border-nord-3/60 dark:bg-nord-1/70',
+        'code-block not-prose group border-nord-4/50 bg-nord-6/80 dark:border-nord-3/60 dark:bg-nord-1/70 relative mb-6 overflow-hidden rounded-2xl border shadow-xl',
         useShikiTheme ? 'code-block--shiki' : '',
       ]
         .filter(Boolean)

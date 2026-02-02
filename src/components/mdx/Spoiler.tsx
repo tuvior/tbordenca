@@ -11,10 +11,10 @@ type SpoilerProps = {
 
 export default function Spoiler({ title = DEFAULT_TITLE, children }: SpoilerProps) {
   return (
-    <details className={['mdx-spoiler my-6 py-4', styles.details].filter(Boolean).join(' ')}>
+    <details className={['not-prose my-6 py-4', styles.details].filter(Boolean).join(' ')}>
       <summary
         className={[
-          'mdx-spoiler__summary text-nord-10 dark:text-nord-8 before:text-nord-9 dark:before:text-nord-8 flex cursor-pointer items-center gap-2 font-medium before:transition-transform before:duration-200 before:ease-in-out before:content-[\'\\2799\'] list-none',
+          "text-nord-10 dark:text-nord-8 before:text-nord-9 dark:before:text-nord-8 flex cursor-pointer list-none items-center gap-2 font-medium before:transition-transform before:duration-200 before:ease-in-out before:content-[\'\\2799\']",
           styles.summary,
         ]
           .filter(Boolean)
@@ -22,7 +22,7 @@ export default function Spoiler({ title = DEFAULT_TITLE, children }: SpoilerProp
       >
         {title}
       </summary>
-      <div className="mdx-spoiler__content text-nord-3 dark:text-nord-4 mt-3">{children}</div>
+      <div className="text-nord-3 dark:text-nord-4 mt-3">{children}</div>
     </details>
   );
 }
