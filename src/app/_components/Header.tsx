@@ -37,6 +37,11 @@ export default function Header() {
     return current === normalizedTarget || current.startsWith(`${normalizedTarget}/`);
   };
 
+  const isBlogPostRoute = () => {
+    const current = normalizePath(pathname ?? '/');
+    return current.startsWith('/blog/');
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -52,18 +57,19 @@ export default function Header() {
   };
 
   const isDarkBackground = true;
+  const blogPostHeaderClasses = scrolled ? 'py-2 backdrop-blur-md' : 'py-4 backdrop-blur-sm';
+  const defaultHeaderClasses = scrolled
+    ? isDarkBackground
+      ? 'bg-nord-6/90 dark:bg-nord-0/90 py-2 shadow-md backdrop-blur-md'
+      : 'bg-nord-5/90 dark:bg-nord-1/90 py-2 shadow-md backdrop-blur-md'
+    : isDarkBackground
+      ? 'py-4 backdrop-blur-sm'
+      : 'bg-nord-5/40 dark:bg-nord-1/40 py-4 backdrop-blur-sm';
+  const headerClasses = isBlogPostRoute() ? blogPostHeaderClasses : defaultHeaderClasses;
 
   return (
     <header
-      className={`site-header fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? isDarkBackground
-            ? 'bg-nord-6/90 dark:bg-nord-0/90 py-2 shadow-md backdrop-blur-md'
-            : 'bg-nord-5/90 dark:bg-nord-1/90 py-2 shadow-md backdrop-blur-md'
-          : isDarkBackground
-            ? 'py-4 backdrop-blur-sm'
-            : 'bg-nord-5/40 dark:bg-nord-1/40 py-4 backdrop-blur-sm'
-      }`}
+      className={`site-header fixed top-0 left-0 z-50 w-full transition-all duration-300 ${headerClasses}`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link href="/" className="font-display text-nord-10 dark:text-nord-8 text-xl font-bold">

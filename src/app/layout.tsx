@@ -6,6 +6,7 @@ import { profileData } from '@/data/profileData';
 
 import Footer from './_components/Footer';
 import Header from './_components/Header';
+import BlogRouteClass from './_components/BlogRouteClass';
 import ScrollToTop from './_components/ScrollToTop';
 import { ThemeProvider } from './_context/ThemeProvider';
 import './globals.css';
@@ -112,6 +113,7 @@ export default function RootLayout({
         className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} flex min-h-screen flex-col antialiased`}
       >
         <ThemeProvider>
+          <BlogRouteClass />
           <ScrollToTop />
           <Header />
           <main className="flex-1 pt-24">{children}</main>

@@ -316,7 +316,7 @@
     @apply pl-5;
   }
 
-  body:has(.blog-article) {
+  body.blog-post {
     background-image:
       radial-gradient(1200px circle at 20% -10%, rgba(129, 161, 193, 0.2), transparent 55%),
       radial-gradient(900px circle at 85% 5%, rgba(136, 192, 208, 0.16), transparent 50%),
@@ -327,15 +327,6 @@
         radial-gradient(900px circle at 85% 5%, rgba(76, 86, 106, 0.24), transparent 50%),
         linear-gradient(180deg, #2e3440 0%, #262b35 100%);
     }
-  }
-
-  body:has(.blog-article) .blog-article {
-    background: transparent;
-  }
-
-  body:has(.blog-article) .site-header {
-    background-color: transparent !important;
-    box-shadow: none !important;
   }
 
   .code-block__pre code span {
