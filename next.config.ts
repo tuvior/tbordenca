@@ -8,7 +8,7 @@ import { nordLightTheme } from './src/lib/themes/nordLight';
 
 const rehypePrettyCodeOptions = {
   theme: { light: nordLightTheme, dark: nordDarkTheme },
-  keepBackground: false,
+  keepBackground: true,
 };
 
 const remarkCalloutsPath = path.join(process.cwd(), 'utils', 'remarkCallouts.mjs');

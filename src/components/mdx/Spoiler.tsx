@@ -14,7 +14,7 @@ export default function Spoiler({ title = DEFAULT_TITLE, children }: SpoilerProp
     <details className={['not-prose my-6 py-4', styles.details].filter(Boolean).join(' ')}>
       <summary
         className={[
-          "text-nord-10 dark:text-nord-8 before:text-nord-9 dark:before:text-nord-8 flex cursor-pointer list-none items-center gap-2 font-medium before:transition-transform before:duration-200 before:ease-in-out before:content-[\'\\2799\']",
+          "text-nord-10 dark:text-nord-8 before:text-nord-9 dark:before:text-nord-8 flex cursor-pointer list-none items-center gap-2 font-medium before:transition-transform before:duration-200 before:ease-in-out before:content-['→']",
           styles.summary,
         ]
           .filter(Boolean)

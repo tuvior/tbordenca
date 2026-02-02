@@ -100,9 +100,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           )}
 
-          <div className="mdx prose max-w-none md:prose-lg dark:prose-invert mt-30">
-            {content}
-          </div>
+          <div className="mdx prose md:prose-lg dark:prose-invert mt-30 max-w-none">{content}</div>
 
           {relatedPosts && relatedPosts.length > 0 && (
             <section className="mt-16">

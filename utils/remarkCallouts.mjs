@@ -1,26 +1,41 @@
 import { visit } from 'unist-util-visit';
 
+function reactAttribute(name, value) {
+  return {
+    type: 'mdxJsxAttribute',
+    name,
+    value,
+  };
+}
+
 function handleContainer(node) {
   switch (node.name) {
     case 'spoiler': {
       node.type = 'mdxJsxFlowElement';
       node.name = 'Spoiler';
-      node.attributes = Array.isArray(node.attributes) ? node.attributes : [];
+      const attributes = [];
+
+      for (const attribute in node.attributes) {
+        attributes.push(reactAttribute(attribute, node.attributes[attribute]));
+      }
+      node.attributes = attributes;
       break;
     }
     case 'info':
     case 'warning':
     case 'error': {
       const calloutType = node.name;
-      const attributes = Array.isArray(node.attributes) ? [...node.attributes] : [];
+      const attributes = [];
+
+      for (const attribute in node.attributes) {
+        attributes.push(reactAttribute(attribute, node.attributes[attribute]));
+      }
+
+      attributes.push(reactAttribute('type', calloutType));
 
       node.type = 'mdxJsxFlowElement';
       node.name = 'Aside';
-      attributes.push({
-        type: 'mdxJsxAttribute',
-        name: 'type',
-        value: calloutType,
-      });
+
       node.attributes = attributes;
       break;
     }
@@ -32,7 +47,12 @@ function handleLeaf(node) {
     case 'caption': {
       node.type = 'mdxJsxFlowElement';
       node.name = 'Caption';
-      node.attributes = Array.isArray(node.attributes) ? node.attributes : [];
+      const attributes = [];
+
+      for (const attribute in node.attributes) {
+        attributes.push(reactAttribute(attribute, node.attributes[attribute]));
+      }
+      node.attributes = attributes;
       break;
     }
   }

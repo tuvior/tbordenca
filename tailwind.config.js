@@ -139,14 +139,6 @@ module.exports = {
               '.footnotes ol': {
                 paddingLeft: theme('spacing.5'),
               },
-              '[data-rehype-pretty-code-figure]': {
-                marginLeft: `-${theme('spacing.4')}`,
-                marginRight: `-${theme('spacing.4')}`,
-                '@screen md': {
-                  marginLeft: `-${theme('spacing.8')}`,
-                  marginRight: `-${theme('spacing.8')}`,
-                },
-              },
             },
           },
           invert: {
@@ -194,14 +186,6 @@ module.exports = {
               },
               '.footnotes ol': {
                 paddingLeft: theme('spacing.5'),
-              },
-              '[data-rehype-pretty-code-figure]': {
-                marginLeft: `-${theme('spacing.4')}`,
-                marginRight: `-${theme('spacing.4')}`,
-                '@screen md': {
-                  marginLeft: `-${theme('spacing.8')}`,
-                  marginRight: `-${theme('spacing.8')}`,
-                },
               },
             },
           },

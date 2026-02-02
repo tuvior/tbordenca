@@ -197,7 +197,7 @@ export default function ProjectCard({
                 </div>
               )}
 
-              <div className="prose dark:prose-invert max-w-none">
+              <div className="max-w-none">
                 <p>{details}</p>
               </div>
 

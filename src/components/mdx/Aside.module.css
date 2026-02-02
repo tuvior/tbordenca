@@ -1,11 +1,19 @@
 @reference 'tailwindcss';
 
-.content > :global(:last-child) {
+.root > :global(:last-child) {
   @apply mb-0;
 }
 
-.root :global([data-rehype-pretty-code-figure]) {
-  @apply px-1 py-0 md:px-2;
+.root > :global(:first-child) {
+  @apply mt-0;
+}
+
+.root > p {
+  @apply my-2 text-base;
+}
+
+.root :global([data-rehype-pretty-code-figure]) > div {
+  @apply -mx-1 md:-mx-5;
 }
 
 .root[data-callout='info'] {
