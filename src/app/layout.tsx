@@ -4,9 +4,9 @@ import Script from 'next/script';
 
 import { profileData } from '@/data/profileData';
 
+import BlogRouteClass from './_components/BlogRouteClass';
 import Footer from './_components/Footer';
 import Header from './_components/Header';
-import BlogRouteClass from './_components/BlogRouteClass';
 import ScrollToTop from './_components/ScrollToTop';
 import { ThemeProvider } from './_context/ThemeProvider';
 import './globals.css';

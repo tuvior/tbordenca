@@ -7,6 +7,7 @@ import InlineCode from './InlineCode';
 import MdxImage from './MdxImage';
 import MdxLink from './MdxLink';
 import Spoiler from './Spoiler';
+import TextWithNote from './TextWithNote';
 
 export const mdxComponents: MDXComponents = {
   a: MdxLink,
@@ -16,4 +17,5 @@ export const mdxComponents: MDXComponents = {
   Aside,
   Spoiler,
   Caption,
+  TextWithNote,
 };

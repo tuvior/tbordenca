@@ -12,6 +12,7 @@ const rehypePrettyCodeOptions = {
 };
 
 const remarkCalloutsPath = path.join(process.cwd(), 'utils', 'remarkCallouts.mjs');
+const remarkTextWithNotePath = path.join(process.cwd(), 'utils', 'remarkTextWithNote.mjs');
 
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
@@ -22,6 +23,7 @@ const withMDX = createMDX({
       'remark-gfm',
       'remark-directive',
       remarkCalloutsPath,
+      remarkTextWithNotePath,
       'remark-smartypants',
     ],
     rehypePlugins: [['rehype-pretty-code', rehypePrettyCodeOptions]],
