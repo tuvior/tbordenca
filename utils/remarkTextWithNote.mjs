@@ -1,3 +1,4 @@
+import { toString } from 'mdast-util-to-string';
 import { visit } from 'unist-util-visit';
 
 function reactAttribute(name, value) {
@@ -8,100 +9,55 @@ function reactAttribute(name, value) {
   };
 }
 
-function toAttributes(attributes) {
-  if (!attributes) {
-    return [];
+function trimEdgeText(nodes) {
+  if (!Array.isArray(nodes) || nodes.length === 0) return [];
+
+  // leading
+  if (nodes[0]?.type === 'text' && typeof nodes[0].value === 'string') {
+    const v = nodes[0].value.replace(/^\s+/, '');
+    if (v) nodes[0] = { ...nodes[0], value: v };
+    else nodes = nodes.slice(1);
   }
 
-  const props = [];
-  for (const attribute in attributes) {
-    props.push(reactAttribute(attribute, attributes[attribute]));
+  // trailing
+  if (
+    nodes.length &&
+    nodes[nodes.length - 1]?.type === 'text' &&
+    typeof nodes[nodes.length - 1].value === 'string'
+  ) {
+    const last = nodes[nodes.length - 1];
+    const v = last.value.replace(/\s+$/, '');
+    if (v) nodes[nodes.length - 1] = { ...last, value: v };
+    else nodes = nodes.slice(0, -1);
   }
 
-  return props;
+  return nodes;
 }
 
-function getTextValue(node) {
-  if (!node) {
-    return '';
-  }
+function splitOnPipe(children) {
+  if (!Array.isArray(children)) return null;
 
-  if (node.type === 'text') {
-    return node.value ?? '';
-  }
+  for (let i = 0; i < children.length; i++) {
+    const n = children[i];
+    if (n?.type !== 'text' || typeof n.value !== 'string') continue;
 
-  if (Array.isArray(node.children)) {
-    return node.children.map(getTextValue).join('');
-  }
+    const j = n.value.indexOf('|');
+    if (j === -1) continue;
 
-  return '';
-}
+    const left = n.value.slice(0, j);
+    const right = n.value.slice(j + 1);
 
-function trimTextEdges(nodes) {
-  if (!Array.isArray(nodes) || nodes.length === 0) {
-    return [];
-  }
+    const labelNodes = [...children.slice(0, i), ...(left ? [{ ...n, value: left }] : [])];
 
-  const result = nodes.map(node => ({ ...node }));
-  const first = result[0];
+    const bodyNodes = trimEdgeText([
+      ...(right ? [{ ...n, value: right }] : []),
+      ...children.slice(i + 1),
+    ]);
 
-  if (first?.type === 'text' && typeof first.value === 'string') {
-    const trimmed = first.value.replace(/^\s+/, '');
-    if (trimmed) {
-      first.value = trimmed;
-    } else {
-      result.shift();
-    }
-  }
+    // Build a minimal mdast parent so `toString` can stringify the phrasing nodes.
+    const label = toString({ type: 'paragraph', children: labelNodes }).trim();
 
-  if (result.length === 0) {
-    return result;
-  }
-
-  const updatedLast = result[result.length - 1];
-  if (updatedLast?.type === 'text' && typeof updatedLast.value === 'string') {
-    const trimmed = updatedLast.value.replace(/\s+$/, '');
-    if (trimmed) {
-      updatedLast.value = trimmed;
-    } else {
-      result.pop();
-    }
-  }
-
-  return result;
-}
-
-function splitNoteChildren(children) {
-  if (!Array.isArray(children)) {
-    return null;
-  }
-
-  for (let index = 0; index < children.length; index += 1) {
-    const child = children[index];
-    if (child?.type !== 'text' || typeof child.value !== 'string') {
-      continue;
-    }
-
-    const pipeIndex = child.value.indexOf('|');
-    if (pipeIndex === -1) {
-      continue;
-    }
-
-    const leftText = child.value.slice(0, pipeIndex);
-    const rightText = child.value.slice(pipeIndex + 1);
-    const labelNodes = [
-      ...children.slice(0, index),
-      ...(leftText ? [{ ...child, value: leftText }] : []),
-    ];
-    const bodyNodes = [
-      ...(rightText ? [{ ...child, value: rightText }] : []),
-      ...children.slice(index + 1),
-    ];
-
-    return {
-      label: getTextValue({ children: labelNodes }).trim(),
-      body: trimTextEdges(bodyNodes),
-    };
+    return { label, body: bodyNodes };
   }
 
   return null;
@@ -110,27 +66,20 @@ function splitNoteChildren(children) {
 export default function remarkTextWithNote() {
   return tree => {
     visit(tree, node => {
-      const isNoteDirective =
+      const isNote =
         (node.type === 'textDirective' || node.type === 'containerDirective') &&
         node.name === 'note';
+      if (!isNote) return;
 
-      if (!isNoteDirective) {
-        return;
-      }
+      const split = splitOnPipe(node.children);
 
-      const split = splitNoteChildren(node.children);
-      const hasLabelAttribute =
-        node.attributes && Object.prototype.hasOwnProperty.call(node.attributes, 'label');
-      const attributes = toAttributes(node.attributes);
-      const fallbackLabel = split?.label?.trim() || 'Note';
+      const attrsObj = node.attributes ?? {};
+      const hasLabel = Object.prototype.hasOwnProperty.call(attrsObj, 'label');
 
-      if (!hasLabelAttribute) {
-        attributes.push(reactAttribute('label', fallbackLabel));
-      }
+      const attributes = Object.entries(attrsObj).map(([k, v]) => reactAttribute(k, v));
+      if (!hasLabel) attributes.push(reactAttribute('label', split?.label || 'Note'));
 
-      if (split?.body) {
-        node.children = split.body;
-      }
+      if (split?.body) node.children = split.body;
 
       node.type = node.type === 'textDirective' ? 'mdxJsxTextElement' : 'mdxJsxFlowElement';
       node.name = 'TextWithNote';

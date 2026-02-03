@@ -22,13 +22,9 @@ export default function TextWithNote({ label, children }: TextWithNoteProps) {
       <Popover.Trigger
         nativeButton={false}
         render={
-          <span
-            className={[
-              'hover:text-nord-10 dark:hover:text-nord-8 cursor-pointer transition-colors',
-            ].join(' ')}
-          >
+          <span className="hover:text-nord-10 dark:hover:text-nord-8 cursor-pointer transition-colors">
             {label}
-            <span className="text-nord-10 dark:text-nord-8 align-super text-sm font-bold">
+            <span className="text-nord-10 dark:text-nord-8 align-super text-xs font-bold">
               {'✱'}
             </span>
           </span>
@@ -39,10 +35,9 @@ export default function TextWithNote({ label, children }: TextWithNoteProps) {
         <Popover.Positioner sideOffset={8} className="z-50">
           <Popover.Popup
             className={[
-              'border-nord-4/60 bg-nord-6 rounded-2xl border px-5 py-4 shadow-xl',
+              'border-nord-4/60 bg-nord-6 max-w-96 rounded-2xl border px-5 py-4 shadow-xl',
               'dark:border-nord-3/60 dark:bg-nord-1',
-              'transition-[transform,opacity] duration-150',
-              'max-w-96',
+              'transition-[transform,opacity] duration-500',
               'data-starting-style:scale-95 data-starting-style:opacity-0',
               'data-ending-style:scale-95 data-ending-style:opacity-0',
             ].join(' ')}
