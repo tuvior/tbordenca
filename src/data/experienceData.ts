@@ -108,11 +108,8 @@ export const experienceData: Experience[] = [
     },
     role: 'Data Science Intern',
     period: 'Feb 2018 – Aug 2018',
-    description: 'Worked on applied data science initiatives within a large banking environment.',
-    achievements: [
-      'Supported data analysis and modeling tasks in a regulated financial context.',
-      'Gained hands-on exposure to large-scale data, enterprise constraints, and banking workflows.',
-    ],
+    description: 'Worked on data science initiatives around the public website.',
+    achievements: [],
     relatedProjects: [],
   },
 ];
