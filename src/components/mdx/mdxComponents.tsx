@@ -10,9 +10,9 @@ import Spoiler from './Spoiler';
 
 export const mdxComponents: MDXComponents = {
   a: MdxLink,
-  code: InlineCode,
   img: MdxImage,
   pre: CodeBlock,
+  code: InlineCode,
   Aside,
   Spoiler,
   Caption,

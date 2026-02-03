@@ -265,16 +265,11 @@
     }
   } */
 
-  .code-block__pre .line,
-  .code-block__pre [data-line] {
-    @apply px-4 md:px-7;
-  }
-
   [data-highlighted-line] {
-    background: linear-gradient(90deg, rgba(136, 192, 208, 0.2), transparent);
+    background: linear-gradient(90deg, rgba(136, 192, 208, 0.1), rgba(136, 192, 208, 0.05));
     @apply relative;
     @variant dark {
-      background: linear-gradient(90deg, rgba(136, 192, 208, 0.25), transparent);
+      background: linear-gradient(90deg, rgba(136, 192, 208, 0.15), rgba(136, 192, 208, 0.05));
     }
   }
 
@@ -300,24 +295,16 @@
     border-bottom-right-radius: 0;
   }
 
-  pre code span {
+  [data-rehype-pretty-code-figure] pre,
+  [data-rehype-pretty-code-figure] pre code span,
+  [data-rehype-pretty-code-figure] code span {
     color: var(--shiki-light) !important;
-    font-style: var(--shiki-light-font-style, inherit);
-    font-weight: var(--shiki-light-font-weight, inherit);
-
-    @variant dark {
-      color: var(--shiki-dark) !important;
-      font-style: var(--shiki-dark-font-style, inherit);
-      font-weight: var(--shiki-dark-font-weight, inherit);
-    }
-  }
-
-  pre {
     background-color: var(--shiki-light-bg) !important;
     font-style: var(--shiki-light-font-style, inherit);
     font-weight: var(--shiki-light-font-weight, inherit);
 
     @variant dark {
+      color: var(--shiki-dark) !important;
       background-color: var(--shiki-dark-bg) !important;
       font-style: var(--shiki-dark-font-style, inherit);
       font-weight: var(--shiki-dark-font-weight, inherit);

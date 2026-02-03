@@ -63,7 +63,9 @@ export default function CodeBlock({ className, children, ...props }: CodeBlockPr
       <pre
         ref={preRef}
         data-line-numbers
-        className={['overflow-x-auto py-6 pl-8 leading-6', className].filter(Boolean).join(' ')}
+        className={['overflow-x-auto py-6 leading-6 **:data-line:pl-8', className]
+          .filter(Boolean)
+          .join(' ')}
         {...props}
       >
         {children}
