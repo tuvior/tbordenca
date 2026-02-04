@@ -24,20 +24,29 @@ export default function TextWithNote({ label, children }: TextWithNoteProps) {
         render={
           <span className="hover:text-nord-10 dark:hover:text-nord-8 cursor-pointer transition-colors">
             {label}
-            <span className="text-nord-10 dark:text-nord-8 align-super text-xs font-bold">
-              {'✱'}
-            </span>
           </span>
         }
-      />
+      ></Popover.Trigger>
+      <span aria-hidden className="text-nord-10 dark:text-nord-8 align-super text-xs font-bold!">
+        {'✱'}
+      </span>
 
       <Popover.Portal>
-        <Popover.Positioner sideOffset={16} className="z-50">
+        <Popover.Positioner
+          sideOffset={16}
+          collisionPadding={12}
+          collisionAvoidance={{
+            side: 'flip',
+            align: 'shift',
+            fallbackAxisSide: 'none',
+          }}
+          className="z-50"
+        >
           <Popover.Popup
             className={[
-              'border-nord-4/60 bg-nord-6 max-w-2/3 rounded-2xl border px-5 py-4 shadow-xl md:max-w-80',
+              'border-nord-4/60 bg-nord-6 max-w-80 rounded-2xl border px-5 py-4 shadow-xl md:max-w-100',
               'dark:border-nord-3/60 dark:bg-nord-1',
-              'transition-[transform,opacity] duration-500',
+              'transition-[transform,opacity] duration-250',
               'data-starting-style:scale-95 data-starting-style:opacity-0',
               'data-ending-style:scale-95 data-ending-style:opacity-0',
             ].join(' ')}
