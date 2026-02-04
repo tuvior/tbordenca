@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Poppins } from 'next/font/google';
+import { Inter, JetBrains_Mono, Playwrite_AU_VIC, Poppins } from 'next/font/google';
 import Script from 'next/script';
 
 import { profileData } from '@/data/profileData';
@@ -28,6 +28,12 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
   style: ['normal', 'italic'],
   weight: ['400', '700'],
+});
+
+const playwriteAustraliaVictoria = Playwrite_AU_VIC({
+  variable: '--font-playwrite-auvic',
+  style: 'normal',
+  weight: ['300', '400'],
 });
 
 const siteName = 'tbordenca';
@@ -110,7 +116,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} flex min-h-screen flex-col antialiased`}
+        className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} ${playwriteAustraliaVictoria.variable} flex min-h-screen flex-col antialiased`}
       >
         <ThemeProvider>
           <BlogRouteClass />

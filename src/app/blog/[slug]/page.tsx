@@ -83,9 +83,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Calendar size={18} className="mr-1 inline" />
                 {formatBlogDate(meta.date)}
               </span>
-              {meta.tags?.map(tag => (
-                <ArticleTag key={tag} tag={tag} />
-              ))}
+              <span className="flex flex-wrap items-center gap-3">
+                {meta.tags?.map(tag => (
+                  <ArticleTag key={tag} tag={tag} />
+                ))}
+              </span>
             </div>
           </header>
 
@@ -100,7 +102,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           )}
 
-          <div className="mdx prose md:prose-lg dark:prose-invert mt-30 max-w-none">{content}</div>
+          <div className="mdx prose md:prose-lg dark:prose-invert mt-20 max-w-none md:mt-40">
+            {content}
+          </div>
 
           {relatedPosts && relatedPosts.length > 0 && (
             <section className="mt-16">

@@ -11,8 +11,9 @@ const rehypePrettyCodeOptions = {
   keepBackground: true,
 };
 
-const remarkCalloutsPath = path.join(process.cwd(), 'utils', 'remarkCallouts.mjs');
-const remarkTextWithNotePath = path.join(process.cwd(), 'utils', 'remarkTextWithNote.mjs');
+function localPlugin(name: string) {
+  return path.join(process.cwd(), 'utils', `${name}.mjs`);
+}
 
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
@@ -22,8 +23,9 @@ const withMDX = createMDX({
       ['remark-mdx-frontmatter', { name: 'metadata' }],
       'remark-gfm',
       'remark-directive',
-      remarkCalloutsPath,
-      remarkTextWithNotePath,
+      localPlugin('remarkCallouts'),
+      localPlugin('remarkCursive'),
+      localPlugin('remarkTextWithNote'),
       'remark-smartypants',
     ],
     rehypePlugins: [['rehype-pretty-code', rehypePrettyCodeOptions]],

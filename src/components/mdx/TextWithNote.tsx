@@ -32,10 +32,10 @@ export default function TextWithNote({ label, children }: TextWithNoteProps) {
       />
 
       <Popover.Portal>
-        <Popover.Positioner sideOffset={8} className="z-50">
+        <Popover.Positioner sideOffset={16} className="z-50">
           <Popover.Popup
             className={[
-              'border-nord-4/60 bg-nord-6 max-w-96 rounded-2xl border px-5 py-4 shadow-xl',
+              'border-nord-4/60 bg-nord-6 max-w-2/3 rounded-2xl border px-5 py-4 shadow-xl md:max-w-80',
               'dark:border-nord-3/60 dark:bg-nord-1',
               'transition-[transform,opacity] duration-500',
               'data-starting-style:scale-95 data-starting-style:opacity-0',
