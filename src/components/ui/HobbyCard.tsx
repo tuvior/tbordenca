@@ -35,6 +35,7 @@ export default function HobbyCard({ hobby, handleClick, isSelected, index }: Hob
           <Image
             src={withBasePath(hobby.background)}
             alt={hobby.title}
+            priority
             fill
             sizes="(min-width: 768px) 33vw, 100vw"
             className="object-cover transition-transform duration-500 group-hover:scale-110"

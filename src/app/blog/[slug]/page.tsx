@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       .filter((post): post is NonNullable<typeof post> => Boolean(post));
 
     return (
-      <article className="blog-article bg-transparent py-16 pt-2">
+      <article className="py-16 pt-2">
         <div className="mx-auto w-full max-w-3xl px-4">
           <header className="mt-6">
             <h1 className="mb-4 text-4xl font-bold md:text-4xl lg:text-5xl">

@@ -44,27 +44,25 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(document.body.scrollTop >= 50);
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('scroll', handleScroll, { passive: true, capture: true });
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll, true);
+    };
   }, []);
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
   };
 
-  const isDarkBackground = true;
   const blogPostHeaderClasses = scrolled ? 'py-2 backdrop-blur-md' : 'py-4 backdrop-blur-sm';
   const defaultHeaderClasses = scrolled
-    ? isDarkBackground
-      ? 'bg-nord-6/90 dark:bg-nord-0/90 py-2 shadow-md backdrop-blur-md'
-      : 'bg-nord-5/90 dark:bg-nord-1/90 py-2 shadow-md backdrop-blur-md'
-    : isDarkBackground
-      ? 'py-4 backdrop-blur-sm'
-      : 'bg-nord-5/40 dark:bg-nord-1/40 py-4 backdrop-blur-sm';
+    ? 'bg-nord-6/90 dark:bg-nord-0/90 py-2 shadow-md backdrop-blur-md'
+    : 'py-4 backdrop-blur-sm';
   const headerClasses = isBlogPostRoute() ? blogPostHeaderClasses : defaultHeaderClasses;
 
   return (
