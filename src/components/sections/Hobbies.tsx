@@ -243,8 +243,8 @@ export default function Hobbies() {
               onClick={() => handleDotClick(index)}
               className={`h-3 w-3 rounded-full transition-all duration-300 ${
                 activeIndex === index
-                  ? 'bg-nord-10 w-6'
-                  : 'bg-nord-4 hover:bg-secondary-400 dark:bg-nord-10 dark:hover:bg-nord-9'
+                  ? 'bg-nord-10 dark:bg-nord-8 w-6'
+                  : 'bg-nord-4 hover:bg-secondary-400 dark:bg-nord-3 dark:hover:bg-nord-9'
               }`}
               aria-label={`Go to hobby ${index + 1}`}
             />

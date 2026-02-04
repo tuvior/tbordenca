@@ -55,7 +55,7 @@ export default function Projects({
               onClick={() => setActiveFilter(category)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                 activeFilter === category
-                  ? 'bg-nord-10 text-white'
+                  ? 'bg-nord-10 dark:bg-nord-9 text-nord-5'
                   : 'text-nord-3 hover:bg-nord-5 dark:bg-nord-1 dark:text-nord-4 dark:hover:bg-nord-2 bg-white'
               }`}
             >

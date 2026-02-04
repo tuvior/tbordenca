@@ -84,10 +84,10 @@ export default function Header() {
                   <Link
                     href={item.to}
                     onClick={handleNavClick}
-                    className={`font-medium transition-colors duration-300 ${
+                    className={`transition-colors duration-300 ${
                       isActive
-                        ? 'text-nord-10 dark:text-nord-8'
-                        : 'text-nord-3 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8'
+                        ? 'text-nord-10 dark:text-nord-8 font-bold'
+                        : 'text-nord-3 hover:text-nord-10 dark:text-nord-4 dark:hover:text-nord-8 font-medium'
                     }`}
                   >
                     {item.label}

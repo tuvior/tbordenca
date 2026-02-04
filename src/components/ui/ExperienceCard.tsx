@@ -89,9 +89,9 @@ export default function ExperienceCard({
         <div className="md:grid md:grid-cols-2 md:items-start">
           <div className={`w-full pl-10 md:pl-0 ${columnClasses}`}>
             <div
-              className={`dark:bg-nord-2 rounded-xl bg-white shadow-lg transition-all duration-300 ${
+              className={`dark:bg-nord-2 bg-nord-6 rounded-xl shadow-lg transition-all duration-300 ${
                 isMobile && hasExpandableContent ? 'cursor-pointer' : ''
-              } ${isExpanded ? 'ring-nord-9 dark:ring-nord-3 ring-2' : 'hover:shadow-xl'}`}
+              } ${isExpanded ? 'ring-nord-4 dark:ring-nord-3 ring-1' : 'hover:shadow-xl'}`}
               onClick={hasExpandableContent ? onCardClick : undefined}
               onKeyDown={hasExpandableContent ? handleCardKeyDown : undefined}
               role={hasExpandableContent ? 'button' : undefined}
@@ -105,7 +105,7 @@ export default function ExperienceCard({
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="mb-3 flex items-center">
-                      <span className="bg-nord-6 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-medium md:text-sm">
+                      <span className="bg-nord-5 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-medium md:text-sm">
                         <Calendar size={14} className="mr-1.5" />
                         {experience.period}
                       </span>
@@ -114,14 +114,14 @@ export default function ExperienceCard({
                     <h3 className="mb-2 text-2xl font-bold md:text-3xl">{experience.role}</h3>
 
                     <div className="relative mt-1 flex items-center">
-                      <Building size={16} className="text-nord-10 dark:text-nord-9 mr-1.5" />
-                      <p className="text-nord-3 dark:text-nord-9 text-base font-medium md:text-lg">
+                      <Building size={16} className="text-nord-10 dark:text-nord-8 mr-1.5" />
+                      <p className="text-nord-10 dark:text-nord-8 text-base font-medium md:text-lg">
                         {experience.company.name}
                       </p>
                       <button
                         ref={infoButtonRef}
                         onClick={onCompanyInfoToggle}
-                        className="text-nord-9 hover:bg-nord-6 hover:text-nord-10 dark:text-secondary-400 dark:hover:bg-nord-3 dark:hover:text-nord-9 ml-2 rounded-full p-1 transition-colors"
+                        className="text-nord-10 hover:bg-nord-6 hover:text-nord-10 dark:text-nord-8 dark:hover:bg-nord-3 dark:hover:text-nord-9 ml-2 rounded-full p-1 transition-colors"
                         aria-label="Company info"
                       >
                         <Info size={14} />
@@ -143,7 +143,7 @@ export default function ExperienceCard({
                               <h4 className="flex items-center font-semibold">
                                 <Building
                                   size={16}
-                                  className="text-nord-10 dark:text-nord-9 mr-2"
+                                  className="text-nord-10 dark:text-nord-8 mr-2"
                                 />
                                 About {experience.company.name}
                               </h4>
@@ -155,14 +155,12 @@ export default function ExperienceCard({
                               </button>
                             </div>
                             <div className="p-4">
-                              <p className="text-nord-10 dark:text-nord-4 text-sm">
-                                {experience.company.description}
-                              </p>
+                              <p className="text-sm">{experience.company.description}</p>
                               <a
                                 href={experience.company.website}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-nord-10 hover:text-nord-3 dark:text-nord-9 dark:hover:text-nord-4 mt-3 inline-flex items-center text-sm font-medium"
+                                className="text-nord-10 hover:text-nord-3 dark:text-nord-8 dark:hover:text-nord-4 mt-3 inline-flex items-center text-sm font-medium"
                               >
                                 Visit company website
                                 <ExternalLink size={14} className="ml-1" />
@@ -176,7 +174,7 @@ export default function ExperienceCard({
 
                   {/* Company Logo */}
                   {experience.company.logo && (
-                    <div className="dark:bg-nord-3/30 relative ml-4 flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-white p-2 shadow-md md:h-24 md:w-24">
+                    <div className="dark:bg-nord-3/50 bg-nord-6/50 relative ml-4 flex h-20 w-20 shrink-0 items-center justify-center rounded-lg p-2 shadow-md md:h-24 md:w-24">
                       <Image
                         src={experience.company.logo}
                         alt={`${experience.company.name} logo`}
@@ -188,7 +186,7 @@ export default function ExperienceCard({
                   )}
                 </div>
 
-                <p className="text-nord-10 dark:text-nord-4 mt-4">{experience.description}</p>
+                <p className="mt-4">{experience.description}</p>
 
                 {/* Mobile Expand Indicator */}
                 {isMobile && hasExpandableContent && !isExpanded && (
@@ -219,7 +217,7 @@ export default function ExperienceCard({
                       {experience.achievements.length > 0 && (
                         <div className="mb-4">
                           <h4 className="mb-2 flex items-center font-semibold">
-                            <Briefcase size={18} className="text-nord-10 dark:text-nord-9 mr-2" />
+                            <Briefcase size={18} className="text-nord-10 dark:text-nord-8 mr-2" />
                             Key Achievements
                           </h4>
                           <ul className="space-y-2 pl-6">

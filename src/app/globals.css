@@ -88,11 +88,11 @@
   }
 
   .btn-primary {
-    @apply bg-nord-10 text-nord-6 hover:bg-nord-9 shadow-md hover:shadow-lg;
+    @apply bg-nord-10 dark:bg-nord-9 text-nord-6 dark:text-nord-0 hover:bg-nord-9 hover:dark:bg-nord-8 shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-nord-5 text-nord-0 hover:bg-nord-4 dark:bg-nord-1 dark:text-nord-6 dark:hover:bg-nord-0 shadow-md hover:shadow-lg;
+    @apply bg-nord-5 text-nord-0 hover:bg-nord-4 dark:bg-nord-1 dark:text-nord-6 dark:hover:bg-nord-2 shadow-md hover:shadow-lg;
   }
 
   .skill-badge {

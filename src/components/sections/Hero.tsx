@@ -85,7 +85,7 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <div className="animate-float-enhanced border-nord-6 dark:border-nord-10 relative h-full w-full overflow-hidden rounded-full border-4 shadow-xl">
+        <div className="animate-float-enhanced border-nord-10 dark:border-nord-8 relative h-full w-full overflow-hidden rounded-full border-4 shadow-xl">
           <Image
             src={profileData.profileImage}
             alt={`${profileData.name} - ${profileData.title}`}

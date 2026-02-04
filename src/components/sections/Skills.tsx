@@ -14,39 +14,39 @@ import SkillBadge from '../ui/SkillBadge';
 
 const categoryColors = {
   All: {
-    selected: 'bg-nord-10 text-white hover:bg-nord-9',
+    selected: 'bg-nord-10 dark:bg-nord-9 text-white hover:bg-nord-9 hover:dark:bg-nord-8',
     unselected:
       'bg-nord-6 text-nord-3 hover:bg-nord-5 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-3',
   },
   Product: {
     selected:
-      'bg-nord-15/10 text-nord-15 dark:bg-nord-15/20 hover:bg-nord-15/20 dark:hover:bg-nord-15/30',
+      'bg-nord-15/40 text-nord-15 dark:bg-nord-15/20 hover:bg-nord-15/20 dark:hover:bg-nord-15/34',
     unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-15/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-15/30',
+      'bg-nord-4 text-nord-3 hover:bg-nord-15/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-15/34',
   },
   Fields: {
     selected:
-      'bg-nord-7/10 text-nord-7 dark:bg-nord-7/20 hover:bg-nord-7/20 dark:hover:bg-nord-7/30',
+      'bg-nord-7/30 text-nord-7 dark:bg-nord-7/20 hover:bg-nord-7/20 dark:hover:bg-nord-7/30',
     unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-7/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-7/30',
+      'bg-nord-4 text-nord-3 hover:bg-nord-7/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-7/30',
   },
   Technical: {
     selected:
-      'bg-nord-9/10 text-nord-9 dark:bg-nord-9/20 hover:bg-nord-9/20 dark:hover:bg-nord-9/30',
+      'bg-nord-9/40 text-nord-9 dark:bg-nord-9/20 hover:bg-nord-9/20 dark:hover:bg-nord-9/30',
     unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-9/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-9/30',
+      'bg-nord-4 text-nord-3 hover:bg-nord-9/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-9/30',
   },
   Miscellaneous: {
     selected:
-      'bg-nord-8/10 text-nord-8 dark:bg-nord-8/20 hover:bg-nord-8/20 dark:hover:bg-nord-8/30',
+      'bg-nord-8/40 text-nord-8 dark:bg-nord-8/20 hover:bg-nord-8/20 dark:hover:bg-nord-8/30',
     unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-8/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-8/30',
+      'bg-nord-4 text-nord-3 hover:bg-nord-8/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-8/30',
   },
   Tools: {
     selected:
-      'bg-nord-10/10 text-nord-10 dark:bg-nord-10/20 hover:bg-nord-10/20 dark:hover:bg-nord-10/30',
+      'bg-nord-10/40 text-nord-10 dark:bg-nord-10/20 hover:bg-nord-10/20 dark:hover:bg-nord-10/30',
     unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-10/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-10/30',
+      'bg-nord-4 text-nord-3 hover:bg-nord-10/20 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-10/30',
   },
 };
 
@@ -123,7 +123,7 @@ export default function Skills() {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder="Search skills..."
-              className="border-nord-4 text-nord-2 focus:ring-nord-10 dark:border-nord-3 dark:bg-nord-2 dark:text-nord-5 dark:focus:ring-nord-9 w-full rounded-lg border bg-white py-2 pr-10 pl-10 focus:ring-2 focus:outline-none"
+              className="border-nord-4 text-nord-2 focus:ring-nord-10 dark:border-nord-3 dark:bg-nord-2 dark:text-nord-5 dark:focus:ring-nord-9 bg-nord-4 w-full rounded-lg border py-2 pr-10 pl-10 focus:ring-2 focus:outline-none"
             />
             {searchQuery && (
               <button

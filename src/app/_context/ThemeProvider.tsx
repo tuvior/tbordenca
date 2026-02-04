@@ -25,7 +25,7 @@ const getPreferredTheme = (): Theme => {
     return 'dark';
   }
 
-  return 'light';
+  return 'dark';
 };
 
 const updateThemeColor = (theme: Theme) => {
@@ -34,7 +34,7 @@ const updateThemeColor = (theme: Theme) => {
 };
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>('dark');
 
   const applyTheme = (nextTheme: Theme) => {
     localStorage.setItem('theme', nextTheme);

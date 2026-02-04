@@ -15,10 +15,10 @@ export default function MdxLink({ href = '', children, className, ...rest }: Mdx
   const isFootnoteRef = rest['data-footnote-ref'] != null;
   const isFootnoteBackref = rest['data-footnote-backref'] != null;
   const baseClassName = isFootnoteRef
-    ? 'text-nord-10 dark:text-nord-8 no-underline font-semibold'
+    ? 'text-nord-9 dark:text-nord-8 no-underline font-semibold'
     : isFootnoteBackref
       ? 'text-nord-10 dark:text-nord-8 no-underline'
-      : 'text-nord-0 dark:text-nord-6 decoration-nord-10 dark:decoration-nord-8 font-bold underline decoration-2 underline-offset-5 hover:no-underline';
+      : 'text-nord-0 dark:text-nord-6 decoration-nord-9 dark:decoration-nord-8 font-bold underline decoration-2 underline-offset-5 hover:no-underline';
   const combinedClassName = [baseClassName, className].filter(Boolean).join(' ');
 
   if (!href) {

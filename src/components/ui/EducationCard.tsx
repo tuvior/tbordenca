@@ -32,7 +32,7 @@ export default function EducationCard({
       transition={{ duration: 0.4, delay }}
     >
       {logo && (
-        <div className="dark:bg-nord-3/30 relative flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-white p-2 shadow-md md:ml-4 md:h-20 md:w-20">
+        <div className="dark:bg-nord-3/50 bg-nord-6/50 relative flex h-16 w-16 shrink-0 items-center justify-center rounded-lg p-2 shadow-md md:ml-4 md:h-20 md:w-20">
           <Image
             src={logo}
             alt={`${institution} logo`}
@@ -53,7 +53,7 @@ export default function EducationCard({
           <span>{period}</span>
         </div>
 
-        {description && <p className="text-nord-10 dark:text-nord-4 mt-3">{description}</p>}
+        {description && <p className="mt-3">{description}</p>}
       </div>
     </motion.div>
   );
