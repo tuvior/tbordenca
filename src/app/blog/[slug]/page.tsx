@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next/types';
 
-import ArticleTag from '@/components/ui/ArticleTag';
+import ArticleTag from '@/components/ui/Tag';
 import withBasePath from '@/lib/basePath';
 import { formatBlogDate, getAllPosts, getPostBySlug, getPostMeta } from '@/lib/blog';
 

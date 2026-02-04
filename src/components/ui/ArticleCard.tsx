@@ -2,7 +2,7 @@ import { Calendar } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import ArticleTag from '@/components/ui/ArticleTag';
+import Tag from '@/components/ui/Tag';
 import withBasePath from '@/lib/basePath';
 import { BlogPostMeta, formatBlogDate } from '@/lib/blog';
 
@@ -35,20 +35,20 @@ export default function ArticleCard({ post }: ArticleCardProps) {
           </p>
           <h2 className="mt-2 text-2xl font-semibold">
             <Link
-              className="text-nord-0 dark:text-nord-6 hover:text-nord-9 dark:hover:text-nord-7"
+              className="text-nord-0 dark:text-nord-6 hover:text-nord-10 dark:hover:text-nord-8"
               href={`/blog/${post.slug}`}
             >
               {post.title}
             </Link>
           </h2>
-          <p className="text-nord-3 dark:text-nord-4 mt-3 text-base md:text-lg">
+          <p className="text-main mt-3 text-base md:text-lg">
             {post.description}
           </p>
 
           {post.tags && post.tags.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
               {post.tags.map(tag => (
-                <ArticleTag key={tag} tag={tag} />
+                <Tag key={tag} tag={tag} />
               ))}
             </div>
           )}

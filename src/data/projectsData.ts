@@ -5,7 +5,6 @@ export type Project = {
   tags: string[];
   link?: string;
   details?: string;
-  type: 'product' | 'development';
 };
 
 export const projectsData: Project[] = [
@@ -17,7 +16,6 @@ export const projectsData: Project[] = [
     tags: ['Product Strategy', 'Discovery', 'Fintech'],
     details:
       'This space will highlight product initiatives, market research, and launches that I owned end-to-end.',
-    type: 'product',
   },
   {
     title: 'Engineering Work in Progress',
@@ -27,6 +25,5 @@ export const projectsData: Project[] = [
     tags: ['Engineering', 'Data', 'Platform'],
     details:
       'This space will spotlight technical contributions, prototypes, and systems I built or shipped.',
-    type: 'development',
   },
 ];

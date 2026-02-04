@@ -186,7 +186,7 @@ export default function ExperienceCard({
                   )}
                 </div>
 
-                <p className="mt-4">{experience.description}</p>
+                <p className="text-main mt-4">{experience.description}</p>
 
                 {/* Mobile Expand Indicator */}
                 {isMobile && hasExpandableContent && !isExpanded && (

@@ -79,6 +79,10 @@
     @apply relative mb-8 text-center text-3xl font-bold md:text-4xl;
   }
 
+  .text-main {
+    @apply text-nord-3 dark:text-nord-4;
+  }
+
   .card {
     @apply dark:bg-nord-2 rounded-xl bg-white p-6 shadow-lg transition-all duration-300;
   }

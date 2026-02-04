@@ -14,9 +14,8 @@ import SkillBadge from '../ui/SkillBadge';
 
 const categoryColors = {
   All: {
-    selected: 'bg-nord-10 dark:bg-nord-9 text-white hover:bg-nord-9 hover:dark:bg-nord-8',
-    unselected:
-      'bg-nord-6 text-nord-3 hover:bg-nord-5 dark:bg-nord-2 dark:text-nord-4 dark:hover:bg-nord-3',
+    selected: 'btn-primary',
+    unselected: 'btn-secondary',
   },
   Product: {
     selected:
@@ -123,7 +122,7 @@ export default function Skills() {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder="Search skills..."
-              className="border-nord-4 text-nord-2 focus:ring-nord-10 dark:border-nord-3 dark:bg-nord-2 dark:text-nord-5 dark:focus:ring-nord-9 bg-nord-4 w-full rounded-lg border py-2 pr-10 pl-10 focus:ring-2 focus:outline-none"
+              className="border-nord-4 text-nord-2 focus:ring-nord-10 dark:border-nord-3 dark:bg-nord-2 dark:text-nord-5 dark:focus:ring-nord-9 bg-nord-5 w-full rounded-lg border py-2 pr-10 pl-10 focus:ring-2 focus:outline-none"
             />
             {searchQuery && (
               <button
@@ -147,7 +146,7 @@ export default function Skills() {
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   selectedCategory === category
                     ? categoryColors[category as keyof typeof categoryColors].selected
-                    : categoryColors[category as keyof typeof categoryColors].unselected
+                    : 'btn-secondary'
                 }`}
               >
                 {category}

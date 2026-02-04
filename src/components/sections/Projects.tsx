@@ -54,9 +54,7 @@ export default function Projects({
               key={category}
               onClick={() => setActiveFilter(category)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                activeFilter === category
-                  ? 'bg-nord-10 dark:bg-nord-9 text-nord-5'
-                  : 'text-nord-3 hover:bg-nord-5 dark:bg-nord-1 dark:text-nord-4 dark:hover:bg-nord-2 bg-white'
+                activeFilter === category ? 'btn-primary' : 'btn-secondary'
               }`}
             >
               {category}
@@ -79,7 +77,6 @@ export default function Projects({
               tags={project.tags}
               link={project.link}
               details={project.details}
-              type={project.type}
             />
           </div>
         ))}

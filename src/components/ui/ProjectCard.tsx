@@ -3,11 +3,13 @@
 import type React from 'react';
 import { useEffect, useState } from 'react';
 
-import { Briefcase, Code2, ExternalLink, X } from 'lucide-react';
+import { ExternalLink, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
 import withBasePath from '@/lib/basePath';
+
+import Tag from './Tag';
 
 type ProjectCardProps = {
   title: string;
@@ -16,7 +18,6 @@ type ProjectCardProps = {
   tags: string[];
   link?: string;
   details?: string;
-  type?: 'product' | 'development';
 };
 
 export default function ProjectCard({
@@ -26,17 +27,10 @@ export default function ProjectCard({
   tags,
   link,
   details,
-  type,
 }: ProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const isCardInteractive = Boolean(details && isMobile);
-  const typeMeta =
-    type === 'product'
-      ? { label: 'Product', Icon: Briefcase }
-      : type === 'development'
-        ? { label: 'Development', Icon: Code2 }
-        : null;
 
   useEffect(() => {
     const checkMobile = () => {
@@ -102,23 +96,12 @@ export default function ProjectCard({
         <div className={`grow p-6 ${isCardInteractive ? 'cursor-pointer' : ''}`}>
           <div className="mb-2 flex items-center justify-between gap-2">
             <h3 className="text-xl font-bold">{title}</h3>
-            {typeMeta && (
-              <span className="bg-nord-6 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium">
-                <typeMeta.Icon size={14} />
-                {typeMeta.label}
-              </span>
-            )}
           </div>
-          <p className="text-nord-10 dark:text-secondary-400 mb-4">{description}</p>
+          <p className="text-main mb-4">{description}</p>
 
           <div className="mb-4 flex flex-wrap gap-2">
             {tags.map((tag, index) => (
-              <span
-                key={index}
-                className="bg-nord-6 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 rounded-full px-2 py-1 text-xs"
-              >
-                {tag}
-              </span>
+              <Tag key={index} tag={tag} />
             ))}
           </div>
         </div>
@@ -169,12 +152,6 @@ export default function ProjectCard({
             <div className="border-nord-5 dark:border-nord-3 flex items-center justify-between border-b p-6">
               <div className="flex items-center gap-3">
                 <h3 className="text-2xl font-bold">{title}</h3>
-                {typeMeta && (
-                  <span className="bg-nord-6 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium">
-                    <typeMeta.Icon size={14} />
-                    {typeMeta.label}
-                  </span>
-                )}
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
@@ -203,12 +180,7 @@ export default function ProjectCard({
 
               <div className="mt-6 flex flex-wrap gap-2">
                 {tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="bg-nord-6 text-nord-1 dark:bg-nord-0/30 dark:text-nord-4 rounded-full px-3 py-1 text-sm"
-                  >
-                    {tag}
-                  </span>
+                  <Tag key={index} tag={tag} />
                 ))}
               </div>
 
