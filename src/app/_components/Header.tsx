@@ -59,7 +59,9 @@ export default function Header() {
     setIsMenuOpen(false);
   };
 
-  const blogPostHeaderClasses = scrolled ? 'py-2 backdrop-blur-md' : 'py-4 backdrop-blur-sm';
+  const blogPostHeaderClasses = scrolled
+    ? 'py-2 backdrop-blur-sm [mask-image:linear-gradient(to_bottom,black_0%,black_60%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_0%,black_60%,transparent_100%)]'
+    : 'backdrop-blur-md';
   const defaultHeaderClasses = scrolled
     ? 'bg-nord-6/90 dark:bg-nord-0/90 py-2 shadow-md backdrop-blur-md'
     : 'py-4 backdrop-blur-sm';
@@ -112,7 +114,7 @@ export default function Header() {
             className="bg-nord-5/80 text-nord-0 dark:bg-nord-2/80 dark:text-nord-6 mr-2 rounded-full p-2"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
           <button
