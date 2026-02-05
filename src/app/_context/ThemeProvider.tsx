@@ -3,13 +3,11 @@
 import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 
-import { ThemeContext } from './ThemeContextBase';
+import { ThemeContext, type Theme } from './ThemeContextBase';
 
 type ThemeProviderProps = {
   children: ReactNode;
 };
-
-type Theme = 'light' | 'dark';
 
 const getPreferredTheme = (): Theme => {
   if (typeof window === 'undefined') {
@@ -34,7 +32,7 @@ const updateThemeColor = (theme: Theme) => {
 };
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [theme, setThemeState] = useState<Theme>('dark');
 
   const applyTheme = (nextTheme: Theme) => {
     localStorage.setItem('theme', nextTheme);
@@ -47,20 +45,29 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     }
   };
 
+  const setTheme = (nextTheme: Theme) => {
+    setThemeState(nextTheme);
+    applyTheme(nextTheme);
+  };
+
   useEffect(() => {
     const preferredTheme = getPreferredTheme();
     applyTheme(preferredTheme);
     // eslint-disable-next-line react-hooks/set-state-in-effect -- sync client-only theme after mount
-    setTheme(preferredTheme);
+    setThemeState(preferredTheme);
   }, []);
 
   const toggleTheme = () => {
-    setTheme(prevTheme => {
+    setThemeState(prevTheme => {
       const nextTheme = prevTheme === 'light' ? 'dark' : 'light';
       applyTheme(nextTheme);
       return nextTheme;
     });
   };
 
-  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }

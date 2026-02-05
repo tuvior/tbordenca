@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react';
 
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { flushSync } from 'react-dom';
 
 import { useTheme } from '../_context/ThemeContextBase';
 
@@ -17,7 +18,7 @@ const navItems = [
 
 export default function Header() {
   const pathname = usePathname();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -57,6 +58,45 @@ export default function Header() {
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleThemeToggle = async (element: HTMLButtonElement | null) => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+
+    if (
+      !element ||
+      !document.startViewTransition ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      setTheme(nextTheme);
+      return;
+    }
+
+    const transition = document.startViewTransition(() => {
+      flushSync(() => {
+        setTheme(nextTheme);
+      });
+    });
+
+    await transition.ready;
+
+    const { top, left, width, height } = element.getBoundingClientRect();
+    const x = left + width / 2;
+    const y = top + height / 2;
+    const right = window.innerWidth - left;
+    const bottom = window.innerHeight - top;
+    const maxRadius = Math.hypot(Math.max(left, right), Math.max(top, bottom));
+
+    document.documentElement.animate(
+      {
+        clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${maxRadius}px at ${x}px ${y}px)`],
+      },
+      {
+        duration: 500,
+        easing: 'ease-in-out',
+        pseudoElement: '::view-transition-new(root)',
+      }
+    );
   };
 
   const blogPostHeaderClasses = scrolled
@@ -100,7 +140,7 @@ export default function Header() {
           </ul>
 
           <button
-            onClick={toggleTheme}
+            onClick={event => void handleThemeToggle(event.currentTarget)}
             className="bg-nord-5/80 text-nord-0 hover:bg-nord-4 dark:bg-nord-2/80 dark:text-nord-6 dark:hover:bg-nord-3 rounded-full p-2 transition-colors duration-300"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
@@ -110,7 +150,7 @@ export default function Header() {
 
         <div className="flex items-center md:hidden">
           <button
-            onClick={toggleTheme}
+            onClick={event => void handleThemeToggle(event.currentTarget)}
             className="bg-nord-5/80 text-nord-0 dark:bg-nord-2/80 dark:text-nord-6 mr-2 rounded-full p-2"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >

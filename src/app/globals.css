@@ -72,6 +72,13 @@
   .dark * {
     scrollbar-color: theme('colors.nord.3') transparent;
   }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+    opacity: 1;
+  }
 }
 
 @layer components {
