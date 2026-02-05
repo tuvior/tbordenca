@@ -79,8 +79,21 @@
     @apply relative mb-8 text-center text-3xl font-bold md:text-4xl;
   }
 
-  .text-main {
+  .text-normal {
     @apply text-nord-3 dark:text-nord-4;
+  }
+
+  .color-primary,
+  .text-primary {
+    @apply text-nord-10 dark:text-nord-9;
+  }
+
+  .background-primary {
+    @apply bg-nord-10 dark:bg-nord-9;
+  }
+
+  .border-primary {
+    @apply border-nord-10 dark:border-nord-9;
   }
 
   .card {

@@ -41,7 +41,7 @@ export default function ArticleCard({ post }: ArticleCardProps) {
               {post.title}
             </Link>
           </h2>
-          <p className="text-main mt-3 text-base md:text-lg">
+          <p className="text-normal mt-3 text-base md:text-lg">
             {post.description}
           </p>
 

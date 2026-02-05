@@ -24,7 +24,7 @@ export const profileData: ProfileData = {
   roles: ['Product Manager', 'UX Enthusiast', 'Leader', 'Architect'],
   focus: ['Fintech', 'Wealth Management', 'SaaS', 'API', 'Consumer'],
   description:
-    'Passionate product manager with 7+ years of experience driving innovation and delivering user-centric solutions that solve real problems and create business value.',
+    'Passionate product manager with engineering background, with 7+ years of experience driving innovation and delivering user-centric solutions that solve real problems and create business value.',
   profileImage: profileImage,
   languages: [
     {

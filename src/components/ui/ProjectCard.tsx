@@ -97,7 +97,7 @@ export default function ProjectCard({
           <div className="mb-2 flex items-center justify-between gap-2">
             <h3 className="text-xl font-bold">{title}</h3>
           </div>
-          <p className="text-main mb-4">{description}</p>
+          <p className="text-normal mb-4">{description}</p>
 
           <div className="mb-4 flex flex-wrap gap-2">
             {tags.map((tag, index) => (
