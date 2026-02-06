@@ -44,8 +44,7 @@ const themeInitScript = `
 (() => {
   try {
     const storedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const theme = storedTheme || (prefersDark ? "dark" : "light");
+    const theme = storedTheme || "dark";
     const root = document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");
