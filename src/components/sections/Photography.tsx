@@ -4,9 +4,9 @@ import { useMemo, useState } from 'react';
 
 import { motion } from 'motion/react';
 
-import { photos } from '../../data/photographyData';
-import PhotoEntry from '../ui/PhotoEntry';
-import SectionTitle from '../ui/SectionTitle';
+import PhotoEntry from '@/components/ui/PhotoEntry';
+import SectionTitle from '@/components/ui/SectionTitle';
+import { photos } from '@/data/photographyData';
 
 export default function Photography() {
   const [selectedCategory, setSelectedCategory] = useState('All');

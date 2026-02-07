@@ -1,6 +1,6 @@
-import { educationData } from '../../data/educationData';
-import EducationCard from '../ui/EducationCard';
-import SectionTitle from '../ui/SectionTitle';
+import EducationCard from '@/components/ui/EducationCard';
+import SectionTitle from '@/components/ui/SectionTitle';
+import { educationData } from '@/data/educationData';
 
 export default function Education() {
   return (

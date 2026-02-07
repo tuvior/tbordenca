@@ -3,8 +3,8 @@
 import { Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 
-import { contactData } from '../../data/contactData';
-import SectionTitle from '../ui/SectionTitle';
+import SectionTitle from '@/components/ui/SectionTitle';
+import { contactData } from '@/data/contactData';
 
 export default function Contact() {
   return (

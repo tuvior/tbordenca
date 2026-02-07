@@ -7,7 +7,7 @@ import { Calendar, Camera, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
-import type { Photo } from '../../data/photographyData';
+import type { Photo } from '@/data/photographyData';
 
 type ProjectCardProps = {
   photo: Photo;

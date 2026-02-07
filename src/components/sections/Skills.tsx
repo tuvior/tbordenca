@@ -6,11 +6,10 @@ import { useEffect, useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
+import SectionTitle from '@/components/ui/SectionTitle';
+import SkillBadge from '@/components/ui/SkillBadge';
+import { skillsData } from '@/data/skillsData';
 import { useInView } from '@/hooks/useInView';
-
-import { skillsData } from '../../data/skillsData';
-import SectionTitle from '../ui/SectionTitle';
-import SkillBadge from '../ui/SkillBadge';
 
 const categoryColors = {
   All: {

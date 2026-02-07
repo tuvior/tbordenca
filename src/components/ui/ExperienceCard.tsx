@@ -15,8 +15,8 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 
-import type { Experience } from '../../data/experienceData';
-import { projectsData } from '../../data/projectsData';
+import type { Experience } from '@/data/experienceData';
+import { projectsData } from '@/data/projectsData';
 
 type ExperienceCardProps = {
   experience: Experience;

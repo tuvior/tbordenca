@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 
-import { ThemeContext, type Theme } from './ThemeContextBase';
+import { ThemeContext, type Theme } from '@/app/_context/ThemeContextBase';
 
 type ThemeProviderProps = {
   children: ReactNode;
@@ -11,7 +11,7 @@ type ThemeProviderProps = {
 
 const getPreferredTheme = (): Theme => {
   if (typeof window === 'undefined') {
-    return 'light';
+    return 'dark';
   }
 
   const savedTheme = localStorage.getItem('theme');

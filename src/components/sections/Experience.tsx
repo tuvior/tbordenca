@@ -3,9 +3,9 @@
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-import { experienceData } from '../../data/experienceData';
-import ExperienceCard from '../ui/ExperienceCard';
-import SectionTitle from '../ui/SectionTitle';
+import ExperienceCard from '@/components/ui/ExperienceCard';
+import SectionTitle from '@/components/ui/SectionTitle';
+import { experienceData } from '@/data/experienceData';
 
 export default function Experience() {
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());

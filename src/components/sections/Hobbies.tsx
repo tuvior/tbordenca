@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import { hobbiesData } from '../../data/hobbiesData';
-import HobbyCard from '../ui/HobbyCard';
-import SectionTitle from '../ui/SectionTitle';
+import HobbyCard from '@/components/ui/HobbyCard';
+import SectionTitle from '@/components/ui/SectionTitle';
+import { hobbiesData } from '@/data/hobbiesData';
 
 export default function Hobbies() {
   const [activeIndex, setActiveIndex] = useState(0);

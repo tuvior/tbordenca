@@ -7,7 +7,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { flushSync } from 'react-dom';
 
-import { useTheme } from '../_context/ThemeContextBase';
+import { useTheme } from '@/app/_context/ThemeContextBase';
+import { siteData } from '@/data/siteData';
 
 const navItems = [
   { label: 'Home', to: '/' },
@@ -101,7 +102,7 @@ export default function Header() {
 
   const blogPostHeaderClasses = scrolled
     ? 'py-2 backdrop-blur-sm [mask-image:linear-gradient(to_bottom,black_0%,black_60%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_0%,black_60%,transparent_100%)]'
-    : 'backdrop-blur-md';
+    : 'py-4 backdrop-blur-md';
   const defaultHeaderClasses = scrolled
     ? 'bg-nord-6/90 dark:bg-nord-0/90 py-2 shadow-md backdrop-blur-md'
     : 'py-4 backdrop-blur-sm';
@@ -113,7 +114,7 @@ export default function Header() {
     >
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link href="/" className="font-display text-nord-10 dark:text-nord-8 text-xl font-bold">
-          tbordenca
+          {siteData.name}
         </Link>
 
         <nav className="hidden items-center space-x-8 md:flex">

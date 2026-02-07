@@ -4,9 +4,9 @@ import { useMemo, useState } from 'react';
 
 import { motion } from 'motion/react';
 
-import { projectsData } from '../../data/projectsData';
-import ProjectCard from '../ui/ProjectCard';
-import SectionTitle from '../ui/SectionTitle';
+import ProjectCard from '@/components/ui/ProjectCard';
+import SectionTitle from '@/components/ui/SectionTitle';
+import { projectsData } from '@/data/projectsData';
 
 type Project = (typeof projectsData)[number];
 

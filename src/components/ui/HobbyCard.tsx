@@ -5,9 +5,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
+import type { Hobby } from '@/data/hobbiesData';
 import withBasePath from '@/lib/basePath';
-
-import type { Hobby } from '../../data/hobbiesData';
 
 type HobbyCardProps = {
   hobby: Hobby;

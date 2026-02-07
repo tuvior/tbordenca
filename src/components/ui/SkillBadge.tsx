@@ -4,7 +4,7 @@ import { Briefcase, LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
 
-import type { Skill } from '../../data/skillsData';
+import type { Skill } from '@/data/skillsData';
 
 type SkillBadgeProps = {
   skill: Skill;

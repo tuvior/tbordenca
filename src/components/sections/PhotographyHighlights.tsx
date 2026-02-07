@@ -2,9 +2,9 @@
 
 import { useMemo } from 'react';
 
-import { photos } from '../../data/photographyData';
-import PhotoEntry from '../ui/PhotoEntry';
-import SectionTitle from '../ui/SectionTitle';
+import PhotoEntry from '@/components/ui/PhotoEntry';
+import SectionTitle from '@/components/ui/SectionTitle';
+import { photos } from '@/data/photographyData';
 
 export default function PhotographyHighlights() {
   const highlightedPhotos = useMemo(() => {

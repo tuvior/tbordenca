@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono, Playwrite_AU_VIC, Poppins } from 'next/font/google';
 import Script from 'next/script';
 
+import BlogRouteClass from '@/app/_components/BlogRouteClass';
+import Footer from '@/app/_components/Footer';
+import Header from '@/app/_components/Header';
+import ScrollToTop from '@/app/_components/ScrollToTop';
+import { ThemeProvider } from '@/app/_context/ThemeProvider';
 import { profileData } from '@/data/profileData';
+import { siteData } from '@/data/siteData';
 
-import BlogRouteClass from './_components/BlogRouteClass';
-import Footer from './_components/Footer';
-import Header from './_components/Header';
-import ScrollToTop from './_components/ScrollToTop';
-import { ThemeProvider } from './_context/ThemeProvider';
 import './globals.css';
 
 const inter = Inter({
@@ -36,9 +37,7 @@ const playwriteAustraliaVictoria = Playwrite_AU_VIC({
   weight: ['300', '400'],
 });
 
-const siteName = 'tbordenca';
-const siteUrl = 'https://tuvior.github.io/tbordenca';
-const ogImageUrl = `${siteUrl}/preview.png`;
+const ogImageUrl = `${siteData.url}/preview.png`;
 
 const themeInitScript = `
 (() => {
@@ -64,8 +63,8 @@ const themeInitScript = `
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Website',
-  name: 'tbordenca',
-  url: siteUrl,
+  name: siteData.name,
+  url: siteData.url,
   description: 'Product Manager Portfolio',
   image: ogImageUrl,
   author: {
@@ -75,19 +74,19 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteData.url),
   title: {
-    default: siteName,
-    template: `%s - ${siteName}`,
+    default: siteData.name,
+    template: `%s - ${siteData.name}`,
   },
   description: profileData.description,
   openGraph: {
     title: profileData.name,
-    siteName: siteName,
+    siteName: siteData.name,
     description: 'Product Manager Portfolio',
     type: 'website',
     locale: 'en_US',
-    url: siteUrl,
+    url: siteData.url,
     images: [
       {
         url: ogImageUrl,

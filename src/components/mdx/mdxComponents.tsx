@@ -1,13 +1,13 @@
 import type { MDXComponents } from 'mdx/types';
 
-import Aside from './Aside';
-import Caption from './Caption';
-import CodeBlock from './CodeBlock';
-import InlineCode from './InlineCode';
-import MdxImage from './MdxImage';
-import MdxLink from './MdxLink';
-import Spoiler from './Spoiler';
-import TextWithNote from './TextWithNote';
+import Aside from '@/components/mdx/Aside';
+import Caption from '@/components/mdx/Caption';
+import CodeBlock from '@/components/mdx/CodeBlock';
+import InlineCode from '@/components/mdx/InlineCode';
+import MdxImage from '@/components/mdx/MdxImage';
+import MdxLink from '@/components/mdx/MdxLink';
+import Spoiler from '@/components/mdx/Spoiler';
+import TextWithNote from '@/components/mdx/TextWithNote';
 
 export const mdxComponents: MDXComponents = {
   a: MdxLink,

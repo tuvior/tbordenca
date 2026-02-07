@@ -7,9 +7,8 @@ import { ExternalLink, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
+import Tag from '@/components/ui/Tag';
 import withBasePath from '@/lib/basePath';
-
-import Tag from './Tag';
 
 type ProjectCardProps = {
   title: string;

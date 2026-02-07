@@ -1,11 +1,11 @@
 import { FileText, Mail, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
-import { contactData } from '../../data/contactData';
-import { footerData } from '../../data/footerData';
-import { profileData } from '../../data/profileData';
-import Card from '../ui/Card';
-import SectionTitle from '../ui/SectionTitle';
+import Card from '@/components/ui/Card';
+import SectionTitle from '@/components/ui/SectionTitle';
+import { contactData } from '@/data/contactData';
+import { footerData } from '@/data/footerData';
+import { profileData } from '@/data/profileData';
 
 export default function HomeHighlights() {
   return (
